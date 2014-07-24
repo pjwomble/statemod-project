@@ -1,0 +1,482 @@
+# A simple hand-made makefile for a package including applications
+# built from Fortran 90 sources, taking into account the usual
+# dependency cases.
+# ======================================================================
+# the declarations
+# ======================================================================
+# The compiler
+FC = gfortran
+# The flags for debugging or for maximum performance, comment as necessary
+#FCFLAGS = -g -fbounds-check -fno-align-commons
+# use -static especially for windows compiling 
+#FCFLAGS = -g -cpp -fbounds-check -fno-align-commons -static
+FCFLAGS = -g -cpp -fno-align-commons -static -fbounds-check -fno-automatic -finit-local-zero
+#FCFLAGS = -O2
+# The flags for all cases (e.g. look for system .mod files, required in gfortran)
+FCFLAGS += -I/usr/include
+# The libraries needed for linking
+#LDFLAGS = -li_need_this_lib
+# The ist of executables to be built within the package
+PROGRAMS = statemod
+
+# ======================================================================
+# The rules
+# ======================================================================
+# The rule for making "all"
+#   the default if make is called without arguments
+#   note it only has the dependency and no actions
+all: $(PROGRAMS)
+
+# The rule for object files that depend on more than
+#  the same named source (.for) file.  A general rule
+#  below handles that simple case.
+#  For example, include files.
+bin/bintop.o: src/common.inc
+bin/bomsec.o: src/common.inc
+bin/calldat.o: src/common.inc
+bin/carrpl.o: src/common.inc
+bin/closs.o: src/common.inc
+bin/datinp.o: src/common.inc
+bin/daydivo.o: src/common.inc
+bin/dayest.o: src/common.inc
+bin/daymon.o: src/common.inc
+bin/dayoutr.o: src/common.inc
+bin/dayrate.o: src/common.inc
+bin/dayreso.o: src/common.inc
+bin/dayset.o: src/common.inc
+bin/daywelo.o: src/common.inc
+bin/demand.o: src/common.inc
+bin/demcons.o: src/common.inc
+bin/deplete.o: src/common.inc 
+bin/depletep.o: src/common.inc
+bin/directby.o: src/common.inc
+bin/directex.o: src/common.inc
+bin/directfs.o: src/common.inc
+bin/divalt.o: src/common.inc
+bin/divcar1.o: src/common.inc
+bin/divcar2.o: src/common.inc
+bin/divcar.o: src/common.inc
+bin/divcarl.o: src/common.inc
+bin/divcarr.o: src/common.inc
+bin/divimpr.o: src/common.inc
+bin/divmulti.o: src/common.inc
+bin/divres.o: src/common.inc
+bin/divresp2.o: src/common.inc
+bin/divresp.o: src/common.inc
+bin/divresr.o: src/common.inc
+bin/divrig.o: src/common.inc
+bin/divrigs.o: src/common.inc
+bin/divrpl.o: src/common.inc
+bin/divrplp2.o: src/common.inc
+bin/divrplp.o: src/common.inc
+bin/divrplr.o: src/common.inc
+bin/dsamod.o: src/common.inc
+bin/evasec.o: src/common.inc                      
+bin/execut.o: src/common.inc
+bin/getcall.o: src/common.inc
+bin/getdiv2.o: src/common.inc
+bin/getdiv.o: src/common.inc
+bin/geteomx.o: src/common.inc      
+bin/getid.o: src/common.inc
+bin/getipy2.o: src/common.inc
+bin/getipy4.o: src/common.inc
+bin/getpar.o: src/common.inc
+bin/getpln.o: src/common.inc
+bin/getplnr.o: src/common.inc
+bin/getplnw.o: src/common.inc
+bin/getrep.o: src/common.inc
+bin/getres2.o: src/common.inc
+bin/getres.o: src/common.inc
+bin/getrig.o: src/common.inc
+bin/getsta.o: src/common.inc
+bin/getwel2.o: src/common.inc
+bin/getwel.o: src/common.inc
+bin/gwsub.o: src/common.inc
+bin/ifrdown.o: src/common.inc
+bin/ifrrig2.o: src/common.inc
+bin/ifrrig.o: src/common.inc
+bin/ifrrigsp.o: src/common.inc
+bin/ifrrigx.o: src/common.inc
+bin/intersup.o: src/common.inc
+bin/mdainp.o: src/common.inc
+bin/oopbook2.o: src/common.inc
+bin/oopbook.o: src/common.inc
+bin/oopdiv.o: src/common.inc
+bin/oprfind.o: src/common.inc
+bin/oprinp.o: src/common.inc
+bin/ouflow.o: src/common.inc
+bin/outbal2.o: src/common.inc
+bin/outcall.o: src/common.inc
+bin/outcallr.o: src/common.inc
+bin/outcalls.o: src/common.inc
+bin/outcu.o: src/common.inc
+bin/outdeb.o: src/common.inc
+bin/outdivc.o: src/common.inc
+bin/outdivw.o: src/common.inc
+bin/outgvc.o: src/common.inc
+bin/outichk.o: src/common.inc
+bin/outifr.o: src/common.inc
+bin/outmon.o: src/common.inc
+bin/outopr.o: src/common.inc
+bin/outpln.o: src/common.inc
+bin/outplnmo.o: src/common.inc
+bin/outplnw.o: src/common.inc
+bin/outpltd.o: src/common.inc
+bin/outpltr.o: src/common.inc
+bin/outpltw.o: src/common.inc
+bin/outrch.o: src/common.inc
+bin/outrchr.o: src/common.inc
+bin/outresc.o: src/common.inc
+bin/outres.o: src/common.inc
+bin/outrev.o: src/common.inc
+bin/outrg.o: src/common.inc
+bin/outriv.o: src/common.inc
+bin/outspd.o: src/common.inc
+bin/outsp.o: src/common.inc
+bin/outsum.o: src/common.inc
+bin/outsys.o: src/common.inc
+bin/outsyta.o: src/common.inc
+bin/outsyt.o: src/common.inc
+bin/outtbl.o: src/common.inc
+bin/outtop.o: src/common.inc
+bin/outwelc.o: src/common.inc
+bin/outwel.o: src/common.inc
+bin/outwelp.o: src/common.inc
+bin/outwr2.o: src/common.inc
+bin/outwr.o: src/common.inc
+bin/outxss.o: src/common.inc
+bin/outxssmo.o: src/common.inc
+bin/planeva.o: src/common.inc                      
+bin/powres2.o: src/common.inc
+bin/powres.o: src/common.inc
+bin/powresp.o: src/common.inc
+bin/powsea.o: src/common.inc
+bin/powseap.o: src/common.inc
+bin/powsear.o: src/common.inc
+bin/replace.o: src/common.inc
+bin/report.o: src/common.inc
+bin/resoop.o: src/common.inc
+bin/resrg1.o: src/common.inc
+bin/resrg1p.o: src/common.inc
+bin/resrg2.o: src/common.inc
+bin/resrgp.o: src/common.inc
+bin/resrpl.o: src/common.inc
+bin/rgrg.o: src/common.inc
+bin/riginp.o: src/common.inc
+bin/rigsor.o: src/common.inc
+bin/rivrtn.o: src/common.inc
+bin/rsrspu.o: src/common.inc
+bin/rsrspup.o: src/common.inc
+bin/rtnmaxe.o: src/common.inc
+bin/rtnmax.o: src/common.inc
+bin/rtnsecc.o: src/common.inc
+bin/rtnsec.o: src/common.inc
+bin/rtnsecm.o: src/common.inc
+bin/rtnsecp.o: src/common.inc
+bin/rtnsecr.o: src/common.inc
+bin/rtnsecrp.o: src/common.inc
+bin/rtnsecw.o: src/common.inc
+bin/rtnsecwp.o: src/common.inc
+bin/rtnsecx.o: src/common.inc
+bin/rtnxcu.o: src/common.inc
+bin/rtnxcup.o: src/common.inc
+bin/sepsec.o: src/common.inc
+bin/setdem.o: src/common.inc
+bin/seteff.o: src/common.inc
+bin/setgw.o: src/common.inc        
+bin/setplano.o: src/common.inc
+bin/sjrip.o: src/common.inc       
+bin/soilm.o: src/common.inc
+bin/splatte.o: src/common.inc
+bin/spruse.o: src/common.inc
+bin/statem.o: src/common.inc
+bin/vircom.o: src/common.inc
+bin/virgain.o: src/common.inc 
+bin/virgen.o: src/common.inc
+bin/virin.o: src/common.inc
+bin/virnod.o: src/common.inc
+bin/virout.o: src/common.inc
+bin/virset.o: src/common.inc
+bin/welaugp.o: src/common.inc
+bin/welprity.o: src/common.inc
+bin/welrech.o: src/common.inc
+bin/welrig3.o: src/common.inc
+bin/welrig3p.o: src/common.inc
+bin/xdebug.o: src/common.inc
+
+# The rule for building the statemod executable
+#   The following is a carefully constructed list created by starting with statem.o
+#   and adding files as needed to reconcile missing subroutine error messages.  
+statemod: \
+	bin/statem.o \
+		bin/namext.o \
+		bin/parse_gfortran.o \
+		bin/getpath_linux.o \
+		bin/gnu.o \
+		bin/skipn.o \
+		bin/getfn.o \
+		bin/setpar.o \
+		bin/virgen.o \
+		bin/execut.o \
+		bin/report.o \
+		bin/xdebug.o \
+			bin/accdiv.o \
+			bin/accou.o \
+			bin/adjcase.o \
+			bin/average.o \
+			bin/bintop.o \
+			bin/bomsec.o \
+			bin/calldat.o \
+			bin/carrpl.o \
+			bin/chekav2.o \
+			bin/chekava.o \
+			bin/chekpor.o \
+			bin/chekres.o \
+			bin/chekts.o \
+			bin/chkavail.o \
+			bin/chkprf.o \
+			bin/chkver.o \
+			bin/closs.o \
+			bin/coeffa.o \
+			bin/comment.o \
+			bin/count.o \
+			bin/datinp.o \
+			bin/dattim_gfortran.o \
+			bin/daydata.o \
+			bin/daydist.o \
+			bin/daydivo.o \
+			bin/dayest.o \
+			bin/daymon.o \
+			bin/dayoutr.o \
+			bin/dayreso.o \
+			bin/dayset.o \
+			bin/daywelo.o \
+			bin/demand.o \
+			bin/demcons.o \
+			bin/deplete.o \
+			bin/depletep.o \
+			bin/directby.o \
+			bin/directex.o \
+			bin/directfs.o \
+			bin/divalt.o \
+			bin/divcar.o \
+			bin/divcarl.o \
+			bin/divcarr.o \
+			bin/divcar1.o \
+			bin/divcar2.o \
+			bin/divimpr.o \
+			bin/divmulti.o \
+			bin/divres.o \
+			bin/divresp2.o \
+			bin/divresr.o \
+			bin/divrig.o \
+			bin/divrigs.o \
+			bin/divrpl.o \
+			bin/divrplp.o \
+			bin/divrplp2.o \
+			bin/divrplr.o \
+			bin/dnmfso.o \
+			bin/dnmfsow.o \
+			bin/dnmfso2.o \
+			bin/dsamod.o \
+			bin/evasec.o \
+			bin/getcall.o \
+			bin/getctlc.o \
+			bin/getdiv.o \
+			bin/getdiv2.o \
+			bin/geteomx.o \
+			bin/getfile.o \
+			bin/getid.o \
+			bin/getin.o \
+			bin/getipy2.o \
+			bin/getipy4.o \
+			bin/getpar.o \
+			bin/getpln.o \
+			bin/getplnr.o \
+			bin/getplnw.o \
+			bin/getrch.o \
+			bin/getrep.o \
+			bin/getres.o \
+			bin/getres2.o \
+			bin/getrig.o \
+			bin/getrtn.o \
+			bin/getrtnx.o \
+			bin/getrtnw.o \
+			bin/getrtnw2.o \
+			bin/getsta.o \
+			bin/getwel.o \
+			bin/getwel2.o \
+			bin/getver.o \
+			bin/gwsub.o \
+			bin/ifrdown.o \
+			bin/ifrrig.o \
+			bin/ifrrigsp.o \
+			bin/ifrrigx.o \
+			bin/ifrrig2.o \
+			bin/interp.o \
+			bin/intersup.o \
+			bin/mdainp.o \
+			bin/oopbook2.o \
+			bin/oopdiv.o \
+			bin/oprdown.o \
+			bin/oprexp.o \
+			bin/oprfind.o \
+			bin/oprinout.o \
+			bin/oprinp.o \
+			bin/ouflow.o \
+			bin/outbal2.o \
+			bin/outcallr.o \
+			bin/outcalls.o \
+			bin/outcu.o \
+			bin/outdeb.o \
+			bin/outdivc.o \
+			bin/outdivw.o \
+			bin/outgvc.o \
+			bin/outichk.o \
+			bin/outifr.o \
+			bin/outmon.o \
+			bin/outopr.o \
+			bin/outpln.o \
+			bin/outplnmo.o \
+			bin/outpltd.o \
+			bin/outpltr.o \
+			bin/outpltw.o \
+			bin/outrch.o \
+			bin/outrchr.o \
+			bin/outres.o \
+			bin/outresc.o \
+			bin/outrev.o \
+			bin/outrg.o \
+			bin/outriv.o \
+			bin/outsp.o \
+			bin/outspd.o \
+			bin/outsys.o \
+			bin/outsyt.o \
+			bin/outsyta.o \
+			bin/outtbl.o \
+			bin/outtop.o \
+			bin/outwel.o \
+			bin/outwelc.o \
+			bin/outwelp.o \
+			bin/outwr2.o \
+			bin/outxss.o \
+			bin/outxssmo.o \
+			bin/planeva.o \
+			bin/powrig.o \
+			bin/powres.o \
+			bin/powresp.o \
+			bin/powres2.o \
+			bin/powsea.o \
+			bin/powseap.o \
+			bin/powsear.o \
+			bin/putpath_linux.o \
+			bin/replace.o \
+			bin/repsort.o \
+			bin/resrgp.o \
+			bin/resrg1.o \
+			bin/resrg1p.o \
+			bin/resrpl.o \
+			bin/return.o \
+			bin/return2.o \
+			bin/riginp.o \
+			bin/rigsor.o \
+			bin/rivrtn.o \
+			bin/rgrg.o \
+			bin/roundof.o \
+			bin/rsrspu.o \
+			bin/rsrspup.o \
+			bin/rtncarry.o \
+			bin/rtnmax.o \
+			bin/rtnmaxe.o \
+			bin/rtnsec.o \
+			bin/rtnsecc.o \
+			bin/rtnsecp.o \
+			bin/rtnsecr.o \
+			bin/rtnsecrp.o \
+			bin/rtnsecw.o \
+			bin/rtnsecwp.o \
+			bin/rtnsecx.o \
+			bin/rtnxcu.o \
+			bin/rtnxcup.o \
+			bin/sepsec.o \
+			bin/setcarl.o \
+			bin/setdem.o \
+			bin/seteff.o \
+			bin/setgw.o \
+			bin/setlimit.o \
+			bin/setloss.o \
+			bin/setplano.o \
+			bin/setqdiv.o \
+			bin/setqdivc.o \
+			bin/setqdivx.o \
+			bin/settc.o \
+			bin/sjrip.o \
+			bin/skip.o \
+			bin/soilcu.o \
+			bin/soilin.o \
+			bin/soilm.o \
+			bin/somnmy.o \
+			bin/splatte.o \
+			bin/spruse.o \
+			bin/stafind.o \
+			bin/takout.o \
+			bin/takou2.o \
+			bin/vircom.o \
+			bin/virgain.o \
+			bin/virin.o \
+			bin/virnod.o \
+			bin/virout.o \
+			bin/virset.o \
+			bin/welaugp.o \
+			bin/welprity.o \
+			bin/welrech.o \
+			bin/welrig3.o \
+			bin/welrig3p.o \
+			bin/year.o \
+			bin/year2.o
+	$(FC) $(FCFLAGS) -o bin/statemod $^ $(LDFLAGS)
+
+# Using Fortran MODULES: prog4.f90 USEs a Fortran module defined
+# inside mod.f90, this is similar to the include case (prog2), but,
+# since there is no standard naming convention for compiled module
+# files in f90, the dependency is more easily built on the object
+# files, because when mod.o is generated, one is sure that
+# any_module_inside_mod.mod has been newly generated as well; mod.o
+# must also be linked in when building the executable, so the
+# dependency on mod.o is added also for prog4, as in the external
+# procedure case (prog3):
+#prog4.o: mod.o
+#prog4: mod.o
+
+# ======================================================================
+# The general rules.  These generally should not require modification
+# ======================================================================
+
+# General rule for building prog from prog.o; $^ (GNU extension) is
+# used in order to list additional object files on which the
+# executable depends
+%: bin/%.o
+	$(FC) $(FCFLAGS) -o bin/$@ $^ $(LDFLAGS)
+
+# General rules for building prog.o from prog.f90 or prog.F90; $< is
+# used in order to list only the first prerequisite (the source file)
+# and not the additional prerequisites such as module or include files
+bin/%.o: src/%.f90
+	$(FC) $(FCFLAGS) -o $@ -c $<
+
+bin/%.o: src/%.F90
+	$(FC) $(FCFLAGS) -o $@ -c $<
+
+#added by jhb for the statemod files from ray b after changing everything to lower case
+bin/%.o: src/%.for
+	$(FC) $(FCFLAGS) -o $@ -c $<
+
+# Utility targets
+.PHONY: clean veryclean
+
+clean:
+	rm -f bin/*.o *.mod *.MOD
+
+veryclean: clean
+	rm -f *~ $(PROGRAMS)
+
