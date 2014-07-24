@@ -1,0 +1,57 @@
+# Exhibit 1.6
+# *.dds;  Direct Diversion Station file for StateMod Example
+#
+#
+#     Card 1   Control
+#     format:  (a12, a24, a12,i8, f8.0, 2i8)                   
+#
+#     ID       cdivid:  Diversion ID
+#     Name     divnam:  Diversion name                        
+#     Riv ID   cgoto:   River Node where the diversion is located
+#     On/Off   idivsw:  Switch 0=off; 1=on
+#     Capacty  divcap:  Diversion capacity (cfs)
+#     #-User   nduser:  Number of users (typically 1)
+#     DailyX   cdividy: For daily model, ID of station with daily distribution
+#                                                      
+# ID        Name                    Riv ID        ON/Off Capacty  #-User Cdividy
+#----------eb----------------------eb----------eb------eb------eb------exb----------e
+#
+#                                                           #     Card 2   User Data
+#     format:  (12x, a24, 12x, 2i8, 2f8.0, i8)                   
+#
+#     UseNam   usenam:  User name
+#     DemCode idvcom:  Code 1=input demand every year, 2=constant monthly, 3=jansen hayes,
+#                     4=blaney criddle, 5=zero
+#     #-Ret   nrtn:    Number of return flow locations
+#     Eff %   diveff:  System efficiency (%)
+#     Area    area:    Not used; enter 0
+#     Type    irturn:  Use type; 0-3=Inbasin; 4=Transmountain
+#                                                      
+# NA        UseNam                  NA           DemCode   #-Ret   Eff %    Area    Type
+#----------eb----------------------eb----------eb------eb------eb------eb------eb------e
+#
+#
+#     Card 3   User Data
+#     format:  (36x, a12, f8.0, i8)                   
+#
+#     Ret Id   crtnid:  River ID receiving return flow
+#     Ret %    pcttot:  Percent of return flow to location 
+#     Table #  irtndl:  Return flow table id
+#                                                      
+# NA                                NA            Ret ID   Ret % Table # 
+#----------------------------------eb----------eb------eb------eb------e
+#
+#
+#> ID        Name                    Riv ID        ON/Off Capacty  #-User RepCode DailyX
+#> NA        UseNam                  NA           DemCode   #-Ret   Eff % Area    Type  DemandSrc
+#> NA                                Ret ID         Ret % Table #
+#>---------eb----------------------eb----------eb------eb------eb------eb------eb------e
+Dem_3       Irrigation Demand _3    Riv_10             1 5000.00       1       0  Dem_1
+                                                       1       1     50.    0.00       1       0
+                                    Riv_20        100.00       1                  
+Dem_2       Irrigation Demand _2    Riv_40             1 5000.00       1       0  Dem_2
+                                                       1       1     50.    0.00       1       0
+                                    Riv_60        100.00       1                  
+Dem_1       Municipal Demand _1     Riv_60             1 5000.00       1       0  Dem_3
+                                                       1       1     20.    0.00       1       0
+                                    Riv_70        100.00       2
