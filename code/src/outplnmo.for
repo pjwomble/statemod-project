@@ -52,7 +52,7 @@ c
 c		ioutP=0 No details
 c		ioutP=1 Details
 c		ioutP=11 Details on operating rule 11
-      ioutP=0
+      ioutP=11
       small=0.1
       fac=mthday(mon)*factor
       
