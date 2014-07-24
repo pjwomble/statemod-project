@@ -1,0 +1,26 @@
+# Exhibit 1.3
+# *.rin; River node network file for StateMod Examle
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (a12, a24, a12)                   
+#
+#     ID       cstaid:  Station ID
+#     Name     stanam:  Station name
+#     To       cstadn:  Downstream station ID
+#                                                      
+# ID        Name                    To
+#----------eb----------------------eb-----------
+#
+Riv_10      Exist. Diver. & Inflow  Riv_20
+Riv_20      Intermediate River Node Riv_50
+Riv_30      Inflow & Reservoir      Riv_40
+Riv_40      Exist. Diversion        Riv_50
+Riv_50      Conf. Mainstem & Trib A Riv_60
+Riv_60      Exist. Diversion        Riv_70
+Riv_70      Future InStream         Riv_80
+Riv_80      USGS Gauge              
+
+
+
