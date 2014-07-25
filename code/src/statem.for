@@ -53,6 +53,14 @@ c                   this allowed keeping track of multiple water rights
 c                   at a single node, critical to it working correctly
 c jhb 2014/07/23; upgraded to version 14.00.02 after fixing
 c                 several array bounds issues
+c jhb 2014/07/25; upgraded to version 14.00.03
+c                 removed isf overlapping reach test and warning in datinp()
+c                   because it now works since multiple isf water rights
+c                   are allowed at isf reach nodes
+c                 changed output for an admin plan (to b68 binary and
+c                   therefore the xpl, too) when the plan is being split
+c                   by a type 46 op rule into other plans.  output the
+c                   total supply to those plans from psuplyt()
 c
 c
 c _________________________________________________________
@@ -144,8 +152,8 @@ c				 7 includes new binary output format
 c		yy has new functionality
 c		zz is a bug fix
 c		
-        ver='14.00.02'
-        vdate = '2014/07/23'
+        ver='14.00.03'
+        vdate = '2014/07/25'
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0
@@ -579,6 +587,9 @@ c
 c               Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2014/07/25 (14.00.03)',/
+     1 '      Allow isf reaches to overlap (partially/completely)',/
+     1 '      Update admin plan output when split by type 46 op rule',/
      1 '    - 2014/07/23 (14.00.02)',/
      1 '      Fixed several array bounds issues found during testing',/
      1 '    - 2014/07/14 (14.00.01)',/
