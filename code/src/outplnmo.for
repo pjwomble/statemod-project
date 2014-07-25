@@ -303,8 +303,8 @@ c           is=ipsta(kP)
 c
 c rrb 2008/01/14; Qdiv(28 is from a reuse or admin plan
 c jhb 2014/07/25 for a plan being split into other plans (op rule type 46)
-c                the better values to output in the *.xpl
-c                are the total supplies to each of the other plans
+c                the better values to output in the b68 binary and therefore the *.xpl
+c                are the total supplies to each of the other plans, psuplyt
 c            dat2(iox)  = dat2(iox)  + qdiv(28,is1)
 c            dat2(mTot) = dat2(mTot) + qdiv(28,is1)
 c            dat2(iox)  = dat2(iox)  + psuply(kp)
