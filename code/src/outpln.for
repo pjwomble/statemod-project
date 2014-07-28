@@ -42,7 +42,7 @@ c
 c		iout = detailed output
 c		ioutN= plan pointer for detailed output 
       iout = 0
-      ioutN=52
+c      ioutN=52
 
       rec12=' '
       rec24=' '

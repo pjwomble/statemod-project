@@ -1317,12 +1317,12 @@ c               Type 1. Reservoir to Instream flow
 c
   190   if(ireach.eq.0) then
           if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 1-PowRes'   
-	        call powres(iw,l2,divactx,ncall(1))
-	      else
+	      call powres(iw,l2,divactx,ncall(1))
+	    else
           if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 1-PowRes2' 	    
           call powres2(iw,l2,divactx,ncall(1))
-	      endif
-	      goto 400
+	    endif
+	    goto 400
 c
 c _________________________________________________________                
 c               Type 2 or Type 3. Reservoir release to diversion 

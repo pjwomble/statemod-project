@@ -138,9 +138,9 @@ c     ioutS = River Station (*.ris)
 c     ioutI = Instream Flow (*.ifs)
 c     ioutN = 1 Network Data (*.rin)
 c		        = 2 Network plus idncod and ndnnod
-      iout=1
+      iout=0
       ioutS=0
-      ioutN=1
+      ioutN=0
       ioutC=0
       ioutI=0
       
