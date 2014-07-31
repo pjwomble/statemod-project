@@ -1,0 +1,36 @@
+# _______________________________________________________
+#
+#        SmName (create a new, variable format StateMod
+#                response file from an old format)
+#        State of Colorado
+#        Version:  1.10
+#        Last revision date: 2005/01/10
+#
+# _______________________________________________________
+#
+# StateMod Response File
+#
+# Type                                    Name
+# ______________________________________  ________________________________________________________________________
+Control                                 = ex89.ctl                                                                                                                                                                                                                                                        
+River_Network                           = ex89.rin
+Reservoir_Station                       = ex89.res
+Diversion_Station                       = ex89.dds
+StreamGage_Station                      = ex89.ris
+Instreamflow_Station                    = ex89.ifs
+Instreamflow_Right                      = ex89.ifr
+Reservoir_Right                         = ex89.rer
+Diversion_Right                         = ex89.ddr
+Operational_Right                       = ex89.opr
+Evaporation_Monthly                     = ex89.eva
+Stream_Base_Monthly                     = ex89.rim
+Diversion_Demand_Monthly                = ex89.ddm
+Instreamflow_Demand_AverageMonthly      = ex89.ifa
+DelayTable_Monthly                      = ex89.urm
+Reservoir_Target_Monthly                = ex89.tam
+Reservoir_Historic_Monthly              = ex89.eom
+StreamGage_Historic_Monthly             = ex89.rih
+Diversion_Historic_Monthly              = ex89.ddh
+GeographicInformation                   = ex89.gis
+OutputRequest                           = ex89.out
+Plan_Data                               = ex89.pln
