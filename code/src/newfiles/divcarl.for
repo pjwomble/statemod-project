@@ -2156,7 +2156,7 @@ c
  1050 format(
      1 '  Stopped in DivCarL',/,
      1       '    See the *.log file')
- 1051 format(/, 72('_',)/
+ 1051 format(/, 72('_'),/
      1 '    Stopped in DivCarL')
      
       write (6,*) 'Stop 1'
