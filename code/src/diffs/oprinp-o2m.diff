@@ -1,0 +1,87 @@
+142c142
+<      1  'Res to Carrier',              'Res Exchange to a Diversion',
+---
+>      1  'Res to Carrier',              'Res Exch to a Diversion',
+144c144
+<      1  'Res to a Carrier by Exchange','OOP Bookover',  
+---
+>      1  'Res to a Carrier by Exch',    'OOP Bookover',
+147c147
+<      1  'Carrier to a Ditch or Res',    
+---
+>      1  'Carrier to Ditch or Res',
+167c167
+<      1  'Storage with Special Limits', 'Plan Reset',            
+---
+>      1  'Storage w/ Special Limits',   'Plan Reset',
+170c170
+<      1  'Administration Plan Limits',  'Reuse to a Plan Direct', 
+---
+>      1  'Admin Plan Limits',           'Reuse to a Plan Direct',
+3857c3857,3860
+<             iopdes(1,k) = iops1+10000
+---
+> c
+> c rrb 2014-06-15; Revise to use iopdesr(l2) as teh type indicator          
+> cx          iopdes(1,k) = iops1+10000
+>             iopdes(1,k) = iops1
+3887c3890,3893
+<           iopdes(1,k)=-iops1
+---
+> c
+> c rrb 2014-06-15; Revise to use iopdesr(l2) as the type indicator     
+> cx        iopdes(1,k)=-iops1
+>           iopdes(1,k)=iops1
+5344a5351,5368
+> c rrb ***************
+> c
+> c rrb_2014-04-26; Allow the destination to be specified
+> c ---------------------------------------------------------
+> c               b1. Find the destination, a river ID (type 0)
+> c		   set istop=1 (OK if not found)
+>         istop=1
+>         itype=0
+>         call oprFind(ityopr(k), itype, idumc,k,ion,iprinto,
+>      1       iops1, iopdes(2,k), nx,ciopde, 0, istop, rops2,
+>      1       ioprsw(k), cidvri)
+>      
+>         if(iops1.gt.0) then
+>           iopdes(1,k)=iops1
+>           idcdD=idvsta(iops1)
+>           iopdesr(k)=itype
+>         endif  
+> c *********     
+7183c7207
+<           if(iplntyp(iops1).eq.9 .or. iplntyp(iopd1).eq.10) iok=0
+---
+>           if(iplntyp(iops1).eq.9 .or. iplntyp(iops1).eq.10) iok=0
+7619,7620c7643,7644
+< c	                 	itype=24 Operating Rule ID with monthly and annual
+< c                             plan limits
+---
+> c	                 	itype=24 find monthly and annual plan limits
+> c                                within the operating rule
+8998,9000c9022,9028
+<           write(nlog,*) ' Oprinp; Plan spill check k', k
+< 
+<           ip=iopdes(1,k)
+---
+> c          write(nlog,*) ' Oprinp; Plan spill check k', k
+> c
+> c rrb 2014-06-15; Revise to allow a negative value to be used
+> c                 to indicate a plan
+> cx        ip=iopdes(1,k)
+>           ip1=iopdes(1,k)
+>           ip=amax0(ip1, -1*ip1)
+9248c9276
+<      1 10x,'Cannot read destination water right',)
+---
+>      1 10x,'Cannot read destination water right')
+10098c10126
+<      1 '  Oprinp; Problem with Operating Right ', a12,, ' Type = ',i2,/
+---
+>      1 '  Oprinp; Problem with Operating Right ', a12, ' Type = ',i2,/
+10145c10173
+<      1 '  Oprinp; Problem with Operating right type     = ', i2,,/
+---
+>      1 '  Oprinp; Problem with Operating right type     = ', i2,/

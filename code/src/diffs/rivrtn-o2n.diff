@@ -1,0 +1,241 @@
+25a26,28
+> c      5. if(navail.eq.2) Adjust AVAIL for each diversion 
+> c         and release except the source diversion (used by DivcarL)
+> c      
+79c82
+< c 	ncnum     # of intervening structures (Carriers & Returns)
+---
+> c   ncnum     # of intervening structures (Carriers & Returns)
+86c89,91
+< c		nlast     indicator water has returned to the river
+---
+> c   nlast     indicator where the last carrier discharges water
+> c             0 = river
+> c             1 = carrier
+105,110c110,115
+< c	  Step 1; Initilize
+< c		iout = 1 details
+< c		iout = 2 summary
+< c		iout = 3 summary & details on last diversion
+< c		iout = 4 summary & details on adjustments to avtemp
+< c		iout = 5 summary & details on adjustments to AVAIL
+---
+> c	              Step 1; Initilize
+> c		            iout = 1 details
+> c		            iout = 2 summary
+> c		            iout = 3 summary & details on last diversion
+> c		            iout = 4 summary & details on adjustments to avtemp
+> c		            iout = 5 summary & details on adjustments to AVAIL
+114a120
+> cx    iout=5
+119c125,126
+<       if(iout.ge.1) write(nlog,210) 'RivRtn      ', corid1, iout, navail      
+---
+>       if(iout.ge.1) write(nlog,210) 'RivRtn      ',corid1,iout,navail,
+>      1 relact*fac, divact*fac    
+124c131,133
+<      1 '	         1 Do adjust the array Avail')
+---
+>      1 '	               1 Do adjust the array Avail',/
+>      1 '    Relact = ', f8.0,/
+>      1 '    Divact = ', f8.0)
+174a184,188
+> c rrb 2014-07-27; Go straight to adjust avail if called the 
+> c                 second time by DivCarL (may work for all
+> c                 calls but no time to verify)
+>       if(navail.eq.2) goto 400      
+> c
+177c191
+< c  Step 2; Set AVTEMP = Avail for Return to river
+---
+> c               Step 2; Set AVTEMP = Avail for Return to river
+192c206,207
+< c   Step 3; Adjust AvTem for Plan or Reservoir release (RELACT) 
+---
+> c               Step 3; Adjust AvTem for Plan or Reservoir 
+> c                       release (RELACT) 
+209,211c224,227
+< c   Step 4; For each diversion from the river
+< c		        and return to the river adjust AVTEMP
+< c		        Note nlast = indicator water has returned to the river
+---
+> c               Step 4; For each diversion from the river
+> c		                    and return to the river adjust AVTEMP
+> c		                    Note nlast = indicator water has returned 
+> c                       to the river
+221c237,238
+< c		Step 4a; Adjust AVTEMP for each diversion
+---
+> c		            Step 4a; Adjust AVTEMP for each diversion to a carrier
+> c               (InternT()=1
+247c264,265
+< c		Step 4b; Adjust AVTEMP for water returned to the river 
+---
+> c		            Step 4b; Adjust AVTEMP for water returned to the river 
+> c                        (InternT()=2)
+256c274
+< c		Step 4c; Detalied output at 3 locations          
+---
+> c		            Step 4c; Detalied output at 3 locations          
+273,274c291,293
+< c		Step 5; Adjust AVTEMP for return flows from final 
+< c                 destination if it is a diversion (ndtype=3)
+---
+> c		            Step 5; Adjust AVTEMP for return flows from final 
+> c                       destination if it is a diversion 
+> c                       (ndtype=3)
+316c335
+< c		Step 6; Find minimum flow downstream of the demand
+---
+> c		            Step 6; Find minimum flow downstream of the demand
+328,329c347,348
+< c		Step 7; Find minimum flow in AVTEMP downstream of
+< c		all river diversions (internT = 1) 
+---
+> c		            Step 7; Find minimum flow in AVTEMP downstream of
+> c		                    all river diversions (internT = 1) 
+339,342d357
+<           if(iout.eq.1) write(nlog,*) 
+<      1    '  RivRtn_2; ndnd1, idcd1, ncar i',
+<      1      ndndX, idcdX, ncar, i   
+<                    
+348a364,368
+> c
+>           if(iout.eq.1) write(nlog,*) 
+>      1    '  RivRtn_2; ndnd1, idcd1, ncar i imcd, AVTEMP(imcd), Adj',
+>      1      ndndX, idcdX, ncar, i, imcd, AVTEMP(imcd)*fac, Adj*fac  
+>           
+354,355c374,375
+< c		Step 8a; If the system is negative; reduce the diversion
+< c		        and release accordingly
+---
+> c		            Step 8a; If the system is negative; reduce the
+> c		                     diverson and release accordingly
+435,437c455,457
+< c		Step 8b; If the system is positive 
+< c			and short increase the diversion & release
+< c			If positive but not short, exit
+---
+> c		            Step 8b; If Avtemp (adj is positive 
+> c		            	and short increase the diversion & release
+> c		            	If positive but not short, exit
+483,484c503,505
+< c ---------------------------------------------------------
+< c		Exit Point
+---
+> c _________________________________________________________
+> c
+> c	            Step 9; Check for an exit 
+498,500c519,521
+< c		Step 10;	Return to 100 to recalculate diversion
+< c		if the maximum # of iterations is not exceeded		
+< c		and the diversion > zero
+---
+> c		            Step 10;	Return to 100 to recalculate diversion
+> c		                      if the maximum # of iterations is not 	
+> c		                      exceeded and the diversion > zero
+509,510c530,531
+<       else      
+<         goto 900        
+---
+>       else  
+>         goto 900     
+516,517c537,539
+< c		Step 11; Correction to catch a bad setup that can result in 
+< c		  no water available to the destination (idcdX)
+---
+> c		            Step 11; Correction to catch a bad setup that 
+> c                        can result in no water available to
+> c		                      the destination (idcdX)
+567c589
+<             goto 900        
+---
+>             goto 900
+576c598
+< c   Step 12; Exit if nAvail = 0 (do not adjust AVAIL)      
+---
+> c               Step 12; Exit if nAvail = 0 (do not adjust AVAIL)      
+584c606,607
+<         write(nlog,*) ' Begin to adjust Avail'
+---
+>         write(nlog,*) ' Begin to adjust Avail, nAvail, divact = ',
+>      1    nAvail, nlast, divact*fac
+594,597c617,620
+< c		Step 14; Adjust AVAIL for each diversion
+< c		from the river to a Carrier (e.g. do not adjust
+< c		if the final destination is from the river
+< c		that adjustment occurrs in step in the calling routine
+---
+> c		            Step 14; Adjust AVAIL for each diversion
+> c		            from the river to a Carrier (e.g. do not adjust
+> c		            if the final destination is from the river
+> c		            that adjustment occurrs in step in the calling routine
+603,606d625
+< c           idcd0=amax0(idcd1-1,1)
+<             idcd0=imcdR
+<             idcd2=idcd1+1
+<             
+608,610c627,640
+< 
+<             call takout(maxsta,avail,river,avinp,qtribu,idncod,
+<      1        divact2, ndnd1,idcd1)
+---
+> c rrb 2014-07-28; Clean up debug printout
+>             idcdA=amax0(idcd1-1,1)
+>             idcdB=idcd1
+>             idcdC=idcd1+1
+> 
+> c rrb 2014-07-12 TEST by skipping the source carrier since it
+> c                was set in DivCarL
+> cx              call takout(maxsta,avail,river,avinp,qtribu,idncod,
+> cx     1          divact2, ndnd1,idcd1)
+> 
+>             if(navail.eq.1) then
+>               call takout(maxsta,avail,river,avinp,qtribu,idncod,
+>      1          divact2, ndnd1,idcd1)
+>             endif
+611a642,646
+>             if(navail.eq.2 .and. i.ge.2) then
+>               call takout(maxsta,avail,river,avinp,qtribu,idncod,
+>      1          divact2, ndnd1,idcd1)
+>             endif
+>              
+615c650
+<      1        AVAIL, divact2, idcd0, idcd1, idcd, fac)
+---
+>      1        AVAIL, divact2, idcdA, idcdB, idcdC, fac)
+629c664
+< c		Step 15; Adjust AVAIL for water returned to the river 
+---
+> c		            Step 15; Adjust AVAIL for water returned to the river 
+635,637c670,674
+< c         idcd0=amax0(idcd1-1,1)
+<           idcd0=imcdR
+<           idcd2=idcd1+1
+---
+> c
+> c rrb 2014-07-28; Clean up debug printout
+>             idcdA=amax0(idcd1-1,1)
+>             idcdB=idcd1
+>             idcdC=idcd1+1
+646c683
+<      1        AVAIL, RelRiv, idcd0, idcd1, idcd, fac)
+---
+>      1        AVAIL, RelRiv, idcdA, idcdB, idcdC, fac)
+660,662c697,699
+< c		Step 16;	If nlast=0 (the last carrier was to a 
+< c		          return to river) adjust Avail for the 
+< c			        final diversion from the stream       
+---
+> c		            Step 16;	If nlast=0 (the last carrier was to a 
+> c		                      return to river) adjust Avail for the 
+> c		            	        final diversion from the stream       
+683c720
+< c		Step 17; Detailed Output
+---
+> c		            Step 17; Detailed Output
+790c827,828
+< c rrb TEST keep operating
+---
+> c rrb Remove comment indicator to TEST what happens when the
+> c            system is allowed to keep operating

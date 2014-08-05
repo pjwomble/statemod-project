@@ -1,0 +1,13 @@
+1301,1302c1301,1302
+<            write(nlog,*) ' DivCarL; Monthly or annual limit ',
+<      1                   lopr, OprmaxM(lopr), oprmaxA(lopr)
+---
+> c           write(nlog,*) ' DivCarL; Monthly or annual limit ',
+> c     1                   lopr, OprmaxM(lopr), oprmaxA(lopr)
+2108c2108
+<  1051 format(/, 72('_',)/
+---
+>  1051 format(/, 72('_'),/
+2118d2117
+< 
+\ No newline at end of file

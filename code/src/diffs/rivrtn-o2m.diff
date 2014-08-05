@@ -1,0 +1,10 @@
+115c115
+<       iout=0
+---
+>       iout=1
+121,122c121,122
+<      1 '    iout   = ', i5, ,/
+<      1 '    navail = ', i5 ' where:',/
+---
+>      1 '    iout   = ', i5, /
+>      1 '    navail = ', i5 ,' where:',/

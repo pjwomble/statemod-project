@@ -1,0 +1,7 @@
+o2m - is the diff from Ray's original 13.00.01 to the latest master branch 14.00.03
+      mainly these are fixing small typos and compiler complaints
+      some major upgrades are in there, but hopefully not in the same files!
+o2n - is the diff from Ray's original 13.00.01 to Ray's new type 45 changes
+      these would include only his changes necessary for the type 45 update
+m2n - is the diff from the latest master branch 14.00.03 to Ray's new type 45 files
+      these will include some unwanted retrogrades back to broken code, so ignore these!
