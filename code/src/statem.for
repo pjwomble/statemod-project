@@ -152,8 +152,8 @@ c				 7 includes new binary output format
 c		yy has new functionality
 c		zz is a bug fix
 c		
-        ver='14.00.03'
-        vdate = '2014/07/25'
+        ver='.03New35'
+        vdate = '2014/08/18'
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0
@@ -587,6 +587,11 @@ c
 c               Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2014/08/18 (.03New35)',/
+     1 '      Experimental branch to change operating rule 35',/
+     1 '      allow it to deliver imported water to accounting plan',/
+     1 '      (type 11) and skip the reuse plan,',/
+     1 '      modeler can handle reuse in the acct plan if needed',/
      1 '    - 2014/07/25 (14.00.03)',/
      1 '      Allow isf reaches to overlap (partially/completely)',/
      1 '      Update admin plan output when split by type 46 op rule',/

@@ -6427,10 +6427,12 @@ c                       istop=1 (OK if not found)
           call oprFind(ityopr(k), 2, idumc,k,ion,iprinto,
      1         iops1, iopdes(2,k), nx,ciopde, 1, istop, rops2,
      1         ioprsw(k), cidvri)
-          iopdes(1,k)=-iops1
-          idcdD=irssta(iops1)
-          iopdesr(k)=2
-c         write(nlog,*) '  Oprinp; Type 28 iopdes(1,k) = ', iopdes(1,k)
+          if(iops1.gt.0) then
+            iopdes(1,k)=-iops1
+            idcdD=irssta(iops1)
+            iopdesr(k)=2
+c           write(nlog,*) '  Oprinp; Type 28 iopdes(1,k) = ', iopdes(1,k)
+          endif
         endif
 c        
 c ---------------------------------------------------------
@@ -6448,7 +6450,8 @@ c               istop=1 Do not Stop if not found
 c jhb 2014/08 note that itype=7 means find any plan type,
 c             not just a type 7 plan!
         if(iops1.eq.0) then
-          istop=1
+c         destination MUST be a plan when reaching here...
+          istop=0
           itype=7
           iacc=1
           call oprFind(ityopr(k), itype, idumc,k,ion,iprinto,
