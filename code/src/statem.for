@@ -61,6 +61,18 @@ c                 changed output for an admin plan (to b68 binary and
 c                   therefore the xpl, too) when the plan is being split
 c                   by a type 46 op rule into other plans.  output the
 c                   total supply to those plans from psuplyt()
+c jhb 2014/08/19; upgraded operating rule 35 (transbasin import) behavior
+c                   now the destination should be a type 11 (accounting) plan
+c                   source remains the same.
+c                   reuse is NOT handled by the op rule 35 anymore, but
+c                   should be handled by the modeler downstream of the
+c                   accounting plan
+c                 also (un)fixed a problem in execut.for in the
+c                   IMO variable reset logic.  a change was made previously
+c                   to fix array bounds errors, but the fix broke return flow
+c                   calculations.  therefore reverted code back to original.
+c                   however, now have to find another way to fix array bounds
+c                   problem when daily return flow patterns are used.
 c
 c
 c _________________________________________________________
@@ -152,8 +164,8 @@ c				 7 includes new binary output format
 c		yy has new functionality
 c		zz is a bug fix
 c		
-        ver='.03New35'
-        vdate = '2014/08/18'
+        ver='New35Rtn'
+        vdate = '2014/08/19'
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0
@@ -587,9 +599,15 @@ c
 c               Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2014/08/19 (New35Rtn)',/
+     1 '      Experimental branch to change operating rule 35',/
+     1 '      is now working, testing ongoing.',/
+     1 '      Also (un)fixed a return flow calculation change,',/
+     1 '      fix to array bounds problem with daily delay patterns',/
+     1 '      broke return flow calculations. revert to original code',/
      1 '    - 2014/08/18 (.03New35)',/
      1 '      Experimental branch to change operating rule 35',/
-     1 '      allow it to deliver imported water to accounting plan',/
+     1 '      change it to deliver imported water to accounting plan',/
      1 '      (type 11) and skip the reuse plan,',/
      1 '      modeler can handle reuse in the acct plan if needed',/
      1 '    - 2014/07/25 (14.00.03)',/
