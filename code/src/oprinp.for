@@ -8084,8 +8084,28 @@ c       goto 9999
       endif
 c
 c ---------------------------------------------------------
-c		q. Detailed output
-     
+c rrb 2014-07-29
+c 		q. Print warning if the water right ownership is not 100%
+      OprPct(k)=float(iopsou(4,k))
+      if(OprPct(k). le.99.9) then
+        write(nlog,740) ityopr(k), cidvri, iopsou(4,k)
+        iopsou(4,k)=100
+        OprPct(k)=float(iopsou(4,k))
+        goto 9999
+      endif
+c
+c ---------------------------------------------------------
+c rrb 2014-07-29
+c 		q. Print warning if the source water right i ssupposed to be
+c        left on (iopsou(2,k) = 0
+      if(iopsou(2,k) .ne. 1) then
+        write(nlog,741) ityopr(k), cidvri, iopsou(2,k)
+        iopsou(2,k)=0
+        goto 9999
+      endif
+c
+c ---------------------------------------------------------
+c		r. Detailed output
       iout45=0
       if(iout45.eq.1) then
         write(nlog,2020) ityopr(k), cidvri, ityopr(k),
@@ -9566,6 +9586,21 @@ c    1 10x,'   at the source or destination structure',/
      1 10x,'The operating loss should be zero or greater not ', f8.2,/
      1 10x,'Recommend you set the operating loss to zero and check',/
      1 10x,'that your structure efficiency values are correct')
+
+  740 format(/, 72('_'),/
+     1   '  Oprinp; ',/
+     1 10x,'Problem with Operation Type  = ',i3,' Right = ', a12,/,
+     1 10x,'The percent of water right as a source (iopsou(4,l) = ',
+     1       i5,'%',/
+     1 10x,'A value less than 100% is not operatonal',/
+     1 10x,'Recommend you revise iopsou(4,l) to be 100.')
+
+  741 format(/, 72('_'),/
+     1   '  Oprinp; ',/
+     1 10x,'Problem with Operation Type  = ',i3,' Right = ', a12,/,
+     1 10x 'Variable iopsou(2,k) = ', i5, ' that allows the source',/
+     1 10x,'right to be left on is not operational'/
+     1 10x,'Recommend you revise iopsou(2,l) to be 1')
 
   760 FORMAT(/, 72('_'),/
      1  '  Oprinp; Problem with Operation right = ', a12,/                     
