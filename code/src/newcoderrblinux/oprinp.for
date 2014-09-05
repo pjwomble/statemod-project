@@ -139,12 +139,12 @@ c rrb 209/01/26; Correction; initilize ntype to a dimension of 50
       data ntype/50*0/
       data oprtype/
      1  'Res to ISF',                  'Res to Diversion, etc.',
-     1  'Res to Carrier',              'Res Exch to a Diversion',
+     1  'Res to Carrier',              'Res Exchange to a Diversion',
      1  'Res to Storage Exchange',     'Bookover',    
-     1  'Res to a Carrier by Exch',    'OOP Bookover',
+     1  'Res to a Carrier by Exchange','OOP Bookover',  
      1  'Release to Target',           'General Replacement Res',
      
-     1  'Carrier to Ditch or Res',
+     1  'Carrier to a Ditch or Res',    
      1  'Reoperate',                   'La Plata Compact',
      1  'Carrier with Const Demand',   'Interruptable Supply',
      1  'Direct Flow Storage',         'Rio Grande Compact - RG',
@@ -164,10 +164,10 @@ c rrb 209/01/26; Correction; initilize ntype to a dimension of 50
      1  'Augmentation Well',           'OOP Diversion',
      1  'Alternate Point Diversion',   'South Platte Compact', 
      
-     1  'Storage w/ Special Limits',   'Plan Reset',
+     1  'Storage with Special Limits', 'Plan Reset',            
      1  'In-Priority Well Supply',     'Recharge Well', 
      1  'Carrier with Loss',           'Multiple Ownership',
-     1  'Admin Plan Limits',           'Reuse to a Plan Direct',
+     1  'Administration Plan Limits',  'Reuse to a Plan Direct', 
      1  'Reuse to a Plan Exchange',    ' '/
 c
 c _________________________________________________________
@@ -4109,7 +4109,7 @@ c
 c ---------------------------------------------------------
 c		l. Detailed output
 c     
-        iout24=0
+        iout24=1
         if(iout24.eq.1) then
           call OprinOut(nlog, maxopr, k, 
      1      ityopr(k), cidvri, 
@@ -5473,7 +5473,7 @@ c
 c ---------------------------------------------------------
 c		h. Detailed output
      
-        iout29=0
+        iout29=1
         if(iout29.eq.1) then
           call OprinOut(nlog, maxopr, k, 
      1      ityopr(k), cidvri, 
@@ -6385,7 +6385,6 @@ c
  1035   continue 
 c               Type 35; Transmountain import
 c                destination = a diversion or a reservoir or carrier
-c jhb 2014/08    or an acct plan (plan type 11)
 c                source 1 (iopsou(1,k) = a diversion (import)
 c                source 2 (iopsou(3,k) = N/A
 c                  ion=1 means turn off opr right if right is off
@@ -6427,50 +6426,12 @@ c                       istop=1 (OK if not found)
           call oprFind(ityopr(k), 2, idumc,k,ion,iprinto,
      1         iops1, iopdes(2,k), nx,ciopde, 1, istop, rops2,
      1         ioprsw(k), cidvri)
-          if(iops1.gt.0) then
-            iopdes(1,k)=-iops1
-            idcdD=irssta(iops1)
-            iopdesr(k)=2
-c           write(nlog,*) '  Oprinp; Type 28 iopdes(1,k) = ', iopdes(1,k)
-          endif
+          iopdes(1,k)=-iops1
+          idcdD=irssta(iops1)
+          iopdesr(k)=2
+c         write(nlog,*) '  Oprinp; Type 28 iopdes(1,k) = ', iopdes(1,k)
         endif
 c        
-c ---------------------------------------------------------
-c jhb 2014/08 added another transbasin import destination type,
-c             an accounting plan (type 11)
-c             note: this should be the default and possibly only
-c                   mode for a type 35 rule in the future
-c                   according to the state's statemod modeling experts
-c                   but leave it as is for backward compatibility,
-c                   and just remove the documentation of the other modes
-c ---------------------------------------------------------
-c               b2.5 Find destination = an acct plan (plan type 11)
-c          Note istop=0 Stop if not found
-c               istop=1 Do not Stop if not found
-c jhb 2014/08 note that itype=7 means find any plan type,
-c             not just a type 7 plan!
-        if(iops1.eq.0) then
-c         destination MUST be a plan when reaching here...
-          istop=0
-          itype=7
-          iacc=1
-          call oprFind(ityopr(k), itype, idumc,k,ion,iprinto,
-     1       iops1,iopdes(2,k), nx, ciopde, iacc,
-     1       istop, rops2,ioprsw(k), cidvri)
-
-          iopdes(1,k)=iops1
-          idcdD=ipsta(iops1)
-          iopdesr(k)=7
-c
-c         Check proper type
-c jhb 2014/08 for now the only plan type that is allowed is a plan type 11
-          iok=1
-          if(iplntyp(nx).eq.11) iok=0
-          if(iok.eq.1) then
-            write(nlog,1256) ityopr(k),cidvri, ciopso1, iplntyp(nx)
-            goto 9999
-          endif
-        endif
 c ---------------------------------------------------------
 c rrb 2008/03/21; Revised warning when several destinations are possible        
         if(iops1.eq.0) then
@@ -6480,13 +6441,10 @@ c rrb 2008/03/21; Revised warning when several destinations are possible
         
 c
 c ---------------------------------------------------------
-c jhb 2014/08 the following is a problem since intern(k,1) has not been
-c             set and is still = 0 (the initialized value)
-c             but it doesn't break anything, so leave it alone for now
-c ---------------------------------------------------------
 c               b3. If a carrier then reset the destination location
         nc=intern(k,1)
         if(nc.gt.0) idcdD=idvsta(nc)
+     
 c
 c ---------------------------------------------------------
 c               c. Find source 1 a transmountain import plan (type 7)
@@ -6511,41 +6469,38 @@ c		Check proper type
         endif  
 c
 c ---------------------------------------------------------
-c jhb 2014/08 don't deal with reuse plans if the destination is a type 11 plan
-c ---------------------------------------------------------
 c               d. Find destination reuse plan named Creuse, if any, and
 c		   Store in ireuse(k)
 c		   Note istop=0 Stop if not found
 c		        istop=1 Do not Stop if not found
-        if(iopdesr(k).eq.7) then
-        else
-          iacc=0
-          ion=-1
-          istop=0
-          ireuse1=0
-cr        if(creuse(1:3).ne.'N/A') then
-          if(NAuse.eq.0) then
-            call oprFind(ityopr(k), 7, idumc,k,ion,iprinto,
+
+        iacc=0
+        ion=-1
+        istop=0
+        ireuse1=0
+cr      if(creuse(1:3).ne.'N/A') then
+        if(NAuse.eq.0) then                
+          call oprFind(ityopr(k), 7, idumc,k,ion,iprinto,
      1         ireuse1,iops2, nx, creuse, iacc, istop, rops2,
      1         ioprsw(k), cidvri)     
-          endif
+        endif
 c
 c ---------------------------------------------------------
-c         f. Check proper type of plan for a TransMountain Import
+c		f. Check proper type of plan for a TransMountain Import
 c                  Note iplntyp 3 & 5 are reservoir, 
 c                       iplntyp 4 & 6 are diversion
-          if (ireuse1.gt.0) then
-            ireuse(k)=ireuse1
-            iok=1
-            if(iopdes(1,k).lt.0 .and. iplntyp(ireuse1).eq.5) iok=0
-            if(iopdes(1,k).gt.0 .and. iplntyp(ireuse1).eq.6) iok=0
-            if(iok.eq.1) then
-              write(nlog,1255) ityopr(k),cidvri, ciopde, creuse,
-     1          iplntyp(ireuse1)
-              goto 9999
-            endif
-          endif
-        endif
+        if (ireuse1.gt.0) then
+          ireuse(k)=ireuse1        
+          
+          iok=1          
+          if(iopdes(1,k).lt.0 .and. iplntyp(ireuse1).eq.5) iok=0
+          if(iopdes(1,k).gt.0 .and. iplntyp(ireuse1).eq.6) iok=0
+          if(iok.eq.1) then
+            write(nlog,1255) ityopr(k),cidvri, ciopde, creuse, 
+     1        iplntyp(ireuse1)
+            goto 9999
+          endif  
+        endif        
 c
 c ---------------------------------------------------------
 c		e. Detailed output
@@ -7249,7 +7204,7 @@ c         write(nlog,*) ' Oprinp; Type 41 limiting Plan ID ', ciopso5
 c
 c		Check the plan specified is an OOP Plan          
           iok=1
-          if(iplntyp(iops1).eq.9 .or. iplntyp(iops1).eq.10) iok=0
+          if(iplntyp(iops1).eq.9 .or. iplntyp(iopd1).eq.10) iok=0
           if(iok.eq.1) then
             write(nlog,1263) ityopr(k),cidvri, creuse, iplntyp(iops1)
             goto 9999
@@ -7685,8 +7640,8 @@ c		            a4. Read the operating rule associated with
 c		                a monthly or annual plan limit adjustment
 c		                when Oprlimit(k) > 0
 c		                istop=0  Stop if not found
-c	                 	itype=24 find monthly and annual plan limits
-c                                within the operating rule
+c	                 	itype=24 Operating Rule ID with monthly and annual
+c                             plan limits
 c               
 cx    write(nlog,*) ' Oprinp; type 45 ioprlim ', ioprlim(k)
       if(ioprlim(k).eq.4) then
@@ -8151,6 +8106,7 @@ c        left on (iopsou(2,k) = 0
 c
 c ---------------------------------------------------------
 c		r. Detailed output
+     
       iout45=0
       if(iout45.eq.1) then
         write(nlog,2020) ityopr(k), cidvri, ityopr(k),
@@ -9084,7 +9040,7 @@ c               check is done separately (just below)
 c
 c               Check if the destination is a plan
         if(iopdesR(k).eq.7) then      
-c          write(nlog,*) ' Oprinp; Plan spill check k', k
+          write(nlog,*) ' Oprinp; Plan spill check k', k
 c
 c rrb 2014-06-15; Revise to allow a negative value to be used
 c                 to indicate a plan
@@ -9338,7 +9294,7 @@ c
  2010 format(
      1 ' Oprinp; Problem with *.opr rule ID = ', a12,
      1 ' itype ', i5, / 
-     1 10x,'Cannot read destination water right')
+     1 10x,'Cannot read destination water right',)
       goto 9999
 
  2020   format(/,60('_'),/
@@ -9994,12 +9950,6 @@ c    1 10x,'   at the source or destination structure',/
      1 10x,'      A Transmountain Import Plan should be type: 7',/
      1 10x,'      A Recharge Plan should be type:             8',/
      1 10x,'Revise the plan or operating rule data')
- 2256 format(/, 72('_'), /,'  Oprinp; ',
-     1'Problem with Operating right type = ',i2,' ID = ', a12,/
-     1 10x,'The destination (Plan) = ', a12,' and the',/
-     1 10x,'Plan Type           = ',i1,11x,' are inconsistent.',/
-     1 10x,'Note: The only plan type (currently) allowed as a',/
-     1 10x,'      destination of a type 35 operating rule is 11')
      
  1257 format(/, 72('_'), /,'  Oprinp; ',
      1'Problem with Operating right type = ',i2,' ID = ', a12,/
@@ -10209,7 +10159,7 @@ c    1 10x,'   at the source or destination structure',/
      1 10x,'rule file (*.opr)')
      
  1300 format(/,72('_'),/                                                          
-     1 '  Oprinp; Problem with Operating Right ', a12, ' Type = ',i2,/
+     1 '  Oprinp; Problem with Operating Right ', a12,, ' Type = ',i2,/
      1 '          The destination ID = ',a12, ' cannot be found',/
      1 '          Recommend you confirm it exists and is a structure',/
      1 '          type supported by this operating rule')
@@ -10256,7 +10206,7 @@ c    1 10x,'   at the source or destination structure',/
      1 '          the operating rule data')
      
  1370  format(/, 72('_'),/, 
-     1 '  Oprinp; Problem with Operating right type     = ', i2,/
+     1 '  Oprinp; Problem with Operating right type     = ', i2,,/
      1 '          Operating right ID                    = ', a12,/
      1 '          has a T&C requirement with the source = ', a12,/
      1 '          but operating rule ID                 = ', a12,/
@@ -10284,4 +10234,3 @@ c _________________________________________________________
 c
 
       END
-

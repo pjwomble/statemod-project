@@ -1,0 +1,555 @@
+94c94
+< c	irit  =  0 Source is a diversion 
+---
+> c	     irit  =  0 Source is a diversion 
+96c96
+< c	irit  = -1 Source is a reservoir right
+---
+> c	     irit  = -1 Source is a reservoir right
+99c99
+< c	 	    May be adjusted if Ndloc .ne. 0
+---
+> c	 	            May be adjusted if Ndloc .ne. 0
+106c106
+< c	 	 Later diversion or reservoir pointer
+---
+> c	 	            Later diversion or reservoir pointer
+108c108
+< c	iscd  = Source location on river
+---
+> c	     iscd  = Source location on river
+117c117
+< c      	 or plan (NOT CARRIER)
+---
+> c      	       or plan (NOT CARRIER)
+119,120c119,120
+< c	isDiv = Destination Diversion location on River
+< c	isRes = Destination Reservoir location on River
+---
+> c	     isDiv = Destination Diversion location on River
+> c	     isRes = Destination Reservoir location on River
+122,128c122,128
+< c	iOpDesR(l2)  =  Destination type
+< c		 3 = diversion
+< c		 2 = reservoir
+< c	iOpSouR(l2)  =  Source type
+< c		  3 = diversion structure
+< c		 13 = diversion right
+< c		 12 = reservoir right
+---
+> c     iOpDesR(l2)  =  Destination type
+> c     	 3 = diversion
+> c     	 2 = reservoir
+> c     iOpSouR(l2)  =  Source type
+> c     	  3 = diversion structure
+> c     	 13 = diversion right
+> c     	 12 = reservoir right
+131,132c131,132
+< c		 + = diversion
+< c		 - = diversion or reservoir water right
+---
+> c	               + = diversion
+> c	               - = diversion or reservoir water right
+137c137
+< c	iopsou(3,l2) = ndLoc = Administration location
+---
+> c	     iopsou(3,l2) = ndLoc = Administration location
+150c150
+< c	iplnTyp(ip) Plan type must be 8 (Recharge)
+---
+> c      iplnTyp(ip) Plan type must be 8 (Recharge)
+163,199c163,199
+< c	Caprem1  = Remaining capacity in source (ns1)
+< c	Caprem2  = Remaining capacity at destination (nd2)
+< c	Caprem3  = Smallest Remaining capacity in other carriers
+< c
+< c	Divalo   = Actual Diversion
+< c	Divreqx1 = Demand
+< c	Divreqx2 = Demand + Carrier Loss
+< c
+< c	Demand   = demand adjustment (to account for carrier
+< c                         loss if not administered at the river)
+< c
+< c            OprLimit=additional carrier limitation (cfs)
+< c
+< c	OprLoss(l2) = conveyance loss from source structure (%)
+< c	OprLossC(l2,i) = conveyance loss from additioal 
+< c                               carriers (%)
+< c	OprLost= conveyance loss (cfs)
+< c
+< c	OprEff1 = source Carrier Efficiency 
+< c                        (1.0 - OprLoss(l2)/100)
+< c	OprEffT = Total Carrier Efficiency 
+< c
+< c	effmaxT=Transit loss for a ditch 
+< c
+< c              dcrdiv = decreed amount 
+< c              divd   = total amount diverted under this decree
+< c              (dcrdiv - divd) = decree remaining
+< c
+< c	DcrRem1 = Initial available decree
+< c	DcrRem2 = Final Available decree
+< c
+< c	iopsou(4,l2)= Percent of water right owned
+< c	oprPct(l2)  = percent of water right owned
+< c
+< c	iopsou(5,l2)	    See ioprlim(k)
+< c
+< c	nRiver	        Indicator a release to the River
+---
+> c	     Caprem1  = Remaining capacity in source (ns1)
+> c	     Caprem2  = Remaining capacity at destination (nd2)
+> c	     Caprem3  = Smallest Remaining capacity in other carriers
+> c      
+> c	     Divalo   = Actual Diversion
+> c	     Divreqx1 = Demand
+> c	     Divreqx2 = Demand + Carrier Loss
+> c      
+> c	     Demand   = demand adjustment (to account for carrier
+> c                              loss if not administered at the river)
+> c      
+> c                 OprLimit=additional carrier limitation (cfs)
+> c      
+> c	     OprLoss(l2) = conveyance loss from source structure (%)
+> c	     OprLossC(l2,i) = conveyance loss from additioal 
+> c                                    carriers (%)
+> c	     OprLost= conveyance loss (cfs)
+> c      
+> c	     OprEff1 = source Carrier Efficiency 
+> c                             (1.0 - OprLoss(l2)/100)
+> c	     OprEffT = Total Carrier Efficiency 
+> c      
+> c	     effmaxT=Transit loss for a ditch 
+> c      
+> c                   dcrdiv = decreed amount 
+> c                   divd   = total amount diverted under this decree
+> c                   (dcrdiv - divd) = decree remaining
+> c      
+> c	     DcrRem1 = Initial available decree
+> c	     DcrRem2 = Final Available decree
+> c      
+> c	     iopsou(4,l2)= Percent of water right owned
+> c	     oprPct(l2)  = percent of water right owned
+> c      
+> c	     iopsou(5,l2)	    See ioprlim(k)
+> c      
+> c	     nRiver	        Indicator a release to the River
+201,202c201,202
+< c            qdiv(5, ) InBasin diversion by priority
+< c            qdiv(8, ) Transmountain diversion by priority
+---
+> c      qdiv(5, ) InBasin diversion by priority
+> c      qdiv(8, ) Transmountain diversion by priority
+204,207c204,208
+< c            qdiv(18,is) Carried through a structure
+< c	qdiv(19,is) From Carrier by Priority and
+< c	qdiv(32,is) From Carrier Loss 
+< c	qdiv(33,is) From River loss 
+---
+> c      qdiv(18,is) Carried through a structure
+> c	     qdiv(19,is) From Carrier by Priority
+> c      qdiv(26,is) From River by Other
+> c	     qdiv(32,is) From Carrier Loss 
+> c	     qdiv(33,is) From River loss 
+210,216c211,217
+< c              qres(2  From Carrier by Priority
+< c              qres(4  From Carrier by Sto_Exchange
+< c              qres(18 From river by Exch_Plan
+< c	qres(27 From Carrier Loss
+< c
+< c	Ritrem1    Starting available reservoir capacity
+< c	Ritrem2    Ending available reservoir capacity
+---
+> c      qres(2  From Carrier by Priority
+> c      qres(4  From Carrier by Sto_Exchange
+> c      qres(18 From river by Exch_Plan
+> c	     qres(27 From Carrier Loss
+> c      
+> c	     Ritrem1    Starting available reservoir capacity
+> c	     Ritrem2    Ending available reservoir capacity
+273a275
+> c   ioutA = 1 details on adjustments to Avail
+274a277
+> c   ioutZ = 2 details on subroutine logic
+278c281
+<       ioutZ=0
+---
+>       ioutA=0
+279a283,286
+> cx    ioutZ=2
+>       ioutZ=0
+>       
+>       ifirst=0
+293,296d299
+<            
+<       if(iout.eq.2 .and. iw.eq.ioutiw) ioutZ=2
+<       ioutZ=0
+<       
+365a369
+> 
+506a511
+>       if(ioutZ.eq.2) Write(nlog,*) ' DivCarL; nriver = ', nriver
+553c558,561
+<         iscdS=idvsta(ndS)
+---
+> c
+> c rrb 2014-07-29; Cleanup an unused variable
+> cx      iscdS=idvsta(ndS)
+>         iscd=idvsta(ndS)
+588c596,599
+<         iscdS=idvsta(ndS)        
+---
+> c
+> c rrb 2014-07-29; Cleanup an unused variable        
+> cx      iscdS=idvsta(ndS)    
+>         iscd=idvsta(ndS)    
+629c640
+< c		Diversion Right source operated at diversion ndloc
+---
+> c		Reservoir Right source operated at diversion ndloc
+1056c1067
+< c		This means the decreee is located at the reservoir, 
+---
+> c		            This means the decreee is located at the reservoir, 
+1085c1096
+< c		     Source is a diversion right (irit=0)
+---
+> c		                 Source is a diversion structure (irit=0)
+1124c1135
+< c rrb 2009/02/04; REvise to allow iopsou(5,l2) to represent other misc limits
+---
+> c rrb 2009/02/04; Revise to allow iopsou(5,l2) to represent other misc limits
+1159,1160c1170,1171
+< c                        This means the decree is located at the diversion
+< c                        not the destination canal
+---
+> c                        This means the decree is located at the
+> c                        diversion not the destination canal
+1292c1303
+< c               Step 4; Limit release (alocfs) to monthly and annual
+---
+> c               Step 8c; Limit release (alocfs) to monthly and annual
+1306c1317
+<      1         oprmaxA(lopr), alocfs2*fac, alocfs3*fac
+---
+>      1         oprmaxA(lopr), alocfsR*fac
+1372a1384,1392
+> c
+> c rrb 2014-07-27; Check Avail
+>          
+>          if(ioutA.eq.1) then
+>            ifirst=0
+>            nchkA=1
+>            call ChkAvail2(nlog, ifirst, icx, nchkA, maxsta, numsta, 
+>      1          fac, avail)
+>          endif         
+1380,1381c1400,1403
+<        
+<          if(divact.le. small) then
+---
+> c
+> c rrb 2014-07-26       
+> cx       if(divact.le. small) then
+>          if(DIVALO.le. small) then         
+1394,1400d1415
+< c
+< c rrb 2009/01/13; Correction; pass OprEffT & divactL
+< cx       call DsaMod(
+< cx     1    icx, iout, l2, imcd, iscd, ndns, nd2, iuse2, ieff2, 
+< cx     1    fac, pavail, divalo, divact, 
+< cx     1    iwhy, icase, ishort, iresw,
+< cx     1    cCallBy, corid1, cwhy)
+1422c1437,1440
+<      
+---
+> c
+> c _________________________________________________________
+> c	 	Step 12b Call RtnCarry & DsaMod the first time
+> c		          
+1437,1439c1455
+< c _________________________________________________________
+< c	 	Step 12b Call RtnCarry & DsaMod up to itermax times
+< c		         to add returns (if any) from carrier losses
+---
+> 
+1465c1481,1485
+< 
+---
+> c
+> c _________________________________________________________
+> c	 	Step 12c Begin iteraton loop (100) since the location of return
+> c            flows are not known au-prior
+> c
+1475c1495,1497
+<  
+---
+> c      
+> c _________________________________________________________
+> c 
+1540c1562
+< c	 	Exit if no available flow 
+---
+> c	 	Step 12d Exit if no available flow 
+1547a1570
+> c   Step 13 Call RivRtn AGAIN to allow Avail to be adjusted 
+1550c1573,1577
+< c		Call RivRtn AGAIN to allow Avail to be adjusted
+---
+> 
+> c !!!		 Note:
+> c          navail=1 allows avail to be adjusted
+> c          navail=2 Adjust AVAIL to be adjused for each diversion 
+> c                   and release except the source diversion 
+1552,1553d1578
+< c !!!		Note navail=1 DOES allow avail to be adjusted
+< c		  for various carrier configurations
+1556c1581
+< c rrb 2010/10/15; Update to allow operationn with a depletion release
+---
+> c rrb 2010/10/15; Update to allow operation with a depletion release
+1559c1584,1595
+<          nAvail=1
+---
+> c
+> c rrb 2014-07-29; Revise to not adjust the source diversion
+> c                 since its already done in DSAMOD
+> cx       nAvail=1
+>          nAvail=2
+> c
+> c rrb 2014-07-27; Check Avail
+>          if(ioutA.eq.1) then
+>            nchkA=2
+>            call ChkAvail2(nlog, ifirst, icx, nchkA, maxsta, numsta, 
+>      1          fac, avail) 
+>          endif        
+1564c1600,1608
+<      1     ncnum, nAvail, alocfsR, DepFacM, imcdR, corid1)    
+---
+>      1     ncnum, nAvail, alocfsR, DepFacM, imcdR, corid1) 
+> c
+> c rrb 2014-07-27; Check Avail
+>          if(ioutA.eq.1) then
+>            nchkA=3
+>            call ChkAvail2(nlog, ifirst, icx, nchkA, maxsta, numsta, 
+>      1          fac, avail) 
+>          endif        
+>         
+1569c1613,1614
+< c               Step 13; Set shortage
+---
+> c               Step 14; Check for shortages and 
+> c                        Set Qdiv for the source and destination only
+1571,1576d1615
+< c       
+< c __________________________________________________________
+< c                Step 14; Set Qdiv for the source and destination
+< c      
+< c rrb 2008/06/27; Update (add the following)
+< c rrb 2009/01/23; Move from below to allow a check when short 
+1578,1579c1617,1619
+<        EffmaxT1=(100.0-OprLossC(l2,1))/100.0
+<        
+---
+>        EffmaxT1=(100.0-OprLossC(l2,1))/100.0   
+> c
+> c      
+1592c1632
+< c	 	Step 15; Set Qdiv for the carrier and route 
+---
+> c	 	            Step 15; Set Qdiv for the carrier and route 
+1624,1625c1664,1665
+< c		Step 16a; Check Avail from the first river 
+< c                       diversion (iscd) 
+---
+> c		            Step 16a; Check Avail from the source (iscd) 
+> c                         diversion (iscd) 
+1634,1635c1674,1675
+< c		Step 16b; Check avail from the final river 
+< c			   destination (idcd2X)
+---
+> c		            Step 16b; Check avail from the final 
+> c			                    destination (idcd2X)
+1645c1685
+< c		Step 16c; Check for a negative avail
+---
+> c		            Step 16c; Check for a negative avail
+1655,1656c1695,1696
+< c		Step 16c; Check for a positive avail and a constrained
+< c		          shortage 
+---
+> c		            Step 16c; Check for a positive avail and a constrained
+> c		                      shortage 
+1719c1759
+< c               b. Check reservoir roundoff when exiting routine
+---
+> c               c. Check reservoir roundoff when exiting routine
+1730c1770
+< c	 	c. Update diversion destination data
+---
+> c	 	            d. Update diversion destination data
+1746c1786
+< c	 	d. Update source diversion 
+---
+> c	 	            e. Update source diversion 
+1754c1794
+< c	 	e. Update source diversion water right
+---
+> c	 	            f. Update source diversion water right
+1764c1804
+< c	 	f. Update reservoir water right
+---
+> c	 	            g. Update reservoir water right
+1786d1825
+< c      
+1788,1793c1827
+< c                g. Update carrier through a structure (qdiv(18,n))
+< c                   if the source is not the carrier (iscdx.ne.iscd)
+< c	 	   using source carrier efficiency (OprEff1)
+<        
+< c ---- -----------------------------------------------------
+< c                k. Update diversion by this Operating Rule
+---
+> c                h. Update diversion by this Operating Rule
+1798c1832
+< c                l. UPDATE DESTINATION DEMAND   
+---
+> c                i. UPDATE DESTINATION DEMAND   
+1813c1847,1849
+< c ---------------------------------------------------------
+---
+> c
+> c _________________________________________________________ 
+> c		            Step 18a; Check avail from the final 
+1816c1852
+< c	 	             m. Update miscellaneous limit
+---
+> c	 	             j. Update miscellaneous limit
+1849c1885,1887
+< c rrb 2011/10/15; Update the monthly and annual limits plus plan data
+---
+> c rrb 2011/10/15; 
+> c               b. Update the monthly and annual limits plus
+> c                  plan data
+1863,1868c1901,1908
+< c      
+< c ---- -----------------------------------------------------
+< c                m. Update transmountain (Qdiv(8,iscd))
+< c	 	   where iscd is the source location
+< c	 	   using total carrier efficiency (OprEffT)
+<        
+---
+> 
+> c _________________________________________________________
+> c
+> c		            Step 19; Update Qdiv
+> c
+> c               a. Updatetransmountain (Qdiv(8,iscd))
+> c	 	               where iscd is the source location
+> c	 	               using total carrier efficiency (OprEffT)    
+1876c1916
+< c                n. Update actual diversion for testing
+---
+> c                b. Update actual diversion for testing
+1880,1887c1920,1926
+< c	 	o. Update amount lost at the carrier
+< c	 	   diversion (nd2>) or reservoir (ndw<0)      
+< c	 	   Note qdiv is by stream location (cfs)
+< c	 		qres is by reservoir in (acft)
+< c	 	qdiv(33,iscd)   Source Carrier loss
+< c	 	Note since at carrier use TranLoss
+< c      
+< c      
+---
+> c	 	             c. Update amount lost at the carrier
+> c	 	                diversion (nd2>) or reservoir (ndw<0)      
+> c	 	                Note qdiv is by stream location (cfs)
+> c	 	               	qres is by reservoir in (acft)
+> c	 	                qdiv(33,iscd)   Source Carrier loss
+> c	 	                Note since at carrier use TranLoss
+> c           
+1941c1980
+<      1     NS1, Nd2,iplan,imcd, ndloc, iscd, ioprlim(l2),
+---
+>      1     NS1, Nd2,iplan,imcd, ndloc, iscd, ioprlim(l2), nRiver,
+1962,1970c2001,2013
+< c rrb  2008/06/10	      
+<        if(iresw.eq.0) then
+<          ctype1='Diversion'
+<          call GetCall(iscd, imcdL(iscd), nd2, ctype1)        
+<        else
+<          ctype1='Reservoir'
+<          call GetCall(iscd, imcdL(iscd), nr2, ctype1)                
+<        endif       
+<        
+---
+> c rrb  2008/06/10	
+> c rrb 2014-07-29 No need to test if not on this month and
+> c                iscd, etc are not set
+> c
+>        if(iwhy.ne.1) then     
+>          if(iresw.eq.0) then
+>            ctype1='Diversion'
+>            call GetCall(iscd, imcdL(iscd), nd2, ctype1)        
+>          else
+>            ctype1='Reservoir'
+>            call GetCall(iscd, imcdL(iscd), nr2, ctype1)                
+>          endif    
+>        endif
+1985c2028,2032
+<        CALL DNMFSO(maxsta, avail, IDNCOD, idcd2, ndns2, IMCD)
+---
+> c rrb 2014-07-29 No need to test if not on this month and
+> c                idcd2, etc are not set
+>        
+>        if(iwhy.ne.1) then  
+>          CALL DNMFSO(maxsta, avail, IDNCOD, idcd2, ndns2, IMCD)
+1988,1993c2035,2041
+< c      if(avail(imcd).le.small) then
+<        if(avail(imcd).le.smalln) then
+<          write(nlog,*) ' DivCarL; Problem imcd, avail', 
+<      1    imcd, avail(imcd)*fac
+<          goto 9999
+<        endif  
+---
+> c        if(avail(imcd).le.small) then
+>          if(avail(imcd).le.smalln) then
+>            write(nlog,*) ' DivCarL; Problem imcd, avail', 
+>      1      imcd, avail(imcd)*fac
+>            goto 9999
+>          endif  
+>        endif
+2012a2061
+>      1  '    Nriver  = Carrier to river (0=no, >0=yes)',/
+2020,2023c2069,2072
+<      1  ' Operation Right ID = ', a12,
+<      1  ' Destination Type = ', a12, ' Source Type = ', a12,
+<      1  ' Carrier (Y/N) = ',a3, ' Plan (Y/N) = ', a3, 
+<      1  ' Plan Type = ', a12,' Shared Water ', a3/
+---
+>      1  '  -Operation Right ID = ', a12,
+>      1  ' -Destination Type = ', a12, ' -Source Type = ', a12,
+>      1  ' -Carrier (Y/N) = ',a3, ' -Plan (Y/N) = ', a3, 
+>      1  ' -Plan Type = ', a12,' -Shared Water ', a3/
+2027c2076,2077
+<      1  '   iplan    imcd   ndloc    iscd ioprlim  AvailX OprLimt',
+---
+>      1  '   iplan    imcd   ndloc    iscd ioprlim  nRiver  AvailX',
+>      1  ' OprLimt',
+2034c2084,2085
+<      1  ' _______ _______ _______ _______ _______ _______ _______', 
+---
+>      1  ' _______ _______ _______ _______ _______ _______ _______',
+>      1  ' _______', 
+2040c2091
+<   280   FORMAT(a12, i5,1x,a4, i5, 2(1x,a12),12i8,25F8.0,2i8,1x, a48)
+---
+>   280   FORMAT(a12, i5,1x,a4, i5, 2(1x,a12),13i8,25F8.0,2i8,1x, a48)
+2091c2142
+<      1     NS1, Nd2,iplan,imcd, ndloc, iscd, ioprlim(l2),
+---
+>      1     NS1, Nd2,iplan,imcd, ndloc, iscd, ioprlim(l2), nRiver,
+2115d2165
+< 
+2118d2167
+< 
+\ No newline at end of file
