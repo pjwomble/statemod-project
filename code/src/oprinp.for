@@ -6427,7 +6427,15 @@ c                       istop=1 (OK if not found)
           call oprFind(ityopr(k), 2, idumc,k,ion,iprinto,
      1         iops1, iopdes(2,k), nx,ciopde, 1, istop, rops2,
      1         ioprsw(k), cidvri)
-          if(iops1.gt.0) then
+c         this is a gnu fortran precompiler thing
+c         but sometimes the whole if block is evaluated at once
+c         causing array bounds runtime errors even though the
+c         if statement in theory would avoid it...
+c         so pop an empty block in front...
+          if(iops1.eq.0) then
+c           can not get here, but put a fake block anyway. see above.
+            istop=1
+          else
             iopdes(1,k)=-iops1
             idcdD=irssta(iops1)
             iopdesr(k)=2
