@@ -1,0 +1,92 @@
+3857c3857,3860
+<             iopdes(1,k) = iops1+10000
+---
+> c
+> c rrb 2014-06-15; Revise to use iopdesr(l2) as teh type indicator          
+> cx          iopdes(1,k) = iops1+10000
+>             iopdes(1,k) = iops1
+3887c3890,3893
+<           iopdes(1,k)=-iops1
+---
+> c
+> c rrb 2014-06-15; Revise to use iopdesr(l2) as the type indicator     
+> cx        iopdes(1,k)=-iops1
+>           iopdes(1,k)=iops1
+4106c4112
+<         iout24=0
+---
+>         iout24=1
+5344a5351,5368
+> c rrb ***************
+> c
+> c rrb_2014-04-26; Allow the destination to be specified
+> c ---------------------------------------------------------
+> c               b1. Find the destination, a river ID (type 0)
+> c		   set istop=1 (OK if not found)
+>         istop=1
+>         itype=0
+>         call oprFind(ityopr(k), itype, idumc,k,ion,iprinto,
+>      1       iops1, iopdes(2,k), nx,ciopde, 0, istop, rops2,
+>      1       ioprsw(k), cidvri)
+>      
+>         if(iops1.gt.0) then
+>           iopdes(1,k)=iops1
+>           idcdD=idvsta(iops1)
+>           iopdesr(k)=itype
+>         endif  
+> c *********     
+5452c5476
+<         iout29=0
+---
+>         iout29=1
+8063c8087,8108
+< c		q. Detailed output
+---
+> c rrb 2014-07-29
+> c 		q. Print warning if the water right ownership is not 100%
+>       OprPct(k)=float(iopsou(4,k))
+>       if(OprPct(k). le.99.9) then
+>         write(nlog,740) ityopr(k), cidvri, iopsou(4,k)
+>         iopsou(4,k)=100
+>         OprPct(k)=float(iopsou(4,k))
+>         goto 9999
+>       endif
+> c
+> c ---------------------------------------------------------
+> c rrb 2014-07-29
+> c 		q. Print warning if the source water right i ssupposed to be
+> c        left on (iopsou(2,k) = 0
+>       if(iopsou(2,k) .ne. 1) then
+>         write(nlog,741) ityopr(k), cidvri, iopsou(2,k)
+>         iopsou(2,k)=0
+>         goto 9999
+>       endif
+> c
+> c ---------------------------------------------------------
+> c		r. Detailed output
+8999,9000c9044,9049
+< 
+<           ip=iopdes(1,k)
+---
+> c
+> c rrb 2014-06-15; Revise to allow a negative value to be used
+> c                 to indicate a plan
+> cx        ip=iopdes(1,k)
+>           ip1=iopdes(1,k)
+>           ip=amax0(ip1, -1*ip1)
+9540a9590,9604
+> 
+>   740 format(/, 72('_'),/
+>      1   '  Oprinp; ',/
+>      1 10x,'Problem with Operation Type  = ',i3,' Right = ', a12,/,
+>      1 10x,'The percent of water right as a source (iopsou(4,l) = ',
+>      1       i5,'%',/
+>      1 10x,'A value less than 100% is not operatonal',/
+>      1 10x,'Recommend you revise iopsou(4,l) to be 100.')
+> 
+>   741 format(/, 72('_'),/
+>      1   '  Oprinp; ',/
+>      1 10x,'Problem with Operation Type  = ',i3,' Right = ', a12,/,
+>      1 10x 'Variable iopsou(2,k) = ', i5, ' that allows the source',/
+>      1 10x,'right to be left on is not operational'/
+>      1 10x,'Recommend you revise iopsou(2,l) to be 1')

@@ -146,9 +146,9 @@ c rrb 2007/12/05; Warn if losses exceed 100%
 c
 c rrb 2008/06/10; Set carrier type Ncarry
 c                 0 No carrier
-c		  1 No return to River, Final Destination from a carrier
-c	          2 Return to River, Final Destination is off a carrier
-c		  3 Return to River, Final Destination is off the river
+c		              1 No return to River, Final Diversion from carrier
+c	                2 Return to River, Final Diversion from a carrier
+c		              3 Return to River, Final Diversion from the river
       ncarry1=ncarry
 c
 c rrb 2008/06/29; Correction      
@@ -157,9 +157,13 @@ cx      if(ncarry.gt.0 .and. internL.eq.1) ncarry=2
 cx      if(ncarry.gt.0 .and. internL.eq.2) ncarry=3
       
       if(ncarry1.gt.0 .and. nriver.eq.0 .and. internL.eq.1) ncarry=1
-      if(ncarry1.gt.0 .and. nriver.gt.0 .and. internL.eq.1) ncarry=2
-      if(ncarry1.gt.0 .and. nriver.gt.0 .and. internL.eq.2) ncarry=3
-      
+c
+c rrb 2014-07-29; Revise to allow return to river to work in Type 45 (DivCarL)  
+cx      if(ncarry1.gt.0 .and. nriver.gt.0 .and. internL.eq.1) ncarry=2
+cx     if(ncarry1.gt.0 .and. nriver.gt.0 .and. internL.eq.2) ncarry=3
+      if(ncarry1.gt.0 .and. nriver.gt.0 .and. internL.eq.1) ncarry=3
+      if(ncarry1.gt.0 .and. nriver.gt.0 .and. internL.eq.2) ncarry=2
+            
       if(iout.ge.1) then
         write(nlog,*) ' SetLoss; ncarry1 internL  ncarry'
         write(nlog,'(10x, 20i8)') ncarry1, internL, ncarry

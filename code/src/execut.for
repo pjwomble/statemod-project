@@ -741,8 +741,10 @@ c                which can be much larger.
 c                ran into errors in bomsec on a daily model
 c                when the bounds check compiler flag is turned on.
 c                Try changing this to maxdlm.
-c	      IF(IMO.GT.ndlymx) IMO=1
-          IF(IMO.GT.maxdlm) IMO=1
+c jhb 2014/08/19 This change broke the return flow calculations in monthly models
+c                Revert it back and find another way to solve the array bounds problem
+	      IF(IMO.GT.ndlymx) IMO=1
+c          IF(IMO.GT.maxdlm) IMO=1
 c
 c _________________________________________________________
 c		Step X; Set factors Monthly (iday=0) or Daily (iday=1)

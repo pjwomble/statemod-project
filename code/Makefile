@@ -244,6 +244,7 @@ statemod: \
 			bin/chekres.o \
 			bin/chekts.o \
 			bin/chkavail.o \
+			bin/chkavail2.o \
 			bin/chkprf.o \
 			bin/chkver.o \
 			bin/closs.o \

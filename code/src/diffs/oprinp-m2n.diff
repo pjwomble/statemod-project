@@ -1,0 +1,97 @@
+142c142
+<      1  'Res to Carrier',              'Res Exch to a Diversion',
+---
+>      1  'Res to Carrier',              'Res Exchange to a Diversion',
+144c144
+<      1  'Res to a Carrier by Exch',    'OOP Bookover',
+---
+>      1  'Res to a Carrier by Exchange','OOP Bookover',  
+147c147
+<      1  'Carrier to Ditch or Res',
+---
+>      1  'Carrier to a Ditch or Res',    
+167c167
+<      1  'Storage w/ Special Limits',   'Plan Reset',
+---
+>      1  'Storage with Special Limits', 'Plan Reset',            
+170c170
+<      1  'Admin Plan Limits',           'Reuse to a Plan Direct',
+---
+>      1  'Administration Plan Limits',  'Reuse to a Plan Direct', 
+4112c4112
+<         iout24=0
+---
+>         iout24=1
+5476c5476
+<         iout29=0
+---
+>         iout29=1
+7207c7207
+<           if(iplntyp(iops1).eq.9 .or. iplntyp(iops1).eq.10) iok=0
+---
+>           if(iplntyp(iops1).eq.9 .or. iplntyp(iopd1).eq.10) iok=0
+7643,7644c7643,7644
+< c	                 	itype=24 find monthly and annual plan limits
+< c                                within the operating rule
+---
+> c	                 	itype=24 Operating Rule ID with monthly and annual
+> c                             plan limits
+8087c8087,8108
+< c		q. Detailed output
+---
+> c rrb 2014-07-29
+> c 		q. Print warning if the water right ownership is not 100%
+>       OprPct(k)=float(iopsou(4,k))
+>       if(OprPct(k). le.99.9) then
+>         write(nlog,740) ityopr(k), cidvri, iopsou(4,k)
+>         iopsou(4,k)=100
+>         OprPct(k)=float(iopsou(4,k))
+>         goto 9999
+>       endif
+> c
+> c ---------------------------------------------------------
+> c rrb 2014-07-29
+> c 		q. Print warning if the source water right i ssupposed to be
+> c        left on (iopsou(2,k) = 0
+>       if(iopsou(2,k) .ne. 1) then
+>         write(nlog,741) ityopr(k), cidvri, iopsou(2,k)
+>         iopsou(2,k)=0
+>         goto 9999
+>       endif
+> c
+> c ---------------------------------------------------------
+> c		r. Detailed output
+9022c9043
+< c          write(nlog,*) ' Oprinp; Plan spill check k', k
+---
+>           write(nlog,*) ' Oprinp; Plan spill check k', k
+9276c9297
+<      1 10x,'Cannot read destination water right')
+---
+>      1 10x,'Cannot read destination water right',)
+9569a9591,9605
+>   740 format(/, 72('_'),/
+>      1   '  Oprinp; ',/
+>      1 10x,'Problem with Operation Type  = ',i3,' Right = ', a12,/,
+>      1 10x,'The percent of water right as a source (iopsou(4,l) = ',
+>      1       i5,'%',/
+>      1 10x,'A value less than 100% is not operatonal',/
+>      1 10x,'Recommend you revise iopsou(4,l) to be 100.')
+> 
+>   741 format(/, 72('_'),/
+>      1   '  Oprinp; ',/
+>      1 10x,'Problem with Operation Type  = ',i3,' Right = ', a12,/,
+>      1 10x 'Variable iopsou(2,k) = ', i5, ' that allows the source',/
+>      1 10x,'right to be left on is not operational'/
+>      1 10x,'Recommend you revise iopsou(2,l) to be 1')
+> 
+10126c10162
+<      1 '  Oprinp; Problem with Operating Right ', a12, ' Type = ',i2,/
+---
+>      1 '  Oprinp; Problem with Operating Right ', a12,, ' Type = ',i2,/
+10173c10209
+<      1 '  Oprinp; Problem with Operating right type     = ', i2,/
+---
+>      1 '  Oprinp; Problem with Operating right type     = ', i2,,/
+10201d10236
+< 

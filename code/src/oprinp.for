@@ -6385,6 +6385,7 @@ c
  1035   continue 
 c               Type 35; Transmountain import
 c                destination = a diversion or a reservoir or carrier
+c jhb 2014/08    or an acct plan (plan type 11)
 c                source 1 (iopsou(1,k) = a diversion (import)
 c                source 2 (iopsou(3,k) = N/A
 c                  ion=1 means turn off opr right if right is off
@@ -6426,12 +6427,50 @@ c                       istop=1 (OK if not found)
           call oprFind(ityopr(k), 2, idumc,k,ion,iprinto,
      1         iops1, iopdes(2,k), nx,ciopde, 1, istop, rops2,
      1         ioprsw(k), cidvri)
-          iopdes(1,k)=-iops1
-          idcdD=irssta(iops1)
-          iopdesr(k)=2
-c         write(nlog,*) '  Oprinp; Type 28 iopdes(1,k) = ', iopdes(1,k)
+          if(iops1.gt.0) then
+            iopdes(1,k)=-iops1
+            idcdD=irssta(iops1)
+            iopdesr(k)=2
+c           write(nlog,*) '  Oprinp; Type 28 iopdes(1,k) = ', iopdes(1,k)
+          endif
         endif
 c        
+c ---------------------------------------------------------
+c jhb 2014/08 added another transbasin import destination type,
+c             an accounting plan (type 11)
+c             note: this should be the default and possibly only
+c                   mode for a type 35 rule in the future
+c                   according to the state's statemod modeling experts
+c                   but leave it as is for backward compatibility,
+c                   and just remove the documentation of the other modes
+c ---------------------------------------------------------
+c               b2.5 Find destination = an acct plan (plan type 11)
+c          Note istop=0 Stop if not found
+c               istop=1 Do not Stop if not found
+c jhb 2014/08 note that itype=7 means find any plan type,
+c             not just a type 7 plan!
+        if(iops1.eq.0) then
+c         destination MUST be a plan when reaching here...
+          istop=0
+          itype=7
+          iacc=1
+          call oprFind(ityopr(k), itype, idumc,k,ion,iprinto,
+     1       iops1,iopdes(2,k), nx, ciopde, iacc,
+     1       istop, rops2,ioprsw(k), cidvri)
+
+          iopdes(1,k)=iops1
+          idcdD=ipsta(iops1)
+          iopdesr(k)=7
+c
+c         Check proper type
+c jhb 2014/08 for now the only plan type that is allowed is a plan type 11
+          iok=1
+          if(iplntyp(nx).eq.11) iok=0
+          if(iok.eq.1) then
+            write(nlog,1256) ityopr(k),cidvri, ciopso1, iplntyp(nx)
+            goto 9999
+          endif
+        endif
 c ---------------------------------------------------------
 c rrb 2008/03/21; Revised warning when several destinations are possible        
         if(iops1.eq.0) then
@@ -6441,10 +6480,13 @@ c rrb 2008/03/21; Revised warning when several destinations are possible
         
 c
 c ---------------------------------------------------------
+c jhb 2014/08 the following is a problem since intern(k,1) has not been
+c             set and is still = 0 (the initialized value)
+c             but it doesn't break anything, so leave it alone for now
+c ---------------------------------------------------------
 c               b3. If a carrier then reset the destination location
         nc=intern(k,1)
         if(nc.gt.0) idcdD=idvsta(nc)
-     
 c
 c ---------------------------------------------------------
 c               c. Find source 1 a transmountain import plan (type 7)
@@ -6469,38 +6511,41 @@ c		Check proper type
         endif  
 c
 c ---------------------------------------------------------
+c jhb 2014/08 don't deal with reuse plans if the destination is a type 11 plan
+c ---------------------------------------------------------
 c               d. Find destination reuse plan named Creuse, if any, and
 c		   Store in ireuse(k)
 c		   Note istop=0 Stop if not found
 c		        istop=1 Do not Stop if not found
-
-        iacc=0
-        ion=-1
-        istop=0
-        ireuse1=0
-cr      if(creuse(1:3).ne.'N/A') then
-        if(NAuse.eq.0) then                
-          call oprFind(ityopr(k), 7, idumc,k,ion,iprinto,
+        if(iopdesr(k).eq.7) then
+        else
+          iacc=0
+          ion=-1
+          istop=0
+          ireuse1=0
+cr        if(creuse(1:3).ne.'N/A') then
+          if(NAuse.eq.0) then
+            call oprFind(ityopr(k), 7, idumc,k,ion,iprinto,
      1         ireuse1,iops2, nx, creuse, iacc, istop, rops2,
      1         ioprsw(k), cidvri)     
-        endif
+          endif
 c
 c ---------------------------------------------------------
-c		f. Check proper type of plan for a TransMountain Import
+c         f. Check proper type of plan for a TransMountain Import
 c                  Note iplntyp 3 & 5 are reservoir, 
 c                       iplntyp 4 & 6 are diversion
-        if (ireuse1.gt.0) then
-          ireuse(k)=ireuse1        
-          
-          iok=1          
-          if(iopdes(1,k).lt.0 .and. iplntyp(ireuse1).eq.5) iok=0
-          if(iopdes(1,k).gt.0 .and. iplntyp(ireuse1).eq.6) iok=0
-          if(iok.eq.1) then
-            write(nlog,1255) ityopr(k),cidvri, ciopde, creuse, 
-     1        iplntyp(ireuse1)
-            goto 9999
-          endif  
-        endif        
+          if (ireuse1.gt.0) then
+            ireuse(k)=ireuse1
+            iok=1
+            if(iopdes(1,k).lt.0 .and. iplntyp(ireuse1).eq.5) iok=0
+            if(iopdes(1,k).gt.0 .and. iplntyp(ireuse1).eq.6) iok=0
+            if(iok.eq.1) then
+              write(nlog,1255) ityopr(k),cidvri, ciopde, creuse,
+     1          iplntyp(ireuse1)
+              goto 9999
+            endif
+          endif
+        endif
 c
 c ---------------------------------------------------------
 c		e. Detailed output
@@ -8084,8 +8129,28 @@ c       goto 9999
       endif
 c
 c ---------------------------------------------------------
-c		q. Detailed output
-     
+c rrb 2014-07-29
+c 		q. Print warning if the water right ownership is not 100%
+      OprPct(k)=float(iopsou(4,k))
+      if(OprPct(k). le.99.9) then
+        write(nlog,740) ityopr(k), cidvri, iopsou(4,k)
+        iopsou(4,k)=100
+        OprPct(k)=float(iopsou(4,k))
+        goto 9999
+      endif
+c
+c ---------------------------------------------------------
+c rrb 2014-07-29
+c 		q. Print warning if the source water right i ssupposed to be
+c        left on (iopsou(2,k) = 0
+      if(iopsou(2,k) .ne. 1) then
+        write(nlog,741) ityopr(k), cidvri, iopsou(2,k)
+        iopsou(2,k)=0
+        goto 9999
+      endif
+c
+c ---------------------------------------------------------
+c		r. Detailed output
       iout45=0
       if(iout45.eq.1) then
         write(nlog,2020) ityopr(k), cidvri, ityopr(k),
@@ -9567,6 +9632,21 @@ c    1 10x,'   at the source or destination structure',/
      1 10x,'Recommend you set the operating loss to zero and check',/
      1 10x,'that your structure efficiency values are correct')
 
+  740 format(/, 72('_'),/
+     1   '  Oprinp; ',/
+     1 10x,'Problem with Operation Type  = ',i3,' Right = ', a12,/,
+     1 10x,'The percent of water right as a source (iopsou(4,l) = ',
+     1       i5,'%',/
+     1 10x,'A value less than 100% is not operatonal',/
+     1 10x,'Recommend you revise iopsou(4,l) to be 100.')
+
+  741 format(/, 72('_'),/
+     1   '  Oprinp; ',/
+     1 10x,'Problem with Operation Type  = ',i3,' Right = ', a12,/,
+     1 10x 'Variable iopsou(2,k) = ', i5, ' that allows the source',/
+     1 10x,'right to be left on is not operational'/
+     1 10x,'Recommend you revise iopsou(2,l) to be 1')
+
   760 FORMAT(/, 72('_'),/
      1  '  Oprinp; Problem with Operation right = ', a12,/                     
      1 '   Destination ID ',a12,' from the operation file (*.opr)',              
@@ -9914,6 +9994,12 @@ c    1 10x,'   at the source or destination structure',/
      1 10x,'      A Transmountain Import Plan should be type: 7',/
      1 10x,'      A Recharge Plan should be type:             8',/
      1 10x,'Revise the plan or operating rule data')
+ 2256 format(/, 72('_'), /,'  Oprinp; ',
+     1'Problem with Operating right type = ',i2,' ID = ', a12,/
+     1 10x,'The destination (Plan) = ', a12,' and the',/
+     1 10x,'Plan Type           = ',i1,11x,' are inconsistent.',/
+     1 10x,'Note: The only plan type (currently) allowed as a',/
+     1 10x,'      destination of a type 35 operating rule is 11')
      
  1257 format(/, 72('_'), /,'  Oprinp; ',
      1'Problem with Operating right type = ',i2,' ID = ', a12,/

@@ -349,11 +349,14 @@ cx        if(nplan.eq.0) istop=0
 cx        if(nplan.eq.0) istop=1
 c
 c ---------------------------------------------------------
-          
+c         loop through all the plans
           do nx =1,nplan
+c           debugging output
             if(ioutP.eq.1 .or. iout.eq.1)
      1        write(nlog,*) ' Oprfind; ',nx, cx, pid(nx)
+c           check to see if this plan id matches the given structure id
             if (pid(nx).eq.cx) then
+c             found a match, it's a plan, save the plan index
               iops1=nx
 c
 c rrb 2009/01/15; Set the default plan account = 1 when the account

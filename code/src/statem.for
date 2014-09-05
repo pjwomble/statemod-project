@@ -61,6 +61,22 @@ c                 changed output for an admin plan (to b68 binary and
 c                   therefore the xpl, too) when the plan is being split
 c                   by a type 46 op rule into other plans.  output the
 c                   total supply to those plans from psuplyt()
+c jhb 2014/08/19; upgraded operating rule 35 (transbasin import) behavior
+c                   now the destination should be a type 11 (accounting) plan
+c                   source remains the same.
+c                   reuse is NOT handled by the op rule 35 anymore, but
+c                   should be handled by the modeler downstream of the
+c                   accounting plan
+c                 also (un)fixed a problem in execut.for in the
+c                   IMO variable reset logic.  a change was made previously
+c                   to fix array bounds errors, but the fix broke return flow
+c                   calculations.  therefore reverted code back to original.
+c                   however, now have to find another way to fix array bounds
+c                   problem when daily return flow patterns are used.
+c jhb 2014/09/05; merged newtype35 branch into master
+c                 merged newtype45rayb into master
+c                 op rule 27 deliver to isf
+c                 updated version to 14.01.00
 c
 c
 c _________________________________________________________
@@ -152,8 +168,8 @@ c				 7 includes new binary output format
 c		yy has new functionality
 c		zz is a bug fix
 c		
-        ver='14.00.03'
-        vdate = '2014/07/25'
+        ver='14.01.00'
+        vdate = '2014/09/05'
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0
@@ -587,6 +603,33 @@ c
 c               Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2014/09/05 (14.01.00)',/
+     1 '      merged new type 35 branch into master:',/
+     1 '        operating rule 35 changed to deliver from import plan',/
+     1 '        (plan type 7) to accounting plan (plan type 11)',/
+     1 '        WITHOUT REUSE. Modeler can split and add reuse after',/
+     1 '        water is in acct plan. This will become default (only)',/
+     1 '        type 35 operating mode and will be documented as such.',/
+     1 '        This branch also has the return flow calculation fix,',/
+     1 '        See details in code comments in statem.for.',/
+     1 '      merged type 45 branch into master:',/
+     1 '        changes to operating rule 45 to allow carrier water',/
+     1 '        to be seen in the river.',/
+     1 '      operating rule 27 delivery to isf node or reach.',/
+     1 '    - 2014/08/26 (03new45)',/
+     1 '      Added changes from Ray B to carrier code, type 45',/
+     1 '      For testing ...',/
+     1 '    - 2014/08/19 (New35Rtn)',/
+     1 '      Experimental branch to change operating rule 35',/
+     1 '      is now working, testing ongoing.',/
+     1 '      Also (un)fixed a return flow calculation change,',/
+     1 '      fix to array bounds problem with daily delay patterns',/
+     1 '      broke return flow calculations. revert to original code',/
+     1 '    - 2014/08/18 (.03New35)',/
+     1 '      Experimental branch to change operating rule 35',/
+     1 '      change it to deliver imported water to accounting plan',/
+     1 '      (type 11) and skip the reuse plan,',/
+     1 '      modeler can handle reuse in the acct plan if needed',/
      1 '    - 2014/07/25 (14.00.03)',/
      1 '      Allow isf reaches to overlap (partially/completely)',/
      1 '      Update admin plan output when split by type 46 op rule',/
