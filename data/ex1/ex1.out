@@ -1,0 +1,32 @@
+# Exhibit 1.15
+# *.xou; Output request file for StateMod Example
+#
+# Type (e.g. Diversion, StreamGage or Reservoir, or All)
+# 
+# StreamGage
+# Diversion
+StreamGage
+# StreamFlow
+# InstreamFlow
+# All
+#
+# Parameter (e.g. TotalSupply, SimEOM, RiverOutflow)
+# 
+River_Outflow
+#
+# ID Name Type and Print Code (0=no, 1=yes);
+# Note: id = All prints all
+#       id = -999 = stop
+#       default is to turn on all stream gages (FLO)
+#
+All
+Dem_3        Irrigation Demand _3     DIV     0
+Dem_2        Irrigation Demand _2     DIV     0
+Dem_1        Municipal Demand _1      DIV     0
+Isf_1        Instream Demand          ISF     0
+Riv_10       Exist. Div. & Inflow     FLO     0
+Riv_30       Inflow                   FLO     1
+Riv_80       USGS Gauge               FLO     1
+Riv_20       Intermediate River Node  OTH     0
+Riv_50       Conf. Mainstem & Trib A  OTH     0
+-999        

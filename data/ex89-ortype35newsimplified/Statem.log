@@ -1,0 +1,25 @@
+________________________________________________________________________
+
+        StateMod                       
+        State of Colorado - Water Supply Planning Model     
+
+        Version: 14.01.01
+        Last revision date: 2014/09/05
+
+________________________________________________________________________
+  Parse; Command line argument: 
+  ex89 -simulate                                                                                                                 
+  
+  
+  Parse Results:
+  Response File Name:      ex89                                                                                                                                                                                                                                                            
+  Primary Option:          -simulate   
+  Secondary Option:        NA          
+  Station (if any):                    
+  Data type (if any):                  
+  Parameter type (if any):             
+
+________________________________________________________________________
+  Getpath; 
+    File Name:       ex89                                                                                                                                                                                                                                                            
+    Path:                                                                                                                                                                                                                                                                            

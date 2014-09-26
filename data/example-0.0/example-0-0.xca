@@ -1,0 +1,46 @@
+#
+# ________________________________________________________________________________
+# *.xca       Call Data File                                   
+#
+#   STATEMOD                                                                      
+#   Example 0-0 small test network - base case - no historical diversions         
+#
+# Statemod Version: 14.01.01 Date = 2014/09/05)
+# Run date:          26/ 9/** **: 9:41
+# Time Step:         Monthly 
+# 
+# ________________________________________________________________________________
+
+ Call Summary
+ Note: The calling right is estiamted to be the most senior 
+       water right at the calling location that is shorted.
+       If none is reported (NA) it typically occurrs when a
+       structure is diverting at a carrier location, not its
+       physical location
+
+ OutCallR    Year Mon   Day Imcd Call Location  Call Right Call Location Name
+ ___________ ____ ____ ____ ____ _____________  __________ ________________________
+ OutCallR    1979 OCT     1   -1 NA                -1.0000 NA                      
+ OutCallR    1979 NOV     1   -1 NA                -1.0000 NA                      
+ OutCallR    1979 DEC     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 JAN     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 FEB     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 MAR     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 APR     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 MAY     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 JUN     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 JUL     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 AUG     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 SEP     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 OCT     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 NOV     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 DEC     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 JAN     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 FEB     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 MAR     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 APR     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 MAY     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 JUN     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 JUL     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 AUG     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 SEP     1   -1 NA                -1.0000 NA                      

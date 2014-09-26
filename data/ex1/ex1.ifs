@@ -1,0 +1,19 @@
+# Exhibit 1.9
+# *.ifs; Instream Flow Station file for StateMod Example
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (a12,a24,a12,i8, 1x,a12,1x,a12)                   
+#
+#     ID       cifrid:  Instream Flow ID
+#     Name     cfrnam:  Instream Flow name
+#     RivUp    cgoto:   Upstream instream flow location
+#     On/Off   ifrrsw:  Switch; 0=off, 1=on
+#     RivDn    ifrrdn:  Downstream instream flow location 
+#     DailyX   cifridy; For daily model, Id of station with daily data
+#                                                      
+# ID        Name                    RivUp         On/Off RivDn        DailyX
+#----------eb----------------------eb----------eb------exb----------exb----------e
+#
+Isf_1       Instream Demand         Riv_70             1 Riv_80       Isf_1

@@ -1,0 +1,22 @@
+# Exhibit 1.7
+# *.ddr;  Direct Diversion Right for StateMod Example
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (a12, a24, a12, 4x, f12.5, f8.0, i8)                   
+#
+#     ID       cidvri:          Diversion right ID 
+#     Name     named:           Diversion right name
+#     Struct   cgoto:           Direct Diversion Structure ID associated with this right
+#     Admin #  irtem:           Priority or Administration number (if used)
+#     Right    dcrdiv(k):       Diversion right (cfs)
+#     On/Off   idvrsw(k):       Switch 0 = off, 1 = on
+#                                               
+# ID        Name                    Struct          Admin#         Right  On/Off
+#----------eb----------------------eb----------e----b----------eb------eb------e
+Dem_3 Wr#1  Irrigation Demand _3    Dem_3                7.00000  100.00       1
+Dem_2 Wr#1  Irrigation Demand _2    Dem_2                6.00000   60.00       1
+Dem_1 Wr#1  M&I Demand _1           Dem_1                2.00000  100.00       1
+
+

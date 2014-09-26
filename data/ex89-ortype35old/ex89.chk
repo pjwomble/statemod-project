@@ -1,0 +1,71 @@
+________________________________________________________________________
+
+        StateMod                       
+        State of Colorado - Water Supply Planning Model     
+
+        Version: 14.00.03
+        Last revision date: 2014/07/25
+
+________________________________________________________________________
+
+________________________________________________________________________
+  Datinp; Network file (*.rin)
+
+    # ID          Name                    DownStream   GWMax    Comment
+ ___exb__________eb______________________eb__________exb______exb__________________e
+    1 Riv_10      Inflow & Import         Riv_12             0.
+    2 Riv_12      Dem_3                   Riv_20             0.
+    3 Riv_20      Intermediate River Node Riv_25             0.
+    4 Riv_25      TmReuse                 Riv_50             0.
+    5 Riv_30      Res_1 & Inflow          Riv_35             0.
+    6 Riv_35      Tunnel                  Riv_40             0.
+    7 Riv_40      Dem_2                   Riv_50             0.
+    8 Riv_50      Confluence              Riv_60             0.
+    9 Riv_60      Dem_1                   Riv_70             0.
+   10 Riv_70      ISF_1                   Riv_75             0.
+   11 Riv_75      Dem_Test                Riv_80             0.
+   12 Riv_80      Gauge                   Riv_999            0.
+   13 Riv_999     End                                        0.
+  GetPln
+    ex89.pln                                                                                                                                                                                                                                                        
+
+________________________________________________________________________
+  Oprinp; Operating right data read (or estimated)
+
+# ID        Name                    NA                    Admin#   # Str  On/Off Dest Id     Dest Ac  Sou1 Id     Sou1 Ac  Sou2 Id     Sou2 Ac     Type Reuse Plan   DivType       Loss(%)   Limit   ioBeg   ioEnd    #
+#__________eb______________________eb__________exxxxb__________eb______eb______exb__________eb______exb__________eb______exb__________eb______eb______exb__________exb__________exb______eb______eb______eb______eb___e
+Opr_Import  Opr_Import to Dem_3                          3.00000      0.       1 Dem_3             1. Import            1. NA                0.      35 TmReuse      NA                 0.      0.       0    9999    1
+Opr_TmReuse Opr_TmReuse                                999.00000      0.       1 Dem_Test          1. TmReuse           1. NA                0.      27 NA           Diversion          0.      0.       0    9999    2
+Opr_TmReuse Opr_TmReuse_Spill                         9999.00000      0.       1 NA                1. TmReuse           1. NA                0.      29 NA           NA                 0.      0.       0    9999    3
+
+________________________________________________________________________
+
+  Riginp; Warning. Structure with no water rights
+  or free water rights only (admin # .gt.  99998.9)
+  (may be OK if very junior or controlled by an opr right)
+
+    # Structure ID Name                     Type
+ ___exb__________exb______________________exb__e
+    1 Dem_Test     Dem_Test                  Div
+
+________________________________________________________________________
+
+  Mdainp; FYI at least one diversion is less than 0 for  the following
+          Note: OK if an import.
+          Note: In a Sumulation Mode the value is set to zero
+          Note: Only the first negative value is printed for each structure.
+
+    # ID           Year   Q (cfs)    Q (af)
+ ____ ____________ ____ _________ _________
+    1 Import       1980     -0.81    -50.00
+
+________________________________________________________________________
+
+  Demcons; Warning the following structure has a demand that is limited by water rights
+           or capacity. This limit may be OK if the structure is controlled by an operating right
+           Note; only 1 value is printed per year
+           All units are af
+
+    # Year  Mon  ID           Name                       Demand   Rights Capacity Type
+ ___eb___exxb__exb__________exb_____________________exb_______exb______exb______exb__e
+    1 1979  OCT  Dem_Test     Dem_Test                    1000.       0.  307442.  Div

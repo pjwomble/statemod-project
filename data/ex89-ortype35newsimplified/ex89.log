@@ -1,0 +1,721 @@
+________________________________________________________________________
+
+        StateMod                       
+        State of Colorado - Water Supply Planning Model     
+
+        Version: 14.01.01
+        Last revision date: 2014/09/05
+
+________________________________________________________________________
+
+________________________________________________________________________
+  StateM; Response File (*.rsp)                           
+     ex89.rsp                                                                                                                                                                                                                                                        
+
+________________________________________________________________________
+  StateM; Path                                            
+     None    
+  Getfn; maxfile =           80
+
+________________________________________________________________________
+  Getfn; Random input from *.ctl
+
+________________________________________________________________________
+  Statem; Option Specified = Simulate  
+
+________________________________________________________________________
+  Execut; Execut Option
+
+
+
+________________________________________________________________________
+  Execut; Response File (*.rsp)                   
+     ex89.rsp                                                                
+
+________________________________________________________________________
+  Datinp; Control File (*.ctl) 
+
+  GetFile; Opening Control                                 *.ctl   
+    ex89.ctl                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.ctl                                                                                                                                                                                                                                                        
+          File version = 0
+  STATEMOD                                                                      
+  Example 87 Transmountain import with reuse                                    
+
+________________________________________________________________________
+  Datinp; 
+
+   ** Monthly Model                            **
+   ** Output Unit: af                          **
+   ** Wells                                Off **
+   ** Instream flow with reaches            On **
+   ** Detailed call information            Off **
+   ** SJRIP Sediment file (*.sjr)          Off **
+   ** Annual time series (*.tsp) file      Off **
+   ** Variable efficiency                  Off **
+   ** Sprinklers                           Off **
+   ** Soil Moisture                        Off **
+   ** Significant figures on output                    0 **
+  STATEMOD                                                                      
+  Example 87 Transmountain import with reuse                                    
+  Datinp; 
+    iystr      =     1980
+    iyend      =     1980
+    iresop     =        2
+    moneva     =        0
+    iopflo     =        1
+    numpre     =        0
+    numeva     =        1
+    interv     =       -1
+    factor     =    1.984
+    rfacto (1) =    1.984
+    dfacto (1) =    1.984
+    ffacto (1) =    0.000
+    cfacto (1) =    1.000
+    efacto (1) =    1.000
+    pfacto (1) =    1.000
+ (1) Note an input value of 0 is effectively equal to 1.0
+  Datinp; 
+    cyr1       =   WYR
+    icondem    =        1
+    ichk       =      135
+    ireopx     =        0
+    ireach     =        1
+    icall      =        0
+    ccall      = Opr_Import  
+    iday       =        0
+    idaydem    =        0
+    iwell      =        0
+    gwmaxrc    =     0.00
+    isjrip     =        0
+    itsfile    =        0
+    ieffmax    =        0
+    isprink    =        0
+    soild      =     0.00
+    isoil      =        0
+    isigfig    =        0
+
+________________________________________________________________________
+  Datinp; River Network File (*.rin)
+
+  GetFile; Opening River_Network                           *.rin   
+    ex89.rin                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.rin                                                                                                                                                                                                                                                        
+          File version = 0
+
+  Datinp; Number of Network Stations (*.rin) =    14
+   Datinp; ioutN @ line 1053            0
+
+________________________________________________________________________
+  Datinp; Reservoir Station File (*.res)
+
+  GetFile; Opening Reservoir_Station                       *.res   
+    ex89.res                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.res                                                                                                                                                                                                                                                        
+          File version = 0
+
+  GetRes; Reservoir Station File (*.res) 
+    ex89.res                                                                                                                                                                                                                                                        
+
+  GetRes; Number of Reservoirs =     1
+
+________________________________________________________________________
+  Datinp; Diversion Station File (*.dds)
+
+  GetFile; Opening Diversion_Station                       *.dds   
+    ex89.dds                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.dds                                                                                                                                                                                                                                                        
+          File version = 0
+
+  GetDiv; Number of Diversions       =     5
+
+________________________________________________________________________
+  Datinp; River Station File (*.ris)
+
+  GetFile; Opening StreamGage_Station                      *.ris   
+    ex89.ris                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.ris                                                                                                                                                                                                                                                        
+          File version = 0
+
+  Datinp; Number of river stations (*.ris) =     3
+
+________________________________________________________________________
+  Datinp; Instream Flow Station File (*.ifs) 
+
+  GetFile; Opening Instreamflow_Station                    *.ifs   
+    ex89.ifs                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.ifs                                                                                                                                                                                                                                                        
+          File version = 0
+
+  Datinp; Number of instream flow stations (*.ifs) =     1
+
+________________________________________________________________________
+  Datinp; Well Station File (*.wes) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+________________________________________________________________________
+  Datinp; Plan Station File (*.pln) 
+
+  GetFile; Opening Plan_Data                               *.pln   
+    ex89.pln                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.pln                                                                                                                                                                                                                                                        
+          File version = 0
+  Subroutine GetPln           99
+
+________________________________________________________________________
+
+  GetPln; Number of Plan Types 
+    # Type Description                Number
+ ____ ____ _________________________ _______
+    1    7 Transmountain_Import            1
+    2   11 Accounting_Plan                 1
+ ____ ____ _________________________ _______
+    2   NA Total                           2
+  
+  GetPln; Number of Plans        =            2
+
+________________________________________________________________________________________________________________________________________________
+ GetPln; Plan Return File (*.prf) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+________________________________________________________________________
+  Datinp; River Gage File (*.rig) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+________________________________________________________________________
+  Datinp; River Node Summary
+
+  Number of Inflow nodes                    =     3
+  Number of Diversion nodes                 =     5
+  Number of Reservoir nodes                 =     1
+  Number of Minimum Instream nodes          =     1
+  Number of Well nodes Total                =     0
+  Number of Supplemental Well nodes =     0
+  Number of Sole Source Well nodes  =     0
+  Number of Plans                           =     2
+  Number of Other nodes (1)                 =     2
+  _________________________________________________
+  Total of River nodes                      =    14
+
+  (1) May be negative if multiple activities occur at the  same node
+
+
+ nf          43 nx          38
+ nf          44 nx          29
+ nf          67 nx          33
+   Execut; divchk (af/time step) =    9.99999978E-03           0           0
+
+________________________________________________________________________
+  Execut; FYI Reoperation check =      0.010 cfs
+                                =      0.615 af/mo
+
+________________________________________________________________________
+  Riginp; Instream Flow Right File (*.ifr)    20    1   98
+    ex89.ifr                                                                                                                                                                                                                                                        
+  Rininp; FYI Number of InstreamFlow Rights =     1
+
+________________________________________________________________________
+  Riginp; Reservoir Right File (*.rer) 
+    ex89.rer                                                                                                                                                                                                                                                        
+  Rininp; FYI Number of Reservoir    Rights =     1
+
+________________________________________________________________________
+  Riginp; Direct Diversion Right File (*.ddr) 
+    ex89.ddr                                                                                                                                                                                                                                                        
+  Rininp; FYI Number of Diversion    Rights =     5
+
+________________________________________________________________________
+  Oprinp; Operational Right File (*.opr) 
+
+  GetFile; Opening Operational_Right                       *.opr   
+    ex89.opr                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.opr                                                                                                                                                                                                                                                        
+          File version = 0
+
+________________________________________________________________________
+  ChkVer; Warning two Operating Rule File (*.opr)     
+            formats are currently supported but no file
+            version has been provided.
+          Based on the data in the file it appears
+            you have provided version 2 that has
+            Plan, Diversion Type, Operating Loss, etc.
+          To eliminate this warning it is recommend you
+            migrate to the current standard format
+            and include the following at the top of
+            your file: #FileFormatVersion 2
+          If you do migrate to the current standard
+            and add the above at the top of the file
+            StateMod will try to read the current standard
+            and set missing data to a default value.
+
+________________________________________________________________________
+
+  OprinP; Number of Operating Rule Types 
+    # Type Description                Number
+ ____ ____ _________________________ _______
+    1   29 Plan Spill                      1
+    2   35 Import with Reuse               1
+ ____ ____ _________________________ _______
+    2   NA Total                           2
+
+
+________________________________________________________________________
+  Oprinp; Number of Operating    Rights =     2
+          Number turned off             =     0
+          Number active                 =     2
+
+________________________________________________________________________
+
+  Rininp; Water Right Summary
+
+  Number of Diversion Rights       =     5
+  Number of Reservoir Rights       =     1
+  Number of Instream Rights        =     1
+  Number of Operational Rights     =     2
+  Number of Well Rights            =     0
+  ________________________________________
+  Total Water Rights               =     9
+
+
+
+________________________________________________________________________
+  SetPlanO; Set Plan to Operational Rule Data
+
+________________________________________________________________________
+  Mdainp; Precipitation File (*.pra or *.prm)
+     -1                                                                                                                                                                                                                                                              
+  Chekpor; FYI, A dummy (blank) file determined for 
+           file: -1                                                                                                                                                                                                                                                              
+
+________________________________________________________________________
+  Mdainp; Evaporation File (*.evm or *.eva) 
+     ex89.eva                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.eva                                                                                                                                                                                                                                                        
+          File version = 0
+
+  Chekts
+   10 1980         9 1981 AF/M  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = AF/M  for file type    1
+          Unit Conversion Factor = 1.0 divided by   1.9835
+          divided by the number of days in a month.
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 AF/M is       8.4027  CFS
+          for internal calculations (assuming a 30 day month)
+
+------------------------------------------------------------------------
+  Mdainp; WARNING FILE *.eva
+          HAS A UNIT CONVERSION FACTOR         =     1.9835
+          WHILE THE CONTROL FILE HAS A FACTOR  =     1.0000
+          THE TIME SERIES DATA CONTROLS FACTOR =     1.9835
+          Note the above override was fully implemented
+          in StateMod Versions 10.726 and 11.10
+   Mdainp; iwarnU            0
+
+________________________________________________________________________
+  Mdainp; Base Streamflow File (*.rim or *.xbm) 
+     ex89.rim                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.rim                                                                                                                                                                                                                                                        
+          File version = 0
+
+  Chekts
+   10 1979         9 1981 AF/M  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = AF/M  for file type    3
+          Unit Conversion Factor = 1.0 divided by   1.9835
+          divided by the number of days in a month.
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 AF/M is       8.4027  CFS
+          for internal calculations (assuming a 30 day month)
+
+________________________________________________________________________
+  Mdainp; Direct Flow Demand - Monthly (*.ddm) 
+  Mdainp; rec256 ex89.ddm                                                                                                                                                                                                                                                        
+     ex89.ddm                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.ddm                                                                                                                                                                                                                                                        
+          File version = 0
+
+  Chekts
+   10 1979         9 1980 AF/M  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = AF/M  for file type    4
+          Unit Conversion Factor = 1.0 divided by   1.9835
+          divided by the number of days in a month.
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 AF/M is       8.4027  CFS
+          for internal calculations (assuming a 30 day month)
+
+________________________________________________________________________
+  Mdainp; Instream flow Demand file - Annual (*.ifa) 
+     ex89.ifa                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.ifa                                                                                                                                                                                                                                                        
+          File version = 0
+
+  Chekts
+   10    0         9    0 AF/M  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = AF/M  for file type    6
+          Unit Conversion Factor = 1.0 divided by   1.9835
+          divided by the number of days in a month.
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 AF/M is       8.4027  CFS
+          for internal calculations (assuming a 30 day month)
+
+------------------------------------------------------------------------
+  Mdainp; WARNING FILE *.ifa
+          HAS A UNIT CONVERSION FACTOR         =     1.9835
+          WHILE THE CONTROL FILE HAS A FACTOR  =     0.0000
+          THE TIME SERIES DATA CONTROLS FACTOR =     1.9835
+          Note the above override was fully implemented
+          in StateMod Versions 10.726 and 11.10
+
+________________________________________________________________________
+  Mdainp; Delay Table File (*.dly or *.urd) 
+     ex89.urm                                                                                                                                                                                                                                                        
+  
+  Mdainp; Number of delay tables read =     2
+
+________________________________________________________________________
+  Mdainp; Reservoir Target Content File (*.tam (*.tar)) 
+     ex89.tam                                                                                                                                                                                                                                                        
+
+  GetVer; File name    = ex89.tam                                                                                                                                                                                                                                                        
+          File version = 0
+
+  Chekts
+   10 1979         9 1981 ACFT  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = ACFT  for Chekts file type    7
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 is 500 for internal calculations
+
+________________________________________________________________________
+  Execut; Year =  1980
+
+________________________________________________________________________
+  Execut; Year and month =  1979 OCT 
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+   DivImpR; destination is plan!
+
+ DivImpR (Type 32) Destination Type = Plan         No  Carrier
+ DivImpR      iyr mon   day ID              Iter      Iw  nwrord      l2      ns      nd    iuse   ipUse Eff_opr Eff_max iRelTyp  Demand Cap-cfs     IWR  Divmax  Relalo  Divmon  DIVACT    iwhy Comment
+ ___________ ____ ____ ____ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ __________________________
+ DivImpR     1979 OCT     1 Riv_10             1       3       5       1       0       1       1       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0    50.0    -1.0    50.0      -1 N/A                     
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1979 OCT     1 Riv_10             2       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1979 OCT     1 Riv_10             3       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  Execut; Year and month =  1979 NOV 
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+   DivImpR; destination is plan!
+
+ DivImpR (Type 32) Destination Type = Plan         No  Carrier
+ DivImpR      iyr mon   day ID              Iter      Iw  nwrord      l2      ns      nd    iuse   ipUse Eff_opr Eff_max iRelTyp  Demand Cap-cfs     IWR  Divmax  Relalo  Divmon  DIVACT    iwhy Comment
+ ___________ ____ ____ ____ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ __________________________
+ DivImpR     1979 NOV     1 Riv_10             1       3       5       1       0       1       1       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0    50.0    -1.0    50.0      -1 N/A                     
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1979 NOV     1 Riv_10             2       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1979 NOV     1 Riv_10             3       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  Execut; Year and month =  1979 DEC 
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+   DivImpR; destination is plan!
+
+ DivImpR (Type 32) Destination Type = Plan         No  Carrier
+ DivImpR      iyr mon   day ID              Iter      Iw  nwrord      l2      ns      nd    iuse   ipUse Eff_opr Eff_max iRelTyp  Demand Cap-cfs     IWR  Divmax  Relalo  Divmon  DIVACT    iwhy Comment
+ ___________ ____ ____ ____ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ __________________________
+ DivImpR     1979 DEC     1 Riv_10             1       3       5       1       0       1       1       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0    50.0    -1.0    50.0      -1 N/A                     
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1979 DEC     1 Riv_10             2       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1979 DEC     1 Riv_10             3       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  Execut; Year and month =  1980 JAN 
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+   DivImpR; destination is plan!
+
+ DivImpR (Type 32) Destination Type = Plan         No  Carrier
+ DivImpR      iyr mon   day ID              Iter      Iw  nwrord      l2      ns      nd    iuse   ipUse Eff_opr Eff_max iRelTyp  Demand Cap-cfs     IWR  Divmax  Relalo  Divmon  DIVACT    iwhy Comment
+ ___________ ____ ____ ____ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ __________________________
+ DivImpR     1980 JAN     1 Riv_10             1       3       5       1       0       1       1       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0    50.0    -1.0    50.0      -1 N/A                     
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 JAN     1 Riv_10             2       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 JAN     1 Riv_10             3       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  Execut; Year and month =  1980 FEB 
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+   DivImpR; destination is plan!
+
+ DivImpR (Type 32) Destination Type = Plan         No  Carrier
+ DivImpR      iyr mon   day ID              Iter      Iw  nwrord      l2      ns      nd    iuse   ipUse Eff_opr Eff_max iRelTyp  Demand Cap-cfs     IWR  Divmax  Relalo  Divmon  DIVACT    iwhy Comment
+ ___________ ____ ____ ____ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ __________________________
+ DivImpR     1980 FEB     1 Riv_10             1       3       5       1       0       1       1       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0    50.0    -1.0    50.0      -1 N/A                     
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 FEB     1 Riv_10             2       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 FEB     1 Riv_10             3       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  Execut; Year and month =  1980 MAR 
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+   DivImpR; destination is plan!
+
+ DivImpR (Type 32) Destination Type = Plan         No  Carrier
+ DivImpR      iyr mon   day ID              Iter      Iw  nwrord      l2      ns      nd    iuse   ipUse Eff_opr Eff_max iRelTyp  Demand Cap-cfs     IWR  Divmax  Relalo  Divmon  DIVACT    iwhy Comment
+ ___________ ____ ____ ____ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ __________________________
+ DivImpR     1980 MAR     1 Riv_10             1       3       5       1       0       1       1       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0    50.0    -1.0    50.0      -1 N/A                     
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 MAR     1 Riv_10             2       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 MAR     1 Riv_10             3       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  Execut; Year and month =  1980 APR 
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+   DivImpR; destination is plan!
+
+ DivImpR (Type 32) Destination Type = Plan         No  Carrier
+ DivImpR      iyr mon   day ID              Iter      Iw  nwrord      l2      ns      nd    iuse   ipUse Eff_opr Eff_max iRelTyp  Demand Cap-cfs     IWR  Divmax  Relalo  Divmon  DIVACT    iwhy Comment
+ ___________ ____ ____ ____ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ __________________________
+ DivImpR     1980 APR     1 Riv_10             1       3       5       1       0       1       1       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0    50.0    -1.0    50.0      -1 N/A                     
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 APR     1 Riv_10             2       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 APR     1 Riv_10             3       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  Execut; Year and month =  1980 MAY 
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+   DivImpR; destination is plan!
+
+ DivImpR (Type 32) Destination Type = Plan         No  Carrier
+ DivImpR      iyr mon   day ID              Iter      Iw  nwrord      l2      ns      nd    iuse   ipUse Eff_opr Eff_max iRelTyp  Demand Cap-cfs     IWR  Divmax  Relalo  Divmon  DIVACT    iwhy Comment
+ ___________ ____ ____ ____ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ __________________________
+ DivImpR     1980 MAY     1 Riv_10             1       3       5       1       0       1       1       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0    50.0    -1.0    50.0      -1 N/A                     
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 MAY     1 Riv_10             2       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 MAY     1 Riv_10             3       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  Execut; Year and month =  1980 JUN 
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+   DivImpR; destination is plan!
+
+ DivImpR (Type 32) Destination Type = Plan         No  Carrier
+ DivImpR      iyr mon   day ID              Iter      Iw  nwrord      l2      ns      nd    iuse   ipUse Eff_opr Eff_max iRelTyp  Demand Cap-cfs     IWR  Divmax  Relalo  Divmon  DIVACT    iwhy Comment
+ ___________ ____ ____ ____ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ __________________________
+ DivImpR     1980 JUN     1 Riv_10             1       3       5       1       0       1       1       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0    50.0    -1.0    50.0      -1 N/A                     
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 JUN     1 Riv_10             2       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 JUN     1 Riv_10             3       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  Execut; Year and month =  1980 JUL 
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+   DivImpR; destination is plan!
+
+ DivImpR (Type 32) Destination Type = Plan         No  Carrier
+ DivImpR      iyr mon   day ID              Iter      Iw  nwrord      l2      ns      nd    iuse   ipUse Eff_opr Eff_max iRelTyp  Demand Cap-cfs     IWR  Divmax  Relalo  Divmon  DIVACT    iwhy Comment
+ ___________ ____ ____ ____ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ __________________________
+ DivImpR     1980 JUL     1 Riv_10             1       3       5       1       0       1       1       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0    50.0    -1.0    50.0      -1 N/A                     
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 JUL     1 Riv_10             2       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 JUL     1 Riv_10             3       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  Execut; Year and month =  1980 AUG 
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+   DivImpR; destination is plan!
+
+ DivImpR (Type 32) Destination Type = Plan         No  Carrier
+ DivImpR      iyr mon   day ID              Iter      Iw  nwrord      l2      ns      nd    iuse   ipUse Eff_opr Eff_max iRelTyp  Demand Cap-cfs     IWR  Divmax  Relalo  Divmon  DIVACT    iwhy Comment
+ ___________ ____ ____ ____ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ __________________________
+ DivImpR     1980 AUG     1 Riv_10             1       3       5       1       0       1       1       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0    50.0    -1.0    50.0      -1 N/A                     
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 AUG     1 Riv_10             2       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 AUG     1 Riv_10             3       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  Execut; Year and month =  1980 SEP 
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+   DivImpR; destination is plan!
+
+ DivImpR (Type 32) Destination Type = Plan         No  Carrier
+ DivImpR      iyr mon   day ID              Iter      Iw  nwrord      l2      ns      nd    iuse   ipUse Eff_opr Eff_max iRelTyp  Demand Cap-cfs     IWR  Divmax  Relalo  Divmon  DIVACT    iwhy Comment
+ ___________ ____ ____ ____ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ __________________________
+ DivImpR     1980 SEP     1 Riv_10             1       3       5       1       0       1       1       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0    50.0    -1.0    50.0      -1 N/A                     
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 SEP     1 Riv_10             2       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  DivImpR; ID = Opr_Import      2    3    3
+ DivImpR     1980 SEP     1 Riv_10             3       3       5       1       0       0       0       0     0.0    -1.0     0.0    -1.0    -1.0    -1.0    -1.0     0.0    -1.0     0.0       3 Import is zero          
+
+________________________________________________________________________
+  Execut; On Year  1980 Month SEP  Day    1
+          The maximum number of reoperations      3
+
+________________________________________________________________________
+  Execut; Performance Info:
+    Reoperation switch (ireopx fr *.ctl) =            0
+    Reoperation comparison (cfs)         =            0.010
+    Reoperation comparison (af/mo)       =            0.595
+    Ave reoperations per month           =            3.000
+    Ave calls to replace per month       =            0.000
+
+________________________________________________________________________
+  Execut; Time to Process:
+                                         =    0.000 seconds
+                                         =    0.000 seconds/year
+                                         =    0.000 minutes
+                                         =    0.000 minutes/year
+
+________________________________________________________________________
+  Execut; Writing reports
+
+________________________________________________________________________
+  Execut; Output Request File 2 (*.out or *.xou)  
+     ex89.out                                                                
+
+________________________________________________________________________
+  Subroutine OutRes  
+
+________________________________________________________________________
+  Subroutine OutDivW 
+
+________________________________________________________________________
+  Subroutine OutOpr  
+
+________________________________________________________________________
+  Subroutine OutPln  
+
+________________________________________________________________________
+  Execut; Successful Run output files are:
+  
+  Diversion output:             *.xdd
+  Reservoir output:             *.xre
+  Operating Rule Info:          *.xop
+  Instream Reach Info:          *.xir
+  Structure Summary:            *.xss
+  Call (Control) Summary:       *.xca
+  Plan Output:                  *.xpl
+
+________________________________________________________________________
+  Execut; Time to Process & Report:
+                                         =    0.000 seconds
+                                         =    0.000 seconds/year
+                                         =    0.000 minutes
+                                         =    0.000 minutes/year
+
+________________________________________________________________________
+  Execut; Successful Termination

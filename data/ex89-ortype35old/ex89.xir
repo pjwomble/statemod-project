@@ -1,0 +1,32 @@
+#
+# ________________________________________________________________________________
+# *.xir       Instream Reach Data                              
+#
+#   STATEMOD                                                                      
+#   Example 87 Transmountain import with reuse                                    
+#
+# Statemod Version: 14.00.03 Date = 2014/07/25)
+# Run date:          14/ 8/** **:16:22
+# Time Step:         Monthly 
+# 
+# ________________________________________________________________________________
+
+Instream Reach Summary  ACFT
+
+Name _ Isf 102000               ID _ Isf_1        On(1)/Off(0) _   1
+Minimum Data          At Riv_70       ISF_1                   
+
+YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
+____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
+1980     65.     66.     65.     65.     66.     65.     66.     65.     66.     65.     65.    565.   1285.
+AVG      65.     66.     65.     65.     66.     65.     66.     65.     66.     65.     65.    565.   1285.
+
+Instream Reach Summary  ACFT
+
+Name _ Isf 102000               ID _ Isf_1        On(1)/Off(0) _   1
+Subreach Data   1/  1 At Riv_70       ISF_1                   
+
+YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
+____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
+1980     65.     66.     65.     65.     66.     65.     66.     65.     66.     65.     65.    565.   1285.
+AVG      65.     66.     65.     65.     66.     65.     66.     65.     66.     65.     65.    565.   1285.

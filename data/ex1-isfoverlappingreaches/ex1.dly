@@ -1,0 +1,16 @@
+# Exhibit 1.12
+# ex*.dly; Return flow dealy table for StateMod Example
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (16x, i8, 12f8.0)                   
+#
+#     ID       idly:            Delay table id
+#     Ret      dlyrat(1-n,idl): Return for month n, station idl
+#
+# ID           Ret 1   Ret 2   Ret 3   Ret 4   Ret 5    Comment
+#----------eb------eb------eb------eb------eb------e---------------------------
+#
+           1     50.     50.      0.      0.      0.    Irrigation Return Table
+           2     40.     30.     20.     10.      0.    M&I Return Table

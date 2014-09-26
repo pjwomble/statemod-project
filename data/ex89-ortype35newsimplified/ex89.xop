@@ -1,0 +1,30 @@
+#
+# ________________________________________________________________________________
+# *.xop       Operational Right Diversion Summary              
+#
+#   STATEMOD                                                                      
+#   Example 87 Transmountain import with reuse                                    
+#
+# Statemod Version: 14.01.01 Date = 2014/09/05)
+# Run date:           8/ 9/** **:10:40
+# Time Step:         Monthly 
+# 
+# ________________________________________________________________________________
+
+ Operational Right Summary  ACFT
+
+ ID = Opr_Import         Name = Import to plan           Opr Type =   35   Admin # =          3.00000
+ Source 1 = Import       Destination = ImportDest        Year On =     0   Year Off =  9999
+YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
+____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
+1980     50.     50.     50.     50.     50.     50.     50.     50.     50.     50.     50.     50.    600.
+AVG      50.     50.     50.     50.     50.     50.     50.     50.     50.     50.     50.     50.    600.
+
+ Operational Right Summary  ACFT
+
+ ID = ImpPlanSpill       Name = Import plan spill        Opr Type =   29   Admin # =        100.00000
+ Source 1 = ImportDest   Destination = NA                Year On =     0   Year Off =  9999
+YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
+____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
+1980     50.     50.     50.     50.     50.     50.     50.     50.     50.     50.     50.     50.    600.
+AVG      50.     50.     50.     50.     50.     50.     50.     50.     50.     50.     50.     50.    600.

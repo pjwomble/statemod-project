@@ -1,0 +1,27 @@
+# *.ris; Streamflow station file for StateMod Example 0-0
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (a12, a24, a12)                   
+#
+#     ID       crunid:  Flow Station ID
+#     Name     runnam:  Station name
+#     River Id cgoto:   River Node ID used in the time series file (rivflo.*)
+#                                                      
+# ID        Name                    River ID
+#----------eb----------------------eb-----------
+#
+A1          A1 gage                 A1
+B1          B1 gage                 B1
+D1          D1 gage                 D1
+E1          E1 gage                 E1
+F2          F2 gage                 F2
+F4          F4 gage                 F4
+F6          F6 gage                 F6
+C1          C1 gage                 C1
+C4          C4 gage                 C4
+C5          C5 gage                 C5
+C7          C7 gage                 C7
+C8          C8 gage                 C8
+

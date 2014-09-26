@@ -1,0 +1,227 @@
+#
+# ________________________________________________________________________________
+# *.xbi       Base flow information at stream gauge locations  
+#
+#   STATEMOD                                                                      
+#   Example 87 Transmountain import with reuse                                    
+#
+# Statemod Version: 14.00.03 Date = 2014/07/25)
+# Run date:          18/ 8/** **: 8:20
+# Time Step:         Monthly 
+# 
+# ________________________________________________________________________________
+
+
+
+ Naturalized Flow Estimate Information From  1979 OCT  To  1980 SEP 
+ Note: Annual Average Base Flows have negatives set to zero
+       Divert includes diversions from all sources (priority, storage, exchange, etc.) and uses (irrigate, storage, recharge, ...)
+       Return includes returns from diversions & wells
+       Wel Dep includes immediate and lagged depletions
+       CU does include net reservoir evaporation
+       Note: Ground Water storage to maintain streamflow at or greater than zero (To_From_GW_Stor) is not included
+
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1979 OCT    31 Riv_10           1943.       50.        0.        0.        0.        0.        0.     1893.     1893. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+1979 OCT    31 Riv_30              0.        0.        0.        0.        0.    -1831.      274.    -1557.        0. |        0.        0.      274.        0.        0.        0.        0.        0. Res_1 & Inflow          
+1979 OCT    31 Riv_80            622.       50.    11000.     2640.        0.    -1831.      274.     7375.     7375. |        0.        0.     5674.        0.        0.        0.    11000.        0. Gauge                   
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1979 NOV    30 Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+1979 NOV    30 Riv_30              0.        0.        0.        0.        0.    -1000.        0.    -1000.        0. |        0.        0.        0.        0.        0.        0.        0.        0. Res_1 & Inflow          
+1979 NOV    30 Riv_80           1606.       50.    11000.     5120.        0.    -1000.        0.     6436.     6436. |        0.        0.     5400.        0.        0.        0.    11000.        0. Gauge                   
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1979 DEC    31 Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+1979 DEC    31 Riv_30              0.        0.        0.        0.        0.    -1000.        0.    -1000.        0. |        0.        0.        0.        0.        0.        0.        0.        0. Res_1 & Inflow          
+1979 DEC    31 Riv_80           1931.       50.    11000.     5440.        0.    -1000.        0.     6441.     6441. |        0.        0.     5400.        0.        0.        0.    11000.        0. Gauge                   
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 JAN    31 Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+1980 JAN    31 Riv_30              0.        0.        0.        0.        0.    -1000.        0.    -1000.        0. |        0.        0.        0.        0.        0.        0.        0.        0. Res_1 & Inflow          
+1980 JAN    31 Riv_80           2095.       50.    11000.     5600.        0.    -1000.        0.     6445.     6445. |        0.        0.     5400.        0.        0.        0.    11000.        0. Gauge                   
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 FEB    28 Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+1980 FEB    28 Riv_30              0.        0.        0.        0.        0.    -1000.        0.    -1000.        0. |        0.        0.        0.        0.        0.        0.        0.        0. Res_1 & Inflow          
+1980 FEB    28 Riv_80           2100.       50.    11000.     5600.        0.    -1000.        0.     6450.     6450. |        0.        0.     5400.        0.        0.        0.    11000.        0. Gauge                   
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 MAR    31 Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+1980 MAR    31 Riv_30              0.        0.        0.        0.        0.    -1017.       33.     -984.        0. |        0.        0.       33.        0.        0.        0.        0.        0. Res_1 & Inflow          
+1980 MAR    31 Riv_80           2100.       50.    11000.     5600.        0.    -1017.       33.     6466.     6466. |        0.        0.     5433.        0.        0.        0.    11000.        0. Gauge                   
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 APR    30 Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+1980 APR    30 Riv_30              0.        0.        0.        0.        0.    -1213.      422.     -791.        0. |        0.        0.      422.        0.        0.        0.        0.        0. Res_1 & Inflow          
+1980 APR    30 Riv_80           2100.       50.    11000.     5600.        0.    -1213.      422.     6659.     6659. |        0.        0.     5822.        0.        0.        0.    11000.        0. Gauge                   
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 MAY    31 Riv_10           7193.       50.        0.        0.        0.        0.        0.     7143.     7143. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+1980 MAY    31 Riv_30              0.        0.        0.        0.        0.    10121.      371.    10492.    10492. |        0.        0.      371.        0.        0.        0.        0.        0. Res_1 & Inflow          
+1980 MAY    31 Riv_80           6793.       50.    11000.     5600.        0.    10121.      371.    22635.    22635. |        0.        0.     5771.        0.        0.        0.    11000.        0. Gauge                   
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 JUN    30 Riv_10           7202.       50.        0.        0.        0.        0.        0.     7152.     7152. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+1980 JUN    30 Riv_30              0.        0.        0.        0.        0.     9821.      943.    10764.    10764. |        0.        0.      943.        0.        0.        0.        0.        0. Res_1 & Inflow          
+1980 JUN    30 Riv_80           6802.       50.    11000.     5600.        0.     9821.      943.    22916.    22916. |        0.        0.     6343.        0.        0.        0.    11000.        0. Gauge                   
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 JUL    31 Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+1980 JUL    31 Riv_30              0.        0.        0.        0.        0.    -1282.      560.     -722.        0. |        0.        0.      560.        0.        0.        0.        0.        0. Res_1 & Inflow          
+1980 JUL    31 Riv_80           2100.       50.    11000.     5600.        0.    -1282.      560.     6728.     6728. |        0.        0.     5960.        0.        0.        0.    11000.        0. Gauge                   
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 AUG    31 Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+1980 AUG    31 Riv_30              0.        0.        0.        0.        0.    -1225.      445.     -780.        0. |        0.        0.      445.        0.        0.        0.        0.        0. Res_1 & Inflow          
+1980 AUG    31 Riv_80           2100.       50.    11000.     5600.        0.    -1225.      445.     6670.     6670. |        0.        0.     5845.        0.        0.        0.    11000.        0. Gauge                   
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 SEP    30 Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+1980 SEP    30 Riv_30              0.        0.        0.        0.        0.    -1185.      368.     -817.        0. |        0.        0.      368.        0.        0.        0.        0.        0. Res_1 & Inflow          
+1980 SEP    30 Riv_80           2100.       50.    11000.     5600.        0.    -1185.      368.     6633.     6633. |        0.        0.     5768.        0.        0.        0.    11000.        0. Gauge                   
+
+
+
+ Naturalized Flow Estimate Information  ACFT From  1980 OCT  To  1980 SEP 
+ Note: Annual Average Base Flows have negatives set to zero
+       Divert includes diversions from all sources (priority, storage, exchange, etc.) and uses (irrigate, storage, recharge, ...)
+       Return includes returns from diversions & wells
+       Wel Dep includes immediate and lagged depletions
+       CU does include net reservoir evaporation
+       Note: Ground Water storage to maintain streamflow at or greater than zero (To_From_GW_Stor) is not included
+
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+ Ave OCT       Riv_10           1943.       50.        0.        0.        0.        0.        0.     1893.     1893. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+ Ave NOV       Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+ Ave DEC       Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+ Ave JAN       Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+ Ave FEB       Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+ Ave MAR       Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+ Ave APR       Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+ Ave MAY       Riv_10           7193.       50.        0.        0.        0.        0.        0.     7143.     7143. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+ Ave JUN       Riv_10           7202.       50.        0.        0.        0.        0.        0.     7152.     7152. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+ Ave JUL       Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+ Ave AUG       Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+ Ave SEP       Riv_10           2500.       50.        0.        0.        0.        0.        0.     2450.     2450. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+  
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ ________________________
+Ave  Tot       Riv_10          38838.      600.        0.        0.        0.        0.        0.    38238.    38238. |        0.        0.        0.        0.        0.        0.        0.        0. Inflow & Import         
+
+
+
+ Naturalized Flow Estimate Information  ACFT From  1980 OCT  To  1980 SEP 
+ Note: Annual Average Base Flows have negatives set to zero
+       Divert includes diversions from all sources (priority, storage, exchange, etc.) and uses (irrigate, storage, recharge, ...)
+       Return includes returns from diversions & wells
+       Wel Dep includes immediate and lagged depletions
+       CU does include net reservoir evaporation
+       Note: Ground Water storage to maintain streamflow at or greater than zero (To_From_GW_Stor) is not included
+
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+ Ave OCT       Riv_30              0.        0.        0.        0.        0.    -1831.      274.    -1557.        0. |        0.        0.      274.        0.        0.        0.        0.        0. Res_1 & Inflow          
+ Ave NOV       Riv_30              0.        0.        0.        0.        0.    -1000.        0.    -1000.        0. |        0.        0.        0.        0.        0.        0.        0.        0. Res_1 & Inflow          
+ Ave DEC       Riv_30              0.        0.        0.        0.        0.    -1000.        0.    -1000.        0. |        0.        0.        0.        0.        0.        0.        0.        0. Res_1 & Inflow          
+ Ave JAN       Riv_30              0.        0.        0.        0.        0.    -1000.        0.    -1000.        0. |        0.        0.        0.        0.        0.        0.        0.        0. Res_1 & Inflow          
+ Ave FEB       Riv_30              0.        0.        0.        0.        0.    -1000.        0.    -1000.        0. |        0.        0.        0.        0.        0.        0.        0.        0. Res_1 & Inflow          
+ Ave MAR       Riv_30              0.        0.        0.        0.        0.    -1017.       33.     -984.        0. |        0.        0.       33.        0.        0.        0.        0.        0. Res_1 & Inflow          
+ Ave APR       Riv_30              0.        0.        0.        0.        0.    -1213.      422.     -791.        0. |        0.        0.      422.        0.        0.        0.        0.        0. Res_1 & Inflow          
+ Ave MAY       Riv_30              0.        0.        0.        0.        0.    10121.      371.    10492.    10492. |        0.        0.      371.        0.        0.        0.        0.        0. Res_1 & Inflow          
+ Ave JUN       Riv_30              0.        0.        0.        0.        0.     9821.      943.    10764.    10764. |        0.        0.      943.        0.        0.        0.        0.        0. Res_1 & Inflow          
+ Ave JUL       Riv_30              0.        0.        0.        0.        0.    -1282.      560.     -722.        0. |        0.        0.      560.        0.        0.        0.        0.        0. Res_1 & Inflow          
+ Ave AUG       Riv_30              0.        0.        0.        0.        0.    -1225.      445.     -780.        0. |        0.        0.      445.        0.        0.        0.        0.        0. Res_1 & Inflow          
+ Ave SEP       Riv_30              0.        0.        0.        0.        0.    -1185.      368.     -817.        0. |        0.        0.      368.        0.        0.        0.        0.        0. Res_1 & Inflow          
+  
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ ________________________
+Ave  Tot       Riv_30              0.        0.        0.        0.        0.     8189.     3416.    11605.    21255. |        0.        0.     3416.        0.        0.        0.        0.        0. Res_1 & Inflow          
+
+
+
+ Naturalized Flow Estimate Information  ACFT From  1980 OCT  To  1980 SEP 
+ Note: Annual Average Base Flows have negatives set to zero
+       Divert includes diversions from all sources (priority, storage, exchange, etc.) and uses (irrigate, storage, recharge, ...)
+       Return includes returns from diversions & wells
+       Wel Dep includes immediate and lagged depletions
+       CU does include net reservoir evaporation
+       Note: Ground Water storage to maintain streamflow at or greater than zero (To_From_GW_Stor) is not included
+
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+ Ave OCT       Riv_80            622.       50.    11000.     2640.        0.    -1831.      274.     7375.     7375. |        0.        0.     5674.        0.        0.        0.    11000.        0. Gauge                   
+ Ave NOV       Riv_80           1606.       50.    11000.     5120.        0.    -1000.        0.     6436.     6436. |        0.        0.     5400.        0.        0.        0.    11000.        0. Gauge                   
+ Ave DEC       Riv_80           1931.       50.    11000.     5440.        0.    -1000.        0.     6441.     6441. |        0.        0.     5400.        0.        0.        0.    11000.        0. Gauge                   
+ Ave JAN       Riv_80           2095.       50.    11000.     5600.        0.    -1000.        0.     6445.     6445. |        0.        0.     5400.        0.        0.        0.    11000.        0. Gauge                   
+ Ave FEB       Riv_80           2100.       50.    11000.     5600.        0.    -1000.        0.     6450.     6450. |        0.        0.     5400.        0.        0.        0.    11000.        0. Gauge                   
+ Ave MAR       Riv_80           2100.       50.    11000.     5600.        0.    -1017.       33.     6466.     6466. |        0.        0.     5433.        0.        0.        0.    11000.        0. Gauge                   
+ Ave APR       Riv_80           2100.       50.    11000.     5600.        0.    -1213.      422.     6659.     6659. |        0.        0.     5822.        0.        0.        0.    11000.        0. Gauge                   
+ Ave MAY       Riv_80           6793.       50.    11000.     5600.        0.    10121.      371.    22635.    22635. |        0.        0.     5771.        0.        0.        0.    11000.        0. Gauge                   
+ Ave JUN       Riv_80           6802.       50.    11000.     5600.        0.     9821.      943.    22916.    22916. |        0.        0.     6343.        0.        0.        0.    11000.        0. Gauge                   
+ Ave JUL       Riv_80           2100.       50.    11000.     5600.        0.    -1282.      560.     6728.     6728. |        0.        0.     5960.        0.        0.        0.    11000.        0. Gauge                   
+ Ave AUG       Riv_80           2100.       50.    11000.     5600.        0.    -1225.      445.     6670.     6670. |        0.        0.     5845.        0.        0.        0.    11000.        0. Gauge                   
+ Ave SEP       Riv_80           2100.       50.    11000.     5600.        0.    -1185.      368.     6633.     6633. |        0.        0.     5768.        0.        0.        0.    11000.        0. Gauge                   
+  
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ ________________________
+Ave  Tot       Riv_80          32449.      600.   132000.    63600.        0.     8189.     3416.   111854.   111854. |        0.        0.    68216.        0.        0.        0.   132000.        0. Gauge                   

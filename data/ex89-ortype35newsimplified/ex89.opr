@@ -1,0 +1,45 @@
+#
+# Ex89.opr; Operational rights for Example 89
+# 
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (a12, a24, a12x, 4x,f12.5, i8, f8.0, i8, 3(i8,a12), 20i8)
+#
+#     ID       cidvri:          Operational Right ID
+#     Name     nameo:           Operational Right name
+#     Admin #  irtem:           Administration Number (smaller is most senoir)
+#     # Str    dum:             Number of intervenging structures 
+#     On/Off   ioprsw(k):       Switch 0 = off,1 = on
+#     Dest ID  ciopde:          Destination reservoir or structure ID
+#     Dest Ac  iopdes(2,k):     Destination reservoir or structure account # (enter 1 for a diversion)
+#     Sou1 ID  ciopso(1)        Supply reservoir #1 or structure ID
+#     Sou1 Ac  iopsou(2,k):     Supply reservoir #1 or structure account # (enter 1 for a diversion)
+#     Sou2 ID  ciopso(2):       Supply reservoir #2 ID
+#     Sou1 Ac  iopsou(4,k):     Supply reservoir #2 account
+#     Type     ityopr(k):       Switch
+#                        1 = Reservoir Release to an instream demand
+#                        2 = Reservoir Release to a direct diversion demand
+#                        3 = Reservoir Release to a direct diversion demand by a carrier
+#                        4 = Reservoir Release to a direct diversion demand by exchange
+#                        5-8 Not used
+#                        9 = Reservoir Release for target contents
+#                        10 = Not used
+#                        11 = Direct flow demand thru intervening structures
+#                        12 = Roperate
+#
+# *****************************************************************************
+#     Card 2   Carrier Ditch data (include only if idum > 0
+#     format:  (free)
+#     
+#     Inter    itern(1,j)      intervening direct diversion structure id's
+#                              Enter # Str values
+#
+#
+# *****************************************************************************
+#
+#
+# ID        Name                    NA                    Admin#   # Str  On/Off Dest Id     Dest Ac  Sou1 Id     Sou1 Ac  Sou2 Id     Sou2 Ac     Type ReusePlan     Div Type    OprLoss    Limit   ioBeg   ioEnd Comment
+# ---------eb----------------------eb----------exxxxb----------eb------eb------e-b----------eb------e-b----------eb------e-b----------eb------eb------exb----------exb----------exb------eb------eb------eb------exb----- 
+Opr_Import  Import to plan                               3.00000      0.       1 ImportDest         0 Import             0 NA                 0      35 NA           NA                0.0     0.0       0    9999  Import to plan withOUT Reuse
+ImpPlanSpillImport plan spill                          100.00000      0.       1 NA                 0 ImportDest         0 NA                 0      29 NA           NA                  0       0                  spill from plan

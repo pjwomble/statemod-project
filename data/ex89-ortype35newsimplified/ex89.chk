@@ -1,0 +1,50 @@
+________________________________________________________________________
+
+        StateMod                       
+        State of Colorado - Water Supply Planning Model     
+
+        Version: 14.01.01
+        Last revision date: 2014/09/05
+
+________________________________________________________________________
+
+________________________________________________________________________
+  Datinp; Network file (*.rin)
+
+    # ID          Name                    DownStream   GWMax    Comment
+ ___exb__________eb______________________eb__________exb______exb__________________e
+    1 Riv_10      Inflow & Import         Riv_11             0.
+    2 Riv_11      Import Plan             Riv_12             0.
+    3 Riv_12      Dem_3                   Riv_20             0.
+    4 Riv_20      Intermediate River Node Riv_25             0.
+    5 Riv_25      TmReuse                 Riv_50             0.
+    6 Riv_30      Res_1 & Inflow          Riv_35             0.
+    7 Riv_35      Tunnel                  Riv_40             0.
+    8 Riv_40      Dem_2                   Riv_50             0.
+    9 Riv_50      Confluence              Riv_60             0.
+   10 Riv_60      Dem_1                   Riv_70             0.
+   11 Riv_70      ISF_1                   Riv_75             0.
+   12 Riv_75      Dem_Test                Riv_80             0.
+   13 Riv_80      Gauge                   Riv_999            0.
+   14 Riv_999     End                                        0.
+  GetPln
+    ex89.pln                                                                                                                                                                                                                                                        
+
+________________________________________________________________________
+  Oprinp; Operating right data read (or estimated)
+
+# ID        Name                    NA                    Admin#   # Str  On/Off Dest Id     Dest Ac  Sou1 Id     Sou1 Ac  Sou2 Id     Sou2 Ac     Type Reuse Plan   DivType       Loss(%)   Limit   ioBeg   ioEnd    #
+#__________eb______________________eb__________exxxxb__________eb______eb______exb__________eb______exb__________eb______exb__________eb______eb______exb__________exb__________exb______eb______eb______eb______eb___e
+Opr_Import  Import to plan                               3.00000      0.       1 ImportDest        0. Import            0. NA                0.      35 NA           NA                 0.      0.       0    9999    1
+ImpPlanSpillImport plan spill                          100.00000      0.       1 NA                0. ImportDest        0. NA                0.      29 NA           NA                 0.      0.       0    9999    2
+
+________________________________________________________________________
+
+  Mdainp; FYI at least one diversion is less than 0 for  the following
+          Note: OK if an import.
+          Note: In a Sumulation Mode the value is set to zero
+          Note: Only the first negative value is printed for each structure.
+
+    # ID           Year   Q (cfs)    Q (af)
+ ____ ____________ ____ _________ _________
+    1 Import       1980     -0.81    -50.00
