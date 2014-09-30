@@ -1,0 +1,366 @@
+________________________________________________________________________
+
+        StateMod                       
+        State of Colorado - Water Supply Planning Model     
+
+        Version: 14.01.01
+        Last revision date: 2014/09/05
+
+________________________________________________________________________
+
+________________________________________________________________________
+  StateM; Response File (*.rsp)                           
+     example-0-1.rsp                                                                                                                                                                                                                                                 
+
+________________________________________________________________________
+  StateM; Path                                            
+     None    
+  Getfn; maxfile =           80
+
+________________________________________________________________________
+  Getfn; Random input from *.ctl
+
+________________________________________________________________________
+  Statem; Option Specified = Baseflow  
+
+ Baseflow Option = base (Standard)
+
+
+
+________________________________________________________________________
+  Datinp; Control File (*.ctl) 
+
+  GetFile; Opening Control                                 *.ctl   
+    example-0-1.ctl                                                                                                                                                                                                                                                 
+
+  GetVer; File name    = example-0-1.ctl                                                                                                                                                                                                                                                 
+          File version = 0
+  STATEMOD                                                                      
+  Example 0-0 small test network - base case - est baseflows - no diversions    
+
+________________________________________________________________________
+  Datinp; 
+
+   ** Monthly Model                            **
+   ** Output Unit: af                          **
+   ** Wells                                Off **
+   ** Instream flow with reaches            On **
+   ** Detailed call information            Off **
+   ** SJRIP Sediment file (*.sjr)          Off **
+   ** Annual time series (*.tsp) file      Off **
+   ** Variable efficiency                  Off **
+   ** Sprinklers                           Off **
+   ** Soil Moisture                        Off **
+   ** Significant figures on output                    0 **
+  STATEMOD                                                                      
+  Example 0-0 small test network - base case - est baseflows - no diversions    
+  Datinp; 
+    iystr      =     1980
+    iyend      =     1981
+    iresop     =        2
+    moneva     =        0
+    iopflo     =        1
+    numpre     =        0
+    numeva     =        0
+    interv     =        5
+    factor     =    1.984
+    rfacto (1) =    1.984
+    dfacto (1) =    1.984
+    ffacto (1) =    1.984
+    cfacto (1) =    1.000
+    efacto (1) =    1.000
+    pfacto (1) =    1.000
+ (1) Note an input value of 0 is effectively equal to 1.0
+  Datinp; 
+    cyr1       =   WYR
+    icondem    =        1
+    ichk       =        0
+    ireopx     =        0
+    ireach     =        1
+    icall      =        0
+    ccall      = N/A         
+    iday       =        0
+    idaydem    =        0
+    iwell      =        0
+    gwmaxrc    =     0.00
+    isjrip     =        0
+    itsfile    =        0
+    ieffmax    =        0
+    isprink    =        0
+    soild      =     0.00
+    isoil      =        0
+    isigfig    =        0
+
+________________________________________________________________________
+  Datinp; River Network File (*.rin)
+
+  GetFile; Opening River_Network                           *.rin   
+    example-0.rin                                                                                                                                                                                                                                                   
+
+  GetVer; File name    = example-0.rin                                                                                                                                                                                                                                                   
+          File version = 0
+
+  Datinp; Number of Network Stations (*.rin) =    28
+   Datinp; ioutN @ line 1053            0
+
+________________________________________________________________________
+  Datinp; Reservoir Station File (*.res)
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+  GetRes; Reservoir Station File (*.res) 
+  GetRes; FYI no reservoir data provided
+
+________________________________________________________________________
+  Datinp; Diversion Station File (*.dds)
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+  GetDiv; Number of Diversions       =     0
+
+________________________________________________________________________
+  Datinp; River Station File (*.ris)
+
+  GetFile; Opening StreamGage_Station                      *.ris   
+    example-0-1.ris                                                                                                                                                                                                                                                 
+
+  GetVer; File name    = example-0-1.ris                                                                                                                                                                                                                                                 
+          File version = 0
+
+  Datinp; Number of river stations (*.ris) =     5
+
+________________________________________________________________________
+  Datinp; Instream Flow Station File (*.ifs) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+  Datinp; Number of instream flow stations (*.ifs) =     0
+
+________________________________________________________________________
+  Datinp; Well Station File (*.wes) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+________________________________________________________________________
+  Datinp; Plan Station File (*.pln) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+  Subroutine GetPln           99
+  GetPln; FYI no plan data provided
+
+________________________________________________________________________
+
+  GetPln; Number of Plan Types 
+    # Type Description                Number
+ ____ ____ _________________________ _______
+ ____ ____ _________________________ _______
+    0   NA Total                           0
+  
+  GetPln; Number of Plans        =            0
+
+________________________________________________________________________________________________________________________________________________
+ GetPln; Plan Return File (*.prf) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+________________________________________________________________________
+  Datinp; River Gage File (*.rig) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+________________________________________________________________________
+  Datinp; River Node Summary
+
+  Number of Inflow nodes                    =     5
+  Number of Diversion nodes                 =     0
+  Number of Reservoir nodes                 =     0
+  Number of Minimum Instream nodes          =     0
+  Number of Well nodes Total                =     0
+  Number of Supplemental Well nodes =     0
+  Number of Sole Source Well nodes  =     0
+  Number of Plans                           =     0
+  Number of Other nodes (1)                 =    23
+  _________________________________________________
+  Total of River nodes                      =    28
+
+  (1) May be negative if multiple activities occur at the  same node
+
+
+ nf          67 nx          33
+
+________________________________________________________________________
+  Riginp; Instream Flow Right File (*.ifr)    20    1   98
+  Ringip; FYI no instream flow rights provided
+
+________________________________________________________________________
+  Riginp; Reservoir Right File (*.rer) 
+  Ringip; FYI no reservoir right provided
+
+________________________________________________________________________
+  Riginp; Direct Diversion Right File (*.ddr) 
+  Ringip; FYI no diversion right provided
+
+________________________________________________________________________
+  Oprinp; Operational Right File (*.opr) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+________________________________________________________________________
+
+  Rininp; Water Right Summary
+
+  Number of Diversion Rights       =     0
+  Number of Reservoir Rights       =     0
+  Number of Instream Rights        =     0
+  Number of Operational Rights     =     0
+  Number of Well Rights            =     0
+  ________________________________________
+  Total Water Rights               =     0
+
+
+
+________________________________________________________________________
+  Mdainp; Precipitation File (*.pra or *.prm)
+     -1                                                                                                                                                                                                                                                              
+  Chekpor; FYI, A dummy (blank) file determined for 
+           file: -1                                                                                                                                                                                                                                                              
+
+________________________________________________________________________
+  Mdainp; Evaporation File (*.evm or *.eva) 
+     -1                                                                                                                                                                                                                                                              
+  Chekpor; FYI, A dummy (blank) file determined for 
+           file: -1                                                                                                                                                                                                                                                              
+
+________________________________________________________________________
+  Mdainp; Historic Streamflow File (*.rih) 
+     example-0-1.xbm                                                                                                                                                                                                                                                 
+
+________________________________________________________________________
+  Mdainp; Direct Flow Demand - Monthly (*.ddm) 
+  Mdainp; rec256 -1                                                                                                                                                                                                                                                              
+     -1                                                                                                                                                                                                                                                              
+
+________________________________________________________________________
+  Mdainp; Instream flow Demand file - Annual (*.ifa) 
+     -1                                                                                                                                                                                                                                                              
+
+________________________________________________________________________
+  Mdainp; Delay Table File (*.dly or *.urd) 
+   Mdainp; Warning no delay (*.dly or *.urd) file provided
+  
+  Mdainp; Number of delay tables read =     0
+
+________________________________________________________________________
+  Mdainp; Reservoir Target Content File (*.tam (*.tar)) 
+     -1                                                                                                                                                                                                                                                              
+
+________________________________________________________________________
+  Virin; EOM Content File (*.eom) - Monthly              
+  
+  Virin;  Number of Reservoir to Rech =            0  Factor =    0.00000000    
+  
+  Virin;  Number of Diversions to Rech =            0  Factor =    0.00000000    
+
+________________________________________________________________________
+  Virin;  Virin; Base Flow File (*.rib) - NA             
+     example-0-1.rib                                                                                                                                                                                                                                                 
+  Virin; Number of Non Gage (Base) river stations (*.rib) =     7
+
+________________________________________________________________________
+  Virin;  Virin; Historic Streamflow (*.rih) - Monthly   
+     example-0-1.rih                                                                                                                                                                                                                                                 
+
+  GetVer; File name    = example-0-1.rih                                                                                                                                                                                                                                                 
+          File version = 0
+
+  Chekts
+   10 1979         9 1981  CFS  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = CFS   for Chekts file type    8
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 is 500 for internal calculations
+  Virin; Number of historic stream gages (from *.rih) =     5
+
+________________________________________________________________________
+  Virin; Historic diversions (*.ddh) - Monthly           
+     -1                                                                                                                                                                                                                                                              
+  Chekpor; FYI, A dummy (blank) file determined for 
+           file: -1                                                                                                                                                                                                                                                              
+ Vircom; Year  1980
+ Vircom; Year  1981
+
+
+________________________________________________________________________
+  Virout; Negative Flows at GAGE Summary  ACFT/mon
+    Note: Count is the # of months for a monthly model and
+             the # of days for a daily model and 
+           Est is the average negative flow estimate 
+             on a monthly basis (af/mo) or a daily basis (af/day)
+           Adj is the adjusted value printed to results
+           Total is the total adjustment (abs(# * Est)
+                                                              Est         Adj       Total       River
+    # ID           Name                        Count       af/mon      af/mon        acft          ID
+ ____ ____________ ________________________ ________  ___________ ___________ ___________ ___________
+    1 F2           reach F node 2                  0         0.00        0.00        0.00          22
+    2 F6           reach F node 6                  0         0.00        0.00        0.00          26
+    3 C1           reach C node 1 top              0         0.00        0.00        0.00           7
+    4 C5           reach C node 5                  0         0.00        0.00        0.00          11
+    5 C7           reach C node 7                  0         0.00        0.00        0.00          13
+ ____ ____________ ________________________ ________  ___________ ___________ ___________ ___________
+      Total Ave                                    0         0.00        0.00        0.00
+
+
+________________________________________________________________________
+ Virout; Negative Flows at BASEFLOW LOCATIONS Summary  ACFT/mon
+   Note: Count is the # of months for a monthly model and
+           the # of days for a daily model and 
+         Est is the average negative flow estimate 
+           on a monthly basis (af/mo) or a daily basis (af/day)
+           Total is the total adjustment (abs(# * Est)
+                                                              Est         Adj       Total       River
+    # ID           Name                        Count       af/mon      af/mon        acft          ID
+ ____ ____________ ________________________ ________  ___________ ___________ ___________ ___________
+    1 A1           reach A node 1 top              0         0.00        0.00        0.00           1
+    2 B1           reach B node 1 top              0         0.00        0.00        0.00           4
+    3 C4           reach C node 4                  0         0.00        0.00        0.00          10
+    4 C8           reach B node 8 bottom           0         0.00        0.00        0.00          14
+    5 D1           reach D node 1 top              0         0.00        0.00        0.00          15
+    6 E1           reach E node 1 top              0         0.00        0.00        0.00          18
+    7 F4           reach F node 4                  0         0.00        0.00        0.00          24
+ ____ ____________ ________________________ ________  ___________ ___________ ___________ ___________
+      Total Ave                                    0         0.00        0.00        0.00
+
+
+________________________________________________________________________
+ Virgen; Baseflow Results Monthly 
+   Monthly Base flow information:          *.xbi
+   Monthly Base flow data for simulation:  *.xbm
+   Monthly Base flow at stream gages:      *.xbg
+   Monthly Base flow at stream estimates:  *.xbe
+
+ Virgen; Successful Termination

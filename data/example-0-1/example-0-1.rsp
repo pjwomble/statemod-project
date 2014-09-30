@@ -1,0 +1,12 @@
+#
+# StateMod Response File for example 0-1
+#
+# Type                                    Name
+# ______________________________________  ________________________________________________________________________
+Control                                 = example-0-1.ctl
+River_Network                           = example-0.rin
+StreamGage_Station                      = example-0-1.ris
+Stream_Base_Monthly                     = example-0-1.xbm
+StreamGage_Historic_Monthly             = example-0-1.rih
+StreamEstimate_Coefficients             = example-0-1.rib
+

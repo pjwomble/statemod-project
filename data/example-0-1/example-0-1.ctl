@@ -1,22 +1,21 @@
-# Exhibit 1.2
-# ex*.ctl;  Control file for StateMod Example 1
+# example-0-0.ctl;  Control file for StateMod Example 0-1
 #             
 #             
 #
   STATEMOD
-  Example 1 Simple 8 node network
+  Example 0-0 small test network - base case - est baseflows - no diversions
     1980     : iystr   STARTING YEAR OF SIMULATION
     1981     : iyend   ENDING YEAR OF SIMULATION
        2     : iresop  OUTPUT UNIT OPTION. 1 FOR [CFS], 2 FOR [AF], 3 FOR [KAF]
        0     : moneva  TYPE OF EVAP. DATA. 0 FOR VARIANT DATA. 1 FOR CONS. DATA
        1     : ipflo   TYPE OF STREAM INFLOW. 1 FOR TOTAL FLOW. 2 FOR GAINS
        0     : numpre  NO. OF PRECIPITATION STATIONS
-       1     : numeva  NO. OF EVAPORATION STATIONS
+       0     : numeva  NO. OF EVAPORATION STATIONS
        5     : interv  NO. OF TIME INTERVALS IN DELAY TABLE. MAXIMUM=60.
   1.9835     : factor  FACTOR TO CONVERT CFS TO AC-FT/DAY (1.9835)
   1.9835     : rfacto  DIVISOR FOR STREAM FLOW DATA;    ENTER 0 FOR DATA IN cfs, ENTER 1.9835 FOR DATA IN af/mo
   1.9835     : dfacto  DIVISOR FOR DIVERSION DATA;      ENTER 0 FOR DATA IN cfs, ENTER 1.9835 FOR DATA IN af/mo
-  0          : ffacto  DIVISOR FOR IN-STREAM FLOW DATA; ENTER 0 FOR DATA IN cfs, ENTER 1.9835 FOR DATA IN af/mo
+  1.9835     : ffacto  DIVISOR FOR IN-STREAM FLOW DATA; ENTER 0 FOR DATA IN cfs, ENTER 1.9835 FOR DATA IN af/mo
   1.0        : cfacto  FACTOR TO CONVERT RESERVOIR CONTENT TO AC-FT
   1.0        : efacto  FACTOR TO CONVERT EVAPORATION DATA TO FEET
   1.0        : pfacto  FACTOR TO CONVERT PRECIPITATION DATA TO FEET

@@ -1,0 +1,458 @@
+#
+# ________________________________________________________________________________
+# *.xbi       Base flow information at stream gauge locations  
+#
+#   STATEMOD                                                                      
+#   Example 0-2 small test network - base case - est baseflows - one diversion    
+#
+# Statemod Version: 14.01.01 Date = 2014/09/05)
+# Run date:          30/ 9/** **: 1: 8
+# Time Step:         Monthly 
+# 
+# ________________________________________________________________________________
+
+
+
+ Naturalized Flow Estimate Information From  1979 OCT  To  1980 SEP 
+ Note: Annual Average Base Flows have negatives set to zero
+       Divert includes diversions from all sources (priority, storage, exchange, etc.) and uses (irrigate, storage, recharge, ...)
+       Return includes returns from diversions & wells
+       Wel Dep includes immediate and lagged depletions
+       CU does include net reservoir evaporation
+       Note: Ground Water storage to maintain streamflow at or greater than zero (To_From_GW_Stor) is not included
+
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1979 OCT    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1979 OCT    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1979 OCT    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1979 OCT    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1979 OCT    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1979 NOV    30 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1979 NOV    30 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1979 NOV    30 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1979 NOV    30 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1979 NOV    30 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1979 DEC    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1979 DEC    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1979 DEC    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1979 DEC    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1979 DEC    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 JAN    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1980 JAN    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1980 JAN    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1980 JAN    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1980 JAN    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 FEB    28 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1980 FEB    28 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1980 FEB    28 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1980 FEB    28 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1980 FEB    28 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 MAR    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1980 MAR    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1980 MAR    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1980 MAR    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1980 MAR    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 APR    30 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1980 APR    30 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1980 APR    30 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1980 APR    30 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1980 APR    30 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 MAY    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1980 MAY    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1980 MAY    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1980 MAY    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1980 MAY    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 JUN    30 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1980 JUN    30 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1980 JUN    30 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1980 JUN    30 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1980 JUN    30 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 JUL    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1980 JUL    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1980 JUL    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1980 JUL    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1980 JUL    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 AUG    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1980 AUG    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1980 AUG    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1980 AUG    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1980 AUG    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 SEP    30 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1980 SEP    30 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1980 SEP    30 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1980 SEP    30 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1980 SEP    30 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+
+
+ Naturalized Flow Estimate Information From  1980 OCT  To  1981 SEP 
+ Note: Annual Average Base Flows have negatives set to zero
+       Divert includes diversions from all sources (priority, storage, exchange, etc.) and uses (irrigate, storage, recharge, ...)
+       Return includes returns from diversions & wells
+       Wel Dep includes immediate and lagged depletions
+       CU does include net reservoir evaporation
+       Note: Ground Water storage to maintain streamflow at or greater than zero (To_From_GW_Stor) is not included
+
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 OCT    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1980 OCT    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1980 OCT    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1980 OCT    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1980 OCT    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 NOV    30 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1980 NOV    30 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1980 NOV    30 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1980 NOV    30 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1980 NOV    30 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1980 DEC    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1980 DEC    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1980 DEC    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1980 DEC    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1980 DEC    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1981 JAN    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1981 JAN    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1981 JAN    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1981 JAN    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1981 JAN    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1981 FEB    28 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1981 FEB    28 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1981 FEB    28 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1981 FEB    28 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1981 FEB    28 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1981 MAR    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1981 MAR    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1981 MAR    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1981 MAR    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1981 MAR    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1981 APR    30 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1981 APR    30 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1981 APR    30 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1981 APR    30 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1981 APR    30 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1981 MAY    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1981 MAY    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1981 MAY    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1981 MAY    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1981 MAY    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1981 JUN    30 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1981 JUN    30 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1981 JUN    30 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1981 JUN    30 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1981 JUN    30 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1981 JUL    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1981 JUL    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1981 JUL    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1981 JUL    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1981 JUL    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1981 AUG    31 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1981 AUG    31 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1981 AUG    31 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1981 AUG    31 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1981 AUG    31 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+1981 SEP    30 F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+1981 SEP    30 F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+1981 SEP    30 C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+1981 SEP    30 C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+1981 SEP    30 C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+
+
+
+ Naturalized Flow Estimate Information  ACFT From  1980 OCT  To  1981 SEP 
+ Note: Annual Average Base Flows have negatives set to zero
+       Divert includes diversions from all sources (priority, storage, exchange, etc.) and uses (irrigate, storage, recharge, ...)
+       Return includes returns from diversions & wells
+       Wel Dep includes immediate and lagged depletions
+       CU does include net reservoir evaporation
+       Note: Ground Water storage to maintain streamflow at or greater than zero (To_From_GW_Stor) is not included
+
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+ Ave OCT       F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+ Ave NOV       F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+ Ave DEC       F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+ Ave JAN       F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+ Ave FEB       F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+ Ave MAR       F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+ Ave APR       F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+ Ave MAY       F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+ Ave JUN       F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+ Ave JUL       F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+ Ave AUG       F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+ Ave SEP       F2                 20.        0.        0.        0.        0.        0.        0.       20.       20. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+  
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ ________________________
+Ave  Tot       F2                240.        0.        0.        0.        0.        0.        0.      240.      240. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 2          
+
+
+
+ Naturalized Flow Estimate Information  ACFT From  1980 OCT  To  1981 SEP 
+ Note: Annual Average Base Flows have negatives set to zero
+       Divert includes diversions from all sources (priority, storage, exchange, etc.) and uses (irrigate, storage, recharge, ...)
+       Return includes returns from diversions & wells
+       Wel Dep includes immediate and lagged depletions
+       CU does include net reservoir evaporation
+       Note: Ground Water storage to maintain streamflow at or greater than zero (To_From_GW_Stor) is not included
+
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+ Ave OCT       F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+ Ave NOV       F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+ Ave DEC       F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+ Ave JAN       F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+ Ave FEB       F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+ Ave MAR       F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+ Ave APR       F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+ Ave MAY       F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+ Ave JUN       F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+ Ave JUL       F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+ Ave AUG       F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+ Ave SEP       F6                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+  
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ ________________________
+Ave  Tot       F6                720.        0.        0.        0.        0.        0.        0.      720.      720. |        0.        0.        0.        0.        0.        0.        0.        0. reach F node 6          
+
+
+
+ Naturalized Flow Estimate Information  ACFT From  1980 OCT  To  1981 SEP 
+ Note: Annual Average Base Flows have negatives set to zero
+       Divert includes diversions from all sources (priority, storage, exchange, etc.) and uses (irrigate, storage, recharge, ...)
+       Return includes returns from diversions & wells
+       Wel Dep includes immediate and lagged depletions
+       CU does include net reservoir evaporation
+       Note: Ground Water storage to maintain streamflow at or greater than zero (To_From_GW_Stor) is not included
+
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+ Ave OCT       C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+ Ave NOV       C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+ Ave DEC       C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+ Ave JAN       C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+ Ave FEB       C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+ Ave MAR       C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+ Ave APR       C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+ Ave MAY       C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+ Ave JUN       C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+ Ave JUL       C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+ Ave AUG       C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+ Ave SEP       C1                 40.        0.        0.        0.        0.        0.        0.       40.       40. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+  
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ ________________________
+Ave  Tot       C1                480.        0.        0.        0.        0.        0.        0.      480.      480. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 1 top      
+
+
+
+ Naturalized Flow Estimate Information  ACFT From  1980 OCT  To  1981 SEP 
+ Note: Annual Average Base Flows have negatives set to zero
+       Divert includes diversions from all sources (priority, storage, exchange, etc.) and uses (irrigate, storage, recharge, ...)
+       Return includes returns from diversions & wells
+       Wel Dep includes immediate and lagged depletions
+       CU does include net reservoir evaporation
+       Note: Ground Water storage to maintain streamflow at or greater than zero (To_From_GW_Stor) is not included
+
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+ Ave OCT       C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+ Ave NOV       C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+ Ave DEC       C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+ Ave JAN       C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+ Ave FEB       C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+ Ave MAR       C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+ Ave APR       C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+ Ave MAY       C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+ Ave JUN       C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+ Ave JUL       C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+ Ave AUG       C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+ Ave SEP       C5                 60.        0.        0.        0.        0.        0.        0.       60.       60. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+  
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ ________________________
+Ave  Tot       C5                720.        0.        0.        0.        0.        0.        0.      720.      720. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 5          
+
+
+
+ Naturalized Flow Estimate Information  ACFT From  1980 OCT  To  1981 SEP 
+ Note: Annual Average Base Flows have negatives set to zero
+       Divert includes diversions from all sources (priority, storage, exchange, etc.) and uses (irrigate, storage, recharge, ...)
+       Return includes returns from diversions & wells
+       Wel Dep includes immediate and lagged depletions
+       CU does include net reservoir evaporation
+       Note: Ground Water storage to maintain streamflow at or greater than zero (To_From_GW_Stor) is not included
+
+
+Naturalized Flow Information ACFT
+                               Gauged    Import    Divert    Return      Well     Delta       Net     Total   w/o (-) |        To      From                                  Divert    Divert Reservoir
+Year  Mon  Day River ID          Flow       (-)       (+)       (-)   Dep (+)   Sto (+)   Evp (+) Base Flow Base Flow |     SoilM     SoilM        CU      Loss   Pumping   To Rech    To Use   To Rech River Name
+                                 ( 1)      ( 2)      ( 3)      ( 4)      ( 5)      ( 6)      ( 7)      ( 8)      ( 9) |      (10)      (11)      (12)      (13)      (14)      (15)      (16)      (17) (18)
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ _________ ________________________
+ Ave OCT       C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+ Ave NOV       C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+ Ave DEC       C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+ Ave JAN       C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+ Ave FEB       C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+ Ave MAR       C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+ Ave APR       C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+ Ave MAY       C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+ Ave JUN       C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+ Ave JUL       C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+ Ave AUG       C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+ Ave SEP       C7                140.        0.        0.        0.        0.        0.        0.      140.      140. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
+  
+____ ____ ____ ____________ _________ _________ _________ _________ _________ _________ _________ _________ _________ | _________ _________ _________ _________ _________ _________ _________ ________________________
+Ave  Tot       C7               1680.        0.        0.        0.        0.        0.        0.     1680.     1680. |        0.        0.        0.        0.        0.        0.        0.        0. reach C node 7          
