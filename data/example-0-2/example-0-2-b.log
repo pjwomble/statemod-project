@@ -10,7 +10,7 @@ ________________________________________________________________________
 
 ________________________________________________________________________
   StateM; Response File (*.rsp)                           
-     example-0-2.rsp                                                                                                                                                                                                                                                 
+     example-0-2-b.rsp                                                                                                                                                                                                                                               
 
 ________________________________________________________________________
   StateM; Path                                            
@@ -21,16 +21,11 @@ ________________________________________________________________________
   Getfn; Random input from *.ctl
 
 ________________________________________________________________________
-  Statem; Option Specified = Simulate  
+  Statem; Option Specified = Baseflow  
 
-________________________________________________________________________
-  Execut; Execut Option
-
+ Baseflow Option = base (Standard)
 
 
-________________________________________________________________________
-  Execut; Response File (*.rsp)                   
-     example-0-2.rsp                                                         
 
 ________________________________________________________________________
   Datinp; Control File (*.ctl) 
@@ -213,14 +208,7 @@ ________________________________________________________________________
   (1) May be negative if multiple activities occur at the  same node
 
 
- nf          43 nx          38
- nf          44 nx          29
  nf          67 nx          33
-   Execut; divchk (af/time step) =    9.99999978E-03           0           0
-
-________________________________________________________________________
-  Execut; FYI Reoperation check =      0.010 cfs
-                                =      0.615 af/mo
 
 ________________________________________________________________________
   Riginp; Instream Flow Right File (*.ifr)    20    1   98
@@ -258,9 +246,6 @@ ________________________________________________________________________
 
 
 ________________________________________________________________________
-  SetPlanO; Set Plan to Operational Rule Data
-
-________________________________________________________________________
   Mdainp; Precipitation File (*.pra or *.prm)
      -1                                                                                                                                                                                                                                                              
   Chekpor; FYI, A dummy (blank) file determined for 
@@ -273,41 +258,13 @@ ________________________________________________________________________
            file: -1                                                                                                                                                                                                                                                              
 
 ________________________________________________________________________
-  Mdainp; Base Streamflow File (*.rim or *.xbm) 
+  Mdainp; Historic Streamflow File (*.rih) 
      example-0-2-b.xbm                                                                                                                                                                                                                                               
-
-  GetVer; File name    = example-0-2-b.xbm                                                                                                                                                                                                                                               
-          File version = 0
-
-  Chekts
-   10 1979         9 1981 ACFT  WYR
-  Chekts; cyr1X = WYR  
-  Chekts; Units provided = ACFT  for file type    3
-          Unit Conversion Factor = 1.0 divided by   1.9835
-          divided by the number of days in a month.
-          StateMod (internally) uses CFS for flow,
-          FT for length, and AF for storage.
-          Therefore a data value of 500 ACFT is       8.4027  CFS
-          for internal calculations (assuming a 30 day month)
 
 ________________________________________________________________________
   Mdainp; Direct Flow Demand - Monthly (*.ddm) 
   Mdainp; rec256 example-0-2.ddm                                                                                                                                                                                                                                                 
      example-0-2.ddm                                                                                                                                                                                                                                                 
-
-  GetVer; File name    = example-0-2.ddm                                                                                                                                                                                                                                                 
-          File version = 0
-
-  Chekts
-   10 1979         9 1980 AF/M  WYR
-  Chekts; cyr1X = WYR  
-  Chekts; Units provided = AF/M  for file type    4
-          Unit Conversion Factor = 1.0 divided by   1.9835
-          divided by the number of days in a month.
-          StateMod (internally) uses CFS for flow,
-          FT for length, and AF for storage.
-          Therefore a data value of 500 AF/M is       8.4027  CFS
-          for internal calculations (assuming a 30 day month)
 
 ________________________________________________________________________
   Mdainp; Instream flow Demand file - Annual (*.ifa) 
@@ -324,62 +281,100 @@ ________________________________________________________________________
      -1                                                                                                                                                                                                                                                              
 
 ________________________________________________________________________
-  Execut; Year =  1980
-
-________________________________________________________________________
-  Execut; Year =  1981
-
-________________________________________________________________________
-  Execut; On Year  1981 Month SEP  Day    1
-          The maximum number of reoperations      1
-
-________________________________________________________________________
-  Execut; Performance Info:
-    Reoperation switch (ireopx fr *.ctl) =            0
-    Reoperation comparison (cfs)         =            0.010
-    Reoperation comparison (af/mo)       =            0.595
-    Ave reoperations per month           =            1.000
-    Ave calls to replace per month       =            0.000
-
-________________________________________________________________________
-  Execut; Time to Process:
-                                         =    0.000 seconds
-                                         =    0.000 seconds/year
-                                         =    0.000 minutes
-                                         =    0.000 minutes/year
-
-________________________________________________________________________
-  Execut; Writing reports
-
-________________________________________________________________________
-  Execut; Output Request File 2 (*.out or *.xou)  
-     -1                                                                      
-
-________________________________________________________________________
-  Subroutine OutRes  
-
-________________________________________________________________________
-  Subroutine OutDivW 
-
-________________________________________________________________________
-  Subroutine OutOpr  
-
-________________________________________________________________________
-  Execut; Successful Run output files are:
+  Virin; EOM Content File (*.eom) - Monthly              
   
-  Diversion output:             *.xdd
-  Reservoir output:             *.xre
-  Operating Rule Info:          *.xop
-  Instream Reach Info:          *.xir
-  Structure Summary:            *.xss
-  Call (Control) Summary:       *.xca
+  Virin;  Number of Reservoir to Rech =            0  Factor =    0.00000000    
+  
+  Virin;  Number of Diversions to Rech =            0  Factor =    0.00000000    
 
 ________________________________________________________________________
-  Execut; Time to Process & Report:
-                                         =    0.000 seconds
-                                         =    0.000 seconds/year
-                                         =    0.000 minutes
-                                         =    0.000 minutes/year
+  Virin;  Virin; Base Flow File (*.rib) - NA             
+     example-0-2.rib                                                                                                                                                                                                                                                 
+  Virin; Number of Non Gage (Base) river stations (*.rib) =     7
 
 ________________________________________________________________________
-  Execut; Successful Termination
+  Virin;  Virin; Historic Streamflow (*.rih) - Monthly   
+     example-0-2.rih                                                                                                                                                                                                                                                 
+
+  GetVer; File name    = example-0-2.rih                                                                                                                                                                                                                                                 
+          File version = 0
+
+  Chekts
+   10 1979         9 1981  CFS  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = CFS   for Chekts file type    8
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 is 500 for internal calculations
+  Virin; Number of historic stream gages (from *.rih) =     5
+
+________________________________________________________________________
+  Virin; Historic diversions (*.ddh) - Monthly           
+     example-0-2.ddh                                                                                                                                                                                                                                                 
+
+  GetVer; File name    = example-0-2.ddh                                                                                                                                                                                                                                                 
+          File version = 0
+
+  Chekts
+   10 1979         9 1980 AF/M  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = AF/M  for file type    9
+          Unit Conversion Factor = 1.0 divided by   1.9835
+          divided by the number of days in a month.
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 AF/M is       8.4027  CFS
+          for internal calculations (assuming a 30 day month)
+ Vircom; Year  1980
+ Vircom; Year  1981
+
+
+________________________________________________________________________
+  Virout; Negative Flows at GAGE Summary  ACFT/mon
+    Note: Count is the # of months for a monthly model and
+             the # of days for a daily model and 
+           Est is the average negative flow estimate 
+             on a monthly basis (af/mo) or a daily basis (af/day)
+           Adj is the adjusted value printed to results
+           Total is the total adjustment (abs(# * Est)
+                                                              Est         Adj       Total       River
+    # ID           Name                        Count       af/mon      af/mon        acft          ID
+ ____ ____________ ________________________ ________  ___________ ___________ ___________ ___________
+    1 F2           reach F node 2                  0         0.00        0.00        0.00          22
+    2 F6           reach F node 6                  0         0.00        0.00        0.00          26
+    3 C1           reach C node 1 top              0         0.00        0.00        0.00           7
+    4 C5           reach C node 5                  0         0.00        0.00        0.00          11
+    5 C7           reach C node 7                  0         0.00        0.00        0.00          13
+ ____ ____________ ________________________ ________  ___________ ___________ ___________ ___________
+      Total Ave                                    0         0.00        0.00        0.00
+
+
+________________________________________________________________________
+ Virout; Negative Flows at BASEFLOW LOCATIONS Summary  ACFT/mon
+   Note: Count is the # of months for a monthly model and
+           the # of days for a daily model and 
+         Est is the average negative flow estimate 
+           on a monthly basis (af/mo) or a daily basis (af/day)
+           Total is the total adjustment (abs(# * Est)
+                                                              Est         Adj       Total       River
+    # ID           Name                        Count       af/mon      af/mon        acft          ID
+ ____ ____________ ________________________ ________  ___________ ___________ ___________ ___________
+    1 A1           reach A node 1 top              0         0.00        0.00        0.00           1
+    2 B1           reach B node 1 top              0         0.00        0.00        0.00           4
+    3 C4           reach C node 4                  0         0.00        0.00        0.00          10
+    4 C8           reach B node 8 bottom           0         0.00        0.00        0.00          14
+    5 D1           reach D node 1 top              0         0.00        0.00        0.00          15
+    6 E1           reach E node 1 top              0         0.00        0.00        0.00          18
+    7 F4           reach F node 4                  0         0.00        0.00        0.00          24
+ ____ ____________ ________________________ ________  ___________ ___________ ___________ ___________
+      Total Ave                                    0         0.00        0.00        0.00
+
+
+________________________________________________________________________
+ Virgen; Baseflow Results Monthly 
+   Monthly Base flow information:          *.xbi
+   Monthly Base flow data for simulation:  *.xbm
+   Monthly Base flow at stream gages:      *.xbg
+   Monthly Base flow at stream estimates:  *.xbe
+
+ Virgen; Successful Termination
