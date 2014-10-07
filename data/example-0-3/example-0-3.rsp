@@ -1,13 +1,17 @@
 #
-# StateMod Response File for example 0-2-b (baseflow)
-# creates example-0-2-b.xbm for example-0-2 scenario
-# using example-0-2.rib to estimate ungaged baseflow locations 
+# StateMod Response File for example 0-3
+# (based on example 0-2)
+# simple network with one direct diversion, DD1,
+# with two water rights, DD1WR1 and DD1WR2,
+# an accounting plan (type 11), Plan1,
+# and a direct exchange operational right rule (type 24)
+# from DD1WR2 to Plan1
 #
 # Type                                    Name
 # ______________________________________  ________________________________________________________________________
-Control                                 = example-0-2.ctl
+Control                                 = example-0-3.ctl
 River_Network                           = example-0.rin
-StreamGage_Station                      = example-0-2-b.ris
+StreamGage_Station                      = example-0-2.ris
 Stream_Base_Monthly                     = example-0-2-b.xbm
 StreamGage_Historic_Monthly             = example-0-2.rih
 StreamEstimate_Coefficients             = example-0-2.rib
@@ -16,3 +20,5 @@ Diversion_Right                         = example-0-2.ddr
 Diversion_Demand_Monthly                = example-0-2.ddm
 Diversion_Historic_Monthly              = example-0-2.ddh
 DelayTable_Monthly                      = example-0-2.dly
+Plan_Data                               = example-0-3.pln
+Operational_Right                       = example-0-3.opr

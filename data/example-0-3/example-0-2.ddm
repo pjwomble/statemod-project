@@ -1,0 +1,21 @@
+# Example 0-2
+#
+# *.ddm;  Direct flow diversion demands for STATEMOD example 0-2
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (i4, 1x, a12, 12f8.0
+#
+#     Year     idyr:            Year
+#     ID       cistat:          Station id
+#     diverm(1-12):             Demand for month 1-12 ( ) = diver(im,nu) for station nu
+#
+#
+# Yr ID               Oct     Nov     Dec     Jan     Feb     Mar     Apr     May     Jun     Jul     Aug     Sep     Total
+# -e-b----------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb--------e
+#
+   10/1979  -      9/1980 AF/M  WYR
+1980 DD1              15.     15.     10.     10.     10.     15.     15.     20.     20.     20.     20.     15.      185.
+1981 DD1              15.     15.     10.     10.     10.     15.     15.     20.     20.     20.     20.     15.      185.
+

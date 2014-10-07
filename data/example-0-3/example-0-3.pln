@@ -1,0 +1,67 @@
+#
+# example-0-3.pln; Plan structures for example 0-3
+# there will be one acct plan (type 11) at node D2,
+# and a direct exchange (op rule 24) to it from
+# water right DD1WR2 at node C5
+#
+#
+#     Card 1   Control
+#     Free Format (no spaces in names)
+# Plan ID    Plan Name                      Plan loc   On Type      Eff Ret Loc Fail     Stor Source ID    SrcAcct
+#----------exb----------------------------exb------exb--exb--exb------exb-----exb--exb------exb----------exb-----e
+#
+#     Plan ID:              Pid     Include _ instead of blanks
+#     Plan Name:            Pname   Include _ instead of blanks
+#     Plan Location         iPsta   River node where the plan is located 
+#     Plan On/Off:          Pon     On (1) or Off (0) switch
+#
+#     Plan Type             iPlnTyp  1 = Terms and Conditions (T&C)
+#                                    2 = Well Augmentation
+#                                    3 = Reuse Reservoir
+#                                    4 = Reuse Diversion (WWTP)
+#                                    5 = Reuse to a Reservoir from Tmtn
+#                                    6 = Reuse to a Diversion from Tmtn
+#                                    7 = Trans mountain import
+#                                    8 = Recharge Plan
+#                                    9 = Out-of-Priority Diversion or Storage
+#                                   10 = Special Well Augmentation (e.g., Designated Basin, Coffin Wells, etc.)
+#                                   11 = Accounting Plan
+#
+#     Plan Efficiency (%)   Peff    Enter 0 if not used
+#                                   Enter 1 to read 12 plan efficiency values (%)
+#                                   Enter -1 if data is provided in an Operating Rule file (*.opr)
+#                                   Enter 999 to use the source structure's efficiency
+#     Plan Return Flow Type iPrf    Enter 0 if not used
+#                                   Enter -1 if data is provided in an Plan Return Flow file (*.prf)
+#                                   Enter 999 to use the source structure's return flow pattern
+#     Plan Failure Switch   iPfail  Used only for a T&C Plan (iPlntype = 1)                                            
+#                                   Enter 0 to not turn plan off if it fails
+#                                   Enter 1 to turn a plan off if it fails
+#                                   1 = Do stop and accumulate failures to be paid in subsequent time steps
+#     Plan Initial Storage  Psto1   Storage in Plan structure at beginning of simulation
+#                                   0 for non-Reuse Reservoir plans (iPtype<>3)
+#                                   >= 0 for Reuse Reservoir plans (iPtype=3) - set equal to storage in associated reservoir (*.res) account
+#     Plan Source           Psource Source ID of the structure where plan water becomes available 
+#                                   Note this information is currently used only when the plan type is 
+#                                   recharge (type 8) from a reservoir
+#     Plan Account          iPAcc   Source Account of the structure where plan water becomes available 
+#                                   Note this information is currently used only when the plan type is 
+#                                   recharge (type 8) from a reservoir 
+#
+#
+# some example records
+#
+#ALP_Pln       ALPFullPlan               ALP_Pln             1      11            0            0        0       0 Diversion          0
+#Durang_Pln    DurangoSplitPlan          Durang_Pln          1      11            0            0        0       0 Diversion          0
+#SUIT_Pln      SUITSplitPlan             SUIT_Pln            1      11            0            0        0       0 Diversion          0
+#UMUT_Pln      UMUTSplitPlan             UMUT_Pln            1      11            0            0        0       0 Diversion          0
+#Navaj_Pln     NavajoSplitPlan           Navaj_Pln           1      11            0            0        0       0 Diversion          0
+#SJWC_Pln      SJWCSplitPlan             SJWC_Pln            1      11            0            0        0       0 Diversion          0
+#LPCD_Pln      LPCDSplitPlan             LPCD_Pln            1      11            0            0        0       0 Diversion          0
+#Res_Pln       RemainingResSplitPlan     Res_Pln             1      11            0            0        0       0 Diversion          0
+#
+# Plan ID     Plan Name                 Plan loc       On/Off    Type   Efficiency  Ret Fl Type     Fail Storage Source ID    SrcAcct
+#-----------exb-----------------------exb---------exb-------exb-----exb----------exb----------exb------exb-----exb----------exb-----e
+#ALP_Pln       ALPFullPlan               ALP_Pln             1      11            0            0        0       0 Diversion          0
+Plan1         TargetPlanForDD1WR2Exch   D2                  1      11            0            0        0       0 NA                 0
+
