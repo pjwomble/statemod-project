@@ -185,5 +185,5 @@
 #
 Exchange1   Dir Exch DD1WR2 to Plan1                     6.00000      0.       1 Plan1              1 DD1WR2           100 NA                 0      24 NA           Diversion           0       0       0    9999 Direct flow rights exchange to admin plan
     500.  500.  500.  500.  500.  500.  500.  500.  500.  500.  500.  500.  6000. 
-Plan1Spill  Plan 1 spill rule                            7.00000      0.       1 C7                 0 Plan1              0 NA                 0      29 NA           NA                  0       0                 Spill Plan 1
+Plan1Spill  Plan 1 spill rule                            7.00000      0.       1 C6                 0 Plan1              0 NA                 0      29 NA           NA                  0       0                 Spill Plan 1
 

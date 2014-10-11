@@ -98,6 +98,7 @@
 DD1         Municipal diversion 1   C5                 133.61062       1       0  DD1
                                                        1       1   20.00    0.00       2       6
                                     C8            100.00       1
-DD2      Agricultural diversion 1   C6                 184.02655       1       0  DD2
+DD2         Agri diversion 1        C6                 184.02655       1       0  DD2
                                                        1       1   60.00    0.00       1       6
                                     C7            100.00       1
+

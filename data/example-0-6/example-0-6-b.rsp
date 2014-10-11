@@ -23,7 +23,7 @@
 #
 # Type                                    Name
 # ______________________________________  ________________________________________________________________________
-Control                                 = example-0-4.ctl
+Control                                 = example-0-6.ctl
 River_Network                           = example-0.rin
 StreamGage_Station                      = example-0-4-b.ris
 Stream_Base_Monthly                     = example-0-6-b.xbm
