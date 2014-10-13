@@ -1,0 +1,106 @@
+# Example 0-4a
+# *.dds;  Direct Diversion Station file for StateMod Example 0-4a
+#
+# *******************************************************
+# this is the fourth network dateset for the example 0 series
+#   of statemod data sets
+# example X.Y means the example X series, the Yth version
+#
+# this dataset is the same as 0-4, except added a second
+# diversion with a right senior to the second DD1 water right
+# that will call it out.
+#
+# this dataset can successfully estimated baseflows to an xbm file
+# using the example-0-4a-b rsp file
+# and can successfuly run in simulation mode with example-0-4a.rsp
+#
+# the example 0 series has a network that is fairly small and simple,
+#   but complex enough to host various kinds of structures later,
+#   and has enough variability to be good for testing
+# drawings of and notes about the network can be found in the series
+#   of files with names like example-0-4a-doc.*
+# *******************************************************
+#
+#
+#     Card 1   Control
+#     Format (a12, a24, a12, i8, f8.2, 2i8, 1x, a12)
+#     ID       cdivid:  Diversion ID
+#     Name     divnam:  Diversion name                        
+#     Riv ID   cgoto:   River Node where the diversion is located
+#     On/Off   idivsw:  Switch 0=off; 1=on
+#     Capacty  divcap:  Diversion capacity (cfs)
+#     #-User   nduser:  Number of users (typically 1)
+#     DailyX   cdividy: For daily model, ID of station with daily distribution
+#                                                      
+# ID        Name                    Riv ID        ON/Off Capacty  #-User RepCode DailyX
+#A12        A24                     A12               I8    F8.2      I8      I8 A12
+#----------eb----------------------eb----------eb------eb------eb------eb------exb----------e
+#
+#
+#     Card 2   User Data
+#     Format(12x, a24, 12x, 2i8, f8.2, f8.0, 2i8)
+#
+#     UseNam   usenam:  User name
+#     DemCode idvcom:  Code 1=input demand every year, 2=constant monthly, 3=jansen hayes,
+#                     4=blaney criddle, 5=zero
+#     #-Ret   nrtn:    Number of return flow locations
+#     Eff %   divefc:  System efficiency (%)
+#     IrrArea area:    Not used; enter 0
+#     UseType irturn:  Use type; 0-3=Inbasin; 4=Transmountain
+#     DemSrc  demsrc:  Demand source code; 1,2,3,4,5,6,7,8,-999 (see documentation)
+#                                                      
+# NA        UseNam                  NA           DemCode   #-Ret   Eff % IrrArea UseType  DemSrc
+#12X        A24                     12X               I8      I8    F8.2    F8.0      I8      I8
+#xxxxxxxxxxxb----------------------exxxxxxxxxxxxb------eb------eb------eb------eb------eb------e
+#
+#
+#     Card 3   Monthly efficiency data (optional, when divefc < 0)
+#     Free Format
+#
+#     diveff(1,12) twelve monthly efficiency % values
+#
+#
+#     Card 4   Return Flow Data
+#     Format (36x, a12, f8.2, i8)
+#
+#     Ret ID   crtnid   river node receiving return flow
+#     Ret %    pcttot   percent of return flow to this node
+#     Table #  irtnd1   Delay (return flow) table for this return flow
+#
+#     repeat for number of returns (nrtn)
+#                                                      
+# NA        NA                      Ret ID         Ret % Table #
+#36X                                A12             F8.2      I8
+#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxb----------eb------eb------e
+#
+# some example records:
+#Dem_3       Irrigation Demand _3    Riv_10             1 5000.00       1       0  Dem_1
+#                                                       1       1     50.    0.00       1       0
+#                                    Riv_20        100.00       1                  
+#Dem_2       Irrigation Demand _2    Riv_40             1 5000.00       1       0  Dem_2
+#                                                       1       1     50.    0.00       1       0
+#                                    Riv_60        100.00       1                  
+#Dem_1       Municipal Demand _1     Riv_60             1 5000.00       1       0  Dem_3
+#                                                       1       1     20.    0.00       1       0
+#                                    Riv_70        100.00       2
+#
+# the actual data
+# ID        Name                    Riv ID        ON/Off Capacty  #-User RepCode DailyX
+#A12        A24                     A12               I8    F8.2      I8      I8 A12
+#----------eb----------------------eb----------eb------eb------eb------eb------exb----------e
+#
+# NA        UseNam                  NA           DemCode   #-Ret   Eff % IrrArea UseType  DemSrc
+#12X        A24                     12X               I8      I8    F8.2    F8.0      I8      I8
+#xxxxxxxxxxxb----------------------exxxxxxxxxxxxb------eb------eb------eb------eb------eb------e
+#
+# NA        NA                      Ret ID         Ret % Table # 
+#36X                                A12             F8.2      I8
+#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxb----------eb------eb------e
+#
+DD1         Municipal diversion 1   C5                 133.61062       1       0  DD1
+                                                       1       1   20.00    0.00       2       6
+                                    C8            100.00       1
+DD2         Agri diversion 1        C6                 184.02655       1       0  DD2
+                                                       1       1   60.00    0.00       1    -999
+                                    C7            100.00       1
+

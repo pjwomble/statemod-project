@@ -1,0 +1,189 @@
+# FileFormatVersion 2
+#
+# StateMod Operational Right/Rule File for example 0-4
+# (based on example 0-3)
+#
+# this is the fourth network dateset for the example 0 series
+#   of statemod data sets
+# example X.Y means the example X series, the Yth version
+#
+# this dataset is the same as 0-3, except the flows/demand/etc are multipled by 100
+# to make it easier to detect conversion problems
+# ithe main moving part is a direct exchange from the jr DD1 water right to
+# an upstream acct plan (type 11) via op rule 24.
+#
+# this dataset can successfully estimated baseflows to an xbm file
+# using the example-0-4-b rsp file
+# and can successfuly run in simulation mode with example-0-4.rsp
+#
+# the example 0 series has a network that is fairly small and simple,
+#   but complex enough to host various kinds of structures later,
+#   and has enough variability to be good for testing
+# drawings of and notes about the network can be found in the series
+#   of files with names like example-0-4-doc.*
+#
+# simple network with one direct diversion, DD1,
+# with two water rights, DD1WR1 and DD1WR2,
+# an accounting plan (type 11), Plan1,
+# and a direct exchange operational right rule (type 24)
+# from DD1WR2 to Plan1
+#
+# *******************************************************
+#     Card 1   Control
+#     format:  (a12, a24, 12x, 2i4, i8, f8.0, i8, 3(i8,a12), 20i8)
+#
+#     ID       cidvri:          Operational Right ID
+#     Name     nameo:           Operational Right name
+#     AdminDat iodat(1-2,k):    Effective priority date
+#     Admin #  irtem:           Priority Number (smaller is most senoir)
+#     # Str    dum:             Number of intervenging structures
+#     On/Off   ioprsw(k):       Switch 0 = off,1 = on
+#     Dest ID  ciopde:          Destination reservoir or structure ID
+#     Dest Ac  iopdes(2,k):     Destination reservoir or structure account # (enter 1 for a diversion)
+#     Sou1 ID  ciopso(1)        Supply reservoir #1 or structure ID
+#     Sou1 Ac  iopsou(2,k):     Supply reservoir #1 or structure account # (enter 1 for a diversion)
+#     Sou2 ID  ciopso(2):       Supply reservoir #2 ID
+#     Sou1 Ac  iopsou(4,k):     Supply reservoir #2 account
+#     Type     ityopr(k):       Switch
+#                        1 = Reservoir Release to an instream demand
+#                        2 = Reservoir Release to a direct diversion demand
+#                        3 = Reservoir Release to a direct diversion demand by a carrier
+#                        4 = Reservoir Release to a direct diversion demand by exchange
+#                        5-8 Not used
+#                        9 = Reservoir Release for target contents
+#                        10 = Not used
+#                        11 = Direct flow demand thru intervening structures
+#                        12 = Roperate
+#                        ...
+#
+# *****************************************************************************
+#     Card 2   Carrier Ditch data (include only if idum > 0
+#     format:  (free)
+#
+#     Inter    itern(1,j)      intervening direct diversion structure id's
+#                              Enter # Str values
+# *****************************************************************************
+#
+#
+# ID        Name                    NA                    Admin#   # Str  On/Off Dest Id     Dest Ac  Sou1 Id     Sou1 Ac  Sou2 Id     Sou2 Ac     Type ReusePlan     Div Type    OprLoss    Limit   ioBeg   ioEnd Comment
+# ---------eb----------------------eb----------exxxxb----------eb------eb------e-b----------eb------e-b----------eb------e-b----------eb------eb------exb----------exb----------exb------eb------eb------eb------exb----- 
+#
+# example operational rule records
+# Lemon Reservoir Op Rules
+#3035810.01  OprLemonRestoHarris Pat                  26974.22967      0.       1 301003             1 303581             1 0                  0       2 NA           Diversion         0.0     0.0       0    9999  
+#3035810.02  OprLemonRestoPioneer                     26974.22967      0.       1 301019             1 303581             1 0                  0       2 NA           Diversion         0.0     0.0       0    9999  
+#3035810.03  OprLemonRestoMcC & Mur.                  26974.22967      0.       1 301009             1 303581             1 0                  0       2 NA           Diversion         0.0     0.0       0    9999  
+#3035810.04  OprLemonRestoBanks Tyner                 26974.22967      0.       1 301033             1 303581             1 0                  0       2 NA           Diversion         0.0     0.0       0    9999  
+#3035810.05  OprLemonRestoTyner East                  26974.22967      0.       1 301243             1 303581             1 0                  0       2 NA           Diversion         0.0     0.0       0    9999  
+#3035810.06  OprLemonRestoFlo Farmers                 35219.00001      0.       1 301011             1 303581             2 0                  0       2 NA           Diversion         0.0     0.0       0    9999  
+#3035810.07  OprLemonRestoUSA ISF                     51499.42186      0.       1 309999             1 303581             3 0                  0       1 NA           Diversion         0.0     0.0       0    9999  
+#3035810.08  OprLemonRestoTarget                      99999.99999      0.       1 303581             0 303581             0 0                  0       9 NA           Diversion         0.0     0.0       0    9999  
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Animas Consolidated Ditch - Hermosa Creek
+#Multist.03  OprMulti3005810.01                        9953.00000      0.       1 300506             1 300581.01          0 0                  0      11 NA           Diversion         0.0     0.0       0    9999  
+#Multist.04  OprMulti3005810.02                       14458.00000      0.       1 300506             1 300581.02          0 0                  0      11 NA           Diversion         0.0     0.0       0    9999  
+#Multist.05  OprMulti3005810.03                       19876.00000      0.       1 300506             1 300581.03          0 0                  0      11 NA           Diversion         0.0     0.0       0    9999  
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Cascade Operations
+#3005230.01  OprCascadeCnltoCascadeRes                26974.19267      0.       1 303536             1 300523.01          0 0                  0      11 NA           Diversion         0.0     0.0       0    9999  
+#3005230.02  OprCascadeCnltoPwrCnl#1                  26974.19266      0.       1 300612             1 300523.01          0 0                  0      11 NA           Diversion         0.0     0.0       0    9999  
+#3035360.01  OprCascadeRestoPwrCnl#1                  26974.19268      0.       1 300612             1 303536             1 0                  0       2 NA           Diversion         0.0     0.0       0    9999  
+#3035360.02  OprCascadeRestoTarget                    99999.99999      0.       1 303536             0 303536             0 0                  0       9 NA           Diversion         0.0     0.0       0    9999  
+#
+# ID        Name                    NA                    Admin#   # Str  On/Off Dest Id     Dest Ac  Sou1 Id     Sou1 Ac  Sou2 Id     Sou2 Ac     Type ReusePlan     Div Type    OprLoss    Limit   ioBeg   ioEnd Comment
+# ---------eb----------------------eb----------exxxxb----------eb------eb------e-b----------eb------e-b----------eb------e-b----------eb------eb------exb----------exb----------exb------eb------eb------eb------exb----- 
+#
+# ALP Operations
+#  Rules carry from 300509, 300545, and 300582 via Plan_C to the RB Res (303623)
+#   Source rights can be used for direct use or to carry to the reservoir.
+#
+# 1) Direct Diversions to Full Plan
+#
+#ALP_Pln.01  ALP_Full_Plan                            32386.00000      1.       1 ALP_Pln            1 300509.01        100 NA                 0      25 NA           Diversion          -1       0       0    9999 Direct flow rights to admin plan
+#                                    Plan_C    0   Carrier
+#   36000. 36000. 36000. 36000. 36000. 36000. 36000. 36000. 36000. 36000. 36000. 36000.  432000.
+#ALP_Pln.02  ALP_Full_Plan                            32386.00000      1.       1 ALP_Pln            1 300545.01        100 NA                 0      25 NA           Diversion          -1       0       0    9999 Direct flow rights to admin plan
+#                                    Plan_C    0   Carrier
+#   3600.  3600.  3600.  3600.  3600.  3600.  3600.  3600.  3600.  3600.  3600.  3600.   43200.
+#ALP_Pln.03  ALP_Full_Plan                            32386.00000      1.       1 ALP_Pln            1 300582.01        100 NA                 0      25 NA           Diversion          -1       0       0    9999 Direct flow rights to admin plan
+#                                    Plan_C    0   Carrier
+#   6000.  6000.  6000.  6000.  6000.  6000.  6000.  6000.  6000.  6000.  6000.  6000.   72000.
+#
+# 2) Full to Split Plans
+#      Note that ALPWCD can only receive water via a piped release from the reservoir, 
+#         therefore the plan split only includes the remaining 7 plans 
+#         ALPWCD plan reflects Durango portion of direct flow
+#      See the ALP_Operations.xls for each plan demand split
+#ALP_Pln.04  Split_ALP_Full_to_Split_Plans            32386.00001      0.       1 ALPWCD_Pln      4.74 ALP_Pln            1 NA                 0      46 NA           Diversion           0       7       0    9999 AcctSplit to Multiple Owners
+#                                                                                 SJWC_Pln       18.95
+#                                                                                 State_Pln       9.51
+#                                                                                 Navaj_Pln       4.26
+#                                                                                 SUIT_Pln       30.56
+#                                                                                 UMUT_Pln       30.56
+#                                                                                 LPCD_Pln        1.42                                                                             
+#
+# 3) Split Plans to Demands                            
+#
+#SJWC_Pln.01 SplittoDemand                            32386.00002      0.       1 NM_SJWC            1 SJWC_Pln         100 NA                 0      27 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#State_Pln.01 SplittoDemand                           32386.00002      0.       1 CO_State           1 State_Pln        100 NA                 0      27 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#Navaj_Pln.01 SplittoDemand                           32386.00002      0.       1 NM_Navajo          1 Navaj_Pln        100 NA                 0      27 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#SUIT_Pln.01 SplittoDemand                            32386.00002      0.       1 CO_SUIT            1 SUIT_Pln         100 NA                 0      27 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#UMUT_Pln.01 SplittoDemand                            32386.00002      0.       1 CO_UMUT            1 UMUT_Pln         100 NA                 0      27 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#LPCD_Pln.01 SplittoDemand                            32386.00002      0.       1 NM_LPCD            1 LPCD_Pln         100 NA                 0      27 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+# ALPWCD serves Durango from plan, Durango cannot physically receive water from the reservoir
+#ALPW_Pln.01 SplittoDemand                            32386.00002      0.       1 CO_Durango         1 ALPWCD_Pln       100 NA                 0      28 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#
+# 4) Remaining Split Plan to Reservoir
+#
+#SJWC_Pln.02 SplittoReservoir                         32386.00003      1.       1 303623            -2 SJWC_Pln         100 NA                 0      28 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#                                    301657    0   Carrier
+#State_Pln.02 SplittoReservoir                        32386.00003      1.       1 303623            -2 State_Pln        100 NA                 0      28 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#                                    301657    0   Carrier
+#Navaj_Pln.02 SplittoReservoir                        32386.00003      1.       1 303623            -2 Navaj_Pln        100 NA                 0      28 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#                                    301657    0   Carrier
+#SUIT_Pln.02 SplittoReservoir                         32386.00003      1.       1 303623            -2 SUIT_Pln         100 NA                 0      28 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#                                    301657    0   Carrier
+#UMUT_Pln.02 SplittoReservoir                         32386.00003      1.       1 303623            -2 UMUT_Pln         100 NA                 0      28 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#                                    301657    0   Carrier
+#LPCD_Pln.02 SplittoReservoir                         32386.00003      1.       1 303623            -2 LPCD_Pln         100 NA                 0      28 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#                                    301657    0   Carrier
+#ALPW_Pln.03 SplittoReservoir                         32386.00003      1.       1 303623            -2 ALPWCD_Pln       100 NA                 0      28 NA           Diversion          -1       0       0    9999 AcctPlan to Demand
+#                                    301657    0   Carrier
+#
+# 5) Spill Plans
+#
+#ALP_Pln.05  Spill                                    32386.00004      0.       1 NA                 0 ALP_Pln            0 NA                 0      29 NA           NA                  0       0                 Spill AcctSplit_Plan
+#SJWC_Pln.03  Spill                                   32386.00004      0.       1 NA                 0 SJWC_Pln           0 NA                 0      29 NA           NA                  0       0                 Spill AcctSplit_Plan
+#State_Pln.03 Spill                                   32386.00004      0.       1 NA                 0 State_Pln          0 NA                 0      29 NA           NA                  0       0                 Spill Acct_Plan
+#Navaj_Pln.03 Spill                                   32386.00004      0.       1 NA                 0 Navaj_Pln          0 NA                 0      29 NA           NA                  0       0                 Spill AcctSplit_Plan
+#SUIT_Pln.03  Spill                                   32386.00004      0.       1 NA                 0 SUIT_Pln           0 NA                 0      29 NA           NA                  0       0                 Spill AcctSplit_Plan
+#UMUT_Pln.03  Spill                                   32386.00004      0.       1 NA                 0 UMUT_Pln           0 NA                 0      29 NA           NA                  0       0                 Spill AcctSplit_Plan
+#LPCD_Pln.03  Spill                                   32386.00004      0.       1 NA                 0 LPCD_Pln           0 NA                 0      29 NA           NA                  0       0                 Spill AcctSplit_Plan
+#ALPW_Pln.04  Spill                                   32386.00004      0.       1 NA                 0 ALPWCD_Pln         0 NA                 0      29 NA           NA                  0       0                 Spill AcctSplit_Plan
+#
+# 6) Reservoir to Demands 
+#      Note that the ALPWCD releases are via a piped release, and ALPWCD can only receive water from the reservoir
+#
+#3036230.01  OprRBasintoCO_ALPWCD                     32386.00005      0.       1 CO_ALPWCD          1 303623             1 0                  0       3 NA           Diversion           0       0       0    9999  
+#
+#3036230.02  OprRBasintoNM_SJWC                       32386.00005      0.       1 NM_SJWC            1 303623             1 0                  0       2 NA           Diversion           0       0       0    9999  
+#3036230.03  OprRBasintoCO_State                      32386.00005      0.       1 CO_State           1 303623             1 0                  0       2 NA           Diversion           0       0       0    9999  
+#3036230.04  OprRBasintoNM_Navajo                     32386.00005      0.       1 NM_Navajo          1 303623             1 0                  0       2 NA           Diversion           0       0       0    9999  
+#3036230.05  OprRBasintoCO_SUIT                       32386.00005      0.       1 CO_SUIT            1 303623             1 0                  0       2 NA           Diversion           0       0       0    9999  
+#3036230.06  OprRBasintoCO_UMUT                       32386.00005      0.       1 CO_UMUT            1 303623             1 0                  0       2 NA           Diversion           0       0       0    9999  
+#3036230.07  OprRBasintoNM_LPCD                       32386.00005      0.       1 NM_LPCD            1 303623             1 0                  0       2 NA           Diversion           0       0       0    9999  
+#
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Soil Moisture
+#Opr_22      OprSoilMoisture                          90000.00000      0.       1 N/A                0 N/A                0 0                  0      22 NA           Diversion         0.0     0.0       0    9999
+#
+# Format (a12, a24, 12x, 4x, f12.5, f8.0, i8, 3(1x,a12,i8), i8, 1x, a12, 1x, a12, 1x, 2f8.0, 2i8)
+# 
+# ID        Name                    NA                    Admin#   # Str  On/Off Dest Id      Dest Ac Sou1 Id      Sou1 Ac Sou2 Id      Sou2 Ac    Type ReusePlan     Div Type    OprLoss    Limit   ioBeg   ioEnd Comment
+#A12        A24                     12X         4X         F12.5    F8.0      I8XA12               I8XA12               I8XA12               I8      I8XA12         XA12         X    F8.0    F8.0      I8      I8
+# ---------eb----------------------exxxxxxxxxxxxxxxxb----------eb------eb------exb----------eb------exb----------eb------exb----------eb------eb------exb----------exb----------exb------eb------eb------eb------exb----- 
+#
+Exchange1   Dir Exch DD1WR2 to Plan1                     6.00000      0.       1 Plan1              1 DD1WR2           100 NA                 0      24 NA           Diversion           0       0       0    9999 Direct flow rights exchange to admin plan
+    500.  500.  500.  500.  500.  500.  500.  500.  500.  500.  500.  500.  6000. 
+Plan1Spill  Plan 1 spill rule                            7.00000      0.       1 C6                 0 Plan1              0 NA                 0      29 NA           NA                  0       0                 Spill Plan 1
+
