@@ -1,0 +1,36 @@
+# Example 0-4b
+# *.ifs; Instream Flow Station file for StateMod Example 0-4b
+#
+# this is the fourth network dateset for the example 0 series
+#   of statemod data sets
+# example X.Y means the example X series, the Yth version
+#
+# this dataset is the same as 0-4a, except added an ISF
+# within the exchange reach to call it out
+#
+# this dataset can successfully estimated baseflows to an xbm file
+# using the example-0-4b-b rsp file
+# and can successfuly run in simulation mode with example-0-4b.rsp
+#
+# the example 0 series has a network that is fairly small and simple,
+#   but complex enough to host various kinds of structures later,
+#   and has enough variability to be good for testing
+# drawings of and notes about the network can be found in the series
+#   of files with names like example-0-4b-doc.*
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (a12,a24,a12,i8, 1x,a12,1x,a12)                   
+#
+#     ID       cifrid:  Instream Flow ID
+#     Name     cfrnam:  Instream Flow name
+#     RivUp    cgoto:   Upstream instream flow location
+#     On/Off   ifrrsw:  Switch; 0=off, 1=on
+#     RivDn    ifrrdn:  Downstream instream flow location 
+#     DailyX   cifridy; For daily model, Id of station with daily data
+#                                                      
+# ID        Name                    RivUp         On/Off RivDn        DailyX
+#----------eb----------------------eb----------eb------exb----------exb----------e
+#
+ISF1        Instream Demand         D3                 1 D3           ISF1

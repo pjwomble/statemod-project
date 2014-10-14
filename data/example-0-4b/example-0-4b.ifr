@@ -1,0 +1,36 @@
+# Example 0-4b
+# *.ifr; Instream Flow Right file for StateMod Example 0-4b
+#
+# this is the fourth network dateset for the example 0 series
+#   of statemod data sets
+# example X.Y means the example X series, the Yth version
+#
+# this dataset is the same as 0-4a, except added an ISF
+# within the exchange reach to call it out
+#
+# this dataset can successfully estimated baseflows to an xbm file
+# using the example-0-4b-b rsp file
+# and can successfuly run in simulation mode with example-0-4b.rsp
+#
+# the example 0 series has a network that is fairly small and simple,
+#   but complex enough to host various kinds of structures later,
+#   and has enough variability to be good for testing
+# drawings of and notes about the network can be found in the series
+#   of files with names like example-0-4b-doc.*
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (a12, a24, a12, 4x, f12.5, f8.0, i8)                   
+#
+#     ID       cifrri:          Instream flow right ID
+#     Name     namei:           Instream flow right name
+#     Struc    cgoto:           Instream flow station tied to this right
+#     Admin#   irtem:           Priority or Administration number 
+#     Right    dcrifr(k):       Diversion right (cfs)
+#     On/Off   iifrsw(k):       Switch 0 = off, 1 = on
+#
+# ID        Name                    Struc                Admin#   Right  On/Off
+#----------eb----------------------eb----------e----b----------eb------eb------e
+#
+ISF1WR1     Instream Flow 1 WR 1    ISF1                 1.0000033.61062       1
