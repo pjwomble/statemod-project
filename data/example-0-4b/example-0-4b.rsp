@@ -35,4 +35,4 @@ Instreamflow_Right                      = example-0-4b.ifr
 Instreamflow_Demand_AverageMonthly      = example-0-4b.ifa
 DelayTable_Monthly                      = example-0-4.dly
 Plan_Data                               = example-0-4.pln
-Operational_Right                       = example-0-4.opr
+Operational_Right                       = example-0-4b.opr
