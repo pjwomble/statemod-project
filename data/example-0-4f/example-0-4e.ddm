@@ -1,25 +1,28 @@
-# Example 0-4d
+# Example 0-4e
 #
-# example-0-4d.ddm;
-# Direct flow diversion demands for STATEMOD example 0-4d
+# example-0-4e.ddm;
+# Direct flow diversion demands for STATEMOD example 0-4e
 #
+# *******************************************************
 # this is the fourth network dateset for the example 0 series
 #   of statemod data sets
 # example X.Y means the example X series, the Yth version
 #
-# this dataset is the same as 0-4c, except added a new senior diversion
-#   to cause a shortage in the right being split to an exchange
-#   O R type 24  - testing what happens now in a shortage
-#
+# this dataset is the same as 0-4a, except changed the
+#   type 24 destination from an acct plan to a direct diversion
+#   that is 0% consumptive.  Returns to the same location (C6).
+#   Testing whether StateMod will allow an exchange to a direct
+#   diversion when there is a call
+#   (it doesn’t when the dest is a plan).
 # this dataset can successfully estimated baseflows to an xbm file
-#   using the example-0-4d-b rsp file
-#   and can successfuly run in simulation mode with example-0-4d.rsp
+#   using the example-0-4e-b rsp file
+#   and can successfuly run in simulation mode with example-0-4e.rsp
 #
 # the example 0 series has a network that is fairly small and simple,
 #   but complex enough to host various kinds of structures later,
 #   and has enough variability to be good for testing
 # drawings of and notes about the network can be found in the series
-#   of files with names like example-0-4d-doc.*
+#   of files with names like example-0-4e-doc.*
 # *******************************************************
 #
 #     Card 1   Control
@@ -35,7 +38,9 @@
 #
    10/1979  -      9/1980 AF/M  WYR
 1980 DD1            2000.   2000.   2000.   2000.   2000.   2000.   2000.   2000.   2000.   2000.   2000.   2000.    24000.
-1980 DD2               0.      0.      0.      0.      0.      0.      0.   4500.   4500.   4500.   4500.   4500.    22500.
+1980 DD2               0.      0.      0.      0.      0.      0.      0.   5000.   5000.   5000.   5000.   5000.    25000.
+1980 DD3            1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.    12000.
 1981 DD1            2000.   2000.   2000.   2000.   2000.   2000.   2000.   2000.   2000.   2000.   2000.   2000.    24000.
-1981 DD2               0.      0.      0.      0.      0.      0.      0.   4500.   4500.   4500.   4500.   4500.    22500.
+1981 DD2               0.      0.      0.      0.      0.      0.      0.   5000.   5000.   5000.   5000.   5000.    25000.
+1981 DD3            1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.    12000.
 
