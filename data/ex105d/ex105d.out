@@ -1,0 +1,37 @@
+#
+# *.xou; Preliminary station request file
+#
+# Type (e.g. Diversion, StreamGage, Reservoir, InstreamFlow or Well)
+# 
+Diversion
+#
+# Parameter (e.g. Total_Supply, Sim_EOM, River_Outflow, ...)
+# 
+Total_Supply
+#
+# ID Name Type and Print Code (0=no, 1=yes);
+# Note: id = All prints all
+#       id = -999 = stop
+#       default is to turn on all stream gages (FLO)
+#
+All
+-999
+
+
+Dem_3        Irrigation Demand _3     DIV     0
+Dem_2        Irrigation Demand _2     DIV     0
+Dem_1        Municipal Demand _1      DIV     0
+Isf_1        Instream Demand          ISF     0
+Res_Junior   Res_Junior               RES     0
+Res_Senior   Res_Senior               RES     0
+Riv_10       Exist. Div. & Inflow     FLO     1
+Riv_30       Inflow                   FLO     1
+Riv_80       USGS Gauge               FLO     1
+Riv_15       Augmentation_Well        OTH     0
+Riv_20       Res_Test                 OTH     0
+Riv_25       Intermediate River Node  OTH     0
+Riv_50       Confluence               OTH     0
+Riv_55       Intermediate             OTH     0
+OOP_1        OutOfPriority_1          OPR     0
+OOP_Release  OutOfPriority_Rel        OPR     0
+-999        

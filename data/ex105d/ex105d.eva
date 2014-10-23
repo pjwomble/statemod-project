@@ -1,0 +1,20 @@
+# Exhibit 2.6
+# *.eva; Evaporation data for StateMod Example
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (i4,1x,a12,12f8.0)                   
+#       
+#     Yr       iery:             Year
+#     Id       ceva:             station id
+#     evaprt(1-12,ieva):         Evap for month 1-12 (ft)
+#
+#
+# Yr ID               Oct     Nov     Dec     Jan     Feb     Mar     Apr     May     Jun     Jul     Aug     Sep     Total
+# -e-b----------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb--------e
+#
+   10/1980  -      9/1981   FT  WYR
+1980 5001            0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00      0.00
+1981 5001            0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00      0.00
+

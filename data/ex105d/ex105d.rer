@@ -1,0 +1,29 @@
+# Exhibit 2.4
+# ex*.rer;  Reservoir rights file for StateMod Example
+#
+# *******************************************************
+#
+#    Card 1   Control
+#     format:  (a12, a24, a12,4x,f12.5,i8, f8.0, 8i8)                   
+#
+#     ID       cirsid:          Reservoir right ID 
+#     Name     namer:           Reservoir name
+#     Struct   cgoto:           Reservoir ID associated with this right
+#     Admin #  irtem:           Priority or administration Number (smaller is most senoir)
+#     Right    dcrres(k):       Storage right (af)
+#     On/Off   irsrsw(k):       Switch 0 = off,1 = on
+#     Owner    iresco(2,k):     Ownership code (Enter a negative if ownership goes to the first (n) accounts
+#     Type     ityrsr(k):       Reservoir type 1= onstream; 2=off channel served by a carrier
+#     Fill #   n2fill(k):       Right type 1=First fill, 2=Second fill
+#       
+# ID        Name                    Struct               Admin #   Right  On/Off   Owner    Type  Fill #
+#----------eb----------------------eb----------exxxxb----------eb------eb------eb------eb------eb------e
+#
+Res_Senior1 Res_Senior_1            Res_Senior           1.10000  10000.       1       1       1       1  
+Res_Senior2 Res_Senior_2            Res_Senior           1.20000  10000.       1       1       1       2  
+#
+Res_J1_Wr#1 Res_Junior1_Wr#1        Res_Junior1       9999.00000   4000.       1       1       1       1  
+# Junior1_OOP Res_Junior1_OOP         Res_Junior1          0.90000   4000.       1       2      -1       1OOP_Junior1
+#
+Res_J2_Wr#1 Res_Junior2_Wr#1        Res_Junior2       9999.00000  10000.       1       1       1       1  
+# Junior2_OOP Res_Junior2_OOP         Res_Junior2          0.91000  10000.       1       2      -1       1OOP_Junior2 

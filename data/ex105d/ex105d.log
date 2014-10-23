@@ -1,0 +1,451 @@
+________________________________________________________________________
+
+        StateMod                       
+        State of Colorado - Water Supply Planning Model     
+
+        Version: 14.01.01
+        Last revision date: 2014/09/05
+
+________________________________________________________________________
+
+________________________________________________________________________
+  StateM; Response File (*.rsp)                           
+     ex105d.rsp                                                                                                                                                                                                                                                      
+
+________________________________________________________________________
+  StateM; Path                                            
+     None    
+  Getfn; maxfile =           80
+
+________________________________________________________________________
+  Getfn; Random input from *.ctl
+
+________________________________________________________________________
+  Statem; Option Specified = Simulate  
+
+________________________________________________________________________
+  Execut; Execut Option
+
+
+
+________________________________________________________________________
+  Execut; Response File (*.rsp)                   
+     ex105d.rsp                                                              
+
+________________________________________________________________________
+  Datinp; Control File (*.ctl) 
+
+  GetFile; Opening Control                                 *.ctl   
+    ex105d.ctl                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.ctl                                                                                                                                                                                                                                                      
+          File version = 0
+  STATEMOD                                                                      
+  Example 2 Simple 8 node network with a reservoir, recharge plan and well augme
+
+________________________________________________________________________
+  Datinp; 
+
+   ** Monthly Model                            **
+   ** Output Unit: af                          **
+   ** Wells                                 On **
+   ** Maximum Recharge (1)                 Off **
+   ** Demand type = 3 (Structure Dem. Approach)**
+      For D&W structures demands not added        
+      (Expected demands in *.ddm to be total)    
+   ** Instream flow with reaches            On **
+   ** Detailed call information            Off **
+   ** SJRIP Sediment file (*.sjr)          Off **
+   ** Annual time series (*.tsp) file      Off **
+   ** Variable efficiency                  Off **
+   ** Sprinklers                           Off **
+   ** Soil Moisture                        Off **
+   ** Significant figures on output                    1 **
+  STATEMOD                                                                      
+  Example 2 Simple 8 node network with a reservoir, recharge plan and well augme
+  Datinp; 
+    iystr      =     1980
+    iyend      =     1980
+    iresop     =        2
+    moneva     =        0
+    iopflo     =        1
+    numpre     =        0
+    numeva     =        1
+    interv     =       -1
+    factor     =    1.984
+    rfacto (1) =    1.984
+    dfacto (1) =    1.984
+    ffacto (1) =    0.000
+    cfacto (1) =    1.000
+    efacto (1) =    1.000
+    pfacto (1) =    1.000
+ (1) Note an input value of 0 is effectively equal to 1.0
+  Datinp; 
+    cyr1       =   WYR
+    icondem    =        3
+    ichk       =      139
+    ireopx     =        0
+    ireach     =        1
+    icall      =        0
+    ccall      = Or_AltPoint 
+    iday       =        0
+    idaydem    =        0
+    iwell      =        1
+    gwmaxrc    =     0.00
+    isjrip     =        0
+    itsfile    =        0
+    ieffmax    =        0
+    isprink    =        0
+    soild      =     0.00
+    isoil      =        0
+    isigfig    =        1
+
+________________________________________________________________________
+  Datinp; River Network File (*.rin)
+
+  GetFile; Opening River_Network                           *.rin   
+    ex105d.rin                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.rin                                                                                                                                                                                                                                                      
+          File version = 0
+
+  Datinp; Number of Network Stations (*.rin) =    17
+   Datinp; ioutN @ line 1053            0
+
+________________________________________________________________________
+  Datinp; Reservoir Station File (*.res)
+
+  GetFile; Opening Reservoir_Station                       *.res   
+    ex105d.res                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.res                                                                                                                                                                                                                                                      
+          File version = 0
+
+  GetRes; Reservoir Station File (*.res) 
+    ex105d.res                                                                                                                                                                                                                                                      
+
+  GetRes; Warning See *.chk for details regarding: Reservoir Accounts      
+
+  GetRes; Number of Reservoirs =     3
+
+________________________________________________________________________
+  Datinp; Diversion Station File (*.dds)
+
+  GetFile; Opening Diversion_Station                       *.dds   
+    ex105d.dds                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.dds                                                                                                                                                                                                                                                      
+          File version = 0
+
+  GetDiv; Number of Diversions       =     4
+
+________________________________________________________________________
+  Datinp; River Station File (*.ris)
+
+  GetFile; Opening StreamGage_Station                      *.ris   
+    ex105d.ris                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.ris                                                                                                                                                                                                                                                      
+          File version = 0
+
+  Datinp; Number of river stations (*.ris) =     3
+
+________________________________________________________________________
+  Datinp; Instream Flow Station File (*.ifs) 
+
+  GetFile; Opening Instreamflow_Station                    *.ifs   
+    ex105d.ifs                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.ifs                                                                                                                                                                                                                                                      
+          File version = 0
+
+  Datinp; Number of instream flow stations (*.ifs) =     1
+
+________________________________________________________________________
+  Datinp; Well Station File (*.wes) 
+
+  GetFile; Opening Well_Station                            *.wes   
+    ex105d.wes                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.wes                                                                                                                                                                                                                                                      
+          File version = 0
+
+________________________________________________________________________
+  GetWel; Well Station File (*.wes) 
+
+  GetRtnW; Warning See *.chk for details regarding: Well Return Location            
+
+  GetWel; Number of Supplemental Wells    =     0
+          Number of Sole Source Wells     =     2
+          Number of Wells Total           =     2
+          Number with demand data (*.wem) =     2
+
+________________________________________________________________________
+  Datinp; Plan Station File (*.pln) 
+
+  GetFile; Opening Plan_Data                               *.pln   
+    ex105d.pln                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.pln                                                                                                                                                                                                                                                      
+          File version = 0
+  Subroutine GetPln           99
+
+________________________________________________________________________
+
+  GetPln; Number of Plan Types 
+    # Type Description                Number
+ ____ ____ _________________________ _______
+    1    9 Out-of-Priority_Reservoir       1
+    2   10 Special_Well_Augmentation       1
+ ____ ____ _________________________ _______
+    2   NA Total                           2
+  
+  GetPln; Number of Plans        =            2
+
+________________________________________________________________________________________________________________________________________________
+ GetPln; Plan Return File (*.prf) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+________________________________________________________________________
+  Datinp; River Gage File (*.rig) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+________________________________________________________________________
+  Datinp; River Node Summary
+
+  Number of Inflow nodes                    =     3
+  Number of Diversion nodes                 =     4
+  Number of Reservoir nodes                 =     3
+  Number of Minimum Instream nodes          =     1
+  Number of Well nodes Total                =     2
+  Number of Supplemental Well nodes =     0
+  Number of Sole Source Well nodes  =     2
+  Number of Plans                           =     2
+  Number of Other nodes (1)                 =     2
+  _________________________________________________
+  Total of River nodes                      =    17
+
+  (1) May be negative if multiple activities occur at the  same node
+
+
+ nf          43 nx          38
+ nf          44 nx          29
+ nf          67 nx          33
+ nf          42 nx          19
+   Execut; divchk (af/time step) =    9.99999978E-03           0           0
+
+________________________________________________________________________
+  Execut; FYI Reoperation check =      0.010 cfs
+                                =      0.615 af/mo
+
+________________________________________________________________________
+  Riginp; Instream Flow Right File (*.ifr)    20    1   98
+    ex105d.ifr                                                                                                                                                                                                                                                      
+  Rininp; FYI Number of InstreamFlow Rights =     1
+
+________________________________________________________________________
+  Riginp; Reservoir Right File (*.rer) 
+    ex105d.rer                                                                                                                                                                                                                                                      
+
+________________________________________________________________________
+  RigInp; Warning See *.chk for details regarding: Reservoir Rights                
+  Rininp; FYI Number of Reservoir    Rights =     4
+
+________________________________________________________________________
+  Riginp; Direct Diversion Right File (*.ddr) 
+    ex105d.ddr                                                                                                                                                                                                                                                      
+  Rininp; FYI Number of Diversion    Rights =     4
+
+________________________________________________________________________
+  Riginp; Well Right File (*.wer) 
+    ex105d.wer                                                                                                                                                                                                                                                      
+  Rininp; FYI Number of Well         Rights =     2
+
+________________________________________________________________________
+  Oprinp; Operational Right File (*.opr) 
+
+  GetFile; Opening Operational_Right                       *.opr   
+    ex105d.opr                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.opr                                                                                                                                                                                                                                                      
+          File version = 0
+
+________________________________________________________________________
+  ChkVer; Warning two Operating Rule File (*.opr)     
+            formats are currently supported but no file
+            version has been provided.
+          Based on the data in the file it appears
+            you have provided version 2 that has
+            Plan, Diversion Type, Operating Loss, etc.
+          To eliminate this warning it is recommend you
+            migrate to the current standard format
+            and include the following at the top of
+            your file: #FileFormatVersion 2
+          If you do migrate to the current standard
+            and add the above at the top of the file
+            StateMod will try to read the current standard
+            and set missing data to a default value.
+
+________________________________________________________________________
+
+  OprinP; Number of Operating Rule Types 
+    # Type Description                Number
+ ____ ____ _________________________ _______
+    1   39 Alternate Point Diversion       1
+ ____ ____ _________________________ _______
+    1   NA Total                           1
+
+
+________________________________________________________________________
+  Oprinp; Number of Operating    Rights =     1
+          Number turned off             =     0
+          Number active                 =     1
+
+________________________________________________________________________
+
+  Rininp; Water Right Summary
+
+  Number of Diversion Rights       =     4
+  Number of Reservoir Rights       =     4
+  Number of Instream Rights        =     1
+  Number of Operational Rights     =     1
+  Number of Well Rights            =     2
+  ________________________________________
+  Total Water Rights               =    12
+
+
+
+________________________________________________________________________
+  SetPlanO; Set Plan to Operational Rule Data
+
+________________________________________________________________________
+  Mdainp; Precipitation File (*.pra or *.prm)
+     -1                                                                                                                                                                                                                                                              
+  Chekpor; FYI, A dummy (blank) file determined for 
+           file: -1                                                                                                                                                                                                                                                              
+
+________________________________________________________________________
+  Mdainp; Evaporation File (*.evm or *.eva) 
+     ex105d.eva                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.eva                                                                                                                                                                                                                                                      
+          File version = 0
+
+  Chekts
+   10 1980         9 1981   FT  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = FT    for Chekts file type    1
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 is 500 for internal calculations
+
+________________________________________________________________________
+  Mdainp; Base Streamflow File (*.rim or *.xbm) 
+     ex105d.rim                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.rim                                                                                                                                                                                                                                                      
+          File version = 0
+
+  Chekts
+   10 1979         9 1981 AF/M  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = AF/M  for file type    3
+          Unit Conversion Factor = 1.0 divided by   1.9835
+          divided by the number of days in a month.
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 AF/M is       8.4027  CFS
+          for internal calculations (assuming a 30 day month)
+
+________________________________________________________________________
+  Mdainp; Direct Flow Demand - Monthly (*.ddm) 
+  Mdainp; rec256 ex105d.ddm                                                                                                                                                                                                                                                      
+     ex105d.ddm                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.ddm                                                                                                                                                                                                                                                      
+          File version = 0
+
+  Chekts
+   10 1979         9 1980 AF/M  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = AF/M  for file type    4
+          Unit Conversion Factor = 1.0 divided by   1.9835
+          divided by the number of days in a month.
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 AF/M is       8.4027  CFS
+          for internal calculations (assuming a 30 day month)
+
+________________________________________________________________________
+  Mdainp; Instream flow Demand file - Annual (*.ifa) 
+     ex105d.ifa                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.ifa                                                                                                                                                                                                                                                      
+          File version = 0
+
+  Chekts
+   10    0         9    0  CFS  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = CFS   for Chekts file type    6
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 is 500 for internal calculations
+
+________________________________________________________________________
+  Mdainp; Well Structure Demand - Monthly (*.wem) 
+     ex105d.wem                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.wem                                                                                                                                                                                                                                                      
+          File version = 0
+
+  Chekts
+   10 1979         9 1980 AF/M  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = AF/M  for file type   10
+          Unit Conversion Factor = 1.0 divided by   1.9835
+          divided by the number of days in a month.
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 AF/M is       8.4027  CFS
+          for internal calculations (assuming a 30 day month)
+
+________________________________________________________________________
+  Mdainp; Delay Table File (*.dly or *.urd) 
+     ex105d.urm                                                                                                                                                                                                                                                      
+  
+  Mdainp; Number of delay tables read =     5
+
+________________________________________________________________________
+  Mdainp; Reservoir Target Content File (*.tam (*.tar)) 
+     ex105d.tax                                                                                                                                                                                                                                                      
+
+  GetVer; File name    = ex105d.tax                                                                                                                                                                                                                                                      
+          File version = 0
+
+  Chekts
+   10 1979         9 1981 ACFT  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = ACFT  for Chekts file type    7
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 is 500 for internal calculations
+
+________________________________________________________________________
+  Execut; Year =  1980
+
+________________________________________________________________________
+  Execut; Year and month =  1979 OCT 
+
+  DivAlt (Type 39); Operation Right ID = Or_AltPoint  Alternate Point Type = Diversion    Diversion Type = Diversion    Carrier (Y/N) = No  Reuse Plan (Y/N) = No 
+  DivAlt       ID             iyr  mon  day   iw iter  nAP   nd   nw  nd2 imcd imc1 idcd isAP  iup  ilimit    Demand   CapRem1  CapRemAP   RitRem1    Avail1    Pavail   Pavail2    DIVACT iwhy cwhy
+ _____________ ____________  ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ _______ _________ _________ _________ _________ _________ _________ _________ _________ _________________________________________________
+  DivAlt       Riv_10        1979 OCT     1    1    1    4    1    0    0    2    0    1    2    0       0     1000.   307442.   307442.     6149.     9999.     9999.     1000.     1000.    0 NA                                           
+  DivAlt       Riv_10        1979 OCT     1    1    2    4    1    0    0   -1    0    1    2    0       0        0.       -1.       -1.       -1.       -1.       -1.     1000.        0.    3 Destination Diversion Demand (Demand) is zero

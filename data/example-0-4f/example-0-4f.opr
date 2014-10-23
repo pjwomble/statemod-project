@@ -189,5 +189,5 @@
 #
 #Exchange1   Dir Exch DD1WR2 to DD3                       6.00000      0.       1 DD3                1 DD1WR2           100 NA                 0      24 NA           Diversion           0       0       0    9999 Direct flow rights exchange to direct div
 #    500.  500.  500.  500.  500.  500.  500.  500.  500.  500.  500.  500.  6000. 
-AltPt1      DD!WR2 Alt Point                             5.00000      0.       1 DD1                1 DD1WR2             0 D2                 1      39 NA           Diversion        0.00    0.00       0    9999 Alternate Point         
+AltPt1      DD1WR2 Alt Point                             1.00000      0.       1 DD3                1 DD1WR2             1 DD1                1      39 NA           Diversion        0.00    0.00       0    9999 Alternate Point         
 

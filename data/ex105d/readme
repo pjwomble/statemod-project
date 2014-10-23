@@ -1,0 +1,25 @@
+...\ex105D
+
+Test type 39 Alternate Point is a Diversion
+
+*.xdd
+Diversion by Alt_Div is 3000 af (inflow)
+Carried Exchanged is 3000 af (inflow)
+Total supply is 0
+River Outflow is 0.
+Call is headgate limited
+
+
+
+*.xdd Dem_2
+From Carrier by Priority is 3000 af (carried)
+
+*.xwb
+Balances to zero
+
+
+*.xss
+Divert from Surface Water 3000 af
+CU is 1500 (50% efficiency)
+??? Issue well water carried shows up as SW
+

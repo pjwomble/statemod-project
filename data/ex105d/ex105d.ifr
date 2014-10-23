@@ -1,0 +1,19 @@
+# Exhibit 1.10
+# *.ifr; Instream Flow Right file for StateMod Example
+#      
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (a12, a24, a12, 4x, f12.5, f8.0, i8)                   
+#
+#     ID       cifrri:          Instream flow right ID
+#     Name     namei:           Instream flow right name
+#     Struc    cgoto:           Instream flow station tied to this right
+#     Admin#   irtem:           Priority or Administration number 
+#     Right    dcrifr(k):       Diversion right (cfs)
+#     On/Off   iifrsw(k):       Switch 0 = off, 1 = on
+#
+# ID        Name                    Struc                Admin#   Right  On/Off
+#----------eb----------------------eb----------e----b----------eb------eb------e
+#
+Isf_1 WR_1  Instream Flow 1         Isf_1                9.00000   65.50       1

@@ -1,0 +1,37 @@
+# Exhibit 1.6
+# *.pln; Plan (Augmentation and Terms and Condition) data
+#
+#
+#     Card 1   Control
+#     format:  (a12, a24, 1x, 3i8, 6(1x,a12))
+#
+#     Plan ID:          	PId
+#     Plan Name:        	PName
+#     Plan Location     	iPsta
+#     Plan On/Off:      	POn:
+#     Plan Type                 iptype 1=Terms and Conditions (T&C)
+#                              		2=Well Augmentation
+#                                       3=CU Reuse to a Reservoir
+#                                       4=CU Reuse to a Diversion 
+#                                       5=Reuse to a Reservoir from Tmtn
+#                                       6=Reust to a Diversion from TMtn 
+#                                       7=Tmtn Reuse
+#                                       8=Recharge Plan
+#                                       9=OOP Reservoir Plan
+#                                       10=OOP Diversion Plan
+#     Plan Efficiency (%)       Peff (enter 999 to use default (source structures data)
+#                               enter -n to read 12 values
+#     Plan Return Flow ID       iPrf (enter 999 to use default (source structures data)
+#     Plan Failure Switch       iPfail  0=do not stop for a failure
+#                                      1=do stop for a failure
+#     Plan Source               Psource A referece (comment) typically used to describe
+#                                       the source this plan is associted with.
+#                                       Note this data is currently only used in reporting
+#
+#                                                                                                                                                               
+# ID         Name                       RiverLoc       ON/Off  iPtype         Peff         iPrf   iPfail   Psto1 Psource           PAcct    #                   
+#----------exxb----------------------exxb----------exb------eb------exb----------exb----------exb------eb------exb------------exb------eb---e                   
+#                                                                                                                                                               
+OOP_Res_Pln   OOP_Res_Plan              Riv_33              1       9          999          999        0       0 Senior1               0    1
+OOP_Div_Pln   OOP_Div_Plan              Riv_34              1      10          999          999        0       0 Senior1               0    2
+

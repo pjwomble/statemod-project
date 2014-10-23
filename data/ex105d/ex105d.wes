@@ -1,0 +1,74 @@
+# Exhibit 1.6
+# *.wes;  Well Station file for STATEMOD
+#
+#     Card 1   Control
+#     format:  (a12, a24, a12,i8, f8.0, 1x, a12)                   
+#
+#     ID       cwelid:   Well ID
+#     Name     divnamw:  Well name                        
+#     Riv ID   cgoto:    (idvstaw ) River Node where well is located
+#     On/Off   idivsww:  Switch 0=off; 1=on
+#     Capacty  divcapw:  Well capacity (cfs)
+#     Daily ID cdividwx; Well ID to use for daily data
+#                                                      
+# ID        Name                    Riv ID        ON/Off Capacty Daily ID
+#----------eb----------------------eb----------eb------eb------exb----------e
+#     Card 2   User Data
+#     format:  (12x, 24x, a12, 2i8, 2f8.0)                   
+#
+#     DivID   cgoto2 (divcow2) Diversion this well is tied to (N/A if not tied to a diversion)
+#     DemCode idvcomw:  Code 1=input demand evrey year, 2=constant monthly, 3=jansen hayes,
+#                       4=blaney criddle, 5=zero, 6=tied to a direct diversion
+#     #-Ret   nrtnw:    Number of return flow locations
+#     #-Dep   nrtnw2:   Number of depletion locations
+#     Eff %   diveffw:  System efficiency (%)
+#     Area    areaw:    Not used; enter 0
+#     Type    irturnw:  Use type; 0-3=Inbasin; 4=Transmountain
+#     Source  demsrcw:  Irrig acreage source (1=GIS, 2=tia, 3=GIS-primary, 4=tia-primary,
+#                       5=secondary, 6=M&I no acreage, 7=carrier no acreage, 8=user),
+#
+# NA        N/A                     DivID        DemCode   #-Ret   #-Dep   Eff %    Area    Type  Source
+#----------eb----------------------eb----------eb------eb------eb------eb------eb------eb------eb------e
+#     Card 3   Variable Efficiency Data (Enter if diveff < 0)
+#     format:  (free)                   
+#
+#     Eff %    Diveff Efficiency for month 1-12 where 1 is tied to year type
+# eff(1)  eff(2)  eff(3)  eff(4)  eff(5)  eff(6)  eff(7)  eff(8)  eff(9) eff(10) eff(11) eff(12)
+#------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------e
+#
+#     Card 4   Return Flow Data (Enter nrtnw values)
+#     format:  (36x, a12, f8.0, i8)                   
+#
+#     Ret Id   crtnidw:  River ID receiving return flow
+#     Ret %    pcttotw:  Percent of return flow to location 
+#     Table #  irtndlw:  Return flow table id
+#                                                      
+# NA                                NA            Ret ID   Ret % Table # 
+#----------------------------------eb----------eb------eb------eb------e
+#
+#     Card 5   Depletion Data (Enter nrtnw2 values)
+#     format:  (36x, a12, f8.0, i8)                   
+#
+#     Dep Id   crtnidw2: River ID depleted by diversion
+#     Dep %    pcttotw2: Percent of depletion to location 
+#     Table #  irtndlw2: Return (depletion) table id
+#                                                      
+#1 ID       Name                    Riv ID        ON/Off Capacty Daily ID     Primary      Plan ID
+#----------eb----------------------eb----------eb------eb------exb----------exb----------exb---------e
+#                                                      
+#2NA        N/A                     DivID        DemCode   #-Ret   #-Dep   Eff %    Area    Type  Source
+#----------eb----------------------eb----------eb------eb------eb------eb------eb------eb------eb------e
+#                                                      
+#4 NA                               Ret ID         Ret % Table # 
+#----------------------------------eb----------eb------eb------eb------e
+#                                                      
+#5 NA                               Dep ID         Dep % Table # 
+#----------------------------------eb----------eb------eb------eb------e
+Wel_1       Well Structure 1        Riv_20             1   5000. 0            0            NA
+                                    NA                 1       1       1     50.      0.       1       8
+                                    Riv_55         50.00       1 Rtn01
+                                    Riv_55        100.00       3 Dep03
+Alt_Well    AlternatePoint_Well     Riv_15             1   5000. 0            0            NA
+                                    NA                 1       1       1     50.      0.       1       8
+                                    Riv_10        100.00       3 Rtn01
+                                    Riv_15        100.00       3 Dep03                                    

@@ -1,0 +1,52 @@
+# _______________________________________________________
+#
+#        SmName (create a new, variable format StateMod
+#                response file from an old format)
+#        State of Colorado
+#        Version:  1.10
+#        Last revision date: 2005/01/10
+#
+# _______________________________________________________
+#
+# StateMod Response File
+#
+# Type                                    Name
+# ______________________________________  ________________________________________________________________________
+#
+Control                                 = ex105d.ctl                                                                                                                                                                                                                                                         
+River_Network                           = ex105d.rin                                                                                                                                                                                                                                                  
+#
+StreamGage_Station                      = ex105d.ris                                                                                                                                                                                                                                                  
+StreamGage_Historic_Monthly             = ex105d.rih                                                                                                                                                                                                                                                  
+Stream_Base_Monthly                     = ex105d.rim                                                                                                                                                                                                                                                  
+#
+Reservoir_Station                       = ex105d.res                                                                                                                                                                                                                                                         
+Reservoir_Right                         = ex105d.rer                                                                                                                                                                                                                                                         
+Reservoir_Target_Monthly                = ex105d.tax                                                                                                                                                                                                                                                         
+Reservoir_Historic_Monthly              = ex105d.eom                                                                                                                                                                                                                                                         
+Evaporation_Monthly                     = ex105d.eva                                                                                                                                                                                                                                                         
+# Reservoir_Return                        = ex105D.rer
+#
+Diversion_Station                       = ex105d.dds                                                                                                                                                                                                                                                  
+Diversion_Right                         = ex105d.ddr                                                                                                                                                                                                                                                  
+Diversion_Demand_Monthly                = ex105d.ddm                                                                                                                                                                                                                                                  
+Diversion_Historic_Monthly              = ex105d.ddh                                                                                                                                                                                                                                                  
+#
+Instreamflow_Station                    = ex105d.ifs                                                                                                                                                                                                                                                  
+Instreamflow_Right                      = ex105d.ifr                                                                                                                                                                                                                                                  
+Instreamflow_Demand_AverageMonthly      = ex105d.ifa 
+# 
+Well_Station                            = ex105d.wes  
+Well_Right                              = ex105d.wer  
+Well_Demand_Monthly                     = ex105d.wem 
+Well_Historic_Monthly                   = ex105d.weh                                                                                                                                                                                                                                                   
+#
+#
+DelayTable_Monthly                      = ex105d.urm                                                                                                                                                                                                                                                  
+GeographicInformation                   = ex105d.gis                                                                                                                                                                                                                                                  
+OutputRequest                           = ex105d.out                                                                                                                                                                                                                                                         
+#
+Operational_Right                       = ex105d.opr                                                                                                                                                                                                                                                         
+Network                                 = ex105d.net
+#
+Plan_Data                               = ex105d.pln

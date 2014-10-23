@@ -1,0 +1,41 @@
+# Exhibit 2.5
+# *.opr; Operational right file for StateMod Example 
+# 
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (a12, a24, a12x, 4x,f12.5, i8, f8.0, i8, 3(i8,a12), 20i8)
+#
+#     ID       cidvri:          Operational Right ID
+#     Name     nameo:           Operational Right name
+#     Admin #  irtem:           Administration Number (smaller is most senoir)
+#     # Str    dum:             Number of intervenging structures 
+#     On/Off   ioprsw(k):       Switch 0 = off,1 = on
+#     Dest ID  ciopde:          Destination reservoir or structure ID
+#     Dest Ac  iopdes(2,k):     Destination reservoir or structure account # (enter 1 for a diversion)
+#     Sou1 ID  ciopso(1)        Supply reservoir #1 or structure ID
+#     Sou1 Ac  iopsou(2,k):     Supply reservoir #1 or structure account # (enter 1 for a diversion)
+#     Sou2 ID  ciopso(2):       Supply reservoir #2 ID
+#     Sou1 Ac  iopsou(4,k):     Supply reservoir #2 account
+#     Type     ityopr(k):       Switch
+#                        1 = Reservoir Release to an instream demand
+#                        2 = Reservoir Release to a direct diversion demand
+#                        3 = Reservoir Release to a direct diversion demand by a carrier
+#                        4 = Reservoir Release to a direct diversion demand by exchange
+#                        5-8 Not used
+#                        9 = Reservoir Release for target contents
+#                        10 = Not used
+#                        11 = Direct flow demand thru intervening structures
+#                        12 = Roperate
+#
+# *****************************************************************************
+#     Card 2   Carrier Ditch data (include only if idum > 0
+#     format:  (free)
+#     
+#     Inter    itern(1,j)      intervening direct diversion structure id's
+#                              Enter # Str values
+#
+# ID        Name                    NA                    Admin#   # Str  On/Off Dest Id     Dest Ac  Sou1 Id     Sou1 Ac  Sou2 Id     Sou2 Ac     Type ReusePlan     Div Type    OprLoss    Limit   ioBeg   ioEnd Comment
+# ---------eb----------------------eb----------exxxxb----------eb------eb------e-b----------eb------e-b----------eb------e-b----------eb------eb------exb----------exb----------exb------eb------eb------eb------exb----- 
+#                                                                                                                                                                                  
+Or_AltPoint Or_AlternatePoint                            1.00000      0.       1 Dem_3              1 Dem_3_Wr#1         0 Alt_Div            0      39 NA           Diversion        0.00    0.00       0    9999 Type 39 Alternate Point

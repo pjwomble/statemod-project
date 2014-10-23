@@ -1,0 +1,35 @@
+# Exhibit 1.3
+# *.rin; River node network file for StateMod Examle
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (a12, a24, a12)                   
+#
+#     ID       cstaid:  Station ID
+#     Name     stanam:  Station name
+#     To       cstadn:  Downstream station ID
+#                                                      
+# ID        Name                    To
+#----------eb----------------------eb-----------
+#
+Riv_10      Dem_3                   Riv_14
+Riv_14      Alt_Div                 Riv_15
+Riv_15      Alt_Wel                 Riv_20
+Riv_20      Well_1                  Riv_25
+Riv_25      Intermediate River Node Riv_50
+Riv_30      Res_Junior1             Riv_31
+Riv_31      Res_Junior2             Riv_32
+Riv_32      Div_Junior1             Riv_33
+Riv_33      OOP_Div_Plan            Riv_34
+Riv_34      OOP_Res_Plan            Riv_35
+Riv_35      Res_Senior              Riv_40
+Riv_40      Dem_2                   Riv_50
+Riv_50      Confluence              Riv_55
+Riv_55      Intermediate            Riv_60
+Riv_60      Dem_1                   Riv_70
+Riv_70      Isf_1                   Riv_80
+Riv_80      Gauge              
+
+
+

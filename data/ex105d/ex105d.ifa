@@ -1,0 +1,16 @@
+# Exhibit 1.11
+# *.ifa; Annual Instream Flow Demand File for StateMod Example
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (Free)                   
+#
+#     Id       cistat:         Instream ID
+#         flowr(1-12):         Instream Flow Demand by month
+#
+# NA ID               Oct     Nov     Dec     Jan     Feb     Mar     Apr     May     Jun     Jul     Aug     Sep     Total
+# -e-b----------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb--------e
+#
+   10/   0  -      9/   0  CFS  WYR
+     Isf_1           65.5    65.5    65.5    65.5    65.5    65.5    65.5    65.5    65.5    65.5    65.5    65.5   
