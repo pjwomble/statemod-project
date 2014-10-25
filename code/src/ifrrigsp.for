@@ -446,7 +446,11 @@ c
 c_____________________________________________________________
 c               Step 20; Double Check available flow 
 c
-      CALL DNMFSO2(maxsta, AVAIL, IDNCOD, idcd2, NDNS2, IMCD,
+c jhb try to prevent array out of bounds error on avail(imcd)
+c     turns out idcd2 is undefined.  probably should be iscd as before
+c      CALL DNMFSO2(maxsta, AVAIL, IDNCOD, idcd2, NDNS2, IMCD,
+c     1  cCallBy)
+      CALL DNMFSO2(maxsta, AVAIL, IDNCOD, iscd, NDNS2, IMCD,
      1  cCallBy)
      
       call flush(6)
