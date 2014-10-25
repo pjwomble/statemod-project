@@ -80,6 +80,7 @@ c                 updated version to 14.01.00
 c jhb 2014/09/05; tweaked or35 code in oprinp.for to account for gnu fortran to c
 c                   precompiler issue - if blocks being evaluated as a single line
 c                 updated version to 14.01.01
+c jhb 2014/10/24; change code to prevent array bounds errors in welrig3.for and ifrrigsp.for 
 c
 c
 c _________________________________________________________
@@ -171,8 +172,8 @@ c				 7 includes new binary output format
 c		yy has new functionality
 c		zz is a bug fix
 c		
-        ver='14.01.01'
-        vdate = '2014/09/05'
+        ver='14.01.02'
+        vdate = '2014/10/05'
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0
@@ -606,6 +607,11 @@ c
 c               Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2014/10/24 (14.01.02)',/
+     1 '      fixed more array bounds errors that cropped up during',/
+     1 '        model testing',/
+     1 '    - 2014/xx/xx (14.01.01)',/
+     1 '      ',/
      1 '    - 2014/09/05 (14.01.00)',/
      1 '      merged new type 35 branch into master:',/
      1 '        operating rule 35 changed to deliver from import plan',/
