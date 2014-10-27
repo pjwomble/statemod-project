@@ -36,4 +36,4 @@ Diversion_Demand_Monthly                = example-0-5b.ddm
 Diversion_Historic_Monthly              = example-0-5b.ddh
 DelayTable_Monthly                      = example-0-4.dly
 Plan_Data                               = example-0-4.pln
-Operational_Right                       = example-0-5a.opr
+Operational_Right                       = example-0-5b.opr
