@@ -173,7 +173,7 @@ c		yy has new functionality
 c		zz is a bug fix
 c		
         ver='14.01.02'
-        vdate = '2014/10/05'
+        vdate = '2014/10/24'
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0

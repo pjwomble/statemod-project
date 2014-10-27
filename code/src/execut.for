@@ -451,7 +451,6 @@ c		  0.01 cfs = 0.61 af/mo (0.01*3600*24*31/43560=0.61)
      1 '                                = ',f10.3,' af/mo')
 c          
 c_______________________________________________________________________
-___
 c               Step x; Print call data header if requested
 c
 c     write(nlog,*) ' Execut_1; icall =', icall   
@@ -465,7 +464,6 @@ cr                write(nlogx,*) 'Execut; 8 qdiv(14,17)', qdiv(14,17)
       
 c          
 c_______________________________________________________________________
-___
 c               Step x; Read all water rights
 c
       maxwrx=maxwr
@@ -480,7 +478,6 @@ c
       if(ichk.eq.94) write(nlogx,*) ' Execut; Out of riginp'
 c          
 c_______________________________________________________________________
-___
 c               Step x; Open Rio Grande Output Files
 c rrb 99/12/16; Rio Grande Compact
       if(irg1+irg2.ge.1) then
@@ -494,7 +491,6 @@ c               Open file *.b66; Binary Rio Grande Compact
       endif  
 c          
 c_______________________________________________________________________
-___
 c               Step x; Open Replacement Reservoir Output Files
 c
       if(irepn.ge.1) then   
@@ -504,7 +500,6 @@ c
       endif  
 c          
 c_______________________________________________________________________
-___
 c               Step x; Sort Water Rights
 
       maxnwrx=maxnwr
@@ -519,7 +514,6 @@ c		Step X; Call SetPlanO to tie plans to operating rules
       call SetPlanO      
 c          
 c_______________________________________________________________________
-___
 c               Step x; Get Plan Well Data 
 c			Note call after Riginp because
 c                       well rights must be known 
@@ -537,7 +531,6 @@ c                       well rights must be known
       endif  
 c          
 c_______________________________________________________________________
-___
 c               Step x; Get Plan Reservoir Data 
 c			Note call after Datinp because
 c                       resrvoir stations & plan stations must be known 
@@ -567,7 +560,6 @@ c     goto 480
       
 c          
 c_______________________________________________________________________
-___
 c               Step x; Find the starting point in all monthly files
 C
       I12=0
@@ -593,7 +585,6 @@ c     end do
 c     write(6,*) ' Execut; out of mdainp'
 c          
 c_______________________________________________________________________
-___
 c     Step x;  Open daily files
       if(iday.eq.1) then
 c		Open *.out for daily
