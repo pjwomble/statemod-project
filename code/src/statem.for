@@ -81,8 +81,12 @@ c jhb 2014/09/05; tweaked or35 code in oprinp.for to account for gnu fortran to 
 c                   precompiler issue - if blocks being evaluated as a single line
 c                 updated version to 14.01.01
 c jhb 2014/10/24; change code to prevent array bounds errors in welrig3.for and ifrrigsp.for 
-c
-c
+c jhb 2014/10/28; change code to prevent rediversion of op rule type 24 returns/spills
+c                   add new option (oprlimit=-1) to opr file input
+c                   that causes the type 24 results to be frozen after
+c                   reop step 1.  done with a simple change to execut.for
+c                   that prevents it from calling DirectEx.for on subsequent
+c                   reop loops over the water right list.
 c _________________________________________________________
 c       Documentation
 C
@@ -172,8 +176,8 @@ c				 7 includes new binary output format
 c		yy has new functionality
 c		zz is a bug fix
 c		
-        ver='14.01.02'
-        vdate = '2014/10/24'
+        ver='14.01.03'
+        vdate = '2014/10/28'
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0
@@ -607,6 +611,10 @@ c
 c               Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2014/10/28 (14.01.03)',/
+     1 '      change code to prevent rediversion of op rule type 24',/
+     1 '         returns/spills with a new option (oprlimit=-1) in',/
+     1 '         opr file that freezes results after reop step 1.',/
      1 '    - 2014/10/24 (14.01.02)',/
      1 '      fixed more array bounds errors that cropped up during',/
      1 '        model testing',/
