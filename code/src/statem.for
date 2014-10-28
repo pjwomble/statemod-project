@@ -172,8 +172,8 @@ c				 7 includes new binary output format
 c		yy has new functionality
 c		zz is a bug fix
 c		
-        ver='14.01.02'
-        vdate = '2014/10/24'
+        ver='14.01.03'
+        vdate = '2014/10/28'
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0
@@ -607,6 +607,10 @@ c
 c               Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2014/10/28 (14.01.03)',/
+     1 '      added op rule type 24 reop control flag in opr file',/
+     1 '         to freeze type 24 results after reop step 1',/
+     1 '         to prevent rediversion of upstream returns/spills.',/
      1 '    - 2014/10/24 (14.01.02)',/
      1 '      fixed more array bounds errors that cropped up during',/
      1 '        model testing',/

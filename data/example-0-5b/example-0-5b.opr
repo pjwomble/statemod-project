@@ -173,13 +173,15 @@
 # Soil Moisture
 #Opr_22      OprSoilMoisture                          90000.00000      0.       1 N/A                0 N/A                0 0                  0      22 NA           Diversion         0.0     0.0       0    9999
 #
-# Format (a12, a24, 12x, 4x, f12.5, f8.0, i8, 3(1x,a12,i8), i8, 1x, a12, 1x, a12, 1x, 2f8.0, 2i8)
+# Format (a12, a24, 12x, 4x, f12.5, f8.0, i8, 3(1x,a12,i8),   i8, 1x, a12, 1x, a12, 1x, 2f8.0, 2i8) ray b word doc
+# Format (a12, a24, 12x, 4x, f12.5, f8.0, i8, 3(1x,a12,i8),   i8, 1x, a12, 1x, a12, 1x, 2f8.0, 2i8) dwr cdss site pdf
+# Format (a12, a24, a12,     f16.0, f8.0, i8, 3(1x,a12,f8.0), i8, 1x, a12, 1x, a12, 1x, 2f8.0, 2i8) in oprinp.for code      
 # 
 # ID        Name                    NA                    Admin#   # Str  On/Off Dest Id      Dest Ac Sou1 Id      Sou1 Ac Sou2 Id      Sou2 Ac    Type ReusePlan     Div Type    OprLoss    Limit   ioBeg   ioEnd Comment
 #A12        A24                     12X         4X         F12.5    F8.0      I8XA12               I8XA12               I8XA12               I8      I8XA12         XA12         X    F8.0    F8.0      I8      I8
 # ---------eb----------------------exxxxxxxxxxxxxxxxb----------eb------eb------exb----------eb------exb----------eb------exb----------eb------eb------exb----------exb----------exb------eb------eb------eb------exb----- 
 #
-Exchange1   Dir Exch DD1WR2 to Plan1                     6.00000      0.       1 Plan1              1 DD1WR2            60 NA                 0      24 NA           Diversion           0       0       0    9999 Direct flow rights exchange to admin plan
+Exchange1   Dir Exch DD1WR2 to Plan1                     6.00000      0.       1 Plan1              1 DD1WR2            20 NA                 0      24 NA           Diversion           0       0       0    9999 Direct flow rights exchange to admin plan
     1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  12000. 
 Plan1Spill  Plan 1 spill rule                            7.00000      0.       1 D3                 0 Plan1              0 NA                 0      29 NA           NA                  0       0                 Spill Plan 1
 

@@ -1419,32 +1419,39 @@ c               junior right per documenation.
 c		Note dcall1 is set in bomsec or dayest
 c
   323 dcallx=-1.0
-    
       if(idcall.gt. 0 .and. idcallx.eq.0) then
-      if(iout.eq.2) then
-        write(nlogx,580) IYRmo(mon), xmonam(mon), idy, 
-     1   rdvnk(l2),dcall1
-      endif
-
-      idcallx=1
-      ncloc=5
-      if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 23-IfrDown'               
-      call ifrDown(iw,l2,l1,fac,ncloc,dcallx)
+        if(iout.eq.2) then
+          write(nlogx,580)IYRmo(mon),xmonam(mon),idy,rdvnk(l2),dcall1
+        endif
+        idcallx=1
+        ncloc=5
+        if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 23-IfrDown'               
+        call ifrDown(iw,l2,l1,fac,ncloc,dcallx)
       endif  
       goto 410
 c_______________________________________________________________________
-c
 c rrb 99/06/23; Type 24. Direct Flow Exchange (Alt. Point)
-c
   324  continue
 c      write(nlog,*) ' Execut; type 24 In Avail(8) ', avail(8)*fac,
 c    1   avinp(8)*fac         
-       if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 24-DirectEX' 
-       call directEX(iw,l2,ishort,divactX,ncall(24))
-       
+       if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 24-DirectEX'
+       write(nlog,*)
+     1   ' Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)',
+     1   iw, iwx, l2, iOprLim(l2), oprlimit(l2)
+c jhb 2014/10/27 check for the reop step limit for type 24 rules
+       if (iOprLim(l2).lt.0) then
+c        the oprlimit value in the opr file is less than 0
+c        this indicates the modeler wants to freeze this rule's result
+c        after a number of reop steps, almost certainly after ONE reop step
+         if(iwx.le.-iOprLim(l2))then
+           call directEX(iw,l2,ishort,divactX,ncall(24))
+         endif
+       else
+         call directEX(iw,l2,ishort,divactX,ncall(24))
+       endif
 c      write(nlog,*) ' Execut; type 24 Out Avail(8)', avail(8)*fac,
 c    1   avinp(8)*fac       
-	     goto 400
+       goto 400
 c_______________________________________________________________________
 c
 c rrb 05/01/28; Type 25. Direct Flow Bypass (Alt. Point)

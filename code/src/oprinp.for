@@ -395,7 +395,10 @@ c		Read New Format Only
      1      OprLimit(k), ioBeg(k),    ioEnd(k)
 c
 c rrb 2008/03/12; Initilize ioprlim     
-          iOprLim(k) = int(oprlimit(k))     
+          iOprLim(k) = int(oprlimit(k))
+          write(nlog,*)
+     1    ' oprinp; k cdivtyp(k) OprLoss(k) OprLimit(k) iOprLim(k)',
+     1    k, cdivtyp(k), OprLoss(k), OprLimit(k), iOprLim(k)
           if(iout.eq.1) write(nchk,*) ' Oprinp; New ioprX, k', ioprX, k  
           goto 101
         endif
@@ -416,6 +419,9 @@ c		If an error goto to 100 to read old one
 c
 c rrb 2008/03/12; Initilize ioprlim     
           iOprLim(k) = int(oprlimit(k))     
+          write(nlog,*)
+     1    ' oprinp; unknown format; k iOprLim(k) oprlimit(k)',
+     1    k, iOprLim(k), oprlimit(k)
           if(iout.eq.1) write(nchk,*) ' Oprinp; Unknown ioprX, k',
      1      ioprX, k  
           goto 101
@@ -441,6 +447,9 @@ c         ioprlim(k) = 9999
           ioprlim(k) = 0
           cdivtyp(k) = 'Diversion   '
           if(iout.eq.1) write(nchk,*) ' Oprinp; Old ioprX, k', ioprX, k  
+          write(nlog,*)
+     1    ' oprinp; old format; k iOprLim(k) oprlimit(k)',
+     1    k, iOprLim(k), oprlimit(k)
           
           goto 101
         endif
