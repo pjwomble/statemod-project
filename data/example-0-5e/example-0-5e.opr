@@ -187,5 +187,5 @@ Plan3Deliv  Deliv from plan 3 to 4                       6.60000      0.       1
 Plan1Spill  Plan 1 spill rule                            7.00000      0.       1 D3                 0 Plan1              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 1
 Plan2Spill  Plan 2 spill rule                            7.00000      0.       1 C4                 0 Plan2              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 2
 Plan3Spill  Plan 3 spill rule                            7.00000      0.       1 C4                 0 Plan3              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 3
-Plan4Spill  Plan 4 spill rule                            7.00000      0.       1 C3                 0 Plan4              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 4
+Plan4Spill  Plan 4 spill rule                            7.00000      0.       1 C4                 0 Plan4              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 4
 
