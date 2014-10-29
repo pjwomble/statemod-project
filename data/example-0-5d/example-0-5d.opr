@@ -179,10 +179,9 @@
 #
 Exchange1   Dir Exch DD1WR2 to Plan1                     6.00000      0.       1 Plan1              1 DD1WR2            20 NA                 0      24 NA           Diversion           0      -1       0    9999 Direct flow rights exchange to admin plan
     1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  12000. 
-
-Splitl      Split plan 1 to 2 plans                      7.00000      0.       1 D3                 0 Plan1              0 NA                 0      29 NA           NA                  0       0                 Spill Plan 1
-
-Plan1Spill  Plan 1 spill rule                            7.00000      0.       1 D3                 0 Plan1              0 NA                 0      29 NA           NA                  0       0                 Spill Plan 1
-Plan2Spill  Plan 2 spill rule                            7.00000      0.       1 C4                 0 Plan2              0 NA                 0      29 NA           NA                  0       0                 Spill Plan 2
-Plan3Spill  Plan 3 spill rule                            7.00000      0.       1 C4                 0 Plan3              0 NA                 0      29 NA           NA                  0       0                 Spill Plan 3
+Splitl      Split plan 1                                 6.50000      0.       1 Plan2             60 Plan1              1 NA                 0      46 NA           Diversion           0       2       0    9999 Spill Plan 1
+                                                                                 Plan3             40
+Plan1Spill  Plan 1 spill rule                            7.00000      0.       1 D3                 0 Plan1              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 1
+Plan2Spill  Plan 2 spill rule                            7.00000      0.       1 C4                 0 Plan2              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 2
+Plan3Spill  Plan 3 spill rule                            7.00000      0.       1 C4                 0 Plan3              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 3
 
