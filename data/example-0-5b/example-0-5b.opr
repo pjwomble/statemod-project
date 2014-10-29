@@ -181,7 +181,7 @@
 #A12        A24                     12X         4X         F12.5    F8.0      I8XA12               I8XA12               I8XA12               I8      I8XA12         XA12         X    F8.0    F8.0      I8      I8
 # ---------eb----------------------exxxxxxxxxxxxxxxxb----------eb------eb------exb----------eb------exb----------eb------exb----------eb------eb------exb----------exb----------exb------eb------eb------eb------exb----- 
 #
-Exchange1   Dir Exch DD1WR2 to Plan1                     6.00000      0.       1 Plan1              1 DD1WR2            20 NA                 0      24 NA           Diversion           0       0       0    9999 Direct flow rights exchange to admin plan
+Exchange1   Dir Exch DD1WR2 to Plan1                     6.00000      0.       1 Plan1              1 DD1WR2             0 NA                 0      24 NA           Diversion           0       0       0    9999 Direct flow rights exchange to admin plan
     1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  12000. 
 Plan1Spill  Plan 1 spill rule                            7.00000      0.       1 D3                 0 Plan1              0 NA                 0      29 NA           NA                  0       0                 Spill Plan 1
 
