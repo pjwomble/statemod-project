@@ -1,0 +1,46 @@
+# Example 0
+# *.rin; River node network file for StateMod Example 0 series
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (a12, a24, a12)                   
+#
+#     ID       cstaid:  Station ID
+#     Name     stanam:  Station name
+#     To       cstadn:  Downstream station ID
+#                                                      
+# ID        Name                    To
+#----------eb----------------------eb-----------
+#
+A1          reach A node 1 top      A2
+A2          reach A node 2          A3
+A3          reach A node 3 bottom   C1
+B1          reach B node 1 top      B2
+B2          reach B node 2          B3
+B3          reach B node 3 bottom   C1
+C1          reach C node 1 top      C2
+C2          reach C node 2          C3
+C3          reach C node 3          C4
+C4          reach C node 4          C5
+C5          reach C node 5          C6
+C6          reach C node 6          C7
+C7          reach C node 7          C8
+C8          reach B node 8 bottom   X
+D1          reach D node 1 top      D2
+D2          reach D node 2          D3
+D3          reach D node 3 bottom   C4
+E1          reach E node 1 top      E2
+E2          reach E node 2          E3
+E3          reach E node 3 bottom   F4
+F1          reach F node 1 top      F2
+F2          reach F node 2          F3
+F3          reach F node 3          F4
+F4          reach F node 4          F5
+F5          reach F node 5          F6
+F6          reach F node 6          F7
+F7          reach F node 7 bottom   C7
+X           Bottom node              
+
+
+
