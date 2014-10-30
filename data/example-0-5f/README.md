@@ -3,9 +3,10 @@
 #   of statemod data sets
 # example X.Y means the example X series, the Yth version
 # 
-# This dataset is similar to 0-5e except replace the destination
-# of the plan deliv (type 27) from a plan to a diversion
-# Testing the type 27 rule (see example 0-5e results)
+# This dataset is a major overhaul of example 0-5e
+# in order to test plan deliv (type 27) from a plan to a diversion
+# changed to be a typical changed right situation
+# network changed, too
 # 
 # this dataset can successfully estimated baseflows to an xbm file
 # using the example-0-5f-b rsp file

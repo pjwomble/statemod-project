@@ -1,0 +1,72 @@
+#
+# ________________________________________________________________________________
+# *.xop       Operational Right Diversion Summary              
+#
+#   STATEMOD                                                                      
+#   Example 0-5d - direct exchange (or24) from div wr to a plan (type11) - added a
+#
+# Statemod Version: 14.01.03 Date = 2014/10/28)
+# Run date:          30/10/** **:10:36
+# Time Step:         Monthly 
+# 
+# ________________________________________________________________________________
+
+ Operational Right Summary  ACFT
+
+ ID = Exchange1          Name = Dir Exch DD1WR2 to Plan1 Opr Type =   24   Admin # =          5.50000
+ Source 1 = DD1WR2       Destination = Plan1             Year On =     0   Year Off =  9999
+YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
+____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
+1980    620.    600.    620.    620.    560.    620.    600.    620.    600.    620.    620.    600.   7300.
+1981    620.    600.    620.    620.    560.    620.    600.    620.    600.    620.    620.    600.   7300.
+AVG     620.    600.    620.    620.    560.    620.    600.    620.    600.    620.    620.    600.   7300.
+
+ Operational Right Summary  ACFT
+
+ ID = Plan1Split         Name = Split plan 1             Opr Type =   46   Admin # =          6.50000
+ Source 1 = Plan1        Destination = Plan2             Year On =     0   Year Off =  9999
+YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
+____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
+1980    620.    600.    620.    620.    560.    620.    600.    620.    600.    620.    620.    600.   7300.
+1981    620.    600.    620.    620.    560.    620.    600.    620.    600.    620.    620.    600.   7300.
+AVG     620.    600.    620.    620.    560.    620.    600.    620.    600.    620.    620.    600.   7300.
+
+ Operational Right Summary  ACFT
+
+ ID = Plan3Deliv         Name = Deliv from plan 3        Opr Type =   27   Admin # =          6.60000
+ Source 1 = Plan3        Destination = DD3               Year On =     0   Year Off =  9999
+YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
+____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
+1980    248.    240.    248.    248.    224.    248.    240.    248.    240.    248.    248.    240.   2920.
+1981    248.    240.    248.    248.    224.    248.    240.    248.    240.    248.    248.    240.   2920.
+AVG     248.    240.    248.    248.    224.    248.    240.    248.    240.    248.    248.    240.   2920.
+
+ Operational Right Summary  ACFT
+
+ ID = Plan1Spill         Name = Plan 1 spill rule        Opr Type =   29   Admin # =         10.00000
+ Source 1 = Plan1        Destination = D3                Year On =     0   Year Off =  9999
+YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
+____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
+1980      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
+1981      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
+AVG       0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
+
+ Operational Right Summary  ACFT
+
+ ID = Plan2Spill         Name = Plan 2 spill rule        Opr Type =   29   Admin # =         10.00000
+ Source 1 = Plan2        Destination = C4                Year On =     0   Year Off =  9999
+YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
+____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
+1980    372.    360.    372.    372.    336.    372.    360.    372.    360.    372.    372.    360.   4380.
+1981    372.    360.    372.    372.    336.    372.    360.    372.    360.    372.    372.    360.   4380.
+AVG     372.    360.    372.    372.    336.    372.    360.    372.    360.    372.    372.    360.   4380.
+
+ Operational Right Summary  ACFT
+
+ ID = Plan3Spill         Name = Plan 3 spill rule        Opr Type =   29   Admin # =         10.00000
+ Source 1 = Plan3        Destination = C4                Year On =     0   Year Off =  9999
+YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
+____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
+1980      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
+1981      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
+AVG       0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
