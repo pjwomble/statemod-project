@@ -179,12 +179,12 @@
 #A12        A24                     12X         4X         F12.5    F8.0      I8XA12               I8XA12               I8XA12               I8      I8XA12         XA12         X    F8.0    F8.0      I8      I8
 # ---------eb----------------------exxxxxxxxxxxxxxxxb----------eb------eb------exb----------eb------exb----------eb------exb----------eb------eb------exb----------exb----------exb------eb------eb------eb------exb----- 
 #
-Exchange1   Dir Exch DD1WR2 to Plan1                     6.00000      0.       1 Plan1              1 DD1WR2            20 NA                 0      24 NA           Diversion           0      -1       0    9999 Direct flow rights exchange to admin plan
+Exchange1   Dir Exch DD1WR2 to Plan1                     5.50000      0.       1 Plan1              1 DD1WR2            60 NA                 0      24 NA           Diversion           0      -1       0    9999 Direct flow rights exchange to admin plan
     1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  1000.  12000. 
 Plan1Split  Split plan 1                                 6.50000      0.       1 Plan2             60 Plan1              1 NA                 0      46 NA           Diversion           0       2       0    9999 Spill Plan 1
                                                                                  Plan3             40
-Plan3Deliv  Deliv from plan 3                            6.60000      0.       1 DD3                1 Plan3            100 NA                 0      27 NA           Diversion          -1       0       0    9999 deliv from plan 3 to DD3
-Plan1Spill  Plan 1 spill rule                            7.00000      0.       1 D3                 0 Plan1              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 1
-Plan2Spill  Plan 2 spill rule                            7.00000      0.       1 C4                 0 Plan2              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 2
-Plan3Spill  Plan 3 spill rule                            7.00000      0.       1 C4                 0 Plan3              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 3
+Plan3Deliv  Deliv from plan 3                            6.60000      0.       1 DD3                1 Plan3            100 NA                 0      27 NA           Diversion           0       0       0    9999 deliv from plan 3 to DD3
+Plan1Spill  Plan 1 spill rule                           10.00000      0.       1 D3                 0 Plan1              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 1
+Plan2Spill  Plan 2 spill rule                           10.00000      0.       1 C4                 0 Plan2              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 2
+Plan3Spill  Plan 3 spill rule                           10.00000      0.       1 C4                 0 Plan3              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 3
 

@@ -22,7 +22,7 @@
 # Type                                    Name
 # ______________________________________  ________________________________________________________________________
 Control                                 = example-0-5f.ctl
-River_Network                           = example-0.rin
+River_Network                           = example-0-5f.rin
 StreamGage_Station                      = example-0-4.ris
 Stream_Base_Monthly                     = example-0-5f-b.xbm
 StreamGage_Historic_Monthly             = example-0-4-b.rih
