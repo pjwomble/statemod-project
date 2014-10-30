@@ -40,9 +40,9 @@
 # ID        Name                    Struct                Admin#   Right  On/Off
 #A12        A24                     A12         4X         F12.0    F8.2      I8
 #----------eb----------------------eb----------exxxxb----------eb------eb------e
-DD1WR1      M&I Sr Right            DD1                  2.0000016.80531       1
-DD1WR2      M&I Jr Right            DD1                  5.0000016.80531       1
-DD2WR1      Ag Sr Right             DD2                  3.0000084.02655       1
-DD3WR1      Ind Sr Right            DD3                  9.0000084.02655       1
+DD1WR1      Ag DD1 Sr Right         DD1                  2.0000016.80531       1
+DD1WR2      Ag DD1 Jr Right         DD1                  5.0000016.80531       1
+DD2WR1      Ag DD2 Right            DD2                  7.00000168.0531       1
+DD3WR1      Muni DD3 Right          DD3                  9.0000084.02655       1
 
 

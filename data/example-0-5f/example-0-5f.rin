@@ -1,5 +1,5 @@
-# Example 0
-# *.rin; River node network file for StateMod Example 0 series
+# Example 0-5f
+# *.rin; River node network file for StateMod Example 0-5f
 #
 # *******************************************************
 #
@@ -29,7 +29,8 @@ C7          reach C node 7          C8
 C8          reach B node 8 bottom   X
 D1          reach D node 1 top      D2
 D2          reach D node 2          D3
-D3          reach D node 3 bottom   C4
+D3          reach D node 3          D4
+D4          reach D node 4 bottom   C4
 E1          reach E node 1 top      E2
 E2          reach E node 2          E3
 E3          reach E node 3 bottom   F4

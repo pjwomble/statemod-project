@@ -95,13 +95,13 @@
 #36X                                A12             F8.2      I8
 #xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxb----------eb------eb------e
 #
-DD1         Municipal diversion 1   C5                 133.61062       1       0  DD1
-                                                       1       1   20.00    0.00       2       6
+DD1         Agri diversion 1        C5                 133.61062       1       0  DD1
+                                                       1       1   60.00    0.00       2       6
                                     C8            100.00       1
-DD2         Agri diversion 1        C4                 184.02655       1       0  DD2
-                                                       1       1   60.00    0.00       1    -999
+DD2         Agri diversion 2        C4                 1168.0531       1       0  DD2
+                                                       1       1   60.00    0.00       2       6
                                     C6            100.00       1
-DD3         Indu diversion 1        C4                 184.02655       1       0  DD3
-                                                       1       1    0.00    0.00       1    -999
-                                    C5            100.00       1
+DD3         Muni diversion 1        D4                 184.02655       1       0  DD3
+                                                       1       1   20.00    0.00       1    -999
+                                    C4            100.00       1
 
