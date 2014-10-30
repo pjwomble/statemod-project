@@ -103,5 +103,8 @@ DD2         Agri diversion 2        C4                 1168.0531       1       0
                                     C6            100.00       1
 DD3         Muni diversion 1        D4                 184.02655       1       0  DD3
                                                        1       1   20.00    0.00       1    -999
-                                    C4            100.00       1
+                                    C5            100.00       1
+DD4         Muni diversion 2        D3                 184.02655       1       0  DD4
+                                                       1       1   20.00    0.00       1    -999
+                                    C5            100.00       1
 

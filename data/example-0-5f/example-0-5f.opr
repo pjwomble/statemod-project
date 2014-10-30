@@ -184,7 +184,8 @@ Exchange1   Dir Exch DD1WR2 to Plan1                     5.50000      0.       1
 Plan1Split  Split plan 1                                 6.50000      0.       1 Plan2             60 Plan1              1 NA                 0      46 NA           Diversion           0       2       0    9999 Spill Plan 1
                                                                                  Plan3             40
 Plan3Deliv  Deliv from plan 3                            6.60000      0.       1 DD3                1 Plan3            100 NA                 0      27 NA           Diversion           0       0       0    9999 deliv from plan 3 to DD3
-Plan1Spill  Plan 1 spill rule                           10.00000      0.       1 D3                 0 Plan1              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 1
-Plan2Spill  Plan 2 spill rule                           10.00000      0.       1 C4                 0 Plan2              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 2
-Plan3Spill  Plan 3 spill rule                           10.00000      0.       1 C4                 0 Plan3              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 3
+Plan2Deliv  Deliv from plan 2                            6.70000      0.       1 DD4                1 Plan2            100 NA                 0      27 NA           Diversion           0       0       0    9999 deliv from plan 2 to DD4
+Plan1Spill  Plan 1 spill rule                           10.00000      0.       1 D2                 0 Plan1              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 1
+Plan2Spill  Plan 2 spill rule                           10.00000      0.       1 D3                 0 Plan2              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 2
+Plan3Spill  Plan 3 spill rule                           10.00000      0.       1 D4                 0 Plan3              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 3
 
