@@ -87,7 +87,9 @@ c                   that causes the type 24 results to be frozen after
 c                   reop step 1.  done with a simple change to execut.for
 c                   that prevents it from calling DirectEx.for on subsequent
 c                   reop loops over the water right list.
-c _________________________________________________________
+c jhb 2014/10/31; skip reading secondary records if ioprsw()=0
+c                 only allow plan type 11 as a type 35 destination
+c ______________________________________________________________________
 c       Documentation
 C
 C      PROGRAM LIMITS:
@@ -176,8 +178,8 @@ c				 7 includes new binary output format
 c		yy has new functionality
 c		zz is a bug fix
 c		
-        ver='14.01.03'
-        vdate = '2014/10/28'
+        ver='14.01.04'
+        vdate = '2014/10/31'
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0
@@ -516,24 +518,19 @@ cx        ioptio = 0
           goto 170
         endif
       endif
-C
-c
+c ______________________________________________________________________
 c rrb 00/10/30; Add random input file capability
-c
 c rrb 02/08/08; Add *.rsp extension only if a .xxx does not exist
 c     call namext(maxfn, filenc, 'rsp', filena) 
       irsp=0
       do i=1,72
         if(filenc(i:i).eq.'.') irsp=1
       end do
-
       if(irsp.eq.0) call namext(maxfn, filenc, 'rsp', filena) 
-      
       rec48='Response File (*.rsp)'
       write(nlog,101) rec48, filena
  101    format(/,72('_'),/,'  StateM; ', a48,/,5x,a256)
  102    format(/,72('_'),/,'  StateM; ', a48,/,5x,a8)
- 
       rec48='Path'
       if(fpath1(1:1) .ne. ' ') then
         write(nlog,101) rec48, fpath1
@@ -541,57 +538,43 @@ c     call namext(maxfn, filenc, 'rsp', filena)
         rec8='None    '
         write(nlog,102) rec48, rec8
       endif  
-      
       open(20,file=filena,status='old',err=9997)
       call skipn(20)
-
       IIN=20
-c
 c	Check and if positive read all response files
 c	in any order
       call Getfn(iin, nlog, infile, maxfile, 
      1    fileName, ifileNum, filetype, fileSuf)
       close(iin)
-c
-c _________________________________________________________
-c
+c ______________________________________________________________________
 c		Set parameter values      
       call setpar(maxparm, nlog, paramd, paramr, paramw)
 
       GO TO (130,140,150,160,166,166,166,140,130) IOPTIO
-c
+c ______________________________________________________________________
 c               Baseflow option
   130 write(nlog, 132) 'Baseflow  '
   132 format(/,72('_'),/'  Statem; Option Specified = ', a10)
       call virgen
       goto 166
-c
-c
-c _________________________________________________________
+c ______________________________________________________________________
 c               Execute Option
   140 write(nlog, 132) 'Simulate  '
       call execut    
       goto 166
-c
-c
-c _________________________________________________________
+c ______________________________________________________________________
 c               Report Option
   150 write(nlog, 132) 'Report    '
       call report(igui, istop, ioptio2, getid, nreach)
       goto 166
-c
-c
-c _________________________________________________________
+c ______________________________________________________________________
 c               Check Option
   160 write(nlog, 132) 'Check     '
       call xdebug(nreach)
       goto 166
-C
-                             
   165 write(6,*) ' ** Invalid option, try again **'
       call flush(6)
       goto 166               
-c
 c               Go back to menu if in default mode
   166 if(iback.eq.1) then
         close(20)
@@ -605,12 +588,13 @@ c               Go back to menu if in default mode
       call flush(6)
       call exit(0)
       stop 
-c
-c _________________________________________________________
-c
-c               Formats
+c ______________________________________________________________________
+c     Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2014/10/31 (14.01.04)',/
+     1 '      skip reading secondary records if ioprsw=0 in opr file',/
+     1 '      only allow plan type 11 as a type 35 destination',/
      1 '    - 2014/10/28 (14.01.03)',/
      1 '      added op rule type 24 reop control flag in opr file',/
      1 '         to freeze type 24 results after reop step 1',/

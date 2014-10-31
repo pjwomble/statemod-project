@@ -6,6 +6,7 @@ c       Oprinp; It reads operational right data
 c ______________________________________________________________________
 c       Update History
 c jhb 2014/10/31; skip reading secondary records if ioprsw()=0
+c                 only allow plan type 11 as a type 35 destination
 c rrb 2008/01/02; Move tie to operating rules to SetPlanO
 c rrb 2006/11/14; All rules are read by Oprfind
 c rrb 06/23/2006; Add type 39 Alternate Point and
