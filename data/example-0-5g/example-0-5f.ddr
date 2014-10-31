@@ -1,0 +1,49 @@
+# Example 0-5f
+# example-0-5f.ddr;  Direct Diversion Right for StateMod Example 0-5f
+#
+# this is the fifth network dateset for the example 0 series
+#   of statemod data sets
+# example X.Y means the example X series, the Yth version
+#
+# This dataset is similar to 0-5e except replace the destination
+# of the plan deliv (type 27) from a plan to a diversion
+# Testing the type 27 rule (see example 0-5e results)
+# 
+# this dataset can successfully estimated baseflows to an xbm file
+# using the example-0-5f-b rsp file
+# and can successfuly run in simulation mode with example-0-5f.rsp
+# 
+# the example 0 series has a network that is fairly small and simple,
+#   but complex enough to host various kinds of structures later,
+#   and has enough variability to be good for testing
+# drawings of and notes about the network can be found in the series
+#   of files with names like example-0-5f-doc.*
+#
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     Format (a12, a24,a12,4x, f12.0,f8.2,i8)
+#
+#     ID       cidvri:          Diversion right ID 
+#     Name     named:           Diversion right name
+#     Struct   cgoto:           Direct Diversion Structure ID associated with this right
+#     Admin #  irtem:           Priority or Administration number (if used)
+#     Right    dcrdiv(k):       Diversion right (cfs)
+#     On/Off   idvrsw(k):       Switch 0 = off, 1 = on
+#
+# example records
+#Dem_3 Wr#1  Irrigation Demand _3    Dem_3                7.00000  100.00       1
+#Dem_2 Wr#1  Irrigation Demand _2    Dem_2                6.00000   60.00       1
+#Dem_1 Wr#1  M&I Demand _1           Dem_1                2.00000  100.00       1
+#                                               
+# ID        Name                    Struct                Admin#   Right  On/Off
+#A12        A24                     A12         4X         F12.0    F8.2      I8
+#----------eb----------------------eb----------exxxxb----------eb------eb------e
+DD1WR1      Ag DD1 Sr Right         DD1                  2.0000016.80531       1
+DD1WR2      Ag DD1 Jr Right         DD1                  5.0000016.80531       1
+DD2WR1      Ag DD2 Right            DD2                  7.00000168.0531       1
+DD3WR1      Muni DD3 Right          DD3                  9.0000084.02655       1
+DD4WR1      Muni DD4 Right          DD4                  9.5000084.02655       1
+
+
