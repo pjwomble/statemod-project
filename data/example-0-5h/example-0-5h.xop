@@ -6,7 +6,7 @@
 #   Example 0-5h - or 24 - 46 - 27 sequence testing, plan to plan                 
 #
 # Statemod Version: 14.01.04 Date = 2014/10/31)
-# Run date:          31/10/** **:19:55
+# Run date:          31/10/** **:20:24
 # Time Step:         Monthly 
 # 
 # ________________________________________________________________________________
@@ -53,7 +53,7 @@ AVG     372.    360.    372.    372.    336.    372.    360.    372.    360.    
 
  Operational Right Summary  ACFT
 
- ID = Plan1Spill         Name = Plan 1 spill rule        Opr Type =   29   Admin # =          6.80000
+ ID = Plan1Spill         Name = Plan 1 spill rule        Opr Type =   29   Admin # =         10.00000
  Source 1 = Plan1        Destination = D2                Year On =     0   Year Off =  9999
 YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
 ____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
@@ -63,7 +63,7 @@ AVG       0.      0.      0.      0.      0.      0.      0.      0.      0.    
 
  Operational Right Summary  ACFT
 
- ID = Plan2Spill         Name = Plan 2 spill rule        Opr Type =   29   Admin # =          6.75000
+ ID = Plan2Spill         Name = Plan 2 spill rule        Opr Type =   29   Admin # =         10.00000
  Source 1 = Plan2        Destination = D3                Year On =     0   Year Off =  9999
 YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
 ____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
@@ -73,7 +73,7 @@ AVG       0.      0.      0.      0.      0.      0.      0.      0.      0.    
 
  Operational Right Summary  ACFT
 
- ID = Plan3Spill         Name = Plan 3 spill rule        Opr Type =   29   Admin # =          6.65000
+ ID = Plan3Spill         Name = Plan 3 spill rule        Opr Type =   29   Admin # =         10.00000
  Source 1 = Plan3        Destination = D4                Year On =     0   Year Off =  9999
 YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
 ____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
@@ -83,7 +83,7 @@ AVG       0.      0.      0.      0.      0.      0.      0.      0.      0.    
 
  Operational Right Summary  ACFT
 
- ID = Plan4Spill         Name = Plan 4 spill rule        Opr Type =   29   Admin # =          6.90000
+ ID = Plan4Spill         Name = Plan 4 spill rule        Opr Type =   29   Admin # =         10.00000
  Source 1 = Plan4        Destination = C5                Year On =     0   Year Off =  9999
 YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
 ____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______
@@ -93,7 +93,7 @@ AVG     372.    360.    372.    372.    336.    372.    360.    372.    360.    
 
  Operational Right Summary  ACFT
 
- ID = Plan5Spill         Name = Plan 5 spill rule        Opr Type =   29   Admin # =          6.95000
+ ID = Plan5Spill         Name = Plan 5 spill rule        Opr Type =   29   Admin # =         10.00000
  Source 1 = Plan5        Destination = C5                Year On =     0   Year Off =  9999
 YEAR    OCT     NOV     DEC     JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG     SEP     TOT 
 ____ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______ _______

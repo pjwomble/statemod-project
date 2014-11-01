@@ -6,7 +6,7 @@
 #   Example 0-5h - or 24 - 46 - 27 sequence testing, plan to plan                 
 #
 # Statemod Version: 14.01.04 Date = 2014/10/31)
-# Run date:          31/10/** **:19:55
+# Run date:          31/10/** **:20:24
 # Time Step:         Monthly 
 # 
 # ________________________________________________________________________________
@@ -22,7 +22,7 @@ River Location = D2
 
 Use   1   ID = Plan1Split   Admin # =     6.50000   Name = Split plan 1               Opr Type =  46   Destination = Plan2          Status =  On
 Use   2   ID = Plan1Split   Admin # =     6.50000   Name = Split plan 1               Opr Type =  46   Destination = Plan3          Status =  On
-Use   3   ID = Plan1Spill   Admin # =     6.80000   Name = Plan 1 spill rule          Opr Type =  29   Destination = D2             Status =  On
+Use   3   ID = Plan1Spill   Admin # =    10.00000   Name = Plan 1 spill rule          Opr Type =  29   Destination = D2             Status =  On
 
                                             Plan Uses                         
                                      Supply _______________________________________________________________________________________________________________________________________________________________________
@@ -76,7 +76,7 @@ Plan Source    = NA
 River Location = D3          
 
 Use   1   ID = Plan2Deliv   Admin # =     6.70000   Name = Deliv from plan 2          Opr Type =  27   Destination = Plan4          Status =  On
-Use   2   ID = Plan2Spill   Admin # =     6.75000   Name = Plan 2 spill rule          Opr Type =  29   Destination = D3             Status =  On
+Use   2   ID = Plan2Spill   Admin # =    10.00000   Name = Plan 2 spill rule          Opr Type =  29   Destination = D3             Status =  On
 
                                             Plan Uses                         
                                      Supply _______________________________________________________________________________________________________________________________________________________________________
@@ -130,7 +130,7 @@ Plan Source    = NA
 River Location = D5          
 
 Use   1   ID = Plan3Deliv   Admin # =     6.60000   Name = Deliv from plan 3          Opr Type =  27   Destination = Plan5          Status =  On
-Use   2   ID = Plan3Spill   Admin # =     6.65000   Name = Plan 3 spill rule          Opr Type =  29   Destination = D4             Status =  On
+Use   2   ID = Plan3Spill   Admin # =    10.00000   Name = Plan 3 spill rule          Opr Type =  29   Destination = D4             Status =  On
 
                                             Plan Uses                         
                                      Supply _______________________________________________________________________________________________________________________________________________________________________
@@ -183,7 +183,7 @@ Plan Name      = TargetPlan4
 Plan Source    = NA          
 River Location = D4          
 
-Use   1   ID = Plan4Spill   Admin # =     6.90000   Name = Plan 4 spill rule          Opr Type =  29   Destination = C5             Status =  On
+Use   1   ID = Plan4Spill   Admin # =    10.00000   Name = Plan 4 spill rule          Opr Type =  29   Destination = C5             Status =  On
 
                                             Plan Uses                         
                                      Supply _______________________________________________________________________________________________________________________________________________________________________
@@ -236,7 +236,7 @@ Plan Name      = TargetPlan5
 Plan Source    = NA          
 River Location = D6          
 
-Use   1   ID = Plan5Spill   Admin # =     6.95000   Name = Plan 5 spill rule          Opr Type =  29   Destination = C5             Status =  On
+Use   1   ID = Plan5Spill   Admin # =    10.00000   Name = Plan 5 spill rule          Opr Type =  29   Destination = C5             Status =  On
 
                                             Plan Uses                         
                                      Supply _______________________________________________________________________________________________________________________________________________________________________
