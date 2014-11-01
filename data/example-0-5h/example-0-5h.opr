@@ -186,9 +186,9 @@ Plan1Split  Split plan 1                                 6.50000      0.       1
                                                                                  Plan3             40
 Plan3Deliv  Deliv from plan 3                            6.60000      0.       1 Plan5              1 Plan3            100 NA                 0      27 NA           Diversion           0       0       0    9999 deliv Plan3 to Plan5
 Plan2Deliv  Deliv from plan 2                            6.70000      0.       1 Plan4              1 Plan2            100 NA                 0      27 NA           Diversion           0       0       0    9999 deliv Plan2 to Plan4
-Plan1Spill  Plan 1 spill rule                           10.00000      0.       1 D2                 0 Plan1              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 1
-Plan2Spill  Plan 2 spill rule                           10.00000      0.       1 D3                 0 Plan2              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 2
-Plan3Spill  Plan 3 spill rule                           10.00000      0.       1 D4                 0 Plan3              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 3
-Plan4Spill  Plan 4 spill rule                           10.00000      0.       1 C5                 0 Plan4              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 4
-Plan5Spill  Plan 5 spill rule                           10.00000      0.       1 C5                 0 Plan5              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 5
+Plan1Spill  Plan 1 spill rule                            6.80000      0.       1 D2                 0 Plan1              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 1
+Plan2Spill  Plan 2 spill rule                            6.75000      0.       1 D3                 0 Plan2              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 2
+Plan3Spill  Plan 3 spill rule                            6.65000      0.       1 D4                 0 Plan3              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 3
+Plan4Spill  Plan 4 spill rule                            6.90000      0.       1 C5                 0 Plan4              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 4
+Plan5Spill  Plan 5 spill rule                            6.95000      0.       1 C5                 0 Plan5              0 NA                 0      29 NA           NA                  0       0       0    9999 Spill Plan 5
 
