@@ -2,6 +2,10 @@ C
 C
 C               Revised common block for linked model
 c
+c jhb 2014/11/01; Revise dimensions
+c   ISF rights			241-2241
+c                       because the IfrRigSP routine uses the op rule counter
+c                       as an index in the divi() array.  might have to go larger later. 
 c rrb 2010/09/10; Revise dimensions
 c   Div Rights		    5500 = 6500
 c   Res Rights 		    201 = 351
@@ -156,7 +160,7 @@ c                   Streams
 
 
        COMMON/SY1/
-cx     2 STANAM( 6,5000),XFRNAM( 6, 241),RESNAM( 6,  251),
+cx     2 STANAM( 6,5000),XFRNAM( 6, 2241),RESNAM( 6,  251),
 cx     3 DIVNAM( 6,3060),USENAM( 6,3060),
 cx     4 RUNNAM( 6,5000),
      6 MTHDAY(     12),IDATE (      3),ITIME (      4),
@@ -277,14 +281,14 @@ c _________________________________________________________
 c                   Instream Flows
 
       COMMON/IFR/
-     1 DCRIFR(241),    IIFRSW(     241), iifrsw1(241), 
-     1 divi(241),      ndnifs(     241), ndnifb(    241),
-     1 IFRSTA(    241),IIFRCO(     241), FLOWR (12, 241),
-     1 flowrX(12,241), 
-     1 FLOWRQ(    241),IFRRSW(     241), ifrst2(    241),
-     1 florqr(1002),   divir(241,1002),      qdivr(1002),
+     1 DCRIFR(2241),    IIFRSW(     2241), iifrsw1(2241), 
+     1 divi(2241),      ndnifs(     2241), ndnifb(    2241),
+     1 IFRSTA(    2241),IIFRCO(     2241), FLOWR (12, 2241),
+     1 flowrX(12,2241), 
+     1 FLOWRQ(    2241),IFRRSW(     2241), ifrst2(    2241),
+     1 florqr(1002),   divir(2241,1002),      qdivr(1002),
      1 ireach, 
-     1 iifcom(241),    demconi(241)
+     1 iifcom(2241),    demconi(2241)
 C
 c
 c _________________________________________________________
@@ -401,9 +405,9 @@ c		Operating Rule Data #2
      1 divo(3701),       iopid(351),       qdel(13,5),     
      1 qindex(13,5),     
      1 irg1,             irg2,             isp1,
-     1 forecast(13,241), qcarry(5),        qdebt(5),
+     1 forecast(13,2241), qcarry(5),        qdebt(5),
      1 qdebtx(5),
-     1 rgspill(241),    iSetOpr(3701),     oprLoss(3701),
+     1 rgspill(2241),    iSetOpr(3701),     oprLoss(3701),
      1 oprLimit(3701),
      1 iOprLim(3701),   ioBeg(3701),       ioEnd(3701),
      1 numrg,           ideplete,          iexchang,       
@@ -435,7 +439,7 @@ c
 c _________________________________________________________
 
       common/right/
-     1 rfrnk (    241),rrsnk (     351),rdvnk (   6500),
+     1 rfrnk (    2241),rrsnk (     351),rdvnk (   6500),
      1 rpwnk (     25),ropnk (    3701),
      1 reprnk(     25),reprnkx
 
@@ -475,15 +479,15 @@ c rrb 04/29/97; Daily model
       COMMON/daycom/
      1 iday, idaydem,    imd, idy,   maxdld, numdld, ido,     imstr,
      1 idays(5000),      idayd(3060),     idaydw(402),
-     1 idayi(241),       idayr(251),      idaye(251), 
+     1 idayi(2241),       idayr(251),      idaye(251), 
      1 virind(32,5000),  diverd(32,3060), diverdw(32,402),
-     1 flowrd(32,241),   targetd(32,251),  
+     1 flowrd(32,2241),   targetd(32,251),  
      1 riverm(5000),     availm(5000),    avinpm(5000), returm(5000),
 c 
      1 returd(3660,5000),dlyratd(3660,525),
 
      1 divreqm(3060),    divreqwm(13110),
-     1 flowrqm(241),     qdivm(39,5000),  qdivrm(1002),
+     1 flowrqm(2241),     qdivm(39,5000),  qdivrm(1002),
      1 qresm(39,251),    accrm(39,251),   volintm(251), evapm(251),
      1 sepactM(251), 
      1 ritremm(351),     tarmaxm(251),    divom(3701),
@@ -503,11 +507,11 @@ c _________________________________________________________
 c               Daily data read
       COMMON/daycomc/    
      1 virindx(32,5000), diverdx(32,3060),diverdxw(32,402),
-     1 flowrdx(32,241),  targex2(32,251), evapdx(32,251),
+     1 flowrdx(32,2241),  targex2(32,251), evapdx(32,251),
      1 diverd2(32,3060),  
 
-     1 crunidx(5000),    cdividx(3060),   cdividxw(402), cifridx(241), 
-     1 crunidy(5000),    cdividy(3060),   cdividyw(13110),cifridy(241),
+     1 crunidx(5000),    cdividx(3060),   cdividxw(402), cifridx(2241), 
+     1 crunidy(5000),    cdividy(3060),   cdividyw(13110),cifridy(2241),
      1 cresidx(251),
      1 cresidy(251)
 c
@@ -635,7 +639,7 @@ c _________________________________________________________
 c rrb 2005/10/14; Character names     
        common/Name1/
      1 DivNam1(3060), DivNamW1(402), ResNam1(251), RunNam1(5000),
-     1 StaNam1(5000), XfrNam1(241),  Pname1(1440),  UseNam1(3060)
+     1 StaNam1(5000), XfrNam1(2241),  Pname1(1440),  UseNam1(3060)
      
        character
      1 DivNam1*24,    DivNamW1*24,   ResNam1*24,   RunNam1*24, 
@@ -723,7 +727,7 @@ c _________________________________________________________
 c
 c rrb 01/31/95; Code Addition water right names
       common/names/
-     1 namei(241), namer(351), named(6500), namep(1440), nameo(3701),
+     1 namei(2241), namer(351), named(6500), namep(1440), nameo(3701),
      1 cyr1,       cunitm,     cunitd,      cunitm2,   cunitd2,
      1 cunitdX
 
@@ -736,7 +740,7 @@ c _________________________________________________________
 c
 c rrb 01/31/95; Code Addition IDs
       common/cID/
-     1 cstaid(   5000),  crunid(   5000),  cifrid(    241), 
+     1 cstaid(   5000),  crunid(   5000),  cifrid(    2241), 
      1 cresid(    251),  cdivid(   3060),
      1 cstadn(   5000),  cgoto,         
      1 corid (    3701),  crigid(   6500),  cntern(10),
@@ -745,7 +749,7 @@ c rrb 01/31/95; Code Addition IDs
      1 creswr(    351),  copid (     351), cretid(3060),
      1 idreq (   5000),  cirtndl(  5000),  cirtndlw(13110),
      1 cirtndl2( 13110),  cirtnid(    525),
-     1 cisfwr(    241)
+     1 cisfwr(    2241)
 c
       character *12
      1 cstaid,         crunid,         cifrid,        

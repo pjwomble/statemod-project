@@ -89,6 +89,10 @@ c                   that prevents it from calling DirectEx.for on subsequent
 c                   reop loops over the water right list.
 c jhb 2014/10/31; skip reading secondary records if ioprsw()=0
 c                 only allow plan type 11 as a type 35 destination
+c jhb 2014/11/01; Revise dimensions
+c   ISF rights          241-2241
+c                       because the IfrRigSP routine uses the op rule counter
+c                       as an index in the divi() array.  might have to go larger later.
 c ______________________________________________________________________
 c       Documentation
 C
@@ -126,6 +130,10 @@ c      Return delay days        maxdld        930   930 7320 (daily)
 c
 c      IFR Stations             maxifr        300   230
 c      IFR Rights               maxfrr        300   230
+c jhb 2014/11/01; Revise dimensions
+c   ISF rights          241-2241
+c                       because the IfrRigSP routine uses the op rule counter
+c                       as an index in the divi() array.  might have to go larger later.
 c      IFR nodes within all reachs maxrea     N/A  2000
 C      POWER RIGHTS (inactive)  N/A            20    20
 c
@@ -178,8 +186,8 @@ c				 7 includes new binary output format
 c		yy has new functionality
 c		zz is a bug fix
 c		
-        ver='14.01.04'
-        vdate = '2014/10/31'
+        ver='14.01.05'
+        vdate = '2014/11/01'
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0
@@ -592,6 +600,10 @@ c ______________________________________________________________________
 c     Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2014/11/01 (14.01.05)',/
+     1 '      Revise ISF rights dimensions from 241 to 2241',/
+     1 '        because the IfrRigSP routine uses the op rule counter',/
+     1 '        as an index in the divi() array.',/
      1 '    - 2014/10/31 (14.01.04)',/
      1 '      skip reading secondary records if ioprsw=0 in opr file',/
      1 '      only allow plan type 11 as a type 35 destination',/
