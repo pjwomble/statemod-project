@@ -243,8 +243,8 @@ c		Includes returns for a diversion, well, reservoir
 c		and plans
       maxrtnA= 5005
 
-      MAXIFR=  241
-      MAXFRR=  241
+      MAXIFR=  2241
+      MAXFRR=  2241
       MAXRSR=  351
       MAXDVR=  6500
       MAXPWR=  51
