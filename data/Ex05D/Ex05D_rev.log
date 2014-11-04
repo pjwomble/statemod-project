@@ -1,0 +1,1400 @@
+________________________________________________________________________
+
+        StateMod                       
+        State of Colorado - Water Supply Planning Model     
+
+        Version: 14.01.05
+        Last revision date: 2014/11/01
+
+________________________________________________________________________
+
+________________________________________________________________________
+  StateM; Response File (*.rsp)                           
+     Ex05D_rev.rsp                                                                                                                                                                                                                                                   
+
+________________________________________________________________________
+  StateM; Path                                            
+     None    
+  Getfn; maxfile =           80
+
+________________________________________________________________________
+  Getfn; Random input from *.ctl
+
+________________________________________________________________________
+  Statem; Option Specified = Simulate  
+
+________________________________________________________________________
+  Execut; Execut Option
+
+
+
+________________________________________________________________________
+  Execut; Response File (*.rsp)                   
+     Ex05D_rev.rsp                                                           
+
+________________________________________________________________________
+  Datinp; Control File (*.ctl) 
+
+  GetFile; Opening Control                                 *.ctl   
+    Ex05D.ctl                                                                                                                                                                                                                                                       
+
+  GetVer; File name    = Ex05D.ctl                                                                                                                                                                                                                                                       
+          File version = 0
+  STATEMOD                                                                      
+  Example 0-5d - direct exchange (or24) from div wr to a plan (type11) - added a
+
+________________________________________________________________________
+  Datinp; 
+
+   ** Monthly Model                            **
+   ** Output Unit: af                          **
+   ** Wells                                Off **
+   ** Instream flow with reaches            On **
+   ** Detailed call information            Off **
+   ** SJRIP Sediment file (*.sjr)          Off **
+   ** Annual time series (*.tsp) file      Off **
+   ** Variable efficiency                  Off **
+   ** Sprinklers                           Off **
+   ** Soil Moisture                        Off **
+   ** Significant figures on output                    0 **
+  STATEMOD                                                                      
+  Example 0-5d - direct exchange (or24) from div wr to a plan (type11) - added a
+  Datinp; 
+    iystr      =     1980
+    iyend      =     1981
+    iresop     =        2
+    moneva     =        1
+    iopflo     =        1
+    numpre     =        0
+    numeva     =        0
+    interv     =        5
+    factor     =    1.984
+    rfacto (1) =    1.984
+    dfacto (1) =    1.984
+    ffacto (1) =    0.000
+    cfacto (1) =    1.000
+    efacto (1) =    1.000
+    pfacto (1) =    1.000
+ (1) Note an input value of 0 is effectively equal to 1.0
+  Datinp; 
+    cyr1       =   WYR
+    icondem    =        1
+    ichk       =        4
+    ireopx     =        0
+    ireach     =        1
+    icall      =        0
+    ccall      = N/A         
+    iday       =        0
+    idaydem    =        0
+    iwell      =        0
+    gwmaxrc    =     0.00
+    isjrip     =        0
+    itsfile    =        0
+    ieffmax    =        0
+    isprink    =        0
+    soild      =     0.00
+    isoil      =        0
+    isigfig    =        0
+
+________________________________________________________________________
+  Datinp; River Network File (*.rin)
+
+  GetFile; Opening River_Network                           *.rin   
+    Ex05D.rin                                                                                                                                                                                                                                                       
+
+  GetVer; File name    = Ex05D.rin                                                                                                                                                                                                                                                       
+          File version = 0
+
+  Datinp; Number of Network Stations (*.rin) =    28
+   Datinp; ioutN @ line 1053            0
+
+________________________________________________________________________
+  Datinp; Reservoir Station File (*.res)
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+  GetRes; Reservoir Station File (*.res) 
+  GetRes; FYI no reservoir data provided
+
+________________________________________________________________________
+  Datinp; Diversion Station File (*.dds)
+
+  GetFile; Opening Diversion_Station                       *.dds   
+    Ex05D_rev.dds                                                                                                                                                                                                                                                   
+
+  GetVer; File name    = Ex05D_rev.dds                                                                                                                                                                                                                                                   
+          File version = 0
+
+  GetDiv; Number of Diversions       =     2
+ Datinp initilize monthly return flow arrays
+ Datinp initilize daily return flow arrays
+ Datinp initilize MONTHLY plan arrays
+
+________________________________________________________________________
+  Datinp; River Station File (*.ris)
+
+  GetFile; Opening StreamGage_Station                      *.ris   
+    Ex05D.ris                                                                                                                                                                                                                                                       
+
+  GetVer; File name    = Ex05D.ris                                                                                                                                                                                                                                                       
+          File version = 0
+
+  Datinp; Number of river stations (*.ris) =    12
+
+________________________________________________________________________
+  Datinp; Instream Flow Station File (*.ifs) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+  Datinp; Number of instream flow stations (*.ifs) =     0
+
+________________________________________________________________________
+  Datinp; Well Station File (*.wes) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+________________________________________________________________________
+  Datinp; Plan Station File (*.pln) 
+
+  GetFile; Opening Plan_Data                               *.pln   
+    Ex05D_rev.pln                                                                                                                                                                                                                                                   
+
+  GetVer; File name    = Ex05D_rev.pln                                                                                                                                                                                                                                                   
+          File version = 0
+  Datinp; Calling GetPln
+  Subroutine GetPln           99
+
+________________________________________________________________________
+
+  GetPln; Number of Plan Types 
+    # Type Description                Number
+ ____ ____ _________________________ _______
+    1   11 Accounting_Plan                 3
+ ____ ____ _________________________ _______
+    1   NA Total                           3
+  
+  GetPln; Number of Plans        =            3
+
+________________________________________________________________________________________________________________________________________________
+ GetPln; Plan Return File (*.prf) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+
+________________________________________________________________________
+  Datinp; River Gage File (*.rig) 
+
+  GetFile; Opening -1                                      -1      
+    -1                                                                                                                                                                                                                                                              
+
+  GetFile; FYI no data provided
+  Datinp; Calling GetRig
+
+________________________________________________________________________
+  Datinp; River Node Summary
+
+  Number of Inflow nodes                    =    12
+  Number of Diversion nodes                 =     2
+  Number of Reservoir nodes                 =     0
+  Number of Minimum Instream nodes          =     0
+  Number of Well nodes Total                =     0
+  Number of Supplemental Well nodes =     0
+  Number of Sole Source Well nodes  =     0
+  Number of Plans                           =     3
+  Number of Other nodes (1)                 =    11
+  _________________________________________________
+  Total of River nodes                      =    28
+
+  (1) May be negative if multiple activities occur at the  same node
+
+
+  Datinp; Check return flows
+  Datinp; return
+ nf          43 nx          38
+ nf          44 nx          29
+ nf          67 nx          33
+   Execut; divchk (af/time step) =    9.99999978E-03           0           0
+
+________________________________________________________________________
+  Execut; FYI Reoperation check =      0.010 cfs
+                                =      0.615 af/mo
+
+________________________________________________________________________
+  Riginp; Instream Flow Right File (*.ifr)    20    1   98
+  Ringip; FYI no instream flow rights provided
+
+________________________________________________________________________
+  Riginp; Reservoir Right File (*.rer) 
+  Ringip; FYI no reservoir right provided
+
+________________________________________________________________________
+  Riginp; Direct Diversion Right File (*.ddr) 
+    Ex05D_rev.ddr                                                                                                                                                                                                                                                   
+  Rininp; FYI Number of Diversion    Rights =     3
+  Riginp; Calling oprinp
+
+________________________________________________________________________
+  Oprinp; Operational Right File (*.opr) 
+
+  GetFile; Opening Operational_Right                       *.opr   
+    Ex05D_rev.opr                                                                                                                                                                                                                                                   
+
+  GetVer; File name    = Ex05D_rev.opr                                                                                                                                                                                                                                                   
+          File version = 0
+
+________________________________________________________________________
+  ChkVer; Warning two Operating Rule File (*.opr)     
+            formats are currently supported but no file
+            version has been provided.
+          Based on the data in the file it appears
+            you have provided version 2 that has
+            Plan, Diversion Type, Operating Loss, etc.
+          To eliminate this warning it is recommend you
+            migrate to the current standard format
+            and include the following at the top of
+            your file: #FileFormatVersion 2
+          If you do migrate to the current standard
+            and add the above at the top of the file
+            StateMod will try to read the current standard
+            and set missing data to a default value.
+  oprinp; unknown format; k iOprLim(k) oprlimit(k)           1          -1  -1.00000000    
+
+________________________________________________________________________
+  OprFind; FYI the following Rights are off because
+           1. The source is off, or 
+           2. The on date is after the starting year, or
+           3. The user set variable iopsou(4,k)=1 in the
+              operating rule (*.opr) file, or
+           4. Statemod expects this right to be controlled
+              by an operating rule.
+
+      # Type Opr ID       Opr Name                 Source ID    OnOff   Nx Right Turned Off
+  _____ ____ ____________ ________________________ ____________ _____ ____ __________________
+      1   24 Exchange1    Dir Exch DD1WR2 to Plan1 DD1WR2           0    2 DD1WR2      
+  oprinp; unknown format; k iOprLim(k) oprlimit(k)           2           2   2.00000000    
+  oprinp; unknown format; k iOprLim(k) oprlimit(k)           3           0   0.00000000    
+  oprinp; unknown format; k iOprLim(k) oprlimit(k)           4           0   0.00000000    
+  oprinp; unknown format; k iOprLim(k) oprlimit(k)           5           0   0.00000000    
+
+________________________________________________________________________
+
+  OprinP; Number of Operating Rule Types 
+    # Type Description                Number
+ ____ ____ _________________________ _______
+    1   24 Direct Flow Exchange            1
+    2   29 Plan Spill                      3
+    3   46 Multiple Ownership              1
+ ____ ____ _________________________ _______
+    3   NA Total                           5
+
+
+________________________________________________________________________
+  Oprinp; Number of Operating    Rights =     5
+          Number turned off             =     0
+          Number active                 =     5
+  Riginp; Out of Oprinp
+
+________________________________________________________________________
+
+  Rininp; Water Right Summary
+
+  Number of Diversion Rights       =     3
+  Number of Reservoir Rights       =     0
+  Number of Instream Rights        =     0
+  Number of Operational Rights     =     5
+  Number of Well Rights            =     0
+  ________________________________________
+  Total Water Rights               =     8
+
+
+
+________________________________________________________________________
+  SetPlanO; Set Plan to Operational Rule Data
+
+________________________________________________________________________
+  Mdainp; Precipitation File (*.pra or *.prm)
+     -1                                                                                                                                                                                                                                                              
+  Chekpor; FYI, A dummy (blank) file determined for 
+           file: -1                                                                                                                                                                                                                                                              
+
+________________________________________________________________________
+  Mdainp; Evaporation File (*.evm or *.eva) 
+     -1                                                                                                                                                                                                                                                              
+  Chekpor; FYI, A dummy (blank) file determined for 
+           file: -1                                                                                                                                                                                                                                                              
+
+________________________________________________________________________
+  Mdainp; Base Streamflow File (*.rim or *.xbm) 
+     Ex05D_rev.xbm                                                                                                                                                                                                                                                   
+
+  GetVer; File name    = Ex05D_rev.xbm                                                                                                                                                                                                                                                   
+          File version = 0
+
+  Chekts
+   10 1979         9 1981 ACFT  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = ACFT  for file type    3
+          Unit Conversion Factor = 1.0 divided by   1.9835
+          divided by the number of days in a month.
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 ACFT is       8.4027  CFS
+          for internal calculations (assuming a 30 day month)
+
+________________________________________________________________________
+  Mdainp; Direct Flow Demand - Monthly (*.ddm) 
+  Mdainp; rec256 Ex05D.ddm                                                                                                                                                                                                                                                       
+     Ex05D.ddm                                                                                                                                                                                                                                                       
+
+  GetVer; File name    = Ex05D.ddm                                                                                                                                                                                                                                                       
+          File version = 0
+
+  Chekts
+   10 1979         9 1980 AF/M  WYR
+  Chekts; cyr1X = WYR  
+  Chekts; Units provided = AF/M  for file type    4
+          Unit Conversion Factor = 1.0 divided by   1.9835
+          divided by the number of days in a month.
+          StateMod (internally) uses CFS for flow,
+          FT for length, and AF for storage.
+          Therefore a data value of 500 AF/M is       8.4027  CFS
+          for internal calculations (assuming a 30 day month)
+
+________________________________________________________________________
+  Mdainp; Instream flow Demand file - Annual (*.ifa) 
+     -1                                                                                                                                                                                                                                                              
+
+________________________________________________________________________
+  Mdainp; Delay Table File (*.dly or *.urd) 
+     Ex05D.dly                                                                                                                                                                                                                                                       
+  
+  Mdainp; Number of delay tables read =     3
+
+________________________________________________________________________
+  Mdainp; Reservoir Target Content File (*.tam (*.tar)) 
+     -1                                                                                                                                                                                                                                                              
+
+________________________________________________________________________
+  Execut; Year =  1980
+   Mdainp; back from getipy2 or 4
+   Mdainp; isjrip           0
+   Mdainp; icall           0
+   Mdainp; ieffmax           0
+   Mdainp; Calculate total demand
+   Mdainp; return
+
+________________________________________________________________________
+  DemCons; Warning See *.chk for details in year 1980
+           Regarding: Demand Vs Div Rights            
+           Note only first occurance (year) is printed
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1979 OCT     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   4000.     -1.      1.   4000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1979 OCT     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1979 OCT     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1979 OCT     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1979 OCT     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.   2400.     -1.      1.   2400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1979 OCT     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1979 OCT     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1979 OCT     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1979 OCT     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1979 OCT     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.   1600.     -1.      1.   1600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1979 OCT     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1979 OCT     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1979 OCT     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1979 OCT     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1979 OCT     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1979 OCT     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1979 OCT     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1979 NOV     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   4000.     -1.      1.   4000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1979 NOV     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1979 NOV     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1979 NOV     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1979 NOV     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.   2400.     -1.      1.   2400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1979 NOV     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1979 NOV     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1979 NOV     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1979 NOV     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1979 NOV     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.   1600.     -1.      1.   1600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1979 NOV     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1979 NOV     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1979 NOV     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1979 NOV     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1979 NOV     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1979 NOV     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1000.   2000.   1000.   1000.      1.      0.       0       3
+   17 1979 NOV     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5000.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1979 DEC     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1979 DEC     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1979 DEC     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1979 DEC     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1979 DEC     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1979 DEC     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1979 DEC     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1979 DEC     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1979 DEC     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1979 DEC     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1979 DEC     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1979 DEC     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1979 DEC     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1979 DEC     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1979 DEC     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1979 DEC     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1979 DEC     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1980 JAN     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1980 JAN     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1980 JAN     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1980 JAN     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1980 JAN     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1980 JAN     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1980 JAN     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1980 JAN     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1980 JAN     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1980 JAN     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1980 JAN     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1980 JAN     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1980 JAN     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1980 JAN     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1980 JAN     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1980 JAN     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1980 JAN     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1980 FEB     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1980 FEB     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1980 FEB     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1980 FEB     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1980 FEB     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1980 FEB     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1980 FEB     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1980 FEB     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1980 FEB     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1980 FEB     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1980 FEB     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1980 FEB     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1980 FEB     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1980 FEB     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1980 FEB     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1980 FEB     1    4    7 Diversion              0 DD1WR1           12.00000     17.    933.   2000.    933.   1067.      1.      0.       0       3
+   17 1980 FEB     1    4    8 Diversion              0 DD2WR1           13.00000     84.   4667.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1980 MAR     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1980 MAR     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1980 MAR     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1980 MAR     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1980 MAR     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1980 MAR     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1980 MAR     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1980 MAR     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1980 MAR     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1980 MAR     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1980 MAR     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1980 MAR     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1980 MAR     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1980 MAR     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1980 MAR     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1980 MAR     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1980 MAR     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1980 APR     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1980 APR     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1980 APR     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1980 APR     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1980 APR     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1980 APR     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1980 APR     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1980 APR     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1980 APR     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1980 APR     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1980 APR     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1980 APR     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1980 APR     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1980 APR     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1980 APR     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1980 APR     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1000.   2000.   1000.   1000.      1.      0.       0       3
+   17 1980 APR     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5000.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1980 MAY     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1980 MAY     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1980 MAY     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1980 MAY     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1980 MAY     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1980 MAY     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1980 MAY     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1980 MAY     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1980 MAY     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1980 MAY     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1980 MAY     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1980 MAY     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1980 MAY     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1980 MAY     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1980 MAY     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1980 MAY     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1980 MAY     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.   5000.   4967.     33.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1980 JUN     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1980 JUN     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1980 JUN     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1980 JUN     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1980 JUN     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1980 JUN     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1980 JUN     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1980 JUN     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1980 JUN     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1980 JUN     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1980 JUN     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1980 JUN     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1980 JUN     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1980 JUN     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1980 JUN     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1980 JUN     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1000.   2000.   1000.   1000.      1.      0.       0       3
+   17 1980 JUN     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5000.   5000.   5000.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1980 JUL     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1980 JUL     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1980 JUL     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1980 JUL     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1980 JUL     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1980 JUL     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1980 JUL     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1980 JUL     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1980 JUL     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1980 JUL     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1980 JUL     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1980 JUL     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1980 JUL     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1980 JUL     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1980 JUL     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1980 JUL     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1980 JUL     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.   5000.   4967.     33.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1980 AUG     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1980 AUG     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1980 AUG     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1980 AUG     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1980 AUG     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1980 AUG     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1980 AUG     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1980 AUG     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1980 AUG     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1980 AUG     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1980 AUG     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1980 AUG     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1980 AUG     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1980 AUG     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1980 AUG     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1980 AUG     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1980 AUG     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.   5000.   4967.     33.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1980 SEP     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1980 SEP     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1980 SEP     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1980 SEP     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1980 SEP     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1980 SEP     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1980 SEP     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1980 SEP     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1980 SEP     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1980 SEP     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1980 SEP     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1980 SEP     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1980 SEP     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1980 SEP     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1980 SEP     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1980 SEP     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1000.   2000.   1000.   1000.      1.      0.       0       3
+   17 1980 SEP     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5000.   5000.   5000.      0.      1.      0.       0       3
+
+________________________________________________________________________
+  Execut; Year =  1981
+   Mdainp; back from getipy2 or 4
+   Mdainp; isjrip           0
+   Mdainp; icall           0
+   Mdainp; ieffmax           0
+   Mdainp; Calculate total demand
+   Mdainp; return
+
+________________________________________________________________________
+  DemCons; Warning See *.chk for details in year 1981
+           Regarding: Demand Vs Div Rights            
+           Note only first occurance (year) is printed
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1980 OCT     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   4000.     -1.      1.   4000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1980 OCT     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1980 OCT     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1980 OCT     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1980 OCT     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.   2400.     -1.      1.   2400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1980 OCT     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1980 OCT     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1980 OCT     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1980 OCT     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1980 OCT     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.   1600.     -1.      1.   1600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1980 OCT     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1980 OCT     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1980 OCT     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1980 OCT     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1980 OCT     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1980 OCT     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1980 OCT     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1980 NOV     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   4000.     -1.      1.   4000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1980 NOV     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1980 NOV     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1980 NOV     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1980 NOV     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.   2400.     -1.      1.   2400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1980 NOV     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1980 NOV     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1980 NOV     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1980 NOV     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1980 NOV     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.   1600.     -1.      1.   1600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1980 NOV     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1980 NOV     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1980 NOV     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1980 NOV     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1980 NOV     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1980 NOV     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1000.   2000.   1000.   1000.      1.      0.       0       3
+   17 1980 NOV     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5000.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1980 DEC     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1980 DEC     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1980 DEC     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1980 DEC     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1980 DEC     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1980 DEC     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1980 DEC     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1980 DEC     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1980 DEC     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1980 DEC     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1980 DEC     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1980 DEC     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1980 DEC     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1980 DEC     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1980 DEC     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1980 DEC     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1980 DEC     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1981 JAN     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1981 JAN     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1981 JAN     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1981 JAN     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1981 JAN     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1981 JAN     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1981 JAN     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1981 JAN     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1981 JAN     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1981 JAN     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1981 JAN     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1981 JAN     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1981 JAN     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1981 JAN     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1981 JAN     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1981 JAN     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1981 JAN     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1981 FEB     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1981 FEB     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1981 FEB     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1981 FEB     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1981 FEB     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1981 FEB     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1981 FEB     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1981 FEB     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1981 FEB     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1981 FEB     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1981 FEB     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1981 FEB     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1981 FEB     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1981 FEB     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1981 FEB     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1981 FEB     1    4    7 Diversion              0 DD1WR1           12.00000     17.    933.   2000.    933.   1067.      1.      0.       0       3
+   17 1981 FEB     1    4    8 Diversion              0 DD2WR1           13.00000     84.   4667.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1981 MAR     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1981 MAR     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1981 MAR     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1981 MAR     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1981 MAR     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1981 MAR     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1981 MAR     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1981 MAR     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1981 MAR     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1981 MAR     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1981 MAR     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1981 MAR     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1981 MAR     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1981 MAR     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1981 MAR     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1981 MAR     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1981 MAR     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1981 APR     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1981 APR     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1981 APR     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1981 APR     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1981 APR     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1981 APR     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1981 APR     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1981 APR     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1981 APR     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1981 APR     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1981 APR     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1981 APR     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1981 APR     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1981 APR     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1981 APR     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1981 APR     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1000.   2000.   1000.   1000.      1.      0.       0       3
+   17 1981 APR     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5000.      0.      0.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1981 MAY     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1981 MAY     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1981 MAY     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1981 MAY     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1981 MAY     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1981 MAY     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1981 MAY     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1981 MAY     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1981 MAY     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1981 MAY     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1981 MAY     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1981 MAY     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1981 MAY     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1981 MAY     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1981 MAY     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1981 MAY     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1981 MAY     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.   5000.   4967.     33.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1981 JUN     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1981 JUN     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1981 JUN     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1981 JUN     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1981 JUN     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1981 JUN     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1981 JUN     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1981 JUN     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1981 JUN     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1981 JUN     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1981 JUN     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1981 JUN     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1981 JUN     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1981 JUN     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1981 JUN     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1981 JUN     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1000.   2000.   1000.   1000.      1.      0.       0       3
+   17 1981 JUN     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5000.   5000.   5000.      0.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1981 JUL     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1981 JUL     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1981 JUL     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1981 JUL     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1981 JUL     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1981 JUL     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1981 JUL     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1981 JUL     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1981 JUL     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1981 JUL     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1981 JUL     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1981 JUL     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1981 JUL     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1981 JUL     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1981 JUL     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1981 JUL     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1981 JUL     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.   5000.   4967.     33.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1981 AUG     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1981 AUG     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1981 AUG     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1981 AUG     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1981 AUG     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1981 AUG     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1981 AUG     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1981 AUG     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1981 AUG     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1981 AUG     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1981 AUG     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1981 AUG     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1981 AUG     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1981 AUG     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1981 AUG     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1981 AUG     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1033.   2000.   1033.    967.      1.      0.       0       3
+   17 1981 AUG     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5167.   5000.   4967.     33.      1.      0.       0       3
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           1           1          -1  -1.00000000    
+
+________________________________________________________________________________________________________________________
+  Detailed check option (ac-ft) =     4
+  This report summarizes key information related to the general operation of every water right. 
+  Note: a -1 indicates general operating data is too complex to report herein.  To view that information 
+  along with some constraints that may not be shown a detailed water right report should be requested
+  (see the control file (*.ctl) variables ichk & ccall)
+
+  Iter = iteration #, iw = water right pointer, Type = water right type, OprType = -1 or operating rule #, 
+  Right ID = water right ID, Priority = priority,Dec-cfs = water right (cfs), Dec-af = water right (af), Demand = total demand
+  Divert = diversion this iteration, Short = constrained shortage min(demand, capacity, water right)
+  DivChk = reoperaton control, DivSum = reoperaton sum (if > DivChk reoperate), Ireop = return flow reoperation (if = 1 reoperate)
+  IchkX = location the subroutine is called from Execut
+
+
+    # Year Mon   Day Iter   iw Type             OprType Right ID         Priority Dec-cfs  Dec-af  Demand  Divert   Short  DivChk  DivSum   Ireop   ichkX
+ ____ ____ ____ ____ ____ ____ ________________ _______ ____________ ____________ _______ _______ _______ _______ _______ _______ _______ _______ _______
+    1 1981 SEP     1    1    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.   1000.     -1.      1.   1000.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           2           1          -1  -1.00000000    
+    2 1981 SEP     1    2    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    3 1981 SEP     1    2    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    4 1981 SEP     1    2    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    5 1981 SEP     1    2    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.    600.     -1.      1.    600.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           3           1          -1  -1.00000000    
+    6 1981 SEP     1    3    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    7 1981 SEP     1    3    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    8 1981 SEP     1    3    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+    9 1981 SEP     1    3    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   10 1981 SEP     1    3    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.    400.     -1.      1.    400.       0      14
+  Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)           2           4           1          -1  -1.00000000    
+   11 1981 SEP     1    4    2 Operating Rule        24 Exchange1         6.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   12 1981 SEP     1    4    3 Operating Rule        46 Splitl            6.50000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   13 1981 SEP     1    4    4 Operating Rule        29 Plan1Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   14 1981 SEP     1    4    5 Operating Rule        29 Plan2Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   15 1981 SEP     1    4    6 Operating Rule        29 Plan3Spill        7.00000     -1.     -1.     -1.      0.     -1.      1.      0.       0      14
+   16 1981 SEP     1    4    7 Diversion              0 DD1WR1           12.00000     17.   1000.   2000.   1000.   1000.      1.      0.       0       3
+   17 1981 SEP     1    4    8 Diversion              0 DD2WR1           13.00000     84.   5000.   5000.   5000.      0.      1.      0.       0       3
+
+________________________________________________________________________
+  Execut; On Year  1981 Month SEP  Day    1
+          The maximum number of reoperations      4
+
+________________________________________________________________________
+  Execut; Performance Info:
+    Reoperation switch (ireopx fr *.ctl) =            0
+    Reoperation comparison (cfs)         =            0.010
+    Reoperation comparison (af/mo)       =            0.595
+    Ave reoperations per month           =            4.000
+    Ave calls to replace per month       =            0.000
+
+________________________________________________________________________
+  Execut; Time to Process:
+                                         =    0.000 seconds
+                                         =    0.000 seconds/year
+                                         =    0.000 minutes
+                                         =    0.000 minutes/year
+
+________________________________________________________________________
+  Execut; Writing reports
+
+________________________________________________________________________
+  Execut; Output Request File 2 (*.out or *.xou)  
+     -1                                                                      
+
+________________________________________________________________________
+  Subroutine OutRes  
+
+________________________________________________________________________
+  Subroutine OutDivW 
+
+________________________________________________________________________
+  Subroutine OutOpr  
+
+________________________________________________________________________
+  Subroutine OutPln  
+
+________________________________________________________________________
+  Execut; Successful Run output files are:
+  
+  Diversion output:             *.xdd
+  Reservoir output:             *.xre
+  Operating Rule Info:          *.xop
+  Instream Reach Info:          *.xir
+  Structure Summary:            *.xss
+  Call (Control) Summary:       *.xca
+  Plan Output:                  *.xpl
+
+________________________________________________________________________
+  Execut; Warning at least one operating rule specified a 
+          Plan or reservoir release to meet a structures 
+          DEPLETION not its DIVERSION (Types 27,28,32 or 33)
+
+________________________________________________________________________
+  Execut; These activities typically require an engineering
+          analysis to insure no injury occurs. Note:
+          1. StateMod can provide an estimate of the
+             associated Terms and Conditions and weather they
+             are satisfied in the plan output file (*.xpl).
+          2. StateMod assumes the user is applying these
+             rules properly because this information is often
+             negotiated from historic ditch operations
+
+________________________________________________________________________
+  Execut; Time to Process & Report:
+                                         =    0.000 seconds
+                                         =    0.000 seconds/year
+                                         =    0.000 minutes
+                                         =    0.000 minutes/year
+
+________________________________________________________________________
+  Execut; Successful Termination

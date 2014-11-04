@@ -1,0 +1,10 @@
+# NA        NA                      Ret ID         Ret % Table # 
+#36X                                A12             F8.2      I8
+#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxb----------eb------eb------e
+#
+DD1         Municipal diversion 1   C5                 133.61062       1       0  DD1
+                                                       1       1   20.00    0.00       2       6
+                                    C8            100.00       1
+DD2         Agri diversion 1        C4                 184.02655       1       0  DD2
+                                                       1       1   60.00    0.00       1    -999
+                                    C6            100.00       1

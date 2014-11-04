@@ -1,0 +1,11 @@
+# ______________________________________  ________________________________________________________________________
+Control                                 = Ex05D.ctl
+River_Network                           = Ex05D.rin
+StreamGage_Station                      = Ex05D.ris
+Stream_Base_Monthly                     = Ex05D_rev.xbm
+Diversion_Station                       = Ex05D_rev.dds
+Diversion_Right                         = Ex05D_rev.ddr
+Diversion_Demand_Monthly                = Ex05D.ddm
+DelayTable_Monthly                      = Ex05D.dly
+Plan_Data                               = Ex05D_rev.pln
+Operational_Right                       = Ex05D_rev.opr

@@ -1,0 +1,81 @@
+________________________________________________________________________
+
+        StateMod                       
+        State of Colorado - Water Supply Planning Model     
+
+        Version: 14.01.05
+        Last revision date: 2014/11/01
+
+________________________________________________________________________
+
+________________________________________________________________________
+  Datinp; Network file (*.rin)
+
+    # ID          Name                    DownStream   GWMax    Comment
+ ___exb__________eb______________________eb__________exb______exb__________________e
+    1 A1          reach A node 1 top      A2                 0.
+    2 A2          reach A node 2          A3                 0.
+    3 A3          reach A node 3 bottom   C1                 0.
+    4 B1          reach B node 1 top      B2                 0.
+    5 B2          reach B node 2          B3                 0.
+    6 B3          reach B node 3 bottom   C1                 0.
+    7 C1          reach C node 1 top      C2                 0.
+    8 C2          reach C node 2          C3                 0.
+    9 C3          reach C node 3          C4                 0.
+   10 C4          reach C node 4          C5                 0.
+   11 C5          reach C node 5          C6                 0.
+   12 C6          reach C node 6          C7                 0.
+   13 C7          reach C node 7          C8                 0.
+   14 C8          reach B node 8 bottom   X                  0.
+   15 D1          reach D node 1 top      D2                 0.
+   16 D2          reach D node 2          D3                 0.
+   17 D3          reach D node 3 bottom   C4                 0.
+   18 E1          reach E node 1 top      E2                 0.
+   19 E2          reach E node 2          E3                 0.
+   20 E3          reach E node 3 bottom   F4                 0.
+   21 F1          reach F node 1 top      F2                 0.
+   22 F2          reach F node 2          F3                 0.
+   23 F3          reach F node 3          F4                 0.
+   24 F4          reach F node 4          F5                 0.
+   25 F5          reach F node 5          F6                 0.
+   26 F6          reach F node 6          F7                 0.
+   27 F7          reach F node 7 bottom   C7                 0.
+   28 X           Bottom node                                0.
+  GetPln
+    Ex05D_rev.pln                                                                                                                                                                                                                                                   
+
+________________________________________________________________________
+  Oprinp; Operating right data read (or estimated)
+
+# ID        Name                    NA                    Admin#   # Str  On/Off Dest Id     Dest Ac  Sou1 Id     Sou1 Ac  Sou2 Id     Sou2 Ac     Type Reuse Plan   DivType       Loss(%)   Limit   ioBeg   ioEnd    #
+#__________eb______________________eb__________exxxxb__________eb______eb______exb__________eb______exb__________eb______exb__________eb______eb______exb__________exb__________exb______eb______eb______eb______eb___e
+Exchange1   Dir Exch DD1WR2 to Plan1                     6.00000      0.       1 Plan1             1. DD1WR2          100. NA                0.      24 NA           Diversion          0.     -1.       0    9999    1
+                                      10000.  10000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.   1000.
+                                      30000.
+Splitl      Split plan 1                                 6.50000      0.       1 Plan2            60. Plan1             1. NA                0.      46 NA           Diversion          0.      2.       0    9999    2
+                                                                                 Plan3            40.
+Plan1Spill  Plan 1 spill rule                            7.00000      0.       1 NA                0. Plan1             0. NA                0.      29 NA           NA                 0.      0.       0    9999    3
+Plan2Spill  Plan 2 spill rule                            7.00000      0.       1 NA                0. Plan2             0. NA                0.      29 NA           NA                 0.      0.       0    9999    4
+Plan3Spill  Plan 3 spill rule                            7.00000      0.       1 NA                0. Plan3             0. NA                0.      29 NA           NA                 0.      0.       0    9999    5
+
+________________________________________________________________________
+
+  Demcons; Warning the following structure has a demand that is limited by water rights
+           or capacity. This limit may be OK if the structure is controlled by an operating right
+           Note; only 1 value is printed per year
+           All units are af
+
+    # Year  Mon  ID           Name                       Demand   Rights Capacity Type
+ ___eb___exxb__exb__________exb_____________________exb_______exb______exb______exb__e
+    1 1979  OCT  DD1          Municipal diversion 1       2000.    1033.   30744.  Div
+
+________________________________________________________________________
+
+  Demcons; Warning the following structure has a demand that is limited by water rights
+           or capacity. This limit may be OK if the structure is controlled by an operating right
+           Note; only 1 value is printed per year
+           All units are af
+
+    # Year  Mon  ID           Name                       Demand   Rights Capacity Type
+ ___eb___exxb__exb__________exb_____________________exb_______exb______exb______exb__e
+    1 1980  OCT  DD1          Municipal diversion 1       2000.    1033.   30744.  Div

@@ -1,0 +1,14 @@
+# ______________________________________  ________________________________________________________________________
+Control                                 = EX05D.ctl
+River_Network                           = EX05D.rin
+StreamGage_Station                      = EX05D.ris
+Stream_Base_Monthly                     = EX05D.xbm
+#StreamGage_Historic_Monthly             = EX05D.rih
+#StreamEstimate_Coefficients             = example-0-4-b.rib
+Diversion_Station                       = EX05D.dds
+Diversion_Right                         = EX05D.ddr
+Diversion_Demand_Monthly                = EX05D.ddm
+#Diversion_Historic_Monthly              = example-0-5b.ddh
+DelayTable_Monthly                      = EX05D.dly
+Plan_Data                               = EX05D.pln
+Operational_Right                       = EX05D.opr

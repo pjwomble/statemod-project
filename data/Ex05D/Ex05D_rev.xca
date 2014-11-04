@@ -1,0 +1,46 @@
+#
+# ________________________________________________________________________________
+# *.xca       Call Data File                                   
+#
+#   STATEMOD                                                                      
+#   Example 0-5d - direct exchange (or24) from div wr to a plan (type11) - added a
+#
+# Statemod Version: 14.01.05 Date = 2014/11/01)
+# Run date:           4/11/** **: 1:31
+# Time Step:         Monthly 
+# 
+# ________________________________________________________________________________
+
+ Call Summary
+ Note: The calling right is estiamted to be the most senior 
+       water right at the calling location that is shorted.
+       If none is reported (NA) it typically occurrs when a
+       structure is diverting at a carrier location, not its
+       physical location
+
+ OutCallR    Year Mon   Day Imcd Call Location  Call Right Call Location Name
+ ___________ ____ ____ ____ ____ _____________  __________ ________________________
+ OutCallR    1979 OCT     1   -1 NA                -1.0000 NA                      
+ OutCallR    1979 NOV     1   -1 NA                -1.0000 NA                      
+ OutCallR    1979 DEC     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 JAN     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 FEB     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 MAR     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 APR     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 MAY     1   11 C5               500.0000 reach C node 5          
+ OutCallR    1980 JUN     1   11 C5               500.0000 reach C node 5          
+ OutCallR    1980 JUL     1   11 C5               500.0000 reach C node 5          
+ OutCallR    1980 AUG     1   11 C5               500.0000 reach C node 5          
+ OutCallR    1980 SEP     1   11 C5               500.0000 reach C node 5          
+ OutCallR    1980 OCT     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 NOV     1   -1 NA                -1.0000 NA                      
+ OutCallR    1980 DEC     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 JAN     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 FEB     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 MAR     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 APR     1   -1 NA                -1.0000 NA                      
+ OutCallR    1981 MAY     1   11 C5               500.0000 reach C node 5          
+ OutCallR    1981 JUN     1   11 C5               500.0000 reach C node 5          
+ OutCallR    1981 JUL     1   11 C5               500.0000 reach C node 5          
+ OutCallR    1981 AUG     1   11 C5               500.0000 reach C node 5          
+ OutCallR    1981 SEP     1   11 C5               500.0000 reach C node 5          

@@ -1,0 +1,6 @@
+# Plan ID     Plan Name                 Plan loc       On/Off    Type   Efficiency  Ret Fl Type     Fail Storage Source ID    SrcAcct
+#-----------exb-----------------------exb---------exb-------exb-----exb----------exb----------exb------exb-----exb----------exb-----e
+#ALP_Pln       ALPFullPlan               ALP_Pln             1      11            0            0        0       0 Diversion          0
+Plan1         TargetPlanForDD1WR2Exch   C2                  1      11            0            0        0       0 NA                 0
+Plan2         SplitPlan2                C3                  1      11            0            0        0       0 NA                 0
+Plan3         SplitPlan3                C4                  1      11            0            0        0       0 NA                 0

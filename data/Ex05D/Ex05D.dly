@@ -1,0 +1,6 @@
+# ID           Ret 1   Ret 2   Ret 3   Ret 4   Ret 5    Comment
+#----------eb------eb------eb------eb------eb------e---------------------------
+#
+           1    100.      0.      0.      0.      0.    immediate return
+           2     50.     50.      0.      0.      0.    irrigation return table
+           3     40.     30.     20.     10.      0.    M&I Return Table
