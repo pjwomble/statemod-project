@@ -5212,13 +5212,12 @@ c		h. Detailed output
      1      oprloss(k), oprlimit(k), iopSou(5,k),
      1      cdivtyp(k), intern, cntern, cAssoc)
         endif  
-c       write(nlog,*) '  Oprinp 6; type 29 nr, np1, np2', nr, np1, np2        
+c       write(nlog,*) '  Oprinp 6; type 29 nr, np1, np2', nr, np1, np2
+c       exit the type 29 block
         goto 1190
 c _________________________________________________________
-c
-c         
- 1030   continue 
 c               Type 30; Re Store T&C release
+ 1030   continue 
 c rrb 05/02/01; 
         ion=1
         istop=0

@@ -10,20 +10,50 @@ c	 Type 29; Plan spill
 c       PowseaP; It simulates a type 29 operating rule that
 c               makes a plan releases (spill) from a plan
 c	            	or a reservoir and a plan
-c	            
-c	            iopsou(1, ) 	> 0 Source 1 is a reservoir
-c	            iopsou(1, ) 	< 0 Source 1 is a plan
-c	            iopsou(3, ) 	> 0 Source 2 is a plan
-c             
-c	            iopsou(5, ) 	> 0 Operating rule that will have its
-c			                          monthly and annual limits adjusted
-c
+c           arguments:
+c	            iw          the index of the water rights loop in
+c                           execut.for where this routine is called
+c                           used as index in water rights arrays
+c               l2          the index of the operating rule loop in
+c                           execut.for where this routine is called
+c                           used as index in operating rule arrays
+c               divact      the diversion or reservoir release amount
+c                           that requires reoperation
+c               ncallx      a counter for the number of times this
+c                           routine has been called
+c           global variables:
+c               iopsou(1,l2)    the integer INDEX of the source 1 structure in the
+c                                list of structures of that type (e.g. reservoirs or plans)
+c                               the ID of the structure is found in the
+c                                opr input file, source id field, ciopso(1)
+c                               the ID ciopso(1) is converted to the INDEX iopsou(1,l2)
+c                                with a call to oprfind routine (the iops1 arg)
+c                               Supply reservoir index or ReUse plan index or Acct plan index
+c                               > 0 Source 1 is a reservoir
+c                               < 0 Source 1 is a plan
+c               iopsou(2,l2)    the integer value of the source 1 account
+c                                field, iopsou(2,1), in the opr input file
+c                               integer index of Supply reservoir account or ReUse account (0 if not applicable)
+c               iopsou(3,l2)    the integer INDEX of the source 2 structure in the
+c                                list of structures of that type (e.g. plans)
+c                               the ID of the structure is found in the
+c                                opr input file, source id field, ciopso(2)
+c                               the ID ciopso(2) is converted to the INDEX iopsou(3,l2)
+c                                with a call to oprfind routine (the iops1 arg)
+c                               > 0 => Source 2, ciopso(2), is a plan ID
+c                               Source 2, ciopso(2) = "NA" if not applicable
+c               iopsou(4,l2)    the integer value of the source 2 account
+c                                field, iopsou(4,1), in the opr input file
+c                               always = 0
+c	            iopsou(5,l2) 	if > 0 it is the integer INDEX of the
+c                                operating rule that will have its
+c			                     monthly and annual limits adjusted
+c               ...many more need to be documented...
+c           local variables:
 c	            nr  > 0 	Reservoir pointer
 c	            npS > 0 	Source 1 or Source 2 plan pointer
 c	            np2 > 0		Source 2 plan pointer
-c
-c	
-
+c               ...many more need to be documented...
 c _________________________________________________________
 c       Update History
 c
@@ -143,9 +173,9 @@ c		Step 2; Set Source Data
 c              Find reservoir (nr), owner (iown), river location (iscd)
 c                and # of downstream nodes (ndns)
 C
-      NR  =IOPSOU(1,L2)
-      if(nr.lt.0) npS=-nr      
-      NP2 =iopsou(3,l2)      
+      NR = IOPSOU(1,L2)
+      if(nr.lt.0) npS=-nr
+      NP2 = iopsou(3,l2)
       if(iout.eq.1) write(nlog,*) '  PowseaP; nr, npS, np2',
      1   nr,npS,np2
 c
