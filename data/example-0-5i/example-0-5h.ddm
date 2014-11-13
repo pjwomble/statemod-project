@@ -1,0 +1,43 @@
+# Example 0-5h
+#
+# example-0-5h.ddm;
+# Direct flow diversion demands for STATEMOD example 0-5h
+#
+# this is the fifth network dateset for the example 0 series
+#   of statemod data sets
+# example X.Y means the example X series, the Yth version
+#
+# This dataset is similar to example 0-5g except the type 27
+#   destinations are changed from diversions to plans.
+#   Testing to see if having all the plans on separate nodes
+#   corrects the mass balance errors observed in 5e.
+# 
+# this dataset can successfully estimated baseflows to an xbm file
+# using the example-0-5h-b rsp file
+# and can successfuly run in simulation mode with example-0-5h.rsp
+# 
+# the example 0 series has a network that is fairly small and simple,
+#   but complex enough to host various kinds of structures later,
+#   and has enough variability to be good for testing
+# drawings of and notes about the network can be found in the series
+#   of files with names like example-0-5h-doc.*
+#
+# *******************************************************
+#
+#     Card 1   Control
+#     format:  (i4, 1x, a12, 12f8.0
+#
+#     Year     idyr:            Year
+#     ID       cistat:          Station id
+#     diverm(1-12):             Demand for month 1-12 ( ) = diver(im,nu) for station nu
+#
+#
+# Yr ID               Oct     Nov     Dec     Jan     Feb     Mar     Apr     May     Jun     Jul     Aug     Sep     Total
+# -e-b----------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb------eb--------e
+#
+   10/1979  -      9/1980 AF/M  WYR
+1980 DD1               0.      0.      0.      0.      0.      0.      0.   2000.   2000.   2000.   2000.   2000.    10000.
+1980 DD2               0.      0.      0.      0.      0.      0.      0.  10000.  10000.  10000.  10000.  10000.    50000.
+1981 DD1               0.      0.      0.      0.      0.      0.      0.   2000.   2000.   2000.   2000.   2000.    10000.
+1981 DD2               0.      0.      0.      0.      0.      0.      0.  10000.  10000.  10000.  10000.  10000.    50000.
+
