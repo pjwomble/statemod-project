@@ -93,6 +93,12 @@ c jhb 2014/11/01; Revise dimensions
 c   ISF rights          241-2241
 c                       because the IfrRigSP routine uses the op rule counter
 c                       as an index in the divi() array.  might have to go larger later.
+c jhb 2014/11/20; ver='14.01.06'
+c                 Fix an array index (iscd) problem in IfrRigSP when the avail water < small
+c                   and a jump to line 260 is triggered
+c                 fix a oprfind call missing arg problem in oprinp.for
+c                   in the op rule 7 specific code
+c                 the current SP model full data set now runs to completion
 c ______________________________________________________________________
 c       Documentation
 C
@@ -186,8 +192,8 @@ c				 7 includes new binary output format
 c		yy has new functionality
 c		zz is a bug fix
 c		
-        ver='14.01.05'
-        vdate = '2014/11/01'
+        ver='14.01.06'
+        vdate = '2014/11/20'
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0
@@ -600,6 +606,9 @@ c ______________________________________________________________________
 c     Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2014/11/20 (14.01.06)',/
+     1 '      Fixed an array index problem in IfrRigSP',/
+     1 '      Fixed an opr type 7 specific code problem in OPRInp',/
      1 '    - 2014/11/01 (14.01.05)',/
      1 '      Revise ISF rights dimensions from 241 to 2241',/
      1 '        because the IfrRigSP routine uses the op rule counter',/

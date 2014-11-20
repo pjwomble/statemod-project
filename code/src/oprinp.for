@@ -160,7 +160,7 @@ c		ioutSm 0 no details on small
 c		       1 details on small
 c		ioutLim 0 no details on diversion limit
 c		       1 details on diversion limit
-      iout=0
+      iout=1
       ioutSM=0  
       ioutLim=0
       iecho=1
@@ -1443,8 +1443,11 @@ c
 c ---------------------------------------------------------
 c               a2. Read intervening structures
         istop=0
+c jhb 11/20/2014 fix a missing arg error causing intermittent runtime data crashes
+c        call oprFind(ityopr(k), 21, idumc,k,ion,iprinto,
+c     1       ix, ix, nx, cx, 1, istop, rops2, cidvri)
         call oprFind(ityopr(k), 21, idumc,k,ion,iprinto,
-     1       ix, ix, nx, cx, 1, istop, rops2, cidvri)
+     1       ix, ix, nx, cx, 1, istop, rops2, ioprsw(k), cidvri)
 c
 c ---------------------------------------------------------
 c               b1. Find destination operational right 

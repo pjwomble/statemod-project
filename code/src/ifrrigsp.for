@@ -473,8 +473,11 @@ cx    if(divactX.lt.small) iprint=0
       endif
 c_______________________________________________________________________
 c               Step 32; Set Call for 
-c rrb 2008/06/10	      
-      if(nd.gt.0) then
+c rrb 2008/06/10
+c jhb 2014/11/20 add check for case where pavail < small causes a jump
+c                to 260 and iscd is not a valid value for an array index
+c      if(nd.gt.0) then
+      if(nd.gt.0.and.iscd.gt.0) then
         ctype1='Instream'
         call GetCall(iscd, imcdL(iscd), nd, ctype1)        
       endif  
