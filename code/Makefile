@@ -5,7 +5,6 @@
 # Copyright   : Copyright owned by State of Colorado, all rights reserved
 # Description : Makefile for CDSS StateMod fortran model code - Microsoft Windows Version!!
 # ============================================================================
-
 # A simple hand-made makefile for a package including applications
 # built from Fortran sources, taking into account the usual
 # dependency cases.
@@ -28,7 +27,6 @@ FCFLAGS += -I/usr/include
 #LDFLAGS = -li_need_this_lib
 # The ist of executables to be built within the package
 PROGRAMS = statemod
-
 # ======================================================================
 # The rules
 # ======================================================================
