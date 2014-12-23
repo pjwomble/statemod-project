@@ -3,7 +3,7 @@
 # Author      : Jim Brannon
 # Version     :
 # Copyright   : Copyright owned by State of Colorado, all rights reserved
-# Description : Makefile for Hello World in Fortran
+# Description : Makefile for CDSS StateMod fortran model code - Microsoft Windows Version!!
 # ============================================================================
 
 # A simple hand-made makefile for a package including applications
