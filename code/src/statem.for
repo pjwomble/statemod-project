@@ -98,6 +98,14 @@ c                   and a jump to line 260 is triggered
 c                 fix a oprfind call missing arg problem in oprinp.for
 c                   in the op rule 7 specific code
 c                 the current SP model full data set now runs to completion
+c jhb 2014/12/23; ver='14.01.07'
+c                 Fixed array index issues in irturn() in divcar1.for
+c                   converted complex if: IF(A&B&C) THEN
+c                   into nested ifs: IF(A) THEN IF(B) THEN IF(C)
+c                   because of difference between compilers (lahey vs fortran)
+c                   lahey does not evaluate expression A unless B is true, etc.
+c                   gfortran evaluates all 3
+c                   expression C had the array index out of bounds issue...
 c ______________________________________________________________________
 c       Documentation
 C
@@ -191,8 +199,8 @@ c				 7 includes new binary output format
 c		yy has new functionality
 c		zz is a bug fix
 c		
-        ver='14.01.06'
-        vdate = '2014/11/20'
+        ver='14.01.07'
+        vdate = '2014/12/23'
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0
@@ -605,6 +613,8 @@ c ______________________________________________________________________
 c     Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2014/12/23 (14.01.07)',/
+     1 '      Fixed array index problems of irturn() in divcar1',/
      1 '    - 2014/11/20 (14.01.06)',/
      1 '      Fixed an array index problem in IfrRigSP',/
      1 '      Fixed an opr type 7 specific code problem in OPRInp',/
