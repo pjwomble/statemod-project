@@ -527,7 +527,7 @@ c       Step 16; Process a right that is off
 c         Read misc data so checks can be skipped
         if(ioprsw(k).eq.0) then
 c ______________________________________________________________________
-c jhb 2014/10/31 start
+c         jhb 2014/10/31 start
 c         this block of secondary record processing code is not working
 c           so skip it, and require NO secondary records when
 c           op rule is turned off
@@ -542,7 +542,7 @@ c ______________________________________________________________________
 c         read the next record
           goto 1190
 c ______________________________________________________________________
-c jhb 2014/10/31 end
+c         jhb 2014/10/31 end
 c         iout=1
           if(iout.eq.1) then
             write(nchk,*) ' Oprinp; Right Off', k, cidvri
@@ -550,7 +550,7 @@ c         iout=1
           endif
           koff=koff+1
 c ______________________________________________________________________
-c		Read Monthly on/off          
+c		  Read Monthly on/off
           if(idumc.eq.12 .or. idumc.lt.-12) then
             if(iout.eq.1) write(nchk,*) ' Oprinp; Monthly on-off ',
      1       idumc
@@ -560,14 +560,14 @@ c           write(nlog,*) rec256
             if(iecho.eq.1) write(nchk,'(a256)') rec256
           endif  
 c ______________________________________________________________________
-c		Read Carrier Data (without loss)
+c		  Read Carrier Data (without loss)
           ioprloss=int(oprloss(k))
           if(ioprloss.eq.0) then
             if(iout.eq.1) write(nchk,*) ' Oprinp; Carrier No Loss ',
      1          ioprloss, idumc
             idumy=idumc
             idumy=amax0(idumc, iabs(idumc)-12)
-c rrb 2008/06/04; Correction            
+c           rrb 2008/06/04; Correction
             if(idumc.eq.12) idumy=0
             if(idumy.gt.0) then
               do i=1,idumy
@@ -578,14 +578,14 @@ c rrb 2008/06/04; Correction
             endif  
           endif
 c ______________________________________________________________________
-c		Read Carrier Data (with loss)
+c		  Read Carrier Data (with loss)
           ioprloss=int(oprloss(k))
           if(iabs(ioprloss).gt.0) then
             if(iout.eq.1) write(nchk,*) ' Oprinp; Carrier with Loss ',
      1          ioprloss, idumc
             idumy=idumc
             idumy=amax0(idumc, iabs(idumc)-12)
-c rrb 2008/06/04; Correction            
+c           rrb 2008/06/04; Correction
             if(idumc.eq.12) idumy=0
             if(idumy.gt.0) then
               do i=1,idumy
@@ -597,15 +597,15 @@ c rrb 2008/06/04; Correction
 cr          if(iout.eq.1) write(nlog,*) rec256          
 cr          write(nlog,*) '  Oprinp; rec256 ', rec256
 c ______________________________________________________________________
-c		Rio Grande Compact Treatment          
-c		Read extra stream gage data
+c		  Rio Grande Compact Treatment
+c		  Read extra stream gage data
           if(ityopr(k).eq.17 .or. ityopr(k).eq.18) then 
             read(55,'(a256)',end=926,err=928) rec256
             if(iecho.eq.1) write(nchk,'(a256)') rec256
           endif
 c ______________________________________________________________________
-c		Type 24 and 25 Exchange to ....
-c		Read Exchnage limits          
+c		  Type 24 and 25 Exchange to ....
+c		  Read Exchnage limits
           if(ityopr(k).eq.24 .or. ityopr(k).eq. 25) then
             if(iout.eq.1)  write(nchk,*) ' Oprinp; Exchange Limits ', 
      1        k, ityopr(k)
@@ -613,28 +613,26 @@ c		Read Exchnage limits
             if(iecho.eq.1) write(nchk,'(a256)') rec256           
           endif  
 c ______________________________________________________________________
-c rrb 2008/02/21;  
-c		Type 27 and 28 Plan and 45 with an operating rule limit
+c         rrb 2008/02/21;
+c		  Type 27 and 28 Plan and 45 with an operating rule limit
           if(ityopr(k).eq.27 .or. ityopr(k).eq. 28) then
             if(iout.eq.1) write(nchk,*) ' Oprinp; Associated Opr Rule ', 
      1        k, ityopr(k), oprlimit(k)
 c ______________________________________________________________________
-c		              Associated Operating Rule
+c		    Associated Operating Rule
             if(oprlimit(k).gt.small .and. oprlimit(k).lt.9999) then
               read(55,'(a256)',end=926,err=928) rec256     
               if(iecho.eq.1) write(nchk,'(a256)') rec256           
             endif
 c ______________________________________________________________________
-c		              T&C CU factors            
-c rrb 2008/04/23; Revise to be more robust 
+c		    T&C CU factors
+c           rrb 2008/04/23; Revise to be more robust
             if(iopsou(4,k) .gt. 0) then              
               if(iout.eq.1) write(nchk,*) ' Oprinp; T&C CU Factors ', 
      1          k, iopsou(4,k), nas2
-c rrb 2008/11/25; Revise to warn and allow a bad iopsou(4 entry when 
-c		              Nas2=1 (ciopso2=NA)            
+c             rrb 2008/11/25; Revise to warn and allow a bad iopsou(4 entry when Nas2=1 (ciopso2=NA)
               if(nas2.eq.1) then
-                write(nlog,916) corid(k), ityopr(k),
-     1            ciopso2, iopsou(4,k) 
+                write(nlog,916) corid(k),ityopr(k),ciopso2,iopsou(4,k)
               endif
               if(nas2.eq.0) then
                 read(55,'(a256)',end=926,err=928) rec256     
@@ -643,23 +641,23 @@ c		              Nas2=1 (ciopso2=NA)
             endif
           endif 
 c ______________________________________________________________________
-c rrb 2011/10/15; Update to type 45 operating rule
-c		Type 27 and 28 Plan and 45 with an operating rule limit
+c         rrb 2011/10/15; Update to type 45 operating rule
+c		  Type 27 and 28 Plan and 45 with an operating rule limit
           if(ityopr(k).eq.45) then
             if(iout.eq.1) write(nchk,*) ' Oprinp; Associated Opr Rule ', 
      1        k, ityopr(k), oprlimit(k)
-c		              Associated Operating Rule
+c		    Associated Operating Rule
             if(oprlimit(k).gt.small .and. oprlimit(k).lt.9999) then
               read(55,'(a256)',end=926,err=928) rec256     
               if(iecho.eq.1) write(nchk,'(a256)') rec256           
             endif
           endif       
 c ______________________________________________________________________
-c rrb 2008/02/21;           
-c		Type 10 and 29 Spill
-c		Associated Operating Rule Data (5)
+c         rrb 2008/02/21;
+c		  Type 10 and 29 Spill
+c		  Associated Operating Rule Data (5)
           if(ityopr(k).eq.10 .or. ityopr(k).eq.29) then
-c		Monthly and Annual Limit Data
+c		    Monthly and Annual Limit Data
             if(oprlimit(k).gt.small .and. oprlimit(k).lt.9999) then
               read(55,'(a256)',end=926,err=928) rec256     
 c             write(nlog,*) ' Associated Operating Rule'
@@ -673,136 +671,136 @@ c         finished processing secondary records when opr rule is OFF
         endif
 c ______________________________________________________________________
 c		Step 17; Branch for operating rule specific processing
-c               For type 1, Reservoir to a ISF 
+c       For type 1, Reservoir to a ISF
         if (ityopr(k).eq.1) goto 1001
-c               For type 2, Reservoir to diversion or reservior or Carrier
+c       For type 2, Reservoir to diversion or reservior or Carrier
         if (ityopr(k).eq.2) goto 1002
-c               For type 2, Reservoir to a carrier
+c       For type 2, Reservoir to a carrier
         if (ityopr(k).eq.3) goto 1003
-c               For type 4, Reservoir to a dversion by Exchange
+c       For type 4, Reservoir to a dversion by Exchange
         if (ityopr(k).eq.4) goto 1004
-c               For type 5, Reservoir storage by Exchange
+c       For type 5, Reservoir storage by Exchange
         if (ityopr(k).eq.5) goto 1005
-c               For type 6, Reservoir to Reservoir Transfer
+c       For type 6, Reservoir to Reservoir Transfer
         if (ityopr(k).eq.6) goto 1006
-c               For type 7, Diversion by Carrier by Exchange
+c       For type 7, Diversion by Carrier by Exchange
         if (ityopr(k).eq.7) goto 1007
-c               For type 8, Out of Priority Bookover
+c       For type 8, Out of Priority Bookover
         if (ityopr(k).eq.8) goto 1008
-c               For type 9, Release to Target
+c       For type 9, Release to Target
         if (ityopr(k).eq.9) goto 1009
-c               For type 10, Replacement Reservoir
+c       For type 10, Replacement Reservoir
         if (ityopr(k).eq.10) goto 1010
-c               For type 11, Carrier
+c       For type 11, Carrier
         if (ityopr(k).eq.11) goto 1011
-c               For type 12, reoperation right, we're done
+c       For type 12, reoperation right, we're done
         if (ityopr(k).eq.12) goto 1190
-c               For type 13, index River Flow
+c       For type 13, index River Flow
         if (ityopr(k).eq.13) goto 1013
-c               For type 14, Carrier with a Constrained Demand
+c       For type 14, Carrier with a Constrained Demand
         if (ityopr(k).eq.14) goto 1014
-c               For type 15, interruptable supply, process in 1 place
+c       For type 15, interruptable supply, process in 1 place
         if(ityopr(k).eq.15) goto 1015
-c               For type 16, direct flow storage, process in 1 place
+c       For type 16, direct flow storage, process in 1 place
         if(ityopr(k).eq.16) goto 1016
-c               For type 17, Rio Grande Compact-RG, process in 1 place
+c       For type 17, Rio Grande Compact-RG, process in 1 place
         if(ityopr(k).eq.17) goto 1017
-c               For type 18, Rio Grande Compact-Co, process in 1 place
+c       For type 18, Rio Grande Compact-Co, process in 1 place
         if(ityopr(k).eq.18) goto 1018
-c               For type 19, Split Channel, process in 1 place
+c       For type 19, Split Channel, process in 1 place
         if(ityopr(k).eq.19) goto 1019                         
-c               For type 20, San Juan RIP for Navajo 
+c       For type 20, San Juan RIP for Navajo
         if(ityopr(k).eq.20) goto 1020                         
-c               For type 21, Sprinkler Use
+c       For type 21, Sprinkler Use
         if(ityopr(k).eq.21) goto 1021
-c               For type 22, Soil Moisture Use
+c       For type 22, Soil Moisture Use
         if(ityopr(k).eq.22) goto 1022        
-c               For type 23, Downstream Call Data
+c       For type 23, Downstream Call Data
         if(ityopr(k).eq.23) goto 1023        
-c               For type 24, Direct Flow Exchange 
+c       For type 24, Direct Flow Exchange
         if(ityopr(k).eq.24) goto 1024                
-c               For type 25, Direct Flow Bypass
+c       For type 25, Direct Flow Bypass
         if(ityopr(k).eq.25) goto 1025        
-c               For type 26, Reservoir or Plan to a Plan
+c       For type 26, Reservoir or Plan to a Plan
         if(ityopr(k).eq.26) goto 1026        
-c               For type 27, Plan to a Diversion Direct
+c       For type 27, Plan to a Diversion Direct
         if(ityopr(k).eq.27) goto 1027        
-c               For type 28, Plan to a Diversion by Exchange
+c       For type 28, Plan to a Diversion by Exchange
         if(ityopr(k).eq.28) goto 1028        
-c               For type 29, Plan spill
+c       For type 29, Plan spill
         if(ityopr(k).eq.29) goto 1029        
-c               For type 30, Redivert T&C Plan release
+c       For type 30, Redivert T&C Plan release
         if(ityopr(k).eq.30) goto 1030
-c               For type 31, Carrier with Reuse
+c       For type 31, Carrier with Reuse
         if(ityopr(k).eq.31) goto 1031
-c               For type 32, Reuse Reservoir and Plan to Diversion, 
-c                            Reservoir or Carrier with Reuse Direct
+c       For type 32, Reuse Reservoir and Plan to Diversion,
+c                    Reservoir or Carrier with Reuse Direct
         if(ityopr(k).eq.32) goto 1032
-c               For type 33, Reuse Reservoir and Plan to a Diversion, 
-c                            Reservoir or Carrier with Reuse by Exchange
+c       For type 33, Reuse Reservoir and Plan to a Diversion,
+c                    Reservoir or Carrier with Reuse by Exchange
         if(ityopr(k).eq.33) goto 1033
-c               For type 34, Bookover with Reuse
+c       For type 34, Bookover with Reuse
         if(ityopr(k).eq.34) goto 1034
-c               For type 35, Import 
+c       For type 35, Import
         if(ityopr(k).eq.35) goto 1035
-c               For type 36, Meadow Rights
+c       For type 36, Meadow Rights
         if(ityopr(k).eq.36) goto 1036
-c               For type 37, Well Augmentation
+c       For type 37, Well Augmentation
         if(ityopr(k).eq.37) goto 1037
-c               For type 38, OOP Diversion
+c       For type 38, OOP Diversion
         if(ityopr(k).eq.38) goto 1038
-c               For type 39, Alternate Point
+c       For type 39, Alternate Point
         if(ityopr(k).eq.39) goto 1039
-c               For type 40, South Platte Compact
+c       For type 40, South Platte Compact
         if(ityopr(k).eq.40) goto 1040
-c               For type 41, Storage limited by an OOP Plan Volume
+c       For type 41, Storage limited by an OOP Plan Volume
         if(ityopr(k).eq.41) goto 1041
-c               For type 42, Plan Spill
+c       For type 42, Plan Spill
         if(ityopr(k).eq.42) goto 1042
-c               For type 43, In-Priority Supply
+c       For type 43, In-Priority Supply
         if(ityopr(k).eq.43) goto 1043
-c               For type 44, Recharge Well
+c       For type 44, Recharge Well
         if(ityopr(k).eq.44) goto 1044
-c               For type 45, Carrier with Losses
+c       For type 45, Carrier with Losses
         if(ityopr(k).eq.45) goto 1045
-c               For type 46, Multiple Ownership
+c       For type 46, Multiple Ownership
         if(ityopr(k).eq.46) goto 1046
-c               For type 47, Administratve Ownership
+c       For type 47, Administratve Ownership
         if(ityopr(k).eq.47) goto 1047
-c               For type 48, Plan or Res. reuse to a Plan Direct
+c       For type 48, Plan or Res. reuse to a Plan Direct
         if(ityopr(k).eq.48) goto 1048
-c               For type 49, Plan or Res. reuse to a Plan Exchange
+c       For type 49, Plan or Res. reuse to a Plan Exchange
         if(ityopr(k).eq.49) goto 1049
-c               For type 50, South Platte compact Storage
+c       For type 50, South Platte compact Storage
         if(ityopr(k).eq.50) goto 1050
         write(nlog,1277) ityopr(k),cidvri
         goto 9999
 c ______________________________________________________________________
  1001   continue 
 c ______________________________________________________________________
-c               Type 1; Reservoir to a ISF
-c                  ion=1 means turn off opr right if right is off
-c		   Note istop=0 Stop if not found
-c		        istop=1 Do not Stop if not found
+c       Type 1; Reservoir to a ISF
+c         ion=1 means turn off opr right if right is off
+c		  Note istop=0 Stop if not found
+c		       istop=1 Do not Stop if not found
         ion=1
         istop=0
         idcdd=0
         iss=0
         idumc=ifix(dumc)
 c ______________________________________________________________________
-c               a. Read monthly constraints 
+c       a. Read monthly constraints
         istop=0
         call oprFind(ityopr(k), 20, idumc,k,ion,iprinto,
      1       ix, ix, nx, cx, 1, istop, rops2, ioprsw(k), cidvri)
 c ______________________________________________________________________
-c               a2. Read intervening structures
+c       a2. Read intervening structures
         istop=0
         call oprFind(ityopr(k), 21, idumc,k,ion,iprinto,
      1       ix, ix, nx, cx, 1, istop, rops2, ioprsw(k), cidvri)
 c ______________________________________________________________________
-c               c1. Find destination ISF
-c                  Note itype=1 for a ISF structure
-c                       istop=0 stop if not found)
+c       c1. Find destination ISF
+c         Note itype=1 for a ISF structure
+c              istop=0 stop if not found
         itype=1
         istop=0
         call oprFind(ityopr(k), itype, idumc,k,ion,iprinto,
@@ -812,13 +810,12 @@ c                       istop=0 stop if not found)
         iopdesr(k)=1
         if(iops1.gt.0) idcdD=ifrsta(iops1)        
 c ______________________________________________________________________
-c               d. Find source 1 a reservoir (type 2)
-c                  Note itype=2 for a ISF reservoir
-c		   Note istop=0 Stop if not found
+c       d. Find source 1 a reservoir (type 2)
+c         Note: itype=2 for a ISF reservoir
+c		        istop=0 Stop if not found
 c		        istop=1 Do not Stop if not found
-c		        iacc=0 allows account to be 0 (since 
-c                         it is ownership %)
-c		        ion=0 leaves the original water right on
+c		         iacc=0 allows account to be 0 (since it is ownership %)
+c		          ion=0 leaves the original water right on
         itype=2
         ion=0
         iacc=1
@@ -826,14 +823,11 @@ c		        ion=0 leaves the original water right on
         call oprFind(ityopr(k), itype, idumc,k,ion,iprinto,
      1       iops1,iopsou(2,k), nx, ciopso1, 1, istop, rops2, 
      1       ioprsw(k), cidvri)
-     
         iopSouR(k)=itype     
         iopsou(1,k)=iops1
 c ______________________________________________________________________
-c               e. Check that the source reservoir is upstream 
-c                  of the destination ISF
-c	           trying to find destination (idcdD)
-c                  downstream of  source (iscdS) 
+c       e. Check that the source reservoir is upstream of the destination ISF
+c	      trying to find destination (idcdD) downstream of source (iscdS)
         iss=irssta(iops1)
         ndns=ndnnod(iss)
         csource=cstaid(iss)
