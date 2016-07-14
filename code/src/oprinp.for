@@ -576,7 +576,6 @@ c         iout=1
             write(nlog,*) ' Oprinp; Right Off', k, cidvri        
           endif
           koff=koff+1
-qcvk'[\
 c ______________________________________________________________________
 c		  Read Monthly on/off
           if(idumc.eq.12 .or. idumc.lt.-12) then
