@@ -1,3 +1,4 @@
+
 c     Last change:  RRB   9 Oct 2002    3:25 pm
 c *********************************************************
 c
@@ -187,7 +188,9 @@ c _________________________________________________________
 c		Step 1; Initilize
 c
 c		ver = xx.yy.zz; where
-c		xx is the major version 
+c		     xx is the major version 
+c		     yy has new functionality
+c		     zz is a bug fix
 c		   For example:
 c			  12 has new *.ipy file
 c     
@@ -196,11 +199,12 @@ c				10 includes plans
 c				 9 inlcudes wells
 c				 8 includes daily capability
 c				 7 includes new binary output format			
-c		yy has new functionality
-c		zz is a bug fix
 c		
-        ver='14.01.07'
-        vdate = '2014/12/23'
+c       ver='14.01.07'
+c       vdate = '2014/12/23'
+        ver='15.00.00'
+        vdate = '2015/10/18'
+c
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
         isgi = 0
@@ -282,8 +286,9 @@ c
       maxPlan = 1440
       maxrtnPP = 1444
 cx    maxPlnO=100
-      maxPlnT=12
-      
+c
+c rrb 2015-03-24
+      maxPlnT=13
       maxOprin=50
       maximprt=15
       nimport=0
@@ -364,7 +369,14 @@ c
 c _________________________________________________________
 
 c               -help option
-  92  if(ioptio.eq.6) goto 190
+  92  if(ioptio.eq.6) then
+        write(6,200) ver, vdate
+        write(6,206)
+  206   format(
+     1 72('_'),//
+     1 '        For help with StateMod see documentation and examples')         
+        goto 190
+      endif
 c
 c
 c _________________________________________________________
@@ -613,6 +625,195 @@ c ______________________________________________________________________
 c     Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2015/10/18 (15.00.00)',/
+     1 '      Copied version 14.02.27 to version 15.00.00',/
+     1 '        to signify testing and comparison to historic',/
+     1 '        results following the transfer to GitHub and',/
+     1 '        addition of the Changed Water Right (typw 26)',/
+     1 '        operating rule.',/
+     1 '      Minor clean up to DirectWR (type 26), DivResP2',/
+     1 '        (type 27) and DivrplP (type 28) to remove some',/
+     1 '        confusing notes',/
+     1 '    - 2015/10/10 (14.02.27)',/
+     1 '      Revised DirectWR (type 26) to correct a problem',/
+     1 '        associated with the one operation per time step',/
+     1 '        implementation',/
+     1 '      Revised PowSeaP (type 29) to correct a typo to qdiv',/
+     1 '        that impacts reporting',/
+     1 '    - 2015/10/04 (14.02.26)',/
+     1 '      Revised DirectEX (type 24), DirectBy (type 25),'/ 
+     1 '        DivResP2 (type 27) and DivrplP (type 28) to report'/
+     1 '        water bypassed or exchanged as at the source as',/
+     1 '        Carried (qdiv(38,__) that does not enter into the',/
+     1 '        water budget reporting',/
+     1 '      Revised PowSeaP to report water spilled from a',/
+     1 '        reuse plan to a Diversion (type 4), Reuse Plan to a',/
+     1 '        diversion from Tmtn and an Admin Plan (11) as a',/
+     1 '        Return flow for water budget reporting',/
+     1 '    - 2015/09/11 (14.02.25)',/
+     1 '      Revised RsrSpu (type 6) and RsrSpuP (type 34) to ',/
+     1 '        correct variable IresT1 that is used by subroutine',/
+     1 '        Accou and was wrong when water is being distributed',/
+     1 '        to only 1 account'
+     1 '      Revised RsrSpu (type 6) to correct a problem that ',/
+     1 '        did not allow the logic that limits reoperaton once',/
+     1 '        per iteration to work properly',/    
+     1 '    - 2015/09/06 (14.02.24)',/
+     1 '      Revised DivResp2 (type 27) and DivRplP (type 28) to ',/
+     1 '        correct a roundoff issue that caused an inconsistency',/
+     1 '        associated with the Replacement rule (type 10)',/
+     1 '        reporting between the *.xop, *.xre & *.xrp reports',/     
+     1 '    - 2015/08/23 (14.02.23)',/
+     1 '      Revised DivResp2 (type 27) to correct a problem ',/
+     1 '        associated with porting the routine to the',/
+     1 '        gfortran compiler that impacted how variable ishort',/
+     1 '        was set that impacted the operation of Replace',/
+     1 '        (type 10)',/
+     1 '      Revised PowseaP, the Reservoir or Plan Spill operating',/
+     1 '        rule to not adjust Avail at the reservoir itself',/
+     1 '        if the source is a reservoir. This is consistent with',/
+     1 '        a Spill to Reservoir Target operating rule (type 9)',/     
+     1 '    - 2015/08/11 (14.02.22)',/
+     1 '      Revised RsrSpu.f (type 6) to set qres(29,n) for all',/
+     1 '        reservoir to reservoir bookovers to correct a water',/
+     1 '        balance reporting problem identified in the San Juan',/
+     1 '      Revised DivMulti.f (type 46) to not set qres(35,n) if',/
+     1 '        the source is a Changed Water Right Plan (type 13)',/
+     1 '        to correct a water balance reporting problem ',/
+     1 '        identified in the North Platte Model',/
+     1 '    - 2015/07/27 (14.02.21)',/      
+     1 '      Revised Outmon.f to correct a problem with reporting',/
+     1 '        reservoir releases from a type 27 rule by account ',/     
+     1 '    - 2015/07/18 (14.02.20)',/      
+     1 '      Revised Outmon.f to correct a problem with reporting',/
+     1 '        reservoir releases from a type 27 rule for the ',/
+     1 '        total reservoir ',/
+     1 '      Revised Divres.f (type 2 & 3) to correct a problem',/
+     1 '        reporting reservoir releases associated with the',/
+     1 '        above edit.',/
+     1 '      Revised DirectWR.f (type 26) to fix a typo to ',/
+     1 '        allow only one operation per time step that was',/
+     1 '        implemented in version 14.02.18',/                                
+     1 '      Revised Oprinp.f to warn the user if ther are type 6',/
+     1 '        operating rules that book water from a reservoir to',/
+     1 '        itself then back that might cause a reoperation',/
+     1 '        problem observed on the San Juan if not corrected',/
+     1 '        per the documentation',/
+     1 '    - 2015/07/08 (14.02.18)',/                                 
+     1 '      Revised RsrSpu.f (type 6) & Bomsec.f, DaySet.f &',/
+     1 '        common.inc to limit reoperation of a bookover rule)',/
+     1 '        when another opr. rule has already booked water',/
+     1 '        back to the original account.',/
+     1 '      Revised DirectWR.f (type 26) & Execut.f to correct a ',/
+     1 '        problem on how reoperation per time step is ',/
+     1 '        controlled by water right icallOP(l2) not operating',/
+     1 '        rule (icall26)',/
+     1 '    - 2015/06/25 (14.02.17)',/                                 
+     1 '      Added detailed reporting capability to subroutines:',/
+     1 '        DivRes.f, ResRg1.f, RsrSpu.f, OutIchk.f, ChekRes.f,',/
+     1 '        and DivCarl.f',/
+     1 '        Began enhancements to control when a reservoir book',/ 
+     1 '        over should be limited to one operation per time step',/
+     1 '        to resolve a problem indentified in the San Juan',/        
+     1 '    - 2015/06/15 (14.02.16)',/                                 
+     1 '      Revised DsaMod to correct a problem that originated',/
+     1 '        with porting the code to a new compiler with version',/
+     1 '        14.00.00 that materalized when a direct flow water',/
+     1 '        right is non-consumptive',/
+     1 '    - 2015/05/06 (14.02.15)',/
+     1 '        Revised DirectWr to limit % of water right left',/
+     1 '        at headgate by the source structure capacity',/
+     1 '    - 2015/04/07 (14.02.14)',/
+     1 '      Enhanced warnings initiated in previous version',/
+     1 '    - 2015/03/14 (14.02.13)',/   
+     1 '      Revised Oprinp to print warnings for certain ',/
+     1 '        combinations of the variable oprlimit ',/
+     1 '    - 2015/02/14 (14.02.12)',/   
+     1 '      Revised to correct minor issues assocaied with',/
+     1 '        prior version',/
+     1 '    - 2015/02/14 (14.02.11)',/   
+     1 '      Revised Type 27 direct release (DivResP2.f) to correct',/
+     1 '      minor problems associaed with version 14.02.10',/
+     1 '    - 2015/03/07 (14.02.10)',/
+     1 '      Revised Oprinp.f to allow type 27 Direct Release and',/
+     1 '        type 28 Release by Exchange to allow variable',/
+     1 '        Oprlimit to be 5-9 not varaible creuse when the',/
+     1 '        source is a Changed Water Right Plan (type 13).',/
+     1 '        Revised type 27 Direct Release (DivResP2.f) and',/
+     1 '        type 28 Release by Exchange (DivRplP.f) to allow',/
+     1 '        OprLimit = 5-9 and not use varaible creuse.',/
+     1 '      Revised GetPln to allow a Changed Water Right Plan',/
+     1 '        (type 13)',/
+     1 '    - 2015/02/03 (14.02.09)',/   
+     1 '      Revised Type 27 direct release (DivResP2.f) and ',/
+     1 '        Type 28 release by exchange (DivRplP.f) to allow',/
+     1 '        OprLimit = 1, 2, 3 and 4.  Also fixed ',/
+     1 '        a problem with version 14.02.08 that did not allow ',/
+     1 '        return flows to be calculated. ',/ 
+     1 '    - 2015/02/03 (14.02.08)',/    
+     1 '      Revised Oprinp.f and OprInOut.f to allow a Type 27 ',/
+     1 '        direct release (DivResP2.f) and Type 28 release by ',/
+     1 '        exchange (DivRplP.f) to read the source operating',/
+     1 '        rule as variable cReuse and implemented oprlimit = 4',/
+     1 '        that is a combination of types 2 and 3',/
+     1 '    - 2015/01/24 (14.02.07)',/    
+     1 '      Revised *.xdd reporting for a release by Divresp2',/
+     1 '       (type 27) or by exchange by DivRplP (type 28)',/
+     1 '        when the source is a type 26 (DirectWR)',/      
+     1 '        Also, to improve readability, removed miscellaneous',/
+     1 '        comments related to reporting in DirectWR, DivresP2',/
+     1 '        DivRplP, DivMulti and PowseaP',/     
+     1 '    - 2015/01/24 (14.02.07)',/
+     1 '      Revised *.xdd to not report water taken to an admin',/
+     1 '        plan by DirectWR (type 26).  Instead only report when',/
+     1 '        released from an admin plan direct by Divresp2',/
+     1 '       (type 27) or by exchange by DivRplP (type 28)',/      
+     1 '    - 2015/01/20 (14.02.05)',/
+     1 '      Revised *.xdd reporting for water taken to an admin',/
+     1 '        as Carried-Exchange-Bypass only in DirectWR (type 26)',/
+     1 '        and when released from an admin plan direct by',/
+     1 '        Divresp2 (type 27) to exchange by DivRplP (type 28)',/  
+     1 ' Recent updates',/
+     1 '    - 2015/01/16 (14.02.04)',/
+     1 '      Revised DirectWR, PowseaP & DivMulti to clean up ',/
+     1 '        reporting for a diversion to Admin Plan (type 11)',/ 
+     1 '    - 2015/01/10 (14.02.03)',/
+     1 '      Revised PowseaP (a type 29 Spill from a from an admin',/
+     1 '        plan) to be reported in *.xdd as if hte diversion',/
+     1 '        never occurred (e.g. From River by Other and River ',/
+     1 '        Divert = 0.0',/
+     1 '    - 2014/12/14 (14.02.02)',/
+     1 '      Revised Oprinp.f logic used to read the Type 26',/
+     1 '        destination',/    
+     1 '    - 2014/12/14 (14.02.01)',/
+     1 '      Revised Oprinp.f to include the following checks:',/
+     1 '        1. A type 27 (from a plan direct) with an admin'/
+     1 '           plan source (type 11) has oprlimit=5 and a ',/
+     1 '           source water right provided in row 4',/
+     1 '        2. A type 28 (from a plan exchange) with an admin'/
+     1 '           plan source (type 11) has oprlimit=5 and a ',/
+     1 '           source water right provided in row 4',/
+     1 '        3. A type 29 (spill) rule with an admin',/
+     1 '           plan source (type 11) has a spill location',/
+     1 '           specified as the destination.',/  
+     1 '    - 2014/11/24 (14.02.00)',/
+     1 '      Added a Changed Water Right (type 26) operating rule',/
+     1 '        as follows:',/
+     1 '        added DirectWR.f the type 26 operating rule',/
+     1 '        revised Oprinp.f to read a type 26 rule',/
+     1 '        revised Execut.f to call a type 26 rule',/
+     1 '        revised Setqdiv.f to process a type 26 rule',/ 
+     1 '      Revised DivResP2.f (type 27), DivRplP.f (type 28) and'/,
+     1 '        PowSeap.f (type 29) to report water spilled',/
+     1 '        from a type 11 plan as qdiv(37,xx) and a negative',/
+     1 '        diversion in outmon.f, not return flow (qdiv(36,xx)',/
+     1 '      Revised Oprinp.f to llow oprlimit = 5 in order ',/
+     1 '        allow the capacity to be reduced when water is',/
+     1 '        released from a plan',/
+     1 '      Revised DivResP2 (type 27) and DivRplP (type 28) to',/
+     1 '        allow oprlimit = 5 and reduce the capacity of the',/
+     1 '        source structure assigned to a changed water ',/
+     1 '        right (type 26)',/
      1 '    - 2014/12/23 (14.01.07)',/
      1 '      Fixed array index problems of irturn() in divcar1',/
      1 '    - 2014/11/20 (14.01.06)',/
@@ -1259,7 +1460,7 @@ c     Formats
      1 '          rule types 27 and 28 (DivResP2 and DivRplP',/
      1 '    - 2008/03/13 (12.20)',/
      1 '        Revised convergence check in replace',/
-     1 '        Revised GetVer to set the default file type to unknown',/
+     1 '       Revised GetVer to set the default file type to unknown',/
      1 '        Revised Oprinp to be backward compatible when reading',/
      1 '          a type 10, replacement reservoir, rule by setting',/
      1 '          the default for variable ioprlim(k)=0',/
@@ -1559,8 +1760,8 @@ c
      1 '        Added DivcarL.f, type 45, Carrier with loss',/
      1 '        Revised Oprinp.f to read type 45 that allows',/
      1 '          losses for an intermediate carrier',/
-     1 '        Revised Oprfind.f to read carrier loss for intermediate',/
-     1 '          carriers',/
+     1 '        Revised Oprfind.f to read carrier loss for ',/
+     1 '          intermediate carriers',/
      1 '        Revised OutBal2 to differentiate between carrier loss',/
      1 '          that may return to the system and system losses',/
      1 '          that do not return to the system',/
@@ -1776,8 +1977,8 @@ c
      1 '          to the screen to increase GUI performance',/
      1 '  **    Revised Seepage to be calculated at the end of a',/
      1 '          time step',/
-     1 '        Revised RtnSecRP.f to store total recharge in variable',/
-     1 '          pdrive',/
+     1 '        Revised RtnSecRP.f to store total recharge',/
+     1 '          in variable pdrive',/
      1 '        Revised OutPln.f and OutPlnMo.f to print recharge to',/
      1 '          a recharge plan (type 8) output',/
      1 ' Recent updates',/
@@ -2038,7 +2239,7 @@ c
      1 '        Revised Oprinp to correct reading of data for ',/
      1 '          a type 29 Plan Spill',/
      1 '        Revised Sepsec to do seepage calculations even if',/
-     1 '          no reservoir seepage (return flows) data is provided',/
+     1 '         no reservoir seepage (return flows) data is provided',/
      1 '          Note if no return flow data is provided seepage',/
      1 '          is determined to be a loss',/
      1 '        Revised Outbal2 to correct the water balance',/
@@ -2276,7 +2477,7 @@ c
      1 '          the source plan capacity',/
      1 '        Revised Oprinp to read a type 2 (divres) using the',/
      1 '          generic Operation right read routine OPrfind',/
-     1 '        Began developing RsrspuP (type 34) bookover with reuse',/
+     1 '       Began developing RsrspuP (type 34) bookover with reuse',/
      1 '    - 2005/06/29 (10.62)',/
      1 '        Corrected a reporting problem with type 28 (divrplP)',/
      1 '        Revised Execut to use a lower reoperation value for a',/
