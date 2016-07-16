@@ -11,8 +11,9 @@ c
 c _________________________________________________________
 c	Program Description
 c
-c		It sets Qdiv for the source (iscd) and 
-c                 the destination only (idcdX). 
+c		It sets Qdiv for destinations from various operating rules
+c      and the source only if it is equal to the destination
+c      (e.g.  only when iscd .eq. idcdX) See step 3
 c		IT DOES NOTHING FOR CARRIERS
 c		Note source is only set when the destination 
 c		  is a carrier.
@@ -39,7 +40,7 @@ c            0 Destination is not a reservoir
 c            
 c		iscd     Source location
 c	  idcdX =  Destination Diversion, Reservoir,
-c			       or but not a CARRIER
+c			       or Plan but not a CARRIER
 c            idcdC = stream ID of the first carrier
 c		idcdC    0 if no carrier
 c
@@ -61,7 +62,7 @@ c		qdiv(5	 From River by Priority
 c		qdiv(18  Carrier passing through a structure
 c   qdiv(19  From Carrier by Priority (e.g. divcar)
 c            
-c   qdiv(20  From Carrier by Storage or Exchange
+c   qdiv(20  From Carrier by Other (Storage, Exchange or Changed)
 c		qdiv(32  From Carrier Loss
 c
 c		qdiv(26  From River by Exc_Pln (Exc_Pln)
@@ -70,6 +71,10 @@ c            to a T&C or well Aug Plan. Note non consumptive
 c
 c		qdiv(31 From River by Sto/Exc/Plan by type 27 or 28
 c		qdiv(33 From River Loss
+c   qdiv(38 Carried water reported as Carried, Exchange 
+c            or Bypassed but not used to calculate
+c            River Divert in Outmon.f   
+
 c
 c
 c__________________________________________________________
@@ -118,23 +123,30 @@ c__________________________________________________________
 c   Step 2: Initize Source Data based on type of opr rule
 c 
 c rrb 2008/06/29; Set Source based on type of opr rule 
-c		Moved qdiv(5 ) from calling program
-c
-c		qdiv(26 From River by Exc_Pln (Exc_Pln)
-c		qdiv(30  From River by direct from a Res or Reuse Plan 
-c        to a T&C Plan. Note non consumptivec
-c		qdiv(31 From River by Sto/Exc/Plan by type 27 or 28
-c
-c		Note For type 24 or 25 Nsou=26
-c		        type 27 or 28  Nsou=31
-c           type 40        Nsou=31
-c           type 45        Nsou=5
-c           type 49        Nsou=29
-c
+c		              Moved qdiv(5 ) from calling program
+c                 
+c		              qdiv(26 From River by Exc_Pln (Exc_Pln)
+c		              qdiv(30 From River direct by a Res or Reuse Plan 
+c                          to a T&C Plan. Note non consumptivec
+c		              qdiv(31 From River by Sto/Exc/Plan by type 27 or 28
+c                 
+c		              Note For type 24 or 25  Nsou=26
+c                          type 26        Nsou=20
+c		                       type 27 or 28  Nsou=31
+c                          type 40        Nsou=31
+c                          type 45        Nsou=5
+c                          type 49        Nsou=29
+c                 
 c ---------------------------------------------------------
         nSou=0
         if(icx.eq.24) nSou=26
         if(icx.eq.25) nSou=26
+c
+c rrb 2014-11-24; Set control for type 26 Changed WR 
+c rrb 2014-01-16; Note type 26 (DirectWR) no longer calls
+c                 this subrouting
+        if(icx.eq.26) nSou=20
+c
         if(icx.eq.27) nSou=31
         if(icx.eq.28) nSou=31
         if(icx.eq.40) nSou=31
@@ -143,11 +155,20 @@ c
 c rrb 2010/09/15 Revise to qdiv(30)
 cr        if(icx.eq.49) nSou=26
         if(icx.eq.49) nSou=30
+c
+c rrb 2014-11-24
+        if(iout.eq.1) then
+          write(nlog,250)
+          write(nlog,*) 
+     1     ' SetQdiv;       icx  ncarry    iscd   idcdX   idcdC    nSou'
+          write(nlog,'(12x,20i8)') icx, ncarry, iscd, idcdX,idcdC, nSou
+          call flush(nlog)          
+        endif  
                 
         if(nsou.eq.0) goto 400
 c
 c _________________________________________________________
-c   Step 3; Set Carrier data (if iscd .eq. idcdC)
+c   Step 3; Set Source (iscd) data only if iscd .eq. idcdC
 c
 c		    qdiv(5  From River by Priority
 c       qdiv(26 From River by Exc_Pln (Exc_Pln) type other
@@ -155,14 +176,18 @@ c	      qdiv(31 From River by Sto/Exc/Plan by type 27 or 28
 c		    qdiv(33 From River Loss
 c
 c		    qdiv(18 Carrier passing through a structure
-c                   qdiv(19 From Carrier by Priority (e.g. divcar, divcarL)
-c                   qdiv(20 From Carrier by Storage or Exchange
+c       qdiv(19 From Carrier by Priority (e.g. divcar, divcarL)
+c       qdiv(20 From Carrier by Storage or Exchange
 c
 c
-c ---------------------------------------------------------
+c__________________________________________________________
+c
+c   Step 4; Set Source data qdiv(__,iscd) when same as the destination
 c
 c rrb 2011/02/25; Upgrade to not adjust diversions to a reservoir
-c                 in the *.xdd reporting
+c                 in the *.xdd reporting       
+c                 isccd = source node
+c                 idcdC = carrier node (0 if no carrier)
 cx      if(iscd.eq.idcdC) then
 cx      if(iscd.eq.idcdC .and. nr2.eq.0) then
         if(iscd.eq.idcdC .and. nd2.ne.0) then        
@@ -172,17 +197,18 @@ cx      if(iscd.eq.idcdC .and. nr2.eq.0) then
           qdiv(18,iscd)   = qdiv(18,iscd)+divactX - OprLos3
         endif
 c
+c
 c__________________________________________________________
 c
-c   Step 4; Set Source data
+c   Step 5; Set Destination data qdiv(__,idcdX)
 c        
 c ---------------------------------------------------------
 c
 c		Case 1; Source is the Carrier, set Destination Data (idcdX)
 c	            qdiv(31 From River by Sto/Exc/Plan by type 27 or 28
 c             qdiv(20 From Carrier by Storage or Exchange
-c		Set destination. Note:
-c			 ncarry = 0 No carrier
+c		        Set destination. Note, ncarry:
+c			        = 0 No carrier
 c			          1 No return to River, Final Destination from a carrier
 c	        	    2 Return to River, Final Destination from a carrier
 c		 	          3 Return to River, Final Destination from the river
