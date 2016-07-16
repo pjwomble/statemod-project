@@ -60,9 +60,13 @@ c               qdiv(16  Used to remove carrier water from
 c			                   total diversion (qdiv(5))
 c               qdiv(17  Not used
 c               qdiv(18  Carried, Exchange or Bypass (column 11)
-c                        Carrier passing thru a structure (e.g. divcar)
+c                        Carrier passing thru a structure.  Note
+c                        qdiv(18 is not added to TotSup1 that is used
+c                        to calculate River Divert
 c               qdiv(19  From Carrier by Priority (e.g. divcar)
-c               qdiv(20  From Carrier by Storage or Exchange (e.g. carrpl)
+c               qdiv(20  From Carrier by Storage or Exchange.  Note:
+c                        qdiv(20 gets added to TotSup1 that is used
+c                        to calculate River Divert
 c               qdiv(21  From River by Exchange from a reservoir (e.g.
 c		                     carrpl)
 c               qdiv(22  From Storage to Carrier for Use 
@@ -73,7 +77,8 @@ c               qdiv(25  Depletion at river ID
 c               qdiv(26  From River by a Direct Flow, Exchange, or 
 c                        Bypass (see DirectEx and DirectBY)
 c                        or Carrier with loss (DirectL) or an alternate 
-c                        point (DivAlt)
+c                        point (DivAlt) or by a changed water right 
+c                        (Directwr)
 c               qdiv(27  Other source via a Direct Flow Exchange
 c                        or Bypass (see DirectEx and DirectBY)
 c		            qdiv(28  Carried, Exchange or Bypass (column 11)
@@ -93,12 +98,21 @@ c		            qdiv(34  From River by an Out of Priority Diversion
 c              
 c 		          qdiv(35  Water with a Reuse or Admin plan source 
 c		            	         tracked at the destination from the following:
-c			                     27-DivResP2, 28-DivrplP, 29-PowSeaP,
-c			                     46- divMultip, 48-PowResP, 49-DivRplP2
+c                          Operating rules: 26-DirectWR,
+c			                     27-DivResP2,     28-DivrplP, 29-PowSeaP,
+c			                     46-divMultip,    48-PowResP, 49-DivRplP2
 c              
 c		            qdiv(36  Water released to the river (report as
-c			                     return flow). Set in SetQdivC & DivResp2              
-c
+c			                     return flow). Set in SetQdivC, DivResp2 &
+c                          PowseaP      
+c               qdiv(37  Not currently used.  Was used to represent
+c                          Water released to the river by a spill in 
+c                          PowseaP (type 29) Report as a negative  
+c                          diversion herein (OutMon) under Rivdiv   
+c               qdiv(38  Carried water reported as Carried, Exchange 
+c                          or Bypassed but not used to calculate
+c                          River Divert in Outmon.f   
+c  
 c		            ClossDC From Carrier Loss
 c		            ClossDR From River Loss
 c
@@ -115,7 +129,7 @@ c               qres(11 From storage to carrier
 c               qres(12 From storage to River for Use (Powres*)
 c               qres(18 From river by Exchange
 c               qres(21 From storage for Exchange
-c		            qres(22 From carrier to storage
+c		            qres(22 From storage to carrier
 c		            qres(25 Reservoir Seepage by Carrier Loss
 c               qres(26 From river by Storage to Reservoir
 c               qres(27 Carrier Loss (DivCar)
@@ -182,11 +196,13 @@ c	     iout=3 details on *.b43
 c      iout=4 print warning for multiple structures at a node
 c	     iout=5 print details about variable carry
 c      iout=6 print data to *.b43 to *.log
+c      ioutQ  print details of River Divert and qdiv calcs
 c	     ioutRtn = 1 Print return flow details by node & month
 c		             2 Print return flow details by month 
 c
       iout=0
       ioutRtn=0
+      ioutQ=0
    
       
       if(iout.eq.2) then
@@ -548,6 +564,18 @@ c              Subtract qdiv(16,is) to remove carrier water totaled
 c                in qdiv(5,is)       
         RivPri  = qdiv(8,is)  + qdiv(14,is) + qdiv(5,is) - qdiv(16,is) 
 c
+c rrb 2015/01/16; Test
+c ______________________________________________________________
+        if(ioutQ.eq.1) then
+          write(nlog,*) ' '
+          write(nlog,*) 'Outmon;   is',
+     1      '    RivPri =  qdiv(8 + qdiv(14  + qdiv(5 - qdiv(16'
+         
+          write(nlog,'(a8, i5, 20f10.0)')
+     1    ' Outmon;', is, RivPri*fac, qdiv(8,is)*fac, qdiv(14,is)*fac, 
+     1     qdiv(5,is)*fac, qdiv(16,is)*fac
+        endif  
+c
 c rrb 01/12/07; Use Abs to get correct output from carrpl 
         RivSto  = amax1(0.0, 
      1          qdiv(10,is) + qdiv(15,is) + qdiv(7,is) - qdiv(21,is))
@@ -581,7 +609,7 @@ c rrb 2005/11/29; River and Carrier Loss
         CLossDC=qdiv(32,is)
         ClossDR=qdiv(33,is)
 c
-c rrb 04/09/21; Set Carried to carried water (qdiv(18 )or 
+c rrb 2004/09/21; Set Carried to carried water (qdiv(18 )or 
 c               exchanged out of a structure (qdiv(27 )
 c rrb 04/12/28; or from a reuse or admin plan (qdiv(28
 c       Carried  = qdiv(18,is)
@@ -602,6 +630,23 @@ c
         TotSup1  = RivPri + RivSto + RivExPl + CarPri + well + CarStoEx
      1           + qfrsoil(is)-CarriedX - ClossDC - ClossDR 
 c
+c rrb 2015/01/16; Test
+c ______________________________________________________________
+        if(ioutQ.eq.1) then
+          write(nlog,*) ' '
+          write(nlog,*) 'Outmon;   is',
+     1      '   Totsup1 =  RivPri  + RivSto + RivExPl  + CarPri',
+     1      '    + well +CarStoEx  +qfrsoil -CarriedX - ClossDC',
+     1      ' - ClossDR'
+          
+          write(nlog,'(a8, i5, 20f10.0)')
+     1    ' Outmon;', is, Totsup1*fac, RivPri*fac,
+     1       RivSto*fac, RivExPl*fac, CarPri*fac, well*fac,
+     1       CarStoEx*fac, qfrsoil(is)*fac, 
+     1       CarriedX*fac, ClossDC*fac, ClossDR*fac        
+        endif
+c ______________________________________________________________
+ 
                  
         TotSup1  = amax1(0.0, TotSup1)        
         TotSup(is)=TotSup1-qfrsoil(is)
@@ -691,11 +736,40 @@ c rrb; 98/12/14; Wells
         RivDiv = TotSup1 - CarryY - well + ClossDR - qfrsoil(is) 
         RivDiv=amax1(RivDiv, 0.0)
 c
+c rrb 2015/01/16; Test
+c ______________________________________________________________
+        if(ioutQ.eq.1) then
+          write(nlog,*) 'Outmon;   is',
+     1      '    RivDiv = TotSup1  - CarryY    - well + ClossDR ',
+     1      ' - qfrsoil(is'
+         
+          write(nlog,'(a8, i5, 20f10.0)')
+     1      ' Outmon;', is, RivDiv*fac, TotSup1*fac, CarryY*fac,
+     1       well*fac, ClossDR*fac, qfrsoil(is)*fac
+        endif
+
+c ______________________________________________________________
+        
+c
+c rrb 2014/11/24; Adjust the diversion to remove a plan release qdiv(37
+c                 qdiv(37  Water released to the river by a spill in 
+c                          PowseaP (type 29)
+c rrb 2015/01/16; Do not adjust for qdiv(37 since diversions to
+c                 admin plans are not used in calculating
+c                 River Divert  
+cx        RivDiv1=RivDiv
+cx        RivDiv=Rivdiv-qdiv(37,is) 
+c
+c rrb 2015/01/16; Adjust the amount carried to include water diverted
+c                 to an Admin Plan by a type 26 rule after
+c                 River Divert has been calculated
+        Carried=Carried+qdiv(38,is)         
+c
 c _________________________________________________________
 c
 c		Step 14; Reservoir ID (if it exists)
 c rrb 01/15/95; Re calculate River Divert (RivDiv) if a reservoir
-c		made a release at this location
+c		            made a release at this location
 c               Store resid even for diversion printout
         do 252 nr=1,numres
           if(irssta(nr).eq.is) then
@@ -767,11 +841,11 @@ c 		Identify if a Plan plus a gage
 c
 c 		Adjust diversion to include spill from a plan (a negative value)
             RivDiv = RivIn - ofl(is) - RivWel
-c             write(nlog,*) 
-c      1        'Outmon; np, is, cstaid(is), RivDiv, Rivin, ofl' 
-c             write(nlog,*) 
-c      1        'Outmon;', np, is, cstaid(is), RivDiv*fac, Rivin*fac,
-c      1                      ofl(is)*fac      
+cx             write(nlog,*) 
+cx     1        'Outmon; np, is, cstaid(is), RivDiv, Rivin, ofl' 
+cx             write(nlog,*) 
+cx     1        'Outmon;', np, is, cstaid(is), RivDiv*fac, Rivin*fac,
+cx     1                      ofl(is)*fac      
           endif
         end do  
 c
@@ -832,8 +906,8 @@ c rrb 2005/11/29; Add qdiv(32,is) and Qdiv(33,is) for River and Canal Loss
 c
 c rrb 2008/01/15; In Outbal, adjust diversion for qdiv(30 (Plan to a T&C)    
         cx=qdiv(15,is)+qdiv(30,is)
-  
-           
+c
+c        
         write(43,rec=irecs)
      1    demx(is),  diwrz(is),   RivPri,     RivSto,      RivExPl,
      1    ClossDR,   well,        CarPri,     CarStoEx,    ClossDC, 
@@ -1019,8 +1093,11 @@ c rrb 2005/12/09; River and Carrier Loss
      1            RRivSto - RClossC - RClossR
 c
 c rrb 03/14/96; Show powrel (release due to targets) as Seep and Spill
-        RStoUse= qres(8,nr) + qres(9,nr)  + qres(12,nr) -
-     1          qres(21,nr)- qres(11,nr)
+c rrb 2015/07/18; Correction
+cx        RStoUse= qres(8,nr) + qres(9,nr)  + qres(12,nr) -
+cx     1           qres(21,nr)- qres(11,nr)
+        RStoUse= qres(8,nr) + qres(9,nr)  + qres(12,nr) - qres(21,nr)
+     
         RStoExc  = qres(21,nr)
         RStoCar = qres(11,nr) + qres(16,nr) + qres(17,nr) + qres(22,nr)
         RTotRel = RStoUse      + RStoExc        + RStoCar
@@ -1124,10 +1201,13 @@ c
 c rrb 2006/09/15; Correction          
           RTotSup = RRivPri + RCarPri  + RCarSto + RRivExc +
      1             RRivSto - RClossC - RClossR
-          
-
-          RStoUse= accr(8,n) + accr(9,n)  + accr(12,n) - accr(21,n) -
-     1            accr(11,n)                                 
+c          
+c rrb 2015/07/27; Correction
+cx          RStoUse= accr(8,n) + accr(9,n)  + accr(12,n) - accr(21,n) -
+cx     1            accr(11,n)          
+          RStoUse= accr(8,n) + accr(9,n)  + accr(12,n) - accr(21,n)
+     
+                            
           RStoExc  = accr(21,n)
 c
           RStoCar = accr(11,n) + accr(22,n)
