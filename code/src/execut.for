@@ -49,6 +49,12 @@ c                  8 Print detailed daily baseflow data to *.xtp
 c                  9 or 109 Reoperation information from Execut
 c	                10 Details on reading operating right data 
 c
+c      l1       = water rith type (1=ISF, 2=Res, 3=Opr, 4=Power
+c                 5=well
+c      l2       = pointer for a given water right (e.g. if l1 = 1
+c                 and l2 = 10, then we are operating the 10'th ISF
+c                 water right
+c
 c      nrg1     = counter # of calls to rgrg.f per time step 
 c      nrg2     = counter # of calls to rgco.f per time step
 c
@@ -113,12 +119,14 @@ c		ioutR= details on call replacement
 c   ioutSP=details on South Platte Compact
 c		ioutSep=details on call sepsec (seepage)
 c   ioutGVC = details on Grand Valley Check
+c   ioutRep = details on replacement rule
       iout=0
       ioutR=0   
       ioutSP=0
       ioutSep=0
       ioutGVC=0
       noutGVC=0
+      ioutRep=0
 c jhb 2014/07/04 debugging
 c      ichk = 94
 
@@ -441,14 +449,17 @@ c		  0.01 cfs = 0.61 af/mo (0.01*3600*24*31/43560=0.61)
       else
       	divchk=-ireopx*43560./24./3600./31.0
       endif 
-      
-      write(nlogx,*) '  Execut; divchk (af/time step) = ', 
-     1 divchk, ireopx,iday
-      
-      write(nlog,92) divchk, divchk*factor*31.0
- 92   format(/,72('_'),/,
-     1 '  Execut; FYI Reoperation check = ',f10.3,' cfs',/
-     1 '                                = ',f10.3,' af/mo')
+c
+c rrb 2015-09-25; Control detailed output
+      if(iout.eq.1) then      
+        write(nlogx,*) '  Execut; divchk (af/time step) = ', 
+     1   divchk, ireopx,iday
+        
+        write(nlog,92) divchk, divchk*factor*31.0
+ 92     format(/,72('_'),/,
+     1   '  Execut; FYI Reoperation check = ',f10.3,' cfs',/
+     1   '                                = ',f10.3,' af/mo')
+      endif
 c          
 c_______________________________________________________________________
 c               Step x; Print call data header if requested
@@ -750,6 +761,13 @@ c rrb 01/02/19; Set reoperation return flow check
           icallsp=0
           icallsm=0
           idcallx=0
+c
+c rrb 2014-11-24; Set icall26 to insure its called only once per time step
+c rrb 2015/07/08; Add capability to not operate any more
+c                 this time step by water right using
+c                 icallOP(l2) not icall26  that controls by
+c                 operating rule
+cx        icall26=0
 c rrb 05/05/12; Set call to subroutine counter
           do i=1,200
             ncall(i)=0
@@ -928,7 +946,7 @@ c_______________________________________________________________________
 c rrb 2011/05/07; Detailed output        
             if(ichk.eq.94 .or. ichk.eq.4) then
               udem=short/fac
-              call outIchk(2, ichk4n,  l1, l2, iw, o, ishort,
+              call outIchk(2, ichk4n,  l1, l2, iw, 0, ishort,
      1                     fac, udem, divx, divx, divsum,
      1                     0, iwx, rec12b)
             endif 
@@ -1063,15 +1081,27 @@ c           ireptyp =  0 off
 c                   =  1 100% replacement
 c                   = -1 depletion replacement
 	        if(ireptyp(nd).ne.0 .and. rdvnk(l2).le.reprnkx) then
-c             write(nlogx,*) '  Execut; calling replace'
-              call replace(iw,l2,nrepcall,divactx, ncall)
+c
+c rrb 2015/09/06; Test
+            if(ioutRep.eq.1) then
+              write(nlog,*) ' '
+              write(nlog,*) '  Execut; before replace',divo(18)*fac
+            endif
+c            
+            call replace(iw,l2,nrepcall,divactx, ncall)
+c
+c rrb 2015/09/06; Test
+            if(ioutRep.eq.1) then
+              write(nlog,*) '  Execut; after replace',divo(18)*fac
+            endif 
+c            
 	          nrepcall=nrepcall+1
 	          nrepcalt=nrepcalt+1
-c             write(nlog,*) ' Called by replace ', l1, l2
+c           write(nlog,*) ' Called by replace ', l1, l2
 	          goto 400
 	        endif
 	      endif
-c         endif DIRECT DIVERSION RIGHTS (l1.eq.3) 
+c           endif for DIRECT DIVERSION RIGHTS (l1.eq.3) 
 c_______________________________________________________________________
 c         Step X; OTHER WATER RIGHTS (POWER DEMAND, ETC.)
 c		    NOT Active
@@ -1202,8 +1232,21 @@ c
 c              Type 6. Transfer from reservoir to reservoir by carrier
 c               (aka bookover)   Note: No returns !
   240 continue
-      if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 6-RsSpu'   
-      CALL RSRSPU(IW,L2,ncall(6))
+      if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 6-RsSpu'  
+c
+c rrb 2015/07/08; Add capability to not call this iteration based 
+c                 on user provided data (See documentation for
+c                 Type 6 operating rule)
+        CALL RSRSPU(IW,L2,ncall(6))
+c
+c rrb 2015/07/30; Add detailed output
+      if(ichk.eq.94 .or. ichk.eq.4) then  
+        rec12b='Opr Rule    '
+        call outIchk(ichkX, ichk4n, l1, l2, iw, ityopr(l2),
+     1               ishort, fac, uDem, divact2, divx, divsum,
+     1               4, divact2, rec12b) 
+      endif       
+        
 	    goto 410
 c
 c_______________________________________________________________________
@@ -1229,7 +1272,7 @@ c
 c_______________________________________________________________________
                                                       
 c
-c              Type 9. Target release for power or whatever
+c              Type 9. Target release (spill) for power or whatever
 c
   300 continue    
       if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 9-PowSea'   
@@ -1387,9 +1430,9 @@ c rrb 00/11/05; Type 21. Sprinkler Use 1x/time step
 c
   321 continue
       if(icallsp.eq.0) then
-      if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 21-Spruse'       
-	    call spruse(iw,l2,divx,ncall(21))
-	    icallsp=1
+        if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 21-Spruse'       
+	      call spruse(iw,l2,divx,ncall(21))
+	      icallsp=1
 	    endif
 	    goto 400
 c
@@ -1435,9 +1478,9 @@ c rrb 99/06/23; Type 24. Direct Flow Exchange (Alt. Point)
 c      write(nlog,*) ' Execut; type 24 In Avail(8) ', avail(8)*fac,
 c    1   avinp(8)*fac         
        if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 24-DirectEX'
-       write(nlog,*)
-     1   ' Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)',
-     1   iw, iwx, l2, iOprLim(l2), oprlimit(l2)
+cx       write(nlog,*)
+cx     1   ' Execut; type 24; iw iwx l2 iOprLim(l2) oprlimit(l2)',
+cx
 c jhb 2014/10/27 check for the reop step limit for type 24 rules
        if (iOprLim(l2).lt.0) then
 c        the oprlimit value in the opr file is less than 0
@@ -1468,11 +1511,34 @@ c    1  avinp(8)*fac
 	     goto 400
 c_______________________________________________________________________
 c
-c rrb 05/01/28; Type 26. Reservoir or Reuse Plan to a Plan Direct
+c rrb 2014-11-24; Type 26. Changed Water Right
+cx
+cx 326       call PowResP(iw,l2,divactX,ncall(26))
+cx rrb 2007/12/26; Move to type 48	
+cx  326	    goto 400
+  326  continue
 c
-c 326       call PowResP(iw,l2,divactX,ncall(26))
-c rrb 2007/12/26; Move to type 48	
-  326	    goto 400
+c rrb 2015/07/08; Add capability to not operate any more
+c                 this time step by water right using
+c                 icallOP(l2) that is set in DirectWR
+c                 not by operating rule.  With this correction
+c                 more than one type 26 operating rule
+c                 can be provided as input
+cx    if(icall26.eq.0) then
+c     
+c        write(nlogx,*) ' Execut; Calliing directWR, icall26 ', icall26 
+c        write(nlogx,*) ' Execut; type 26 In Avail(8) ', avail(8)*fac,
+c     1                avinp(8)*fac 
+        if(ichk.eq.94) write(nlogx,*) ' Execut; Calliing 26 directWR'
+c
+c	         
+        call directWR(iw,l2,ishort,divactX,ncall(26))
+cx      icall26=1
+cx     endif    
+c
+c      write(nlog,*) ' Execut; type 26 Out Avail(8)', avail(8)*fac,
+c    1               avinp(8)*fac   
+	     goto 400  
 c_______________________________________________________________________
 c
 c rrb 05/01/30; Type 27. Reservoir or ReUse Plan to a Diversion,
@@ -1485,13 +1551,13 @@ c rrb 2007/10/26; Add ability to be called by Replace
 	     tranlim=0.0
 	     dcrdivx=0.0
 	     divdx=0.0  
-c      write(nlog,*) ' Execut; type 27 In Avail(8) ', avail(8)*fac,
-c    1   avinp(8)*fac        	    
+cx       write(nlog,*) ' Execut; type 27 In Avail(8) ', avail(8)*fac,
+cx     1   avinp(8)*fac        	    
 cx       write(nlog,*)'  Execut; Warning type 27 off'   
 cx
        if(ichk.eq.94) write(nlogx,*) ' Execut; Calling 27-DivResP2' 
        call DivResP2(iw,l2,ishort,irep,tranlim,dcrdivx,divdx,
-     1 divactx,divacty,ncall(27))	    
+     1   divactx,divacty,ncall(27))	    
        
 c      write(nlog,*) ' Execut; type 27 Out Avail(8)', avail(8)*fac,
 c    1   avinp(8)*fac       	    
@@ -1816,6 +1882,7 @@ c rrb 2011/04/25; Limit output for ichk=4
         call outIchk(14, ichk4n, l1, l2, iw, ityopr(l2), ishort, fac,
      1               uDem, divact2, divx, divsum,
      1               0, iwx, rec12b)
+        write(nlog,*) 'Execut Type 5; 18, divo(18)', 18, divo(18)*fac
       endif
 c_______________________________________________________________________
 c rrb 04/22/96; 
