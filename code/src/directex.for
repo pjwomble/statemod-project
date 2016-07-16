@@ -161,6 +161,10 @@ c     qdiv(20        From Carrier by Storage or Exchange (e.g. carrpl)
 c     qdiv(26, )     From River by Exc_Pln
 c     qdiv(27, )     Diversion to Carry, Exchange or Bypass
 c     qdiv(28, )     Source is a reuse or admin plan
+c     qdiv(38        Carried water reported as Carried, Exchange 
+c                      or Bypassed but not used to calculate
+c                      River Divert in Outmon.f   
+
 c
 c     currtn         Immediate return to diverting node??
 c     qtribu         Tributary InFlow (baseflow point)
@@ -448,7 +452,10 @@ c		b. Set CU limit switch
       iDep=0
       if(rec12(1:9).eq.'Diversion') iDep=0
       if(rec12(1:9).eq.'Depletion') iDep=1
-      diveff1=diveff(mon,nd)/nd
+c
+c rrb 2014-14-24 Correction
+cx    diveff1=diveff(mon,nd)/nd
+      diveff1=diveff(mon,nd)/100
 cr
 cr rrb 2005/11/14; Add TcLimit
       TcLimit= diveff(mon,nd)/100.  
@@ -555,8 +562,6 @@ c		         Destination is a plan
 c 
       if(ndtype.eq.7) then   
 c
-c rrb 2014-06-15; Revise to use iopdesr(l2) as teh type indicator
-cx      nd2x=nd2-10000
         nd2x=nd2
         np2=nd2x
         ndd2=0
@@ -1402,11 +1407,21 @@ c               21b. Check reservoir roundoff when exiting routine
       endif
 c      
 c _________________________________________________________
-c               Step 22; Set Qdiv for the source and destination
+c               Step 22; Set efficiency
       EffmaxT1=(100.0-OprLossC(l2,1))/100.0
       
       if(iout.eq.1) write(nlog,*) ' DirectEx; call SetQivC'
-      
+c     
+c
+c _________________________________________________________
+c               Step 23; set Qdiv at the souce for the
+c                        exchanged amount as carried water
+c rrb 2015/10/04; Set exchanged water as carried at the source
+      qdiv(38,iscd) = qdiv(38,iscd) + divactE
+c _________________________________________________________
+c               Step 24; set Qdiv at the destination.  Also set
+c                        the source if the source is the same
+c                        as the destination
       call SetQdiv(nlog, nCarry, nRiver,
      1  nd2, nr2, iscd, idcd2X, idcd2C,
      1  divactE, TranLoss, EffmaxT1, OprEffT, fac, 
@@ -1419,7 +1434,7 @@ c               Step 22; Set Qdiv for the source and destination
       endif  
 c      
 c ---------------------------------------------------------
-c		            Step 23; Set Qdiv for the carrier
+c		            Step 25; Set Qdiv for the carrier
 
       if(iout.eq.1) write(nlog,*) ' DirectEx; call SetQivC'
       if(ncarry.gt.0) then   
