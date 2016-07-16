@@ -109,7 +109,7 @@ c   ioutS=1 print to storage data
 c
       iout=0
       
-      ioutD=1
+      ioutD=0
       ioutI=0
       ioutP=0
       ioutS=0
@@ -364,6 +364,7 @@ c		Step 9; Monthly loop
         do 200 im=1,12
           nout=0
           if(iout.ge.1) write(nlog,268)
+          if(ioutD.ge.1) write(nlog,*) ' '
 c
 c         fac=mthday(im)*factor
           fac=fmo(im)
