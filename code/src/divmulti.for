@@ -114,10 +114,14 @@ c       qdiv(24,iscd) 	Pumping (diversion) by a well to a user at iscd
 c       qdiv(25,iscd) 	Depletion (From River by Well) at river ID iscd
 c	      qdiv(28        	Carried, Exchange or Bypass (column 11)
 c                      	Source is a reuse or Admin Plan
+c		    qdiv(30         From River from a Res or Reuse Plan 
+c                        to a T&C or Aug Plan. Note non consumptive
 c       qdiv(31        	From River by Exc or Plan
 c	
 c 	    qdiv(35        	Water with a Reuse or Admin plan source 
 c			                  tracked at the destination.
+c       qdiv(38         Carried water not used in any calculations
+c                       to report River Divert
 c	
 c       retx            Immediate (this day or month) return.
 c                       Used for reoperation control along with
@@ -272,11 +276,13 @@ cx      write(nlog,*) ' '
 cx      write(nlog,*) ' DivMulti; ',iyrmo(mon),xmonam(mon), iscd, ndns
 cx      write(nlog,*) ' DivMulti; X Avail(80) = ', 0.0, Avail(80)*Fac
        
-      
-      CALL TAKOUT(maxsta, AVAIL ,RIVER ,AVINP ,QTRIBU,IDNCOD,
-     1              divAdd, NDNS,  ISCD  )  
-cx      write(nlog,*) ' DivMulti; Y Avail(80) = ', 
-cx     1  DivAdd*fac, Avail(80)*Fac
+c
+c rrb 2014/11/24; Transfer water by carrier, not the river      
+cx      CALL TAKOUT(maxsta, AVAIL ,RIVER ,AVINP ,QTRIBU,IDNCOD,
+cx     1              divAdd, NDNS,  ISCD  )  
+c
+c      write(nlog,*) ' DivMulti; Y Avail(80) = ', 
+c      1  DivAdd*fac, Avail(80)*Fac
 c      
 c _________________________________________________________
 c               Step 3; Allocate Supplies to each plan
@@ -299,21 +305,24 @@ c rrb 2007/08/17; Limit to ownership %
         pct=ropdes(l2,n2)/100.0
         divact=alocfs*Pct
         divactT=divactT+divact
+c
+c		    qdiv(30         From River from a Res or Reuse Plan 
+c                        to a T&C or Aug Plan. Note non consumptive
+c 	    qdiv(35        	Water with a Reuse or Admin plan source 
+c			                  tracked at the destination.
+c       qdiv(38         Carried water not used in any calculations
+c                       to report River Divert
+c
+c
+c rrb 2015/08/11; Correction do not adjust if the source is a 
+c                 changed water right plan (type 13)
+cx        if(iplntyp(ndP).ne.11) then
+cx          qdiv(35,idcdD) = qdiv(35,idcdD) + divact
+cx        endif
+        if(iplntyp(ndP).ne.13) then
+          qdiv(35,idcdD) = qdiv(35,idcdD) + divact
+        endif
         
-c       write(nlog,*) ' '
-c       write(nlog,*) ' DivMulti; ', mon, n, ndp, idcdD, pct, 
-c    1    alocfs*fac, divact*fac, divactT*fac
-        
-        CALL TAKOUT(maxsta, AVAIL ,RIVER ,AVINP ,QTRIBU,IDNCOD,  
-     1              divact, ndnsD,  idcdD  )                             
-     
-
-c		         qdiv(31 is From River by Exc Pln
-        qdiv(31,idcdD) = qdiv(31,idcdD) + divact
-c        
-c rrb 2008/01/15; qdiv(35 Water with a Reuse or Admin plan source 
-c			  at the destination.     
-        qdiv(35,idcdD) = qdiv(35,idcdD) + divact
 c
 c rrb 2008/01/15; If a T&C destination set qdiv(30 an
 c		  adjustment to total diversion in outbal2
@@ -337,8 +346,8 @@ c rrb 00/05/03; Check entire array, not just downstream
       
       IF(AVAIL(IMCD).le.(-1.*small)) then
         write(nlog,318) imcd, avail(imcd)*fac 
-c       write(nlog,320) (avail(iss),iss=1,numsta)
-c       write(nlog,330) (river(iss),iss=1,numsta)
+        write(nlog,320) (avail(iss),iss=1,numsta)
+        write(nlog,330) (river(iss),iss=1,numsta)
         goto 9999
       endif
 c       
@@ -349,17 +358,6 @@ c               Step 14; Update Source a plan
 c			 Note do not set psuplyT, it is total inflow
       psuply1=psuply(nsP)
       psuply(nsP)=amax1(0.0, psuply(nsP)-divactT)
-c
-c rrb 2008/01/14; Qdiv(28 has a reuse or Admin plan source
-
-cx       write(nlog,*) ' '
-cx       write(nlog,*) ' DivMulti Supply Data;',iyr, mon, nsp, 
-cx     1  psuply1*fac, divactT*fac, psuply(nsP)*fac
-     
-      qdiv(28,iscd)=qdiv(28,iscd)+ divactT
-      
-c     write(nlog,*) ' DivMulti;',iyr, mon, 
-c    1  iscd, divactT*fac, qdiv(28,iscd)*fac
 c      
 c _________________________________________________________
 c               
