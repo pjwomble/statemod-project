@@ -101,42 +101,52 @@ c
 c _________________________________________________________
 c               Step 1;Initilize
 c
-c		iout=0 no detials
-c		     1 details
-c		     3 partial summary
-c		     2 summary
-c		    99 print for a specific ditch cDest1
-c		   
- 
+c     iout=3 details for replacement results
+      iout=0
+      ioutiw=0
+
       cDest='NA'
       cSour='NA'
       
-      iout=0
-      ioutiw=0
       
-      cDest1='510585      '
-      monout=1
+cx      cDest1='510585      '
+cx      monout=1
+      cDest1='500734      '
+      monout=11
 c
 c rrb 2008/03/13; Initilize
-      divactx=0.0      
+      divactx=0.0     
+c
+c rrb 2015/09/06; Initilize
+      divacty=0.0 
 c
 c ---------------------------------------------------------
 c		Note:
 c                 cridid(l2) is the right being replaced      
-c		  corid(xx) is the replacement reservoir rule
-c		    not known until the reservoir loop
+c		              corid(xx) is the replacement reservoir rule
+c		              not known until the reservoir loop
 
       if(ichk.eq.110) iout=2
 c     if(corid(l2).eq. ccall) ioutiw=iw
       if(crigid(l2).eq. ccall) ioutiw=iw
       
-c     write(nlog,*) ' Replace; ', iout, ioutiw, ccall, corid(l2)
-      
-      if(iout.gt.0 .and. ioutiw.eq.iw) then
-        write(nlog,*) ' '
-        write(nlog,*)' ___________________________________________'
-        write(nlog,*) ' Replace; ccall, crigid(l2) = ', ccall, iw
-      endif         
+cx      write(nlog,*) ' Replace; iout, ioutiw, ccall, l2, crigid(l2)', 
+cx     1                         iout, ioutiw, ccall, l2, crigid(l2)
+cx      
+cx      if(iout.gt.0 .and. ioutiw.eq.iw) then
+cx        write(nlog,*) ' '
+cx        write(nlog,*)' ___________________________________________'
+cx        write(nlog,*) ' Replace; ccall, crigid(l2) = ', ccall, iw
+cx      endif  
+c
+c		iout=0 no detials
+c		     1 details
+c		     2 summary
+c		     3 partial summary
+c		    99 print for a specific ditch cDest1
+c             
+cx      iout=3
+cx      ioutiw=0
 
       small = 0.001
       small2=0.01
@@ -246,10 +256,11 @@ c
 c _________________________________________________________
 c               Step X; Detailed printout
 c       if(iout.eq.1) then
-        if(iout.eq.3 .and. cDest.eq.cDest1 .and. mon.eq.monout) then      
+cx      if(iout.eq.3 .and. cDest.eq.cDest1 .and. mon.eq.monout) then    
+        if(iout.eq.3 .and. mon.eq.monout) then            
           write(nlog,122) cDest, cDest1, cSour,
      1    iyrmo(mon), xmonam(mon), n, n1, irepn, lr, nd, ioprsw(lr), 
-     1    ioBeg(lr), ioEnd(lr), ishort
+     1    ioBeg(lr), ioEnd(lr), ishort, 18, divo(18)*fac
         endif
         
 c
@@ -294,11 +305,17 @@ c    1       divactx,divacty,ncall(2))
            call divresP2(iw,lr,ishort,n,tranlim,dcrdivx,divdx,
      1       divactx,divacty,ncall(2))
      
-          if(iout.eq.3 .and. cDest.eq.cDest1 .and. mon.eq.monout) 
-     1      write(nlog,*) ' Replace; Direct Release for cdest, Res # ',
-     1       cdest, n, ishort
-          
-          if(divacty*fac.gt.0.001) then
+cx         if(iout.eq.3 .and. cDest.eq.cDest1 .and.mon.eq.monout) then
+           if(iout.eq.3 .and. mon.eq.monout)  then
+cx            .and. divactx.gt.small) then        
+             write(nlog,*) ' Replace; Direct Release for cdest, Res # ',
+     1       ' ishort ', cdest, n, ishort, divactx*fac, divacty*fac,
+     1       18, divo(18)*fac
+           endif
+c
+c rrb 2015/09/06; Correction          
+cx        if(divacty*fac.gt.0.001) then
+          if(divactX.gt.small) then          
             reltot=reltot+divactx*fac
             divtot=divtot+divacty*fac
             divd(l2) = divd(l2)+divacty
@@ -329,13 +346,19 @@ cx        endif
           creptyp = 'Exchange'
           cDest=cdivid(nd)
           
-          if(iout.eq.3 .and. cDest.eq.cDest1 .and. mon.eq.monout) 
-     1      write(nlog,*) ' Replace; Exchange for cdest, Res # ', 
-     1      cdest, n
+cx        if(iout.eq.3 .and. cDest.eq.cDest1 .and. mon.eq.monout) then
+          if(iout.eq.3 .and. mon.eq.monout) then
+cx           .and. divactx.gt.small) then           
+            write(nlog,*) ' Replace; Exchange for cdest, Res # ', 
+     1      cdest, n, divactx*fac, divacty*fac, 18, divo(18)*fac
+          endif
 c
 c		Note divactx is the amount released
-c		     divacty is the amount diverted          
-          if(divacty*fac.gt.0.001) then
+c		     divacty is the amount diverted  
+c
+c rrb 2015/09/06; Correction                  
+cx        if(divacty*fac.gt.0.001) then
+          if(divactX.gt.small) then           
             reltot=reltot+divactx*fac
             divtot=divtot+divacty*fac
             divd(l2) = divd(l2)+divacty
@@ -382,8 +405,7 @@ c
 c _________________________________________________________
 c		Step 14; Detailed output to Detailed Replacement
 c		         Reservoir Output (File 51) 
-c
-        if(divactX.gt.small) then  
+      if(divactX.gt.small) then  
           if(ncall(10).eq.0) then
             write(51,282) 
             if(iout.eq.2 .or. iout.eq.99) write(nlog,280)
@@ -402,13 +424,15 @@ c
 c _________________________________________________________
 c		Step 15; Detailed output to Log File
 c
-c       if(iout.eq.2 .or. iout.eq.99) then      
-cx      if((iout.ge.1 .and. iw.eq.ioutiw) .or. iout.eq.99) then      
-        if(iout.eq.1 .and. cDest.eq.cDest1 .and. mon.eq.monout) then      
+c     if(iout.eq.2 .or. iout.eq.99) then      
+      if((iout.ge.1 .and. iw.eq.ioutiw) .or. iout.eq.99) then      
+cx      if(iout.eq.1 .and. cDest.eq.cDest1 .and. mon.eq.monout) then      
         
-          if(ncall(10).le.1) then        
-            write(nlog,280)
-          endif  
+        if(divactX.le.small) then
+          if(ncall(10).eq.0) write(nlog,280)
+        else
+          if(ncall(10).eq.1) write(nlog,280)
+        endif
         
 cxx         if(divactX.gt.small) then                 
             write(nlog,270) iyrmo(mon), xmonam(mon), iwx, nrepcall+1, 
@@ -443,8 +467,10 @@ c _________________________________________________________
 c		Step 17; Exit if not short
 c
         if(ishort.eq.0) then
-          if(iout.eq.3 .and. cDest.eq.cDest1 .and. mon.eq.monout) then      
-            write(nlog,*) '  Ishort = 0'
+cx        if(iout.eq.3 .and. cDest.eq.cDest1 .and. mon.eq.monout) then    
+          if(iout.eq.3 .and. mon.eq.monout) then              
+            write(nlog,*) '  Replace; ishort = ', Ishort,
+     1       divactx*fac, divacty*fac, 18, divo(18)*fac
           endif
           goto 110
         endif  
@@ -476,8 +502,8 @@ c               Formats
      1 '  Replace_1; cDest       cDest1       cSour      ',
      1 '     iyr     mon       n      n1   irepn      lr',
      1 '      nd  ioprsw   ioBeg   ioEnd',
-     1 '  ishort',/
-     1 '  Replace_1; ', a12,a12,a12, i8, 4x, a4, 20i8)
+     1 '  ishort      18 divo(18)',/
+     1 '  Replace_1; ', a12,a12,a12, i8, 4x, a4, 10i8, 20f10.4)
 
   124   format(/,
      1 '  Replace_2;    # Dest ID      Source ID        iyr     mon',
@@ -494,7 +520,7 @@ c               Formats
      1                          ' iExPoint(lr), iopsou(4,lr)')
 
   270   format(i5,1x, a4,2i8, 1x,a12,1x, a8,1x, 
-     1   2(a12,1x,a24,1x), f10.3, f10.1, 3i5, 6f10.3, 
+     1   2(a12,1x,a24,1x), f10.3, f10.1, 2i5, i8, 6f10.3, 
      1   i5, 1x, a48)
      
   272   format(i5,1x, a4,2i8, 1x,a12,1x, a8,1x, 
@@ -512,14 +538,14 @@ c               Formats
      1    '  (1) (2)      (3)     (4) (5)          (6)      ',
      1    '(7)          (8)                      ',
      1    '(9)          (10)                     ',
-     1    '      (11)      (12) (13) (14) (15)    (16)',
+     1    '      (11)      (12) (13) (14)    (15)      (16)',
      1    '      (17)      (18)      (19)      (20)      (21)'
      1    ' (22) (23)'/
      1    ' ____ ____ _______ _______ ____________ ________ ',
      1    '____________ ________________________ ',
      1    '____________ ________________________ ',
-     1    '__________ _________ ____ ____ ____ _______',
-     1    ' _________ _________ _________ _________',
+     1    '__________ _________ ____ ____ _______',
+     1    ' _________ _________ _________ _________ _________',
      1    ' _________',
      1    ' ____ ________________________________________________')
 
