@@ -107,6 +107,9 @@ c                   because of difference between compilers (lahey vs fortran)
 c                   lahey does not evaluate expression A unless B is true, etc.
 c                   gfortran evaluates all 3
 c                   expression C had the array index out of bounds issue...
+c jhb 2016/07/17; ver='16.00.00' alpha - no testing done yet.  it compiles.
+c                 merged RRB version 15 (2014-2016 changes) into JHB's version 14.07
+c                 (integrate changes from two distinct development branches)
 c ______________________________________________________________________
 c       Documentation
 C
@@ -202,8 +205,8 @@ c				 7 includes new binary output format
 c		
 c       ver='14.01.07'
 c       vdate = '2014/12/23'
-        ver='15.00.00'
-        vdate = '2015/10/18'
+        ver='15.01.00'
+        vdate = '2016/07/17'
 c
 c
 c 6/20/95 Code isgi=0 for PC; isgi=1 for SGI
@@ -625,6 +628,10 @@ c ______________________________________________________________________
 c     Formats
   212   format(//
      1 ' Recent updates',/
+     1 '    - 2016/07/17 (16.00.00)',/
+     1 '      merged version 15.00.00 code changes (2014-16) into',/
+     1 '        the version 14.07 code in the statemod version',/
+     1 '        control system (git) ',/
      1 '    - 2015/10/18 (15.00.00)',/
      1 '      Copied version 14.02.27 to version 15.00.00',/
      1 '        to signify testing and comparison to historic',/
