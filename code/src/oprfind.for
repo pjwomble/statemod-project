@@ -74,8 +74,7 @@ c                       20      read monthly switches
 c                       21      read intervening structures
 c		                    22      read monthly and annual maxima
 c			                  23      read intervening structures with loss %
-c			                  24      read Operating Rule ID for a
-c		                              monthly or annual plan adjustment
+c			                  24      read Operating Rule ID 
 c			                  25      read multiple destinations and percent
 c			                  26      read 12 efficiency values (for a T&C
 c                                 obligation)
@@ -1102,9 +1101,6 @@ c               Warn user source water right or opr rule not found
             write(nlog,1500) 'Problem', cidvri, cx
             goto 9999
           endif
-          
-          
-          
 c
 c _________________________________________________________ 
 c
@@ -1192,11 +1188,13 @@ c __________________________________________________________
      1 11x,' is not in the Well station file (*.wes)') 
      
   170 format(/,72('_'),/                                                         
-     1'  Oprfind; ', a8, ' Finding ID = ', a12,/                       
-     1 11x,' The Structure type = ', a12, /
-     1 11x,' with ID = ',a12,/
-     1 11x,' is not in the ',a12, ' file ',a8,/
-     1 11x,' Remember enter NA if none are required',/ 
+     1'  Oprfind; ', a8, ' Reading Operating Rule ID = ', a12,/                       
+     1 11x,' The Structure type specified for a source, destination',/
+     1 11x,' reuse plan, etc. is = ', a12, ' with ID = ',a12,/
+     1 11x,' But this ID cannot be found in the ',a12, ' file ',a8,/   
+     1 11x,' Recommend you confirm it is the appropriate',
+     1     ' structure type.',/
+     1 11x,' Remember enter NA if none are required.',/ 
      1 11x,' Number of entries read from the file = ', i5)
 
   180 format(/,
@@ -1296,7 +1294,9 @@ c __________________________________________________________
      1'  Oprfind; ', a8, ' Operating Right ', a12,/                      
      1 11x,' Cannot find an Operating Right',
      1     ' = ', a12,/
-     1 11x,' in the Operating Right (*.opr) file above this opr rule')
+     1 11x,' in the Operating Right (*.opr) file above this opr rule'/
+     1 11x,' This error often occurs when oprlimit is greater',/
+     1 11x,' than zero')
      
  3000 format(/,72('_'),/
      1 '  Oprfind; ', a8, ' Case ', i5, ' not available')
@@ -1343,7 +1343,7 @@ c _________________________________________________________
      1 ' Oprfind; Problem with *.opr rule ID = ', a12,' type ', i5,  
      1 ' Data Type ',i4,/     
      1 10x,'Cannot read the operating rule associated with a monthly',/
-     1 10x,'or annual limitation adustment')
+     1 10x,'or annual limitation adjustment')
       goto 9999
       
  2006 write(nlog,2016) cidvri, ityopr1, itype      
