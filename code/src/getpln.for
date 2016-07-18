@@ -31,8 +31,11 @@ c		       1 Plan data Details
 c		       2 Plan data Summary
 c		       5 Plan Return flow summary
       iout=0
+c
+c rrb 2013/02/03; Allow type 13 = Changed Water Right     
+cx    maxPlnT1=12
+      maxPlnT1=13
       
-      maxPlnT1=12
       ibad=0
       small=0.001
       
@@ -53,8 +56,10 @@ c		       5 Plan Return flow summary
       plntypX(9) = 'Out-of-Priority_Reservoir'
       plntypX(10)= 'Special_Well_Augmentation'
       plntypX(11)= 'Accounting_Plan'
-      plntypX(12)= 'Release_Plan_Limit'
-      
+      plntypX(12)= 'Release_Plan_Limit'     
+c
+c rrb 2015-03-07
+      plntypX(13)= 'Changed Water Right'
 
       ifn=53
       filena=fileName(ifn)
@@ -221,9 +226,12 @@ c
 c
 c		If a reuse plan; set point on the river to on
 c rrb 05/03/10
+c
+c rrb 2015-03-07; New plan type
 c             if(iplnTyp(i).eq.4) then
               if(iplnTyp(i).eq.3 .or. iplnTyp(i).eq.4 .or.
-     1           iplnTyp(i).eq.11) then
+cx   1           iplnTyp(i).eq.11) then
+     1           iplnTyp(i).eq.11 .or. iplnTyp(i).eq.13) then     
                 ipnode(is)= i            
                 
                 if(iout.eq.1) 
