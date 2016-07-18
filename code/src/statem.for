@@ -205,7 +205,7 @@ c				 7 includes new binary output format
 c		
 c       ver='14.01.07'
 c       vdate = '2014/12/23'
-        ver='15.01.00'
+        ver='16.00.00'
         vdate = '2016/07/17'
 c
 c
@@ -221,7 +221,7 @@ c
 c _________________________________________________________
 c        
 C
-C------  SPESIFY MAXIMUM DIMENSION OF ARRAYS
+C------  SPECIFY MAXIMUM DIMENSION OF ARRAYS
 C
 c
 c rrb 99/08/26; Rio Grande
