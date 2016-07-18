@@ -651,8 +651,14 @@ c		Operational right maximum limit 1x/mo
         divdS(k)=0.0
         divdE(k)=0.0
         oprmaxM(k)=oprmax(k,mon)
-        preuse(k)=0.0   
-        
+        preuse(k)=0.0  
+c
+c rrb: 2015-07-08; Add capabiity to control the number of times
+c                  an operating rule has operated per time step. 
+c                  Currently used by Type 6 (bookover) and Type 26
+c                  (Changed water right operation)
+        icallOP(k)=0
+c        
 c
 c 2009/01/15; Revise to allow source 2 to be the month a type 47 
 c		rule is reset
@@ -1095,10 +1101,12 @@ c
 c ---------------------------------------------------------
 c		Set supply data for 1-T&C, 2-Well Aug, 4-Div Reuse,
 c               6-Tmtn Div Reuse, 7-Tmtn Reuse, 8-Rech Plan,
-c               10-Special Well Aug, 11-Admin
+c               10-Special Well Aug, 11-Admin, 13-Changed Water Right
+c rrb 2015/03/07; Add a Changed Water Right Plan (type 13)
+cx   1     iPtype1.eq.10 .or.  iPtype1.eq.11)    then
         if(iPtype1.eq.1  .or.  iPtype1.eq.2 .or. iPtype1.eq.4 .or.
      1     iPtype1.eq.6  .or.  iPtype1.eq.7 .or. iPtype1.eq.8 .or.
-     1     iPtype1.eq.10 .or.  iPtype1.eq.11)    then
+     1     iPtype1.eq.10 .or.  iPtype1.eq.11.or. iPtype1.eq.13) then
      
           psuply(np)=psup(imo,np)
           psuplyT(np)=psup(imo,np)
