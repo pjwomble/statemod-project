@@ -156,7 +156,9 @@ c       structure Units
           endif
           
           j1=j1+1
-          write(nlog,*)'nf',nf,'nx',nx
+c
+c rrb 2014/12/14; Remove print statement
+cx        write(nlog,*)'nf',nf,'nx',nx
           write(nf,rec=j1) (cunitX(j), j=1,nx)
 
 c
