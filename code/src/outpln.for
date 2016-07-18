@@ -300,9 +300,12 @@ c		c. Reservoir Plans
 c
 c ---------------------------------------------------------
 c
-c		d. Non reservoir and Accounting plans            
+c		d. Non reservoir and Accounting and Changed Water Right plans
+c
+c rrb 2015/03/07; Allow a Changed Water Right Plan (type 13)   
+cx   1         iplntyp(np).eq.11) then         
             if(iplntyp(np).eq.4  .or. iplntyp(np).eq.6 .or. 
-     1         iplntyp(np).eq.11) then
+     1         iplntyp(np).eq.11 .or. iplntyp(np).eq.13) then
               write(21,232) ' Supply', 'Total', (i, i=1,maxResPX)
             endif    
 c
@@ -385,9 +388,12 @@ c
 c ---------------------------------------------------------
 c
 c		d. Non reservoir and Transmountain
+c
+c rrb 2015/03/07; Allow a Changed Water Right Plan (type 13)   
+cx   1          iplntyp(np).eq.12) then 
              if(iplntyp(np).eq.4 .or. iplntyp(np).eq.6 .or.
      1          iplntyp(np).eq.7 .or. iplntyp(np).eq.11.or.
-     1          iplntyp(np).eq.12) then           
+     1          iplntyp(np).eq.12.or. iplntyp(np).eq.13) then           
                read(68,rec=irec1) pid(np), cstaid(is),
      1           iyrmo(im), xmonam(im), (dat2(i), i=1,maxResP), 
      1           psto1X, psto2X, pfail(np) 
@@ -507,9 +513,12 @@ c		c. Reservoir Output
 c
 c ---------------------------------------------------------
 c		d. Non Reservoir Output        
+c
+c rrb 2015/03/07; Allow a Changed Water Right Plan (type 13)   
+cx   1          iplntyp(np).eq.12) then 
               if(iplntyp(np).eq. 4 .or. iplntyp(np).eq.6 .or.
      1           iplntyp(np).eq. 7 .or. iplntyp(np).eq.11.or.
-     1           iplntyp(np).eq.12) then      
+     1           iplntyp(np).eq.12 .or. iplntyp(np).eq.13) then      
      
                 if(isigfig.eq.0) then
                   write(21,242) pid(np), cstaid(is),
@@ -628,10 +637,13 @@ c		c. Reservoirs
             endif
 c
 c ---------------------------------------------------------
-c		d. Non Reservoirs        
+c		d. Non Reservoirs     
+c
+c rrb 2015/03/07; Allow a Changed Water Right Plan (type 13) 
+cx   1          iplntyp(np).eq.12) then     
             if(iplntyp(np).eq. 4 .or. iplntyp(np).eq.6 .or.
      1         iplntyp(np).eq. 7 .or. iplntyp(np).eq.11.or.
-     1         iplntyp(np).eq.12) then      
+     1         iplntyp(np).eq.12 .or. iplntyp(np).eq.13) then      
 c
 c		For a Release limit Plan (type 12)
 c		Set annual total to beginning of year value      
@@ -1221,7 +1233,57 @@ c			Annual Average
      1          'TOT', -1.0, (planTot(np,iyX,i)/rn, i=2,MaxResPX)
             endif         
           end do 
+        endif    
+c
+c rrb 2015-03-24
+c
+c ---------------------------------------------------------
+c   
+c   Step 22; Print Annual Summary for Release Limit Plans (type 11)
+        if(ipTotal(13).ne.0) then
+          NumplnT=NumplnT+1        
+          do np=13,13
+            write(21,310) cunitm, np, plntypX(np)
+            write(21,232) ' Supply', 'Total', (i, i=1,maxResPX)
+            iy1=0
+            do iy=iystr,iyend  
+              iy1=iy1+1
+              if(isigfig.eq.0) then
+                write(21,242) 'Accounting  ', 'NA          ', iy, 
+     1           'TOT', (planTot(np,iy1,i), i=1,MaxResPX)
+              endif
+              
+              if(isigfig.eq.1) then
+                write(21,2421) 'Accounting   ', 'NA          ', iy,             
+     1           'TOT', (planTot(np,iy1,i), i=1,MaxResPX)
+              endif
+              
+              if(isigfig.eq.2) then
+                write(21,2422) 'Changed WR   ', 'NA          ', iy,             
+     1           'TOT', (planTot(np,iy1,i), i=1,MaxResPX)
+              endif
+            end do
+c
+c			Annual Average          
+            write(21,252)
+            if(isigfig.eq.0) then
+              write(21,243) 'Changed WR   ', 'NA          ', 
+     1          'TOT', (planTot(np,iyX,i)/rn, i=1,MaxResPX)
+            endif
+            
+            if(isigfig.eq.1) then
+              write(21,2431) 'Changed WR   ', 'NA          ', 
+     1          'TOT', (planTot(np,iyX,i)/rn, i=1,MaxResPX)
+            endif         
+            
+            if(isigfig.eq.2) then
+              write(21,2432) 'Changed WR   ', 'NA          ',
+     1          'TOT', (planTot(np,iyX,i)/rn, i=1,MaxResPX)
+            endif         
+          end do 
         endif     
+       
+         
 c
 c _________________________________________________________
 c

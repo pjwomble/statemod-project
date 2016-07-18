@@ -57,11 +57,22 @@ c               Step 2; Adjust monthly or annual diversion limits UP
         oprmaxA1=oprmaxAX
         oprmaxAX=oprmaxAX + divact*fac
         oprmaxAX=amin1(oprmaxAX, oprmax13) 
+c
+c rrb 2015/02/03; Correction
+        if(iplim.gt.0) then
+          psto2X=psto2X+divact*fac          
+        endif 
+        
         
         if(iout.eq.1 .and. abs(divact).gt.small) then
           write(nlog,*) 
      1      ' SetLimit; Adjusting Monthly and Annual Limits UP'
-          write(nlog,'(a12, 1x,a12,1x, 4i5, 20f8.0)') 
+          write(nlog,*)
+     1      ' SetLimit;      coridX        icx ioprLimt   lopr',
+     1      '   iplim  oprmaxM1    divact  oprmaxMX',
+     1              '  OprmaxA1  OprmaxAX    psto1X    psto2X'
+     
+          write(nlog,'(a12, 1x,a12,1x, 4i8, 20f10.0)') 
      1      ' SetLimit; ',coridX, icx, ioprLimX, lopr, iplim,
      1        oprmaxM1, divact*fac, oprmaxMX,
      1        OprmaxA1, OprmaxAX, psto1X, psto2X
@@ -72,10 +83,13 @@ c _________________________________________________________
 c
 c               Step 3; Adjust monthly or annual release limits DOWN
 c
-c rrb 2011/10/15; Allow a type 4
+c rrb 2011/10/15; Allow a type 4 by a type 45 rule
 cx    if(iOprLimX.eq.2 .and. lopr.gt.0) then
-      if((iOprLimX.eq.2 .or. iOprLimX.eq.4).and. lopr.gt.0) then
-      
+c
+c rrb 2015/03/23; Allow Oprlimit to range from 1-9
+cx    if((iOprLimX.eq.2 .or. iOprLimX.eq.4).and. lopr.gt.0) then 
+      if((iOprLimX.eq.2 .or. iOprLimX.eq.4 .or.
+     1    iOprlimX.eq.7 .or. iOprLimX.eq.9).and. lopr.gt.0) then       
 cx      oprmaxM1=amin1(oprmaxMX, oprmaxAX)
 cx      oprmaxMX=amax1(oprmaxMX - divact*fac, 0.0)
         oprmaxM1=oprmaxMX
