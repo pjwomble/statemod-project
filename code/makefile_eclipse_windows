@@ -52,6 +52,7 @@ bin/depletep.o: src/common.inc
 bin/directby.o: src/common.inc
 bin/directex.o: src/common.inc
 bin/directfs.o: src/common.inc
+bin/directwr.o: src/common.inc
 bin/divalt.o: src/common.inc
 bin/divcar1.o: src/common.inc
 bin/divcar2.o: src/common.inc
@@ -258,6 +259,7 @@ statemod: \
 			bin/depletep.o \
 			bin/directby.o \
 			bin/directex.o \
+			bin/directwr.o \
 			bin/directfs.o \
 			bin/divalt.o \
 			bin/divcar.o \
