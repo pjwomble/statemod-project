@@ -519,12 +519,18 @@ c rrb 2015/02/03X; Set ipUse when the source is a reservoir
       endif 
 c
 c rrb 2015/02/03X; Set ipuse when the source is a Reuse Plan
-      if(nsP.gt.0 .and. iplntyp(nsP).ne.11) then
-        ipUse=ireuse(l2)
-        if(ipUse.gt.0) then
-          cpuse='Yes'
-          cplntyp='Reuse_Plan'
-        endif  
+c jhb 2016/10/07; break if condition into two if statements
+c                 because gfortran anayzes whole line at once
+c                 creating errors when nsP=0
+c      if(nsP.gt.0 .and. iplntyp(nsP).ne.11) then
+      if(nsP.gt.0) then
+        if(iplntyp(nsP).ne.11) then
+            ipUse=ireuse(l2)
+            if(ipUse.gt.0) then
+                cpuse='Yes'
+                cplntyp='Reuse_Plan'
+            endif  
+        endif
       endif      
 c           
 c      
