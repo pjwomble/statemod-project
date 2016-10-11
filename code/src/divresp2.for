@@ -632,25 +632,28 @@ c
 c rrb 2015/03/07; Revise to use Oprlimit 1-9
 cx    if(nsP.gt.0 .and. iplntyp(nsP).eq.11) then
 cx      lopr26=ireuse(l2)    
-      if(nsP.gt.0 .and. iplntyp(nsP).eq.13) then           
-        lopr26=iopsou(7,l2)
-        lr26=iopsou(1,lopr26)
-        nd26=idivco(1,lr26)
-        iscd26=IDVSTA(nd26)          
-        ndns26=NDNNOD(iscd26)    
+c jhb 2016/10/11; split into nested ifs so it works with gfortran
+c     if(nsP.gt.0 .and. iplntyp(nsP).eq.13) then           
+      if(nsP.gt.0) then           
+        if(iplntyp(nsP).eq.13) then           
+          lopr26=iopsou(7,l2)
+          lr26=iopsou(1,lopr26)
+          nd26=idivco(1,lr26)
+          iscd26=IDVSTA(nd26)          
+          ndns26=NDNNOD(iscd26)    
 c
 c rrb 2015/01/24; Revised reporting approach.
 c                 Set iscd1 the node containing the plan
 c                 the original source water right diverted to
-        nsp1=iopdes(1,lopr26)
-        iscd1=ipsta(nsp1)   
-        iok=0
-        if(lopr26.eq.0 .or. lr26.eq.0  .or. nd26.eq.0. or.
-     1     iscd26.eq.0 .or. nsp1.eq.0 .or. iscd1.eq.0) then
-          iout26=1
-          iok=1     
-        endif       
-                 
+          nsp1=iopdes(1,lopr26)
+          iscd1=ipsta(nsp1)   
+          iok=0
+          if(lopr26.eq.0 .or. lr26.eq.0  .or. nd26.eq.0. or.
+     1       iscd26.eq.0 .or. nsp1.eq.0 .or. iscd1.eq.0) then
+            iout26=1
+            iok=1     
+          endif       
+        endif         
       endif    
 c   
       if(iout26.eq.1) then
