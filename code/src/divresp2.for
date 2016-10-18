@@ -1798,7 +1798,7 @@ c rrb 2015/03/07; Revise to a Changed Water Right (type 13)
 cx       if(iplntyp(nsP).eq.11 .and. lopr26.gt.0) then 
          if(iplntyp(nsP).eq.13 .and. lopr26.gt.0) then         
            qdiv(38,iscd) = qdiv(38,iscd) - relact  
-           qdiv(38,iscd1)=qdiv(38,iscd1) - relact
+           qdiv(38,iscd1) = qdiv(38,iscd1) - relact
            if(nd26.ne.ncar) then
              qdiv(38,iscd26)= qdiv(38,iscd26) - relact
            endif
@@ -1938,9 +1938,13 @@ c		   for the carrier(s)
 c		   Also calculate return flows for carrier losses
 c		   using the structure properties of the carrier	
 c
-      qdiv36a=qdiv(36, iscd)
-      if(ncarry.gt.0) then      
+c jhb 2016/10/17 prevent the array error when iscd=-1
+c                but why iscd=-1 has not been fixed
+      if(iscd.gt.0) then
+        qdiv36a=qdiv(36, iscd)
+      endif
 c
+      if(ncarry.gt.0) then      
         call setQdivC(
      1    nlog, ncarry, ncnum, nd, ndD, l2, iscd, idcdX, idcdC, 
 c
