@@ -1262,9 +1262,12 @@ c	                adjustment
       if(ncarry.gt.0) then
 c
 c rrb 2015/02/03X; Correction to specify source of lopr
-cx      if(lopr.gt.0) then       
+cx      if(lopr.gt.0) then
+c jhb 2016/10/17 prevent lopr = 0 from creating array error
+c                looks like typo - 
         if(lopr6.gt.0) then        
-          loprR=iopsou(1,lopr)
+c          loprR=iopsou(1,lopr)
+          loprR=iopsou(1,lopr6)
           noprS=idivco(1,loprR)        
         endif  
       
