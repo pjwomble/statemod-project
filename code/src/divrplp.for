@@ -642,7 +642,10 @@ c
 c rrb 2015/03/07; Revise to use Oprlimit 1-9
 cx      if(nsP.gt.0 .and. iplntyp(nsP).eq.11) then        
 cx      lopr26=ireuse(l2)
-      if(nsP.gt.0 .and. iplntyp(nsP).eq.13) then 
+c jhb 2016/10/17 split up the if statement for gfortran
+c      if(nsP.gt.0 .and. iplntyp(nsP).eq.13) then 
+      if(nsP.gt.0) then 
+      if(iplntyp(nsP).eq.13) then 
         lopr26=iopsou(7,l2)
         lr26=iopsou(1,lopr26)              
         nd26=idivco(1,lr26)
@@ -658,6 +661,7 @@ c rrb 2015/01/24; Additional reporting approach.
           iout26=1
           iok=1     
         endif       
+      endif    
       endif    
 c   
       if(iout26.eq.1) then
