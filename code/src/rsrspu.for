@@ -532,7 +532,10 @@ c
 c ---------------------------------------------------------
 C grb 1-26-95   Update carrier diversions if not same res transfer
 c     DIVMON(NP  )=DIVMON(NP  )+DIVACT
-      if (nd.ne.nr) DIVMON(NP  )=DIVMON(NP  )+DIVACT
+c jhb 2016/10/17 prevent array bound error when np=0
+      if(np.gt.0) then
+        if (nd.ne.nr) DIVMON(NP  )=DIVMON(NP  )+DIVACT
+      endif
 c
 c        nd = destination
 c        nr = source
