@@ -57,7 +57,7 @@ c               ioutD = 1 print *.ddr read
       ioutR=0
       ioutD=0
       ioutW=0
-      ioutI=0
+      ioutI=1
       
       iprintd=0
       blank = '            '                                            
@@ -107,7 +107,8 @@ c
 c _________________________________________________________      
 c rrb 2004/12/14; Allow a # in column 1 for comments
 c		Note iocode 1 = Data, 2 = EOF, 3 = Error                    
-        call comment(2, nlog, iocode, nchk, 0)
+c        call comment(2, nlog, iocode, nchk, 0)
+        call comment(2, nlog, iocode, nchk, 1)
         if(iocode.eq.2) goto 130
         if(iocode.eq.3) goto 928
                                                   
