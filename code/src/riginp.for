@@ -79,11 +79,17 @@ c
         ifn=8
         rec256=fileName(ifn)
         filena=rec256(1:72)
-c       write(nlog,*) ' Riginp; fileName = ', fileName(ifn)
-c       write(nlog,*) ' Riginp; filena   = ', filena
+        write(nlog,*) ' Riginp; infile = ', infile
+        write(nlog,*) ' Riginp; fileName = ', fileName(ifn)
+        write(nlog,*) ' Riginp; filena   = ', filena
       else
+        write(nlog,*) ' Riginp; filenc   = ', filenc
         filena=filenc
+        write(nlog,*) ' Riginp; infile = ', infile
+        write(nlog,*) ' Riginp; fileName = ', fileName(ifn)
+        write(nlog,*) ' Riginp; filena   = ', filena
         READ(IIN,450,err=926,end=928) FILENA
+        write(nlog,*) ' Riginp; filena   = ', filena
       endif
 c
 c		Allow no data to be read
@@ -102,18 +108,31 @@ c		Allow no data to be read
 C                                                                       
       MAXFRS=MAXFRR+1
 C                                                                       
+      write(nlog,*) ' Riginp; MAXFRR   = ', MAXFRR
+      write(nlog,*) ' Riginp; MAXFRS   = ', MAXFRS
       DO 120 K=1,MAXFRS     
+        write(nlog,*) ' Riginp; K   = ', K
 c
 c _________________________________________________________      
 c rrb 2004/12/14; Allow a # in column 1 for comments
 c		Note iocode 1 = Data, 2 = EOF, 3 = Error                    
 c        call comment(2, nlog, iocode, nchk, 0)
+        write(nlog,*) ' Riginp; nlog   = ', nlog
+        write(nlog,*) ' Riginp; iocode   = ', iocode
+        write(nlog,*) ' Riginp; nchk   = ', nchk
         call comment(2, nlog, iocode, nchk, 1)
+        write(nlog,*) ' Riginp; iocode   = ', iocode
         if(iocode.eq.2) goto 130
         if(iocode.eq.3) goto 928
                                                   
         read(2,470,end=130,err=928)
      1    cifrri, namei(k),  cgoto, rtem,  dcrifr(k), iifrsw(k)
+        write(nlog,*) ' Riginp; cifrri   = ', cifrri
+        write(nlog,*) ' Riginp; namei(k)   = ', namei(k)
+        write(nlog,*) ' Riginp; cgoto   = ', cgoto
+        write(nlog,*) ' Riginp; rtem   = ', rtem
+        write(nlog,*) ' Riginp; dcrifr(k)   = ', dcrifr(k)
+        write(nlog,*) ' Riginp; iifrsw(k)   = ', iifrsw(k)
         iifrsw1(k)=iifrsw(k)
      
         if(ioutI.eq.1) write(nlog,472) k,
