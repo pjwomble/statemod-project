@@ -29,6 +29,8 @@ c
      1  filena*256, cyr1X*5, rec72*72, cunitX*5, 
      1  recout*132,
      1  rec1a*1, rec1b*1, rec1c*1
+      logical itsopen
+      integer stat
 
       data dtype/
      1     'Evaporation File (*.eva)                     ',
@@ -139,8 +141,23 @@ c
       coeff=-1.
       small=0.001
       smalln=-1*small
+      itsopen = .FALSE.
 
       filena(1:45)=dtype(ityp)
+
+c
+c   Check whether the file is open and at EOF
+      INQUIRE( UNIT=nf, OPENED=itsopen )
+      if (itsopen) then
+        read(nf,'(a72)',IOSTAT=stat) rec72
+        if (IS_IOSTAT_END(stat)) then
+          goto 40
+        else
+          backspace(nf)
+        endif
+      else
+        goto 928
+      endif
       
       if(iout.eq.1) then
         read(nf,'(a72)',end=38) rec72

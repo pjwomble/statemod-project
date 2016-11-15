@@ -105,6 +105,7 @@ c
      1  cCallBy*12
 c jhb 2014/06/26
       character(len=256) rec256x
+      integer stat
 c _________________________________________________________
 c		Step 1; Initilize
 c
@@ -843,11 +844,19 @@ c
 c		Checck for comments in dat
 c		Exit if EOF (2) or Error (3)	
         call comment(55, nlog, iocode, nchk, 0)
-c jhb this is a mistake should jump OUT of the loop
+c jhb better to jump OUT of the loop
 c        if(iocode.eq.2) goto 730
 c     jump to newly added 740 continue statement...
         if(iocode.eq.2) goto 740
         if(iocode.eq.3) goto 928
+
+c   Check whether the file is NOW at EOF
+        read(55,'(a72)',IOSTAT=stat) rec72
+        if (IS_IOSTAT_END(stat)) then
+          goto 760
+        else
+          backspace(nf)
+        endif
 c
 	      read (55,532,end=760,err=928) cistat,(diverm(i),i=1,12)
           cistat=adjustl(cistat)	      
