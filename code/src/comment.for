@@ -40,15 +40,32 @@ c	Dimensions
 c        
 
       character rec1*1, rec80*80, ljrec80*80
+      logical itsopen
+      integer stat
 c
 c _________________________________________________________
 c	Initilize
 c        
       
-      iout=1
+      iout=0
       iocode=0
       ncomm=0
+      itsopen = .FALSE.
 c
+c _________________________________________________________
+c
+c   Check whether the file is open and at EOF
+      INQUIRE( UNIT=nf, OPENED=itsopen )
+      if (itsopen) then
+        read(nf,'(a80)',IOSTAT=stat) rec80
+        if (IS_IOSTAT_END(stat)) then
+          goto 100
+        else
+          backspace(nf)
+        endif
+      else
+        goto 110
+      endif
 c _________________________________________________________
 c		Check for a comment
  90   read(nf,'(a80)',end=100,err=110) rec80

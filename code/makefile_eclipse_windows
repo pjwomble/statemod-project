@@ -11,6 +11,10 @@ FC = gfortran
 # use -static especially for windows compiling 
 #FCFLAGS = -g -cpp -fbounds-check -fno-align-commons -static
 FCFLAGS = -g -cpp -fno-align-commons -static -fbounds-check -fno-automatic -finit-local-zero
+#add -std=legacy in order to prevent errors when reading past the EOF marker
+#  an old f77 trick that is used in StateMod but the currently used version
+#  of windows gfortran does not support by default
+#FCFLAGS = -g -cpp -std=legacy -fno-align-commons -static -fbounds-check -fno-automatic -finit-local-zero
 #FCFLAGS = -O2
 # The flags for all cases (e.g. look for system .mod files, required in gfortran)
 FCFLAGS += -I/usr/include

@@ -44,6 +44,7 @@ cx    dimension iwr(maxwrx), jwr(maxwrx), kwr(maxwrx)
       dimension iwr(maxres1), jwr(maxdvr1), kwr(maxdvr1)
       character*12 cifrri,cirsid,cidvri,
      1             blank, czero, rec12
+      character rec1*1
       character rec32*32
 c
 c _________________________________________________________
@@ -57,7 +58,7 @@ c               ioutD = 1 print *.ddr read
       ioutR=0
       ioutD=0
       ioutW=0
-      ioutI=1
+      ioutI=0
       
       iprintd=0
       blank = '            '                                            
@@ -68,7 +69,6 @@ c               Step 1; Read ISF rights (*.ifr)
 c _________________________________________________________
 c
       write(nlog,101) iin,infile, nchk
-      write(6,101) iin, infile, nchk
  101  format(/,72('_'),/,
      1 '  Riginp; Instream Flow Right File (*.ifr) ', 20i5)
       iin2=iin
@@ -79,22 +79,16 @@ c
         ifn=8
         rec256=fileName(ifn)
         filena=rec256(1:72)
-        write(nlog,*) ' Riginp; infile = ', infile
-        write(nlog,*) ' Riginp; fileName = ', fileName(ifn)
-        write(nlog,*) ' Riginp; filena   = ', filena
+        write(nlog,*) ' Riginp; filename = ',fileName(ifn)
+        write(nlog,*) ' Riginp; filena = ',filena
       else
-        write(nlog,*) ' Riginp; filenc   = ', filenc
         filena=filenc
-        write(nlog,*) ' Riginp; infile = ', infile
-        write(nlog,*) ' Riginp; fileName = ', fileName(ifn)
-        write(nlog,*) ' Riginp; filena   = ', filena
         READ(IIN,450,err=926,end=928) FILENA
-        write(nlog,*) ' Riginp; filena   = ', filena
       endif
 c
 c		Allow no data to be read
       if(filena(1:2).eq.'-1') then
-        write(nlog,*) ' Ringip; FYI no instream flow rights provided'
+        write(nlog,*) ' Riginp; FYI no instream flow rights provided'
         numfrr=0
         goto 131
       endif
@@ -108,31 +102,17 @@ c		Allow no data to be read
 C                                                                       
       MAXFRS=MAXFRR+1
 C                                                                       
-      write(nlog,*) ' Riginp; MAXFRR   = ', MAXFRR
-      write(nlog,*) ' Riginp; MAXFRS   = ', MAXFRS
       DO 120 K=1,MAXFRS     
-        write(nlog,*) ' Riginp; K   = ', K
 c
 c _________________________________________________________      
 c rrb 2004/12/14; Allow a # in column 1 for comments
 c		Note iocode 1 = Data, 2 = EOF, 3 = Error                    
-c        call comment(2, nlog, iocode, nchk, 0)
-        write(nlog,*) ' Riginp; nlog   = ', nlog
-        write(nlog,*) ' Riginp; iocode   = ', iocode
-        write(nlog,*) ' Riginp; nchk   = ', nchk
-        call comment(2, nlog, iocode, nchk, 1)
-        write(nlog,*) ' Riginp; iocode   = ', iocode
+        call comment(2, nlog, iocode, nchk, 0)
         if(iocode.eq.2) goto 130
         if(iocode.eq.3) goto 928
                                                   
         read(2,470,end=130,err=928)
      1    cifrri, namei(k),  cgoto, rtem,  dcrifr(k), iifrsw(k)
-        write(nlog,*) ' Riginp; cifrri   = ', cifrri
-        write(nlog,*) ' Riginp; namei(k)   = ', namei(k)
-        write(nlog,*) ' Riginp; cgoto   = ', cgoto
-        write(nlog,*) ' Riginp; rtem   = ', rtem
-        write(nlog,*) ' Riginp; dcrifr(k)   = ', dcrifr(k)
-        write(nlog,*) ' Riginp; iifrsw(k)   = ', iifrsw(k)
         iifrsw1(k)=iifrsw(k)
      
         if(ioutI.eq.1) write(nlog,472) k,
