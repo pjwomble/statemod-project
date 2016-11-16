@@ -114,10 +114,13 @@ c
 c               Step 4c; Print Header 
 c
 c rb 2011/07/28; print the location to the header
-           
+          if (is.gt.0) then 
           write(21,300) cunitm, np, iplntyp(np),plntypC(np),Pid(np),
      1      Pname1(np), Psource(np), cstaid(is)
-     
+          else
+          write(21,300) cunitm, np, iplntyp(np),plntypC(np),Pid(np),
+     1      Pname1(np), Psource(np), 'cstaid(is)'
+          endif
           iop=0
           iops=0
           kUP=0
@@ -256,7 +259,7 @@ c
 c _________________________________________________________ 
 c
 c               Step 5; Year Loop
-          if(iout.eq.1) write(nlog,*) ' OutPln; iystr, iyend ', iystr, iyend
+          if(iout.eq.1)write(nlog,*)' OutPln; iystr, iyend ',iystr,iyend
           iy1=0
           DO IY=IYSTR,IYEND
             iy1=iy1+1
