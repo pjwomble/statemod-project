@@ -110,7 +110,7 @@ c _________________________________________________________
 c		Step 1; Initilize
 c
       nscrn=6
-      write(nscrn,*) ' Mdainp.for'
+c     write(nscrn,*) ' Mdainp.for'
       blank = '            '
       small = 0.001
       smalln=-1*small
