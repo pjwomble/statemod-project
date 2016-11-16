@@ -605,18 +605,33 @@ cx   1          iplntyp(np).eq.12) then
      1           iplntyp(np).eq.12 .or. iplntyp(np).eq.13) then      
      
                 if(isigfig.eq.0) then
+                  if(is.gt.0)then
                   write(21,242) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxResPX)
+                  else
+                  write(21,242) pid(np), char12,
+     1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxResPX)
+                  endif
                 endif
                 
                 if(isigfig.eq.1) then
+                  if(is.gt.0)then
                   write(21,2421) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxResPX)
+                  else
+                  write(21,2421) pid(np), char12,
+     1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxResPX)
+                  endif
                 endif
      
                 if(isigfig.eq.2) then
+                  if(is.gt.0)then
                   write(21,2422) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxResPX)
+                  else
+                  write(21,2422) pid(np), char12,
+     1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxResPX)
+                  endif
                 endif
               endif
 c
@@ -625,18 +640,33 @@ c		e. Recharge
               if(iplntyp(np).eq. 8) then      
               
                 if(isigfig.eq.0) then
+                  if(is.gt.0)then
                   write(21,242) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxRch)
+                  else
+                  write(21,242) pid(np), char12,
+     1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxRch)
+                  endif
                 endif
                 
                 if(isigfig.eq.1) then
+                  if(is.gt.0)then
                   write(21,2421) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxRch)
+                  else
+                  write(21,2421) pid(np), char12,
+     1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxRch)
+                  endif
                 endif
               
                 if(isigfig.eq.2) then
+                  if(is.gt.0)then
                   write(21,2422) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxRch)
+                  else
+                  write(21,2422) pid(np), char12,
+     1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxRch)
+                  endif
                 endif
               endif
 c
@@ -653,21 +683,39 @@ c		a. Standard T&C
             if(iplntyp(np).eq.1) then
               write(21,250)
               if(isigfig.eq.0) then
+                if(is.gt.0)then
                 write(21,240) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxTC),
      1            cfail1, cfail2T, pfail(np)            
+                else
+                write(21,240) pid(np), char12,
+     1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxTC),
+     1            cfail1, cfail2T, pfail(np)            
+                endif
               endif
               
               if(isigfig.eq.1) then
+                if(is.gt.0)then
                 write(21,2401) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxTC),
      1            cfail1, cfail2T, pfail(np)            
+                else
+                write(21,2401) pid(np), char12,
+     1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxTC),
+     1            cfail1, cfail2T, pfail(np)            
+                endif
               endif
               
               if(isigfig.eq.2) then
+                if(is.gt.0)then
                 write(21,2402) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxTC),
      1            cfail1, cfail2T, pfail(np)            
+                else
+                write(21,2402) pid(np), char12,
+     1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxTC),
+     1            cfail1, cfail2T, pfail(np)            
+                endif
               endif
             endif  
 c
@@ -679,18 +727,33 @@ c           if(iplntyp(np).eq.2) then
             if(iplntyp(np).eq.2 .or. iplntyp(np).eq.10) then
               write(21,251)
               if(isigfig.eq.0) then
+                if(is.gt.0)then
                 write(21,240) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxAug)
+                else
+                write(21,240) pid(np), char12,
+     1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxAug)
+                endif
               endif
               
               if(isigfig.eq.1) then
+                if(is.gt.0)then
                 write(21,2401) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxAug)
+                else
+                write(21,2401) pid(np), char12,
+     1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxAug)
+                endif
               endif
               
               if(isigfig.eq.2) then
+                if(is.gt.0)then
                 write(21,2402) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxAug)
+                else
+                write(21,2402) pid(np), char12,
+     1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxAug)
+                endif
               endif
             endif  
             
@@ -702,21 +765,39 @@ c		c. Reservoirs
             
               write(21,253)
               if(isigfig.eq.0) then
+                if(is.gt.0)then
                 write(21,242) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), psto1X*fac,
      1            (dat2T(i), i=1,maxResP), psto2X*fac
+                else
+                write(21,242) pid(np), char12,
+     1            iyrmo(13), xmonam(13), psto1X*fac,
+     1            (dat2T(i), i=1,maxResP), psto2X*fac
+                endif
               endif
               
               if(isigfig.eq.1) then
+                if(is.gt.0)then
                 write(21,2421) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), psto1X*fac,
      1            (dat2T(i), i=1,maxResP), psto2X*fac
+                else
+                write(21,2421) pid(np), char12,
+     1            iyrmo(13), xmonam(13), psto1X*fac,
+     1            (dat2T(i), i=1,maxResP), psto2X*fac
+                endif
               endif
               
               if(isigfig.eq.2) then
+                if(is.gt.0)then
                 write(21,2422) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), psto1X*fac,
      1            (dat2T(i), i=1,maxResP), psto2X*fac
+                else
+                write(21,2422) pid(np), char12,
+     1            iyrmo(13), xmonam(13), psto1X*fac,
+     1            (dat2T(i), i=1,maxResP), psto2X*fac
+                endif
               endif
             endif
 c
@@ -735,18 +816,33 @@ c		Set annual total to beginning of year value
               
               write(21,252)
               if(isigfig.eq.0) then
+                if(is.gt.0)then
                 write(21,242) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxResPX)
+                else
+                write(21,242) pid(np), char12,
+     1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxResPX)
+                endif
               endif
               
               if(isigfig.eq.1) then
+                if(is.gt.0)then
                 write(21,2421) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxResPX)
+                else
+                write(21,2421) pid(np), char12,
+     1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxResPX)
+                endif
               endif
               
               if(isigfig.eq.2) then
+                if(is.gt.0)then
                 write(21,2422) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxResPX)
+                else
+                write(21,2422) pid(np), char12,
+     1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxResPX)
+                endif
               endif
             endif
 c
@@ -755,18 +851,33 @@ c		e. Recharge
             if(iplntyp(np).eq. 8) then
               write(21,256)
               if(isigfig.eq.0) then
+                if(is.gt.0)then
                 write(21,242) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxRch)
+                else
+                write(21,242) pid(np), char12,
+     1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxRch)
+                endif
               endif
               
               if(isigfig.eq.1) then
+                if(is.gt.0)then
                 write(21,2421) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxRch)
+                else
+                write(21,242) pid(np), char12,
+     1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxRch)
+                endif
               endif
               
               if(isigfig.eq.2) then
+                if(is.gt.0)then
                 write(21,2422) pid(np), cstaid(is),
      1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxRch)
+                else
+                write(21,242) pid(np), char12,
+     1            iyrmo(13), xmonam(13), (dat2T(i), i=1,maxRch)
+                endif
               endif
             endif
 c
