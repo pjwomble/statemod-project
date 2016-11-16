@@ -31,7 +31,7 @@ c	Dimension
 c
       include 'common.inc'
       character ftype*24, parType*24, cfail1*3, cfail2*3, cfail2T*3,
-     1          copOff*3, rec12*12, rec24*24, ciy*4
+     1          copOff*3, rec12*12, rec24*24, ciy*4, char12*12
       dimension 
      1  pfailx(maxplan), planTot(maxplnT,maxyrs,40), 
      1  iptotal(40),     datBeg(maxPlan)
@@ -363,9 +363,15 @@ c
 c ---------------------------------------------------------
 c		a. Standard T&C Output             
               if(iplntyp(np).eq.1) then
-                read(68,rec=irec1) pid(np), cstaid(is),
-     1           iyrmo(im), xmonam(im), (dat2(i), i=1,maxTC), 
-     1           cfail1, cfail2, pfail(np) 
+                if(is.gt.0)then
+                  read(68,rec=irec1) pid(np), cstaid(is),
+     1            iyrmo(im), xmonam(im), (dat2(i), i=1,maxTC), 
+     1            cfail1, cfail2, pfail(np) 
+                else
+                  read(68,rec=irec1) pid(np), char12,
+     1            iyrmo(im), xmonam(im), (dat2(i), i=1,maxTC), 
+     1            cfail1, cfail2, pfail(np) 
+                endif
               endif
 c
 c ---------------------------------------------------------
@@ -374,18 +380,30 @@ c rrb 2006/12/19; Type 10 is a Special Well Augmentation
 c                 (e.g. Designated Basin, Coffin Well, etc.)
 c             if(iplntyp(np).eq.2) then
               if(iplntyp(np).eq.2 .or. iplntyp(np).eq.10) then
+                if(is.gt.0)then
                 read(68,rec=irec1) pid(np), cstaid(is),
      1           iyrmo(im), xmonam(im), (dat2(i), i=1,maxAug), 
-     1           cfail1, cfail2, pfail(np) 
+     1           cfail1, cfail2, pfail(np)
+                else
+                read(68,rec=irec1) pid(np), char12,
+     1           iyrmo(im), xmonam(im), (dat2(i), i=1,maxAug), 
+     1           cfail1, cfail2, pfail(np)
+                endif
               endif
 c
 c ---------------------------------------------------------
 c		c. Reservoir Plans            
               if(iplntyp(np).eq.3 .or. iplntyp(np).eq.5 .or.
      1           iplntyp(np).eq.9) then                   
+                if(is.gt.0)then
                 read(68,rec=irec1) pid(np), cstaid(is),
      1           iyrmo(im), xmonam(im), (dat2(i), i=1,maxResP), 
-     1           psto1X, psto2X, pfail(np)                  
+     1           psto1X, psto2X, pfail(np)
+                else
+                read(68,rec=irec1) pid(np), char12,
+     1           iyrmo(im), xmonam(im), (dat2(i), i=1,maxResP), 
+     1           psto1X, psto2X, pfail(np)
+                endif
               endif
 c
 c ---------------------------------------------------------
@@ -397,17 +415,29 @@ cx   1          iplntyp(np).eq.12) then
              if(iplntyp(np).eq.4 .or. iplntyp(np).eq.6 .or.
      1          iplntyp(np).eq.7 .or. iplntyp(np).eq.11.or.
      1          iplntyp(np).eq.12.or. iplntyp(np).eq.13) then           
+                if(is.gt.0)then
                read(68,rec=irec1) pid(np), cstaid(is),
      1           iyrmo(im), xmonam(im), (dat2(i), i=1,maxResP), 
-     1           psto1X, psto2X, pfail(np) 
+     1           psto1X, psto2X, pfail(np)
+                else
+               read(68,rec=irec1) pid(np), char12,
+     1           iyrmo(im), xmonam(im), (dat2(i), i=1,maxResP), 
+     1           psto1X, psto2X, pfail(np)
+                endif
               endif
 c
 c ---------------------------------------------------------
 c		e. Recharge              
               if(iplntyp(np).eq.8) then
+                if(is.gt.0)then
                 read(68,rec=irec1) pid(np), cstaid(is),
      1            iyrmo(im), xmonam(im), (dat2(i), i=1,maxRch), 
-     1            psto1X, psto2X, pfail(np) 
+     1            psto1X, psto2X, pfail(np)
+                else
+                read(68,rec=irec1) pid(np), char12,
+     1            iyrmo(im), xmonam(im), (dat2(i), i=1,maxRch), 
+     1            psto1X, psto2X, pfail(np)
+                endif
               endif
 c
 c ---------------------------------------------------------
@@ -451,21 +481,39 @@ c ---------------------------------------------------------
 c		a. Standard T&C Output
               if(iplntyp(np).eq.1) then
                 if(isigfig.eq.0) then
+                  if(is.gt.0)then
                   write(21,240) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxTC), 
-     1              cfail1, cfail2, pfail(np) 
+     1              cfail1, cfail2, pfail(np)
+                  else
+                  write(21,240) pid(np), char12,
+     1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxTC), 
+     1              cfail1, cfail2, pfail(np)
+                  endif
                 endif
                 
                 if(isigfig.eq.1) then
+                  if(is.gt.0)then
                   write(21,2401) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxTC), 
-     1              cfail1, cfail2, pfail(np) 
+     1              cfail1, cfail2, pfail(np)
+                  else
+                  write(21,2401) pid(np), char12,
+     1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxTC), 
+     1              cfail1, cfail2, pfail(np)
+                  endif
                 endif
                 
                 if(isigfig.eq.2) then
+                  if(is.gt.0)then
                   write(21,2402) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxTC), 
-     1              cfail1, cfail2, pfail(np) 
+     1              cfail1, cfail2, pfail(np)
+                  else
+                  write(21,2402) pid(np), char12,
+     1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxTC), 
+     1              cfail1, cfail2, pfail(np)
+                  endif
                 endif
               endif  
 c
@@ -475,18 +523,33 @@ c rrb 2006/12/19; Type 10 is a Special Well Augmentation
 c                 (e.g. Designated Basin, Coffin Well, etc.)
               if(iplntyp(np).eq.2 .or. iplntyp(np).eq.10) then
                 if(isigfig.eq.0) then
+                  if(is.gt.0)then
                   write(21,244) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxAug)
+                  else
+                  write(21,244) pid(np), char12,
+     1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxAug)
+                  endif
                 endif
                 
                 if(isigfig.eq.1) then
+                  if(is.gt.0)then
                   write(21,2441) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxAug)
+                  else
+                  write(21,2441) pid(np), char12,
+     1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxAug)
+                  endif
                 endif
                 
                 if(isigfig.eq.2) then
+                  if(is.gt.0)then
                   write(21,2442) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxAug)
+                  else
+                  write(21,2442) pid(np), char12,
+     1              iyrmo(im), xmonam(im), (dat2(i)*fac, i=1,maxAug)
+                  endif
                 endif
               endif  
 c
@@ -496,21 +559,39 @@ c		c. Reservoir Output
      1           iplntyp(np).eq.9) then      
      
                 if(isigfig.eq.0) then
+                  if(is.gt.0)then
                   write(21,242) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), psto1X*fac, 
      1              (dat2(i)*fac, i=1,maxResP), psto2X*fac
+                  else
+                  write(21,242) pid(np), char12,
+     1              iyrmo(im), xmonam(im), psto1X*fac, 
+     1              (dat2(i)*fac, i=1,maxResP), psto2X*fac
+                  endif
                 endif
                 
                 if(isigfig.eq.1) then
+                  if(is.gt.0)then
                   write(21,2421) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), psto1X*fac,
      1              (dat2(i)*fac, i=1,maxResP), psto2X*fac
+                  else
+                  write(21,2421) pid(np), char12,
+     1              iyrmo(im), xmonam(im), psto1X*fac,
+     1              (dat2(i)*fac, i=1,maxResP), psto2X*fac
+                  endif
                 endif
                 
                 if(isigfig.eq.2) then
+                  if(is.gt.0)then
                   write(21,2422) pid(np), cstaid(is),
      1              iyrmo(im), xmonam(im), psto1X*fac,
      1              (dat2(i)*fac, i=1,maxResP), psto2X*fac
+                  else
+                  write(21,2422) pid(np), char12,
+     1              iyrmo(im), xmonam(im), psto1X*fac,
+     1              (dat2(i)*fac, i=1,maxResP), psto2X*fac
+                  endif
                 endif
               endif
 c
