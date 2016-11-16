@@ -840,7 +840,14 @@ c       or a data line,
 c         in which case comment() has backspaced the file
 c         and the line is read again below
 	    do 730 nf=1,maxifr
-c
+c     
+c   Check whether the file is NOW at EOF
+        read(55,'(a72)',IOSTAT=stat) rec72
+        if (IS_IOSTAT_END(stat)) then
+          goto 740
+        else
+          backspace(nf)
+        endif
 c		Checck for comments in dat
 c		Exit if EOF (2) or Error (3)	
         call comment(55, nlog, iocode, nchk, 0)
@@ -849,16 +856,12 @@ c        if(iocode.eq.2) goto 730
 c     jump to newly added 740 continue statement...
         if(iocode.eq.2) goto 740
         if(iocode.eq.3) goto 928
-
-c   Check whether the file is NOW at EOF
-        read(55,'(a72)',IOSTAT=stat) rec72
-        if (IS_IOSTAT_END(stat)) then
-          goto 760
-        else
-          backspace(nf)
-        endif
 c
+        write(nlog,*) 'Mdainp; b4'
+        write(6,*) 'Mdainp; b4'
 	      read (55,532,end=760,err=928) cistat,(diverm(i),i=1,12)
+        write(nlog,*) 'Mdainp; after'
+        write(6,*) 'Mdainp; after'
           cistat=adjustl(cistat)	      
 c
 c----------------------------------------------------------
