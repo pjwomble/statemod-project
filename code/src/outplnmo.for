@@ -52,7 +52,7 @@ c
 c		ioutP=0 No details
 c		ioutP=1 Details
 c		ioutP=11 Details on operating rule 11
-      ioutP=0
+      ioutP=1
       small=0.1
       fac=mthday(mon)*factor
       
@@ -110,7 +110,11 @@ c                           6 Reuse_Diversion_Tmtn
           is=ipsta(np)
           if(ioutP.eq.1) then 
             write(nlog,*) ' '
-            write(nlog,*) ' OutPlnMo_top; ', np, is, pid(np), cstaid(is)
+            if(is.gt.0) then
+              write(nlog,*)' OutPlnMo_top; ',np,is,pid(np),cstaid(is)
+            else
+              write(nlog,*)' OutPlnMo_top; ',np,is,pid(np),'cstaid(is)'
+            endif
           endif
           
 c
@@ -404,9 +408,15 @@ c --------------------------------------------------------
 c
 c		a. T&C Plans        
         if(iplntyp(np).eq.1) then
-          write(68,rec=irec) pid(np), cstaid(is),
+          if (is.gt.0) then
+            write(68,rec=irec) pid(np), cstaid(is),
      1      iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxTC),
-     1      cfail1, cfail2, pfail(np)     
+     1      cfail1, cfail2, pfail(np)
+          else
+            write(68,rec=irec) pid(np), 'cstaid(is)',
+     1      iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxTC),
+     1      cfail1, cfail2, pfail(np)
+          endif 
         endif
 c        
 c --------------------------------------------------------
@@ -414,10 +424,15 @@ c
 c		b. Well Augmentation        
         if(iplntyp(np).eq.2 .or. iplntyp(np).eq.10) then
 cr        write(nlog,*) ' OutPlnMo; irec', irec
-        
-          write(68,rec=irec) pid(np), cstaid(is),
+          if (is.gt.0) then
+            write(68,rec=irec) pid(np), cstaid(is),
      1      iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxAug),
      1      cfail1, cfail2, pfail(np)
+          else
+            write(68,rec=irec) pid(np), 'cstaid(is)',
+     1      iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxAug),
+     1      cfail1, cfail2, pfail(np)
+          endif 
         endif
 c        
 c --------------------------------------------------------
@@ -427,16 +442,23 @@ c
 c rrb 2006/06/07; Add OOP plans
         if(iplntyp(np).eq.3 .or. iplntyp(np).eq.5 .or.
      1     iplntyp(np).eq.9) then
-     
+          if (is.gt.0) then
           write(68,rec=irec) pid(np), cstaid(is),
      1      iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxresP),
      1      psto1(np)/fac, psto2(np)/fac, pfail(np)        
-     
           if(ioutP.eq.1) write(nlog,*) '  OutPlnMo; ',
      1      pid(np), cstaid(is),
      1      iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxresP),
      1      psto1(np), psto2(np), pfail(np)        
-     
+          else
+          write(68,rec=irec) pid(np), 'cstaid(is)',
+     1      iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxresP),
+     1      psto1(np)/fac, psto2(np)/fac, pfail(np)        
+          if(ioutP.eq.1) write(nlog,*) '  OutPlnMo; ',
+     1      pid(np), 'cstaid(is)',
+     1      iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxresP),
+     1      psto1(np), psto2(np), pfail(np)        
+          endif     
         endif
 c
 c --------------------------------------------------------
@@ -447,16 +469,28 @@ cx   1     iplntyp(np).eq.12) then
         if(iplntyp(np).eq.4 .or. iplntyp(np).eq.6 .or.
      1     iplntyp(np).eq.7 .or. iplntyp(np).eq.11.or.
      1     iplntyp(np).eq.12.or. iplntyp(np).eq.13) then      
-        
-          write(68,rec=irec) pid(np), cstaid(is),
+          if(is.gt.0) then
+            write(68,rec=irec) pid(np), cstaid(is),
      1      iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxresPX),
      1      cfail1, cfail2, pfail(np)
 c
 c rrb 2008/09/02   
-          if(ioutP.eq.11 .and. iplntyp(np).eq.11) then 
-            write(nlog,*) ' OutPlnMo; ', is, np, pid(np), cstaid(is),
+            if(ioutP.eq.11 .and. iplntyp(np).eq.11) then 
+              write(nlog,*) ' OutPlnMo; ', is, np, pid(np), cstaid(is),
+     1        iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxresPX),
+     1        cfail1, cfail2, pfail(np)
+            endif
+          else
+            write(68,rec=irec) pid(np), 'cstaid(is)',
      1      iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxresPX),
      1      cfail1, cfail2, pfail(np)
+c
+c rrb 2008/09/02   
+            if(ioutP.eq.11 .and. iplntyp(np).eq.11) then 
+              write(nlog,*) ' OutPlnMo; ', is, np, pid(np),'cstaid(is)',
+     1        iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxresPX),
+     1        cfail1, cfail2, pfail(np)
+            endif
           endif
         endif
 c
@@ -464,10 +498,15 @@ c --------------------------------------------------------
 c		d. Recharge
 c        
         if(iplntyp(np).eq.8) then
-        
-          write(68,rec=irec) pid(np), cstaid(is),
+          if(is.gt.0) then
+            write(68,rec=irec) pid(np), cstaid(is),
      1      iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxrch),
      1      cfail1, cfail2, pfail(np)
+          else
+            write(68,rec=irec) pid(np), 'cstaid(is)',
+     1      iyrmo(mon), xmonam(mon), (dat2(i),i=1,maxrch),
+     1      cfail1, cfail2, pfail(np)
+          endif
         endif
         
 c
