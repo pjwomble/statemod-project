@@ -10,7 +10,7 @@ FC = gfortran
 #FCFLAGS = -g -fbounds-check -fno-align-commons
 # use -static especially for windows compiling 
 #FCFLAGS = -g -cpp -fbounds-check -fno-align-commons -static
-FCFLAGS = -g -cpp -fno-align-commons -static -fbounds-check -fno-automatic -finit-local-zero
+FCFLAGS = -g -cpp -fdefault-real-8 -fno-align-commons -static -fbounds-check -fno-automatic -finit-local-zero
 #FCFLAGS = -O2
 # The flags for all cases (e.g. look for system .mod files, required in gfortran)
 FCFLAGS += -I/usr/include
